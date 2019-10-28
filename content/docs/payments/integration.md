@@ -6,7 +6,7 @@ bookToc: true
 # Client-Server Integration with PaySuper API
 ***
 
-If your sales use cases are not suited [the client-only integration](/docs/payments/sdk-integration/), use the client-server integration with PaySuper API instead.
+You can use PaySuper API instead of [PaySuper JS SDK](/docs/payments/sdk-integration/) if you don't want to use JavaScript on your client.
 
 ***
 
@@ -34,7 +34,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 ### **Products Checkout**
 
-In case of using the sales methods for products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project) implement this sample code for a specific product:
+If you're selling such Products as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code for a specific Product:
 
 {{< tabs "products_id" >}}
 
@@ -65,18 +65,18 @@ RUNKIT
 {{< /tabs >}}
 
 {{< hint warning >}}
-Note to use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
+Remember to use your own IDs for `project` and `products`. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
 {{< /hint >}}
 
 ## **Step 2.** Display a Checkout Form
 
-From the previous step retrieve the response parameter **`payment_form_url`** - the URL of PaySuper-hosted payment form.
+You can retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
 
-When your customer is ready to intent a payment you can use this URL in two ways:
+When your customer is ready to start a payment you can use this URL in two ways:
 
-* **Redirect the user to URL in a new browser window**
+* **Redirect the user to an URL in a new browser window**
 
-* **Embed PaySuper Form as an inline iframe by URL**
+* **Embed PaySuper Checkout Form as an inline iframe by URL**
 
 {{< highlight html >}}
 <iframe src="{payment_form_url}"></iframe>
@@ -95,13 +95,13 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
 [**Customizing Checkout**](/docs/payments/customization/)
 
-Learn about the different ways you can customize your Checkout.
+Learn about the different ways you can customize your PaySuper Checkout.
 {{< /hint >}}
 
 ***
