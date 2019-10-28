@@ -10,19 +10,19 @@ Learn about the different ways you can customize your Checkout.
 
 ## Localization
 
-The Checkout Form is localized for 2 languages with 10 more translations coming soon.
+The Checkout Form is localized to 2 languages with 10 more translations coming soon.
 
-You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page.
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
 
-## Prefilling user data
+## Prefilling customer data
 
-Boost your paying conversion rate with pre-filled payment form with user's name and email. Generate a Token to encrypt all required information about the user intent to pay.
+Boost your payment conversion rate with a payment form pre-filled with your customer's name and email. To have the payment form prefilled, you can generate a Token to encrypt all required information about your customer's intent to pay.
 
-## Saving payment methods for future
+## Saving payment methods for future purchases
 
-Store in PaySuper a user's billing address and a payment method data to prefill once the Checkout Form opened.
+PaySuper can securely store your customer's billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.
 
-## Customizing theme
+## Customizing the form theme
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -58,13 +58,13 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
 [**Going live checklist**](/docs/payments/live/)
 
-Before going live inspect this checklist to ensure you've implemented all the significant setup steps.
+You can inspect this checklist before going live to ensure you've implemented all the significant setup steps.
 {{< /hint >}}
 
 ***
