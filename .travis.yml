@@ -8,13 +8,12 @@ sudo: required
 
 dist: bionic
 
-if: branch=test
+addons:
+  ssh_known_hosts: pay.super.com
+
+if: branch=testnewdeploy
 #cache: bundler
 
-#addons:
-#  apt:
-#    packages:
-#      - hugo
 before_install:
  - sudo snap install hugo --channel=extended
 
@@ -23,18 +22,19 @@ install: true
 script:
 - hugo --environment development
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: "$GITHUB_TOKEN"
-  keep-history: true
-  target-branch: master
-  verbose: true
-  repo: paysuper/paysuper-docs-stage
-  local-dir: "./public"
-  on:
-    branch: test
+before_deploy:
+  - echo $SFTP_KEY | base64 -d > /tmp/deploy_rsa
+  - eval "$(ssh-agent -s)"
+  - chmod 600 /tmp/deploy_rsa
+  - ssh-add /tmp/deploy_rsa
 
+deploy:
+    provider: script
+    skip-cleanup: true
+    script: rsync -r --delete-after -v ./public/* paysuperdocsdeploy@pay.super.com:/
+    on:
+      branch: testnewdeploy
+  
 notifications:
   slack:
     secure: OoFvC851wiCEROz8KhtySp95ijT7fcZvOW8LiLnXxbjU+sWBHhefMdB6hprQFPP3yH6uTOCW2Mn5Vhea3UU8/nJVh0yTXNOapbY3MIa76ss3PgBWCSospyBuX3lJXg8DpxkGs4dVYCxb8FPSdSU4ysjq60zCrWmOykAczD97dXFaq3b7hRSux74aVjwsuaICu0AfNNx1LTgC4/01yXS8Lfg3koMIQRIxfnd/RWNRlKLfDA6nLi9OPgKiwwPkzWZDwWVu8erkjMpZJ9ZICf5ts3p3alIc46Jd22+5vFumdGX3i3DBCo5+Biw/oqBeb7pMNRwg6vpbBMmEUDvOLsHZAaJQAF8zmJYZTSIbaNTs+uD43A5e4NV8Be9G9jWQ+veyKNuCw/li1qLCzyLjUeKuSdjigaoqFTed5GGfp1cZpc/DRo2NMtKi1h/BuZXeqpqOv2PEGOai2GdgDfLlCU3I+2pzKn6hVkEP31a6AA/jP6PlbnhswrEcgizONefA8wyg792bUlqj+k49gfLKl12VnQSi8fvK/z4Br01GTLmDxdx6q1/AQ2nD/aa94haW//0Qck1P1tH3Ph/8aSI1ne9Bxy9dnU4EWBK0ZYZbRWQ1w/QKJJLOtARRn6Cv4FchgL0zzOlCUfgDBmhSNsoSbySMV14HE4mcsehtn7JtlTVNl/A=
