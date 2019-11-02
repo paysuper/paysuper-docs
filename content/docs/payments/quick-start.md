@@ -8,11 +8,11 @@ bookToc: true
 
 ## User Flow
 
-{{< figure src="images/user-flow.png">}}
+{{< figure src="/images/user-flow.png">}}
 
 ## Integration Flow
 
-{{< figure src="images/integration-flow.png">}}
+{{< figure src="/images/integration-flow.png">}}
 
 # Quick start
 ***

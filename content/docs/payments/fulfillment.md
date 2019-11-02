@@ -22,7 +22,7 @@ Every customers' payment is recorded as a new entry in the payments log shown on
 
 All your customers' transactions are organised by Products, Dates and other payment parameters.
 
-{{< figure src="images/transactions.png">}}
+{{< figure src="/images/transactions.png">}}
 
 ### The transaction details
 
@@ -36,7 +36,7 @@ Also, you can manually request a refund a processed transaction from the Transac
 
 If it's necessary to use the transactions data in an external analytics tool just export list of transactions per period in an appropriate format pdf, xls or csv.
 
-{{< figure src="images/transaction-card.png">}}
+{{< figure src="/images/transaction-card.png">}}
 
 ## Fulfilling purchases with webhooks
 
