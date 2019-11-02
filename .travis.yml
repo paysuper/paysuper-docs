@@ -31,7 +31,7 @@ before_deploy:
 deploy:
     provider: script
     skip-cleanup: true
-    script: rsync -r --delete-after -v ./public/* ${SFTP_USER}@${SFTP_HOST}}:/
+    script: rsync -r --delete-after -v ./public/* $SFTP_USER@$SFTP_HOST:/
     on:
       branch: testnewdeploy
   
