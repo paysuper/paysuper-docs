@@ -3,6 +3,8 @@ baseURL = 'https://pay.super.com/docs'
 
 Title = 'PaySuper Documentation'
 
+canonifyURLs = true
+
 disableKinds = ['taxonomy', 'taxonomyTerm']
 theme = 'book'
 languageCode = "en-us"
