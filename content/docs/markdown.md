@@ -333,4 +333,4 @@ sequenceDiagram
 # Images
 ***
 
-{{< figure src="/images/products-dark-form.png">}}
+{{< figure src="images/products-dark-form.png">}}
