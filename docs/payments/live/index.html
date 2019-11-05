@@ -2,21 +2,26 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.59.1" />
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="PaySuper Documentation" />
-<meta property="og:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://docs.pay.super.com/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Going Live" />
+<meta property="og:description" content="PaySuper Checkout integration checklist When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&rsquo;ve covered all the significant steps.
+Complete the Company onboarding Dashboard
+When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement.
+ Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.pay.super.com/docs/payments/live/" />
 
 <meta property="og:image" content="https://docs.pay.super.com/products-dark-form.png" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://docs.pay.super.com/products-dark-form.png"/>
 
-<meta name="twitter:title" content="PaySuper Documentation"/>
-<meta name="twitter:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports."/>
-<title>PaySuper Documentation | PaySuper Documentation</title>
+<meta name="twitter:title" content="Going Live"/>
+<meta name="twitter:description" content="PaySuper Checkout integration checklist When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&rsquo;ve covered all the significant steps.
+Complete the Company onboarding Dashboard
+When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement.
+ Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry."/>
+<title>Going Live | PaySuper Documentation</title>
 <link rel="icon" href="https://docs.pay.super.com/favicon.png" type="image/x-icon">
 
 
@@ -36,7 +41,6 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://docs.pay.super.com/index.xml" title="PaySuper Documentation" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -70,7 +74,7 @@ https://github.com/alex-shpak/hugo-book
 
 
     <ul>
-<li><a href="https://docs.pay.super.com/"class=active><strong>Home</strong></a></li>
+<li><a href="https://docs.pay.super.com/"><strong>Home</strong></a></li>
 <li><strong>Payments</strong>
 
 <ul>
@@ -82,7 +86,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="https://docs.pay.super.com/docs/payments/fulfillment/">After the payment</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/customization/">Customizing Checkout</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/testing/">Testing</a></li>
-<li><a href="https://docs.pay.super.com/docs/payments/live/">Going Live</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/live/"class=active>Going Live</a></li>
 </ul></li>
 
 <li><p><strong>After the payment</strong></p>
@@ -121,30 +125,77 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="https://docs.pay.super.com/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>PaySuper Documentation</strong>
+  <strong>Going Live</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="documentation">Documentation</h1>
+<h1 id="paysuper-checkout-integration-checklist">PaySuper Checkout integration checklist</h1>
 
 <hr />
 
-<h2 id="getting-started">Getting started</h2>
+<p>When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&rsquo;ve covered all the significant steps.</p>
 
-<p>PaySuper is a payment service with an open source multifunctional toolkit that provides secure and immediate online payment transactions for the games industry.</p>
+<h2 id="complete-the-company-onboarding">Complete the Company onboarding</h2>
 
-<figure>
-    <img src="https://docs.pay.super.com/images/Dark.png"/> 
-</figure>
+<p><code>Dashboard</code></p>
+
+<p>When you are ready to start selling you will need to fill in all your company details in <a href="https://paysupermgmt.tst.protocol.one/company">Company Onboarding</a> and sign the documents in the License Agreement.</p>
+
+<blockquote>
+<p>Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.</p>
+</blockquote>
+
+<h2 id="filling-in-the-info-about-your-project">Filling in the info about your Project</h2>
+
+<p><code>Dashboard</code></p>
+
+<p>Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. It will be mentioned in a payment form and different customer correspondence.</p>
+
+<h2 id="prefilling-customer-data">Prefilling customer data</h2>
+
+<p><code>Token</code></p>
+
+<p>Use a <a href="https://docs.pay.super.com/docs/payments/token/">token</a> to prefill the Checkout Form with all required information about your customer on the payment initialization.</p>
+
+<h2 id="redirecting-after-a-payment">Redirecting after a payment</h2>
+
+<p><code>PaySuper JS SDK</code> <code>PaySuper API</code></p>
+
+<p>Check your redirect URLs for a successful or failed payment are available.</p>
+
+<h2 id="customizing-paysuper-form">Customizing PaySuper Form</h2>
+
+<p><code>PaySuper JS SDK</code></p>
+
+<p>Add your branding colors to the Checkout Form <a href="https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig">view scheme</a>.</p>
+
+<h2 id="fulfiling-purchases">Fulfiling purchases</h2>
+
+<p><code>Webhooks</code></p>
+
+<p>You can manually fulfil a purchase. Instead, create a handler for the <a href="https://docs.pay.super.com/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks">webhook</a> events and execute your server-side code to fulfil the payment.</p>
+
+<hr />
+
+<h2 id="next-steps">Next steps</h2>
+
+<blockquote class="book-hint info">
+  <p><a href="https://docs.pay.super.com/docs/payments/live/"><strong>After the payment</strong></a></p>
+
+<p>After a successful payment, you have to fulfil the customer’s purchase. You can use <a href="https://docs.pay.super.com/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks">webhooks</a> or the <a href="https://docs.pay.super.com/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard">Transactions</a> to accomplish the purchase.</p>
+
+</blockquote>
 
 
-<h2 id="expand-the-market-with-online-payments">Expand the market with online payments</h2>
+<blockquote class="book-hint info">
+  <p><a href="https://docs.pay.super.com/docs/payments/testing/"><strong>Testing the Checkout</strong></a></p>
 
-<p>PaySuper enables you to accept payments easily and securely in <strong>170+ countries</strong>. We support <strong>major payment systems</strong> such as Visa, MasterCard, JCB, China Union Pay, Alipay along with direct banking in Germany, Austria and Switzerland.</p>
+<p>Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.</p>
 
-<p>Follow our <a href="https://docs.pay.super.com/docs/payments/"><strong>development quick start</strong></a> to integrate online payments on your website or a game client.</p>
+</blockquote>
+
 
 <hr />
 
@@ -189,13 +240,18 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
     
   
 
-  <aside class="book-toc level-3 fixed">
+  <aside class="book-toc level-true fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#documentation">Documentation</a>
+<li><a href="#paysuper-checkout-integration-checklist">PaySuper Checkout integration checklist</a>
 <ul>
-<li><a href="#getting-started">Getting started</a></li>
-<li><a href="#expand-the-market-with-online-payments">Expand the market with online payments</a></li>
+<li><a href="#complete-the-company-onboarding">Complete the Company onboarding</a></li>
+<li><a href="#filling-in-the-info-about-your-project">Filling in the info about your Project</a></li>
+<li><a href="#prefilling-customer-data">Prefilling customer data</a></li>
+<li><a href="#redirecting-after-a-payment">Redirecting after a payment</a></li>
+<li><a href="#customizing-paysuper-form">Customizing PaySuper Form</a></li>
+<li><a href="#fulfiling-purchases">Fulfiling purchases</a></li>
+<li><a href="#next-steps">Next steps</a></li>
 </ul></li>
 </ul>
 </nav>

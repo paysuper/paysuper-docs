@@ -2,21 +2,26 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.59.1" />
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="PaySuper Documentation" />
-<meta property="og:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://docs.pay.super.com/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Customizing Checkout" />
+<meta property="og:description" content="Customizing Checkout Learn about the different ways you can customize your Checkout.
+Localization The Checkout Form is localized to 2 languages with 10 more translations coming soon.
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
+Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.pay.super.com/docs/payments/customization/" />
 
 <meta property="og:image" content="https://docs.pay.super.com/products-dark-form.png" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://docs.pay.super.com/products-dark-form.png"/>
 
-<meta name="twitter:title" content="PaySuper Documentation"/>
-<meta name="twitter:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports."/>
-<title>PaySuper Documentation | PaySuper Documentation</title>
+<meta name="twitter:title" content="Customizing Checkout"/>
+<meta name="twitter:description" content="Customizing Checkout Learn about the different ways you can customize your Checkout.
+Localization The Checkout Form is localized to 2 languages with 10 more translations coming soon.
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
+Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email."/>
+<title>Customizing Checkout | PaySuper Documentation</title>
 <link rel="icon" href="https://docs.pay.super.com/favicon.png" type="image/x-icon">
 
 
@@ -36,7 +41,6 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://docs.pay.super.com/index.xml" title="PaySuper Documentation" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -70,7 +74,7 @@ https://github.com/alex-shpak/hugo-book
 
 
     <ul>
-<li><a href="https://docs.pay.super.com/"class=active><strong>Home</strong></a></li>
+<li><a href="https://docs.pay.super.com/"><strong>Home</strong></a></li>
 <li><strong>Payments</strong>
 
 <ul>
@@ -80,7 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="https://docs.pay.super.com/docs/payments/integration/">Payments from server-side</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/sdk-integration/">Payments from client-side</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/fulfillment/">After the payment</a></li>
-<li><a href="https://docs.pay.super.com/docs/payments/customization/">Customizing Checkout</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/customization/"class=active>Customizing Checkout</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/testing/">Testing</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/live/">Going Live</a></li>
 </ul></li>
@@ -121,30 +125,80 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="https://docs.pay.super.com/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>PaySuper Documentation</strong>
+  <strong>Customizing Checkout</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="documentation">Documentation</h1>
+<h1 id="customizing-checkout">Customizing Checkout</h1>
 
 <hr />
 
-<h2 id="getting-started">Getting started</h2>
+<p>Learn about the different ways you can customize your Checkout.</p>
 
-<p>PaySuper is a payment service with an open source multifunctional toolkit that provides secure and immediate online payment transactions for the games industry.</p>
+<h2 id="localization">Localization</h2>
 
-<figure>
-    <img src="https://docs.pay.super.com/images/Dark.png"/> 
-</figure>
+<p>The Checkout Form is localized to 2 languages with 10 more translations coming soon.</p>
+
+<p>You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.</p>
+
+<h2 id="prefilling-customer-data">Prefilling customer data</h2>
+
+<p>Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&rsquo;s intent to pay.</p>
+
+<h2 id="saving-payment-methods-for-future">Saving payment methods for future</h2>
+
+<p>PaySuper can securely store your customer&rsquo;s billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.</p>
+
+<h2 id="customizing-theme">Customizing theme</h2>
+
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007020;font-weight:bold">const</span> paySuper <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> PaySuper({
+    viewScheme<span style="color:#666">:</span> <span style="color:#4070a0">&#39;light&#39;</span>
+});
+</code></pre></div>
+
+<p>Available options: <strong><code>dark</code></strong> (default), <strong><code>light</code></strong>.</p>
+
+<h2 id="customizing-the-colors">Customizing the colors</h2>
+
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007020;font-weight:bold">const</span> paySuper <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> PaySuper({
+    viewSchemeConfig<span style="color:#666">:</span> { 
+        <span style="color:#60a0b0;font-style:italic">// headerTextColor overrides the default value of the viewSchemeConfig object
+</span><span style="color:#60a0b0;font-style:italic"></span>        headerTextColor<span style="color:#666">:</span> <span style="color:#4070a0">&#39;#333333&#39;</span>
+    }
+});
+</code></pre></div>
+
+<p><a href="https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig">Available parameters of <strong><code>viewSchemeConfig</code></strong></a></p>
+
+<hr />
+
+<h2 id="next-steps">Next steps</h2>
+
+<blockquote class="book-hint info">
+  <p><a href="https://docs.pay.super.com/docs/payments/live/"><strong>After the payment</strong></a></p>
+
+<p>After a successful payment, you have to fulfil the customer’s purchase. You can use <a href="https://docs.pay.super.com/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks">webhooks</a> or the <a href="https://docs.pay.super.com/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard">Transactions</a> to accomplish the purchase.</p>
+
+</blockquote>
 
 
-<h2 id="expand-the-market-with-online-payments">Expand the market with online payments</h2>
+<blockquote class="book-hint info">
+  <p><a href="https://docs.pay.super.com/docs/payments/testing/"><strong>Testing the Checkout</strong></a></p>
 
-<p>PaySuper enables you to accept payments easily and securely in <strong>170+ countries</strong>. We support <strong>major payment systems</strong> such as Visa, MasterCard, JCB, China Union Pay, Alipay along with direct banking in Germany, Austria and Switzerland.</p>
+<p>Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.</p>
 
-<p>Follow our <a href="https://docs.pay.super.com/docs/payments/"><strong>development quick start</strong></a> to integrate online payments on your website or a game client.</p>
+</blockquote>
+
+
+<blockquote class="book-hint info">
+  <p><a href="https://docs.pay.super.com/docs/payments/live/"><strong>Going live checklist</strong></a></p>
+
+<p>You can inspect this checklist before going live to ensure you&rsquo;ve implemented all the significant setup steps.</p>
+
+</blockquote>
+
 
 <hr />
 
@@ -189,13 +243,17 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
     
   
 
-  <aside class="book-toc level-3 fixed">
+  <aside class="book-toc level-true fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#documentation">Documentation</a>
+<li><a href="#customizing-checkout">Customizing Checkout</a>
 <ul>
-<li><a href="#getting-started">Getting started</a></li>
-<li><a href="#expand-the-market-with-online-payments">Expand the market with online payments</a></li>
+<li><a href="#localization">Localization</a></li>
+<li><a href="#prefilling-customer-data">Prefilling customer data</a></li>
+<li><a href="#saving-payment-methods-for-future">Saving payment methods for future</a></li>
+<li><a href="#customizing-theme">Customizing theme</a></li>
+<li><a href="#customizing-the-colors">Customizing the colors</a></li>
+<li><a href="#next-steps">Next steps</a></li>
 </ul></li>
 </ul>
 </nav>

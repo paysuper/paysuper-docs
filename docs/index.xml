@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on PaySuper Documentation</title>
+    <link>https://docs.pay.super.com/docs/</link>
+    <description>Recent content in Docs on PaySuper Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://docs.pay.super.com/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Example markdown</title>
+      <link>https://docs.pay.super.com/docs/markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/markdown/</guid>
+      <description>Title with a line Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
+Headings h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Notes  The note with padding example.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://docs.pay.super.com/docs/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/glossary/</guid>
+      <description>Payment form: a Checkout Form
+Terms in uppercase: PaySuper Checkout
+PaySuper JS SDK
+PaySuper API
+PaySuper
+PaySuper Dashboard
+PaySuper Dashboard entities and properties: a Project
+a Product
+a Project&amp;rsquo;s Secret key
+a Virtual currency
+a Game key
+a Virtual item
+a key-activated product
+a virtual item
+an in-game currency
+PaySuper Dashboard pages: the Projects list page
+the Project settings page
+the Project webhooks page
+the Transactions page
+the Company Onboarding page</description>
+    </item>
+    
+    <item>
+      <title>Canceling and refunding payments</title>
+      <link>https://docs.pay.super.com/docs/refunds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/refunds/</guid>
+      <description> Canceling and refunding payments </description>
+    </item>
+    
+    <item>
+      <title>Receiving Payouts</title>
+      <link>https://docs.pay.super.com/docs/payouts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payouts/</guid>
+      <description> Receiving Payouts </description>
+    </item>
+    
+    <item>
+      <title>Understanding Declines and Failed Payments</title>
+      <link>https://docs.pay.super.com/docs/declines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/declines/</guid>
+      <description>Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.
+But some reasons for the failed payments are unclear and uninformative.</description>
+    </item>
+    
+    <item>
+      <title>Webhooks</title>
+      <link>https://docs.pay.super.com/docs/webhooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/webhooks/</guid>
+      <description>Webhooks The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
+These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
+In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund payment and other.</description>
+    </item>
+    
+  </channel>
+</rss>

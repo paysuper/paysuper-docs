@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Understanding Declines and Failed Payments" />
+<meta property="og:description" content="Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.
+But some reasons for the failed payments are unclear and uninformative." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.pay.super.com/docs/declines/" />
+
+<meta property="og:image" content="https://docs.pay.super.com/products-dark-form.png" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://docs.pay.super.com/products-dark-form.png"/>
+
+<meta name="twitter:title" content="Understanding Declines and Failed Payments"/>
+<meta name="twitter:description" content="Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.
+But some reasons for the failed payments are unclear and uninformative."/>
+<title>Understanding Declines and Failed Payments | PaySuper Documentation</title>
+<link rel="icon" href="https://docs.pay.super.com/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="https://docs.pay.super.com/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
+
+
+<script defer src="https://docs.pay.super.com/search.min.7e9b5ffac1aff51a3320ed3c6f085e159a8667536e370e4ab3b35a9205c5955f.js" integrity="sha256-fptf&#43;sGv9RozIO08bwheFZqGZ1NuNw5Ks7NakgXFlV8="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142750977-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+  <script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://docs.pay.super.com"><span>PaySuper Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="https://docs.pay.super.com/"><strong>Home</strong></a></li>
+<li><strong>Payments</strong>
+
+<ul>
+<li><a href="https://docs.pay.super.com/docs/payments/">Checkout Overview</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/quick-start/">Quick Start</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/token/">Payments with token</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/integration/">Payments from server-side</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/sdk-integration/">Payments from client-side</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/fulfillment/">After the payment</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/customization/">Customizing Checkout</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/testing/">Testing</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/live/">Going Live</a></li>
+</ul></li>
+
+<li><p><strong>After the payment</strong></p>
+
+<ul>
+<li><a href="https://docs.pay.super.com/docs/payouts/">Payouts</a></li>
+<li><a href="https://docs.pay.super.com/docs/refunds/">Refunds</a></li>
+<li><a href="https://docs.pay.super.com/docs/declines/"class=active>Declines</a></li>
+<li><a href="https://docs.pay.super.com/docs/webhooks/">Webhooks</a></li>
+</ul></li>
+
+<li><p><a href="https://docs.pay.super.com/docs/api/"><strong>API Reference</strong></a></p></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="https://docs.pay.super.com/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Understanding Declines and Failed Payments</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="understanding-declines-and-failed-payments">Understanding Declines and Failed Payments</h1>
+
+<hr />
+
+<p>During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.</p>
+
+<p>But some reasons for the failed payments are unclear and uninformative. Moreover, for many alternative payment methods (APM) it’s hard to investigate the payment decline reasons. In PaySuper we continuously work to reduce the decline rates both for cards and APM. For instance, one of the most interesting issues is the decline by Card Issuer bank. In this case, we are working with each bank with a high decline rate to find workaround to solve the problem. As well as using local gateways to process a card payment only with high potency local gateways and banks.</p>
+
+<p>We highlight the common possible reasons for the failed payments:</p>
+
+<ul>
+<li><a href="https://docs.pay.super.com/docs/payments/declines/#payment-declined-by-card-issuers-or-apm">Payment declined by card issuers or APM</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/declines/#payment-blocked-due-to-suspected-fraud">Payment blocked due to suspected fraud</a></li>
+</ul>
+
+<p>In most cases, each type of failure is variously handled. To help you better understand what happened, the reason for a payment’s failure is provided within the payment’s details opened from the <a href="https://paysupermgmt.tst.protocol.one/transactions">Transactions</a> page.</p>
+
+<h2 id="payment-declined-by-card-issuers-or-apm">Payment declined by card issuers or APM</h2>
+
+<p>Usually, the issuer of your customer’s card have automated systems or risk models which determine whether or not to authorize it when a charge is submitted. Black and white lists, your customer’s spending habits, account balance and a card information like the expiration date, cardholder and CVC are taken into account. You can find the decline reason for your customer’s card issuer in the transaction details from the <a href="https://paysupermgmt.tst.protocol.one/transactions">Transactions</a> page or in the <a href="https://docs.pay.super.com/docs/payments/webhooks/">webhook</a> event <code>payment.canceled</code>.</p>
+
+<p>Unfortunately, most of the declines are reported as “generic”. So it’s not always possible to know exactly why a payment was declined. Especially for a payment that was processed with APM. For privacy and security, card issuers can only discuss the specifics of the declined payment with their cardholders but not with the merchant or PaySuper team. If you are sure that card information is correct, it’s perfect to have your customer contact his card issuer to get more information about the decline.</p>
+
+<h2 id="restriction-on-geographic-location">Restriction on geographic location</h2>
+
+<p>Some customers find that their cards have restrictions on the type of purchases they make. For example, purchases from certain countries or outside of their own can be disallowed. The decline rates is increased if your customer do a payment in a country differs from his card issued country.</p>
+
+<h2 id="reducing-the-card-issuer-declines">Reducing the card issuer declines</h2>
+
+<p>One of the approaches to reduce card issuer declines is to handle responses about incorrect card information (e.g., incorrect cardholder name or expiration date). Thus, PaySuper Checkout provides a set of error handlers that allows users to correct their data and proceed with the payment process.</p>
+
+<p>PaySuper Checkout collects additional customers’ data such as CVC/CVV and postal code that is strongly decreasing a card issuers’ suspicions of fraudulent activity. Moreover, using 3D Secure for payments authentication and a user’s billing address may decrease decline rates in many countries.</p>
+
+<h2 id="payment-blocked-due-to-suspected-fraud">Payment blocked due to suspected fraud</h2>
+
+<p>PaySuper uses the self-developed fraud prevention system with cascade checks across our own and partners’ systems. Being the PCI DSS certified provider we can share data with other certified fraud protection systems to check any high-risk classified your customers’ payments. A blocked payment couldn’t be processed successfully and would be declined on an initial stage.</p>
+
+<p>Fraud prevention system based both on black and white lists of customers details, score-based analysis and manages not only the payment admission reasons but also a level and need to use of 3D Secure for card payments.</p>
+
+<h2 id="decline-codes">Decline codes</h2>
+
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>01</td>
+<td>System malfunction</td>
+</tr>
+
+<tr>
+<td>02</td>
+<td>Cancelled by customer</td>
+</tr>
+
+<tr>
+<td>03</td>
+<td>Declined by Antifraud</td>
+</tr>
+
+<tr>
+<td>04</td>
+<td>Declined by 3-D Secure</td>
+</tr>
+
+<tr>
+<td>05</td>
+<td>Only 3-D Secure transactions are allowed</td>
+</tr>
+
+<tr>
+<td>06</td>
+<td>3-D Secure availability is unknown</td>
+</tr>
+
+<tr>
+<td>07</td>
+<td>Limit reached</td>
+</tr>
+
+<tr>
+<td>08</td>
+<td>Requested operation is not supported</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Declined by bank (reason not specified)</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Common decline by bank</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>Insufficient funds</td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Card limit reached</td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Incorrect card data</td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Declined by bank’s antifraud</td>
+</tr>
+
+<tr>
+<td>17</td>
+<td>Bank’s malfunction</td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>Connection problem</td>
+</tr>
+
+<tr>
+<td>21</td>
+<td>No payment was received (for BITCOIN payment method only)</td>
+</tr>
+
+<tr>
+<td>22</td>
+<td>Wrong payment was received (for BITCOIN payment method only)</td>
+</tr>
+
+<tr>
+<td>23</td>
+<td>Confirmations payment timeout (for BITCOIN payment method only)</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="questions">Questions?</h2>
+
+<div class="book-columns flex flex-wrap">
+
+<div class="flex-even markdown-inner">
+    <h4 id="sales-https-docs-google-com-forms-d-e-1faipqlscqpu83wkpkjeui-wvxgdoxwldl4vyd8gswnqf9-ccwdg3dew-viewform"><a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">Sales</a></h4>
+
+<p>Our salespeople are pleasant and friendly. Leave your contact details, and we&rsquo;ll be back to you in no time.
+</div>
+
+<div class="flex-even markdown-inner">
+    <h4 id="support-https-docs-google-com-forms-d-e-1faipqlscqpu83wkpkjeui-wvxgdoxwldl4vyd8gswnqf9-ccwdg3dew-viewform"><a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">Support</a></h4>
+
+<p>We are always happy to help with a code, improve a guide or consider a feature.
+</div>
+
+<div class="flex-even markdown-inner">
+    <h4 id="github-https-github-com-paysuper"><a href="https://github.com/paysuper">GitHub</a></h4>
+
+<p>The PaySuper Checkout Form, the JS SDK and even the server are available as a source code on our GitHub. You&rsquo;re welcome to explore the code and help us make PaySuper even better.
+</div>
+
+</div>
+
+<hr />
+
+<h2 id="not-a-developer">Not a developer?</h2>
+
+Our engineers will help you <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">integrate PaySuper</a> into your existing e-commerce platform, a website or a game in the best possible way.
+
+If you want something very special and crazy custom yet don&rsquo;t have a suitable programmer available nearby - <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">talk to us</a>! We won&rsquo;t let down a PaySuper user. We will try to help you in every possible way. We can even hire a programmer for you!
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-true fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#understanding-declines-and-failed-payments">Understanding Declines and Failed Payments</a>
+<ul>
+<li><a href="#payment-declined-by-card-issuers-or-apm">Payment declined by card issuers or APM</a></li>
+<li><a href="#restriction-on-geographic-location">Restriction on geographic location</a></li>
+<li><a href="#reducing-the-card-issuer-declines">Reducing the card issuer declines</a></li>
+<li><a href="#payment-blocked-due-to-suspected-fraud">Payment blocked due to suspected fraud</a></li>
+<li><a href="#decline-codes">Decline codes</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+  </main>
+
+  
+
+  <script>
+    function buyItems() {
+      const paySuper = new PaySuper({
+        project: '5db16ae811bf0d0001fdfbd1',
+        amount: 10,
+        currency: 'USD',
+        type: 'simple',
+        apiUrl: 'https://p1payapi.tst.protocol.one'
+      });
+
+      paySuper.renderModal();
+    }
+  </script>
+</body>
+
+</html>

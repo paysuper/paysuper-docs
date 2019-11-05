@@ -2,21 +2,20 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.59.1" />
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="PaySuper Documentation" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Checkout Overview" />
 <meta property="og:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://docs.pay.super.com/" />
+<meta property="og:url" content="https://docs.pay.super.com/docs/payments/" />
 
 <meta property="og:image" content="https://docs.pay.super.com/products-dark-form.png" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://docs.pay.super.com/products-dark-form.png"/>
 
-<meta name="twitter:title" content="PaySuper Documentation"/>
+<meta name="twitter:title" content="Checkout Overview"/>
 <meta name="twitter:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports."/>
-<title>PaySuper Documentation | PaySuper Documentation</title>
+<title>Checkout Overview | PaySuper Documentation</title>
 <link rel="icon" href="https://docs.pay.super.com/favicon.png" type="image/x-icon">
 
 
@@ -36,7 +35,7 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://docs.pay.super.com/index.xml" title="PaySuper Documentation" />
+<link rel="alternate" type="application/rss+xml" href="https://docs.pay.super.com/docs/payments/index.xml" title="PaySuper Documentation" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -70,11 +69,11 @@ https://github.com/alex-shpak/hugo-book
 
 
     <ul>
-<li><a href="https://docs.pay.super.com/"class=active><strong>Home</strong></a></li>
+<li><a href="https://docs.pay.super.com/"><strong>Home</strong></a></li>
 <li><strong>Payments</strong>
 
 <ul>
-<li><a href="https://docs.pay.super.com/docs/payments/">Checkout Overview</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/"class=active>Checkout Overview</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/quick-start/">Quick Start</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/token/">Payments with token</a></li>
 <li><a href="https://docs.pay.super.com/docs/payments/integration/">Payments from server-side</a></li>
@@ -121,30 +120,102 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="https://docs.pay.super.com/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>PaySuper Documentation</strong>
+  <strong>Checkout Overview</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="documentation">Documentation</h1>
+<h1 id="paysuper-checkout">PaySuper Checkout</h1>
+
+<p>PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect payments with just a few lines of code. The Checkout Form loads near instantly and is designed to boost your paying conversion rate.</p>
 
 <hr />
 
-<h2 id="getting-started">Getting started</h2>
-
-<p>PaySuper is a payment service with an open source multifunctional toolkit that provides secure and immediate online payment transactions for the games industry.</p>
-
 <figure>
-    <img src="https://docs.pay.super.com/images/Dark.png"/> 
+    <img src="https://docs.pay.super.com/images/products-dark-form.png"/> 
 </figure>
 
 
-<h2 id="expand-the-market-with-online-payments">Expand the market with online payments</h2>
+<h2 id="paysuper-checkout-features">PaySuper Checkout features</h2>
 
-<p>PaySuper enables you to accept payments easily and securely in <strong>170+ countries</strong>. We support <strong>major payment systems</strong> such as Visa, MasterCard, JCB, China Union Pay, Alipay along with direct banking in Germany, Austria and Switzerland.</p>
+<ul>
+<li><strong>Payment methods:</strong> VISA, Master Card, AMEX, JCB, China UnionPay, Bitcoin payments, Alipay, QIWI, Bank Wire Transfers.</li>
+<li><strong>Payment types:</strong> Simple Checkout, Items Checkout.</li>
+<li><strong>Authentication:</strong> Dynamic 3D Secure (ready for Strong Customer Authentication).</li>
+<li><strong>Localization:</strong> Localized for 2 languages with 10 more translations coming soon.</li>
+<li><strong>Email receipts:</strong> Automatic email receipts right to your customers&rsquo; inbox.</li>
+<li><strong>Automated calculations:</strong> Automatically calculates the taxes and VAT due on your orders.</li>
+<li><strong>Conversion-optimized:</strong> The payment form loads instantly with a single-page layout.</li>
+</ul>
 
-<p>Follow our <a href="https://docs.pay.super.com/docs/payments/"><strong>development quick start</strong></a> to integrate online payments on your website or a game client.</p>
+<hr />
+
+<h2 id="try-now">Try now</h2>
+
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <p><strong>See how the Checkout Form looks and feels</strong></p>
+
+<p>Choose a card payment method and enter one of the test cards to checkout in a test mode:</p>
+
+<p>3D Secure: <strong><code>4000 0000 0000 0002</code></strong></p>
+
+<p>Non 3D Secure: <strong><code>4000 0000 0000 0077</code></strong></p>
+
+<p>Enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is first name last name).</p>
+
+<p><a   onclick="buyItems()" class="book-btn">
+  Test Payment
+</a></p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <p><strong>HOW IT WORKS</strong></p>
+
+<p>Try out the <a href="https://dashboard.pay.super.com/form-demo">payment sample</a> or see the <a href="https://github.com/paysuper/paysuper-examples">code on GitHub</a>.</p>
+
+  </div>
+  
+</div>
+
+
+<hr />
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>To get started with PaySuper, choose your business model:</p>
+
+<h3 id="simple-checkout">Simple Checkout</h3>
+
+<p>Simple Checkout is designed for payment orders with dynamical pricing, for example, stores that use its e-commerce engine for product management. Likewise, this option works well with non-product payments such as donations. In this mode, you specify the currency and the price, while the payment amount due for the end-user is calculated accordingly to the exchange rate if it differs from the specified order currency.</p>
+
+<h3 id="products-checkout">Products Checkout</h3>
+
+<p>PaySuper Checkout provides several types of products which you specify in an order as a parameter <code>type</code>:</p>
+
+<p><strong>Game Keys</strong></p>
+
+<p>This sales option is best suited to sale game keys for DRM platforms such as Steam, GOG, Uplay, Origin, PSN, XBOX Store, Nintendo Store, Itch.io, Epic Games Store. This feature allows you to sell any key-activated products (such as DLCs and expansion packs) that the target DRM platforms support.</p>
+
+<p><strong>Virtual Items</strong></p>
+
+<p>This sales option enables you to sell your Virtual Items, like swords, guns, helmets and virtual currency packs.</p>
+
+<p><strong>Virtual Currency</strong></p>
+
+<p>Virtual Currency is an option to sell your in-game currency — gold, coins, etc. It allows you to sell customisable quantity of your currency.</p>
+
+<hr />
+
+<h2 id="next-steps">Next steps</h2>
+
+<blockquote class="book-hint info">
+  Continue with the <a href="https://docs.pay.super.com/docs/payments/quick-start/"><strong>Quick Start guide</strong></a>
+</blockquote>
+
 
 <hr />
 
@@ -189,13 +260,19 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
     
   
 
-  <aside class="book-toc level-3 fixed">
+  <aside class="book-toc level-true fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#documentation">Documentation</a>
+<li><a href="#paysuper-checkout">PaySuper Checkout</a>
 <ul>
-<li><a href="#getting-started">Getting started</a></li>
-<li><a href="#expand-the-market-with-online-payments">Expand the market with online payments</a></li>
+<li><a href="#paysuper-checkout-features">PaySuper Checkout features</a></li>
+<li><a href="#try-now">Try now</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#simple-checkout">Simple Checkout</a></li>
+<li><a href="#products-checkout">Products Checkout</a></li>
+</ul></li>
+<li><a href="#next-steps">Next steps</a></li>
 </ul></li>
 </ul>
 </nav>
