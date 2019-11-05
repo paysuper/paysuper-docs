@@ -1,0 +1,57 @@
+# hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/example
+
+Title = 'PaySuper Documentation'
+
+disableKinds = ['taxonomy', 'taxonomyTerm']
+theme = 'book'
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+# Book configuration
+disablePathToLower = true
+# enableGitInfo = true
+
+# Analytics
+googleAnalytics = "UA-142750977-3"
+
+# Code highlight
+pygmentsStyle = 'friendly'
+pygmentsCodeFences = true
+
+[taxonomies]
+  series = "series"
+
+[params]
+  # OpenGraph
+  Images = ['products-dark-form.png']
+  Description = 'PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports.'
+
+  # (Optional, default 6) Set how many table of contents levels to be showed on page.
+  # Use false to hide ToC, note that 0 will default to 6 (https://gohugo.io/functions/default/)
+  # You can also specify this parameter per page in front matter
+  BookToC = 3
+
+  # (Optional, default none) Set the path to a logo for the book. If the logo is
+  # /static/logo.png then the path would be logo.png
+  # BookLogo = 'logo.png'
+
+  # (Optional, default none) Set leaf bundle to render as side menu
+  # When not specified file structure and weights will be used
+  BookMenuBundle = '/menu'
+
+  # (Optional, default docs) Specify section of content to render as menu
+  # You can also set value to '*' to render all sections to menu
+  BookSection = 'docs'
+
+  # Set source repository location.
+  # Used for 'Last Modified' and 'Edit this page' links.
+  BookRepo = 'https://github.com/paysuper/paysuper-docs/tree/test'
+
+  # Configure the date format used on the pages
+  # - In git information
+  # - In blog posts
+  BookDateFormat = 'Oct 01, 2019'
+
+  # (Optional, default true) Enables search function with lunr.js, 
+  # Index is built on fly, therefore it might slowdown your website.
+  BookSearch = true

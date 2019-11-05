@@ -6,38 +6,49 @@ go:
 
 sudo: required
 
-addons:
-  ssh_known_hosts: pay.super.com
-
 dist: bionic
 
-if: branch=test
+if: branch in (master, develop)
 #cache: bundler
 
-#addons:
-#  apt:
-#    packages:
-#      - hugo
 before_install:
  - sudo snap install hugo --channel=extended
 
-install: true
+jobs:
+  include: 
+    - if: branch = develop
+      install: true
+      script:
+      - hugo --environment staging
+      - echo "docs.stg.pay.super.com" > ./public/CNAME
+      deploy:
+        - provider: pages
+          skip-cleanup: true
+          github-token: "$GITHUB_TOKEN"
+          keep-history: true
+          target-branch: master
+          verbose: true
+          repo: paysuper/paysuper-docs-stage
+          local-dir: "./public"
+          on:
+            branch: develop
+    - if: branch = master
+      install: true
+      script:
+      - hugo --environment production
+      - echo "docs.pay.super.com" > ./public/CNAME
+      deploy:
+        - provider: pages
+          skip-cleanup: true
+          github-token: "$GITHUB_TOKEN"
+          keep-history: true
+          target-branch: gh-pages
+          verbose: true
+          repo: paysuper/paysuper-docs
+          local-dir: "./public"
+          on:
+            branch: master
 
-script:
-- hugo --environment development
-
-before_deploy:
-  - echo $SFTP_KEY | base64 -d > /tmp/deploy_rsa
-  - eval "$(ssh-agent -s)"
-  - chmod 600 /tmp/deploy_rsa
-  - ssh-add /tmp/deploy_rsa
-
-deploy:
-  provider: script
-  skip-cleanup: true
-  script: rsync -r --delete-after -v ./public/ $SFTP_USER@$SFTP_HOST:/
-  on:
-    branch: test
 
 notifications:
   slack:
