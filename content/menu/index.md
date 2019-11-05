@@ -2,19 +2,21 @@
 headless: true
 ---
 
+- [**Home**]({{< relref "/" >}})
 - **Payments**
   - [Checkout Overview]({{< relref "/docs/payments" >}})
-  - [Integration Flow]({{< relref "/docs/payments/integration-flow" >}})
-  - [Simple checkout]({{< relref "/docs/payments/simple" >}})
-  - [Keys checkout]({{< relref "/docs/payments/keys" >}})
+  - [Quick Start]({{< relref "/docs/payments/quick-start" >}})
+  - [Payments with token]({{< relref "/docs/payments/token" >}})
+  - [Payments from server-side]({{< relref "/docs/payments/integration" >}})
+  - [Payments from client-side]({{< relref "/docs/payments/sdk-integration" >}})
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
-  - [Testing]({{< relref "/docs/payments/sandbox" >}})
+  - [Testing]({{< relref "/docs/payments/testing" >}})
   - [Going Live]({{< relref "/docs/payments/live" >}})
+- **After the payment**
+  - [Payouts]({{< relref "/docs/payouts" >}})
+  - [Refunds]({{< relref "/docs/refunds" >}})
+  - [Declines]({{< relref "/docs/declines" >}})
+  - [Webhooks]({{< relref "/docs/webhooks" >}})
+
 - [**API Reference**]({{< relref "/docs/api" >}})
-  - [Authentication]({{< relref "/docs/api/v1/authentication" >}})
-  - [Versioning]({{< relref "/docs/api/v1/versioning" >}})
-  - [Errors List]({{< relref "/docs/api/v1/errors" >}})
-  - [Compression]({{< relref "/docs/api/v1/compression" >}})
-  - [Pagination]({{< relref "/docs/api/v1/pagination" >}})
-  - [PaySuper API]({{< relref "/docs/api/v1" >}})

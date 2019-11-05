@@ -333,8 +333,4 @@ sequenceDiagram
 # Images
 ***
 
-{{< load-photoswipe >}}
-
 {{< figure src="/images/products-dark-form.png">}}
-
-{{< gallery dir="/images/" />}}

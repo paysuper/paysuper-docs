@@ -1,6 +1,4 @@
 ---
 title: PaySuper API Reference
-bookToc: true
+layout: redoc
 ---
-
-PaySuper

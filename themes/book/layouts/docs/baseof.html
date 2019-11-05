@@ -5,6 +5,7 @@
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
   <script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
 </head>
 
 <body>
@@ -27,6 +28,19 @@
 
   {{ partial "docs/inject/body" . }}
 
+  <script>
+    function buyItems() {
+      const paySuper = new PaySuper({
+        project: '5db16ae811bf0d0001fdfbd1',
+        amount: 10,
+        currency: 'USD',
+        type: 'simple',
+        apiUrl: 'https://p1payapi.tst.protocol.one'
+      });
+
+      paySuper.renderModal();
+    }
+  </script>
 </body>
 
 </html>
