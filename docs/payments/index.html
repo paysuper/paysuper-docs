@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Checkout Overview" />
+<meta property="og:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.pay.super.com/docs/payments/" />
+
+<meta property="og:image" content="https://docs.pay.super.com/products-dark-form.png" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://docs.pay.super.com/products-dark-form.png"/>
+
+<meta name="twitter:title" content="Checkout Overview"/>
+<meta name="twitter:description" content="PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports."/>
+<title>Checkout Overview | PaySuper Documentation</title>
+<link rel="icon" href="https://docs.pay.super.com/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="https://docs.pay.super.com/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
+
+
+<script defer src="https://docs.pay.super.com/search.min.7e9b5ffac1aff51a3320ed3c6f085e159a8667536e370e4ab3b35a9205c5955f.js" integrity="sha256-fptf&#43;sGv9RozIO08bwheFZqGZ1NuNw5Ks7NakgXFlV8="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142750977-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<link rel="alternate" type="application/rss+xml" href="https://docs.pay.super.com/docs/payments/index.xml" title="PaySuper Documentation" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+  <script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://docs.pay.super.com"><span>PaySuper Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="https://docs.pay.super.com/"><strong>Home</strong></a></li>
+<li><strong>Payments</strong>
+
+<ul>
+<li><a href="https://docs.pay.super.com/docs/payments/"class=active>Checkout Overview</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/quick-start/">Quick Start</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/token/">Payments with token</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/integration/">Payments from server-side</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/sdk-integration/">Payments from client-side</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/fulfillment/">After the payment</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/customization/">Customizing Checkout</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/testing/">Testing</a></li>
+<li><a href="https://docs.pay.super.com/docs/payments/live/">Going Live</a></li>
+</ul></li>
+
+<li><p><strong>After the payment</strong></p>
+
+<ul>
+<li><a href="https://docs.pay.super.com/docs/payouts/">Payouts</a></li>
+<li><a href="https://docs.pay.super.com/docs/refunds/">Refunds</a></li>
+<li><a href="https://docs.pay.super.com/docs/declines/">Declines</a></li>
+<li><a href="https://docs.pay.super.com/docs/webhooks/">Webhooks</a></li>
+</ul></li>
+
+<li><p><a href="https://docs.pay.super.com/docs/api/"><strong>API Reference</strong></a></p></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="https://docs.pay.super.com/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Checkout Overview</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="paysuper-checkout">PaySuper Checkout</h1>
+
+<p>PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect payments with just a few lines of code. The Checkout Form loads near instantly and is designed to boost your paying conversion rate.</p>
+
+<hr />
+
+<figure>
+    <img src="https://docs.pay.super.com/images/products-dark-form.png"/> 
+</figure>
+
+
+<h2 id="paysuper-checkout-features">PaySuper Checkout features</h2>
+
+<ul>
+<li><strong>Payment methods:</strong> VISA, Master Card, AMEX, JCB, China UnionPay, Bitcoin payments, Alipay, QIWI, Bank Wire Transfers.</li>
+<li><strong>Payment types:</strong> Simple Checkout, Items Checkout.</li>
+<li><strong>Authentication:</strong> Dynamic 3D Secure (ready for Strong Customer Authentication).</li>
+<li><strong>Localization:</strong> Localized for 2 languages with 10 more translations coming soon.</li>
+<li><strong>Email receipts:</strong> Automatic email receipts right to your customers&rsquo; inbox.</li>
+<li><strong>Automated calculations:</strong> Automatically calculates the taxes and VAT due on your orders.</li>
+<li><strong>Conversion-optimized:</strong> The payment form loads instantly with a single-page layout.</li>
+</ul>
+
+<hr />
+
+<h2 id="try-now">Try now</h2>
+
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <p><strong>See how the Checkout Form looks and feels</strong></p>
+
+<p>Choose a card payment method and enter one of the test cards to checkout in a test mode:</p>
+
+<p>3D Secure: <strong><code>4000 0000 0000 0002</code></strong></p>
+
+<p>Non 3D Secure: <strong><code>4000 0000 0000 0077</code></strong></p>
+
+<p>Enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is first name last name).</p>
+
+<p><a   onclick="buyItems()" class="book-btn">
+  Test Payment
+</a></p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <p><strong>HOW IT WORKS</strong></p>
+
+<p>Try out the <a href="https://dashboard.pay.super.com/form-demo">payment sample</a> or see the <a href="https://github.com/paysuper/paysuper-examples">code on GitHub</a>.</p>
+
+  </div>
+  
+</div>
+
+
+<hr />
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>To get started with PaySuper, choose your business model:</p>
+
+<h3 id="simple-checkout">Simple Checkout</h3>
+
+<p>Simple Checkout is designed for payment orders with dynamical pricing, for example, stores that use its e-commerce engine for product management. Likewise, this option works well with non-product payments such as donations. In this mode, you specify the currency and the price, while the payment amount due for the end-user is calculated accordingly to the exchange rate if it differs from the specified order currency.</p>
+
+<h3 id="products-checkout">Products Checkout</h3>
+
+<p>PaySuper Checkout provides several types of products which you specify in an order as a parameter <code>type</code>:</p>
+
+<p><strong>Game Keys</strong></p>
+
+<p>This sales option is best suited to sale game keys for DRM platforms such as Steam, GOG, Uplay, Origin, PSN, XBOX Store, Nintendo Store, Itch.io, Epic Games Store. This feature allows you to sell any key-activated products (such as DLCs and expansion packs) that the target DRM platforms support.</p>
+
+<p><strong>Virtual Items</strong></p>
+
+<p>This sales option enables you to sell your Virtual Items, like swords, guns, helmets and virtual currency packs.</p>
+
+<p><strong>Virtual Currency</strong></p>
+
+<p>Virtual Currency is an option to sell your in-game currency — gold, coins, etc. It allows you to sell customisable quantity of your currency.</p>
+
+<hr />
+
+<h2 id="next-steps">Next steps</h2>
+
+<blockquote class="book-hint info">
+  Continue with the <a href="https://docs.pay.super.com/docs/payments/quick-start/"><strong>Quick Start guide</strong></a>
+</blockquote>
+
+
+<hr />
+
+<h2 id="questions">Questions?</h2>
+
+<div class="book-columns flex flex-wrap">
+
+<div class="flex-even markdown-inner">
+    <h4 id="sales-https-docs-google-com-forms-d-e-1faipqlscqpu83wkpkjeui-wvxgdoxwldl4vyd8gswnqf9-ccwdg3dew-viewform"><a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">Sales</a></h4>
+
+<p>Our salespeople are pleasant and friendly. Leave your contact details, and we&rsquo;ll be back to you in no time.
+</div>
+
+<div class="flex-even markdown-inner">
+    <h4 id="support-https-docs-google-com-forms-d-e-1faipqlscqpu83wkpkjeui-wvxgdoxwldl4vyd8gswnqf9-ccwdg3dew-viewform"><a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">Support</a></h4>
+
+<p>We are always happy to help with a code, improve a guide or consider a feature.
+</div>
+
+<div class="flex-even markdown-inner">
+    <h4 id="github-https-github-com-paysuper"><a href="https://github.com/paysuper">GitHub</a></h4>
+
+<p>The PaySuper Checkout Form, the JS SDK and even the server are available as a source code on our GitHub. You&rsquo;re welcome to explore the code and help us make PaySuper even better.
+</div>
+
+</div>
+
+<hr />
+
+<h2 id="not-a-developer">Not a developer?</h2>
+
+Our engineers will help you <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">integrate PaySuper</a> into your existing e-commerce platform, a website or a game in the best possible way.
+
+If you want something very special and crazy custom yet don&rsquo;t have a suitable programmer available nearby - <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">talk to us</a>! We won&rsquo;t let down a PaySuper user. We will try to help you in every possible way. We can even hire a programmer for you!
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-true fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#paysuper-checkout">PaySuper Checkout</a>
+<ul>
+<li><a href="#paysuper-checkout-features">PaySuper Checkout features</a></li>
+<li><a href="#try-now">Try now</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#simple-checkout">Simple Checkout</a></li>
+<li><a href="#products-checkout">Products Checkout</a></li>
+</ul></li>
+<li><a href="#next-steps">Next steps</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+  </main>
+
+  
+
+  <script>
+    function buyItems() {
+      const paySuper = new PaySuper({
+        project: '5db16ae811bf0d0001fdfbd1',
+        amount: 10,
+        currency: 'USD',
+        type: 'simple',
+        apiUrl: 'https://p1payapi.tst.protocol.one'
+      });
+
+      paySuper.renderModal();
+    }
+  </script>
+</body>
+
+</html>

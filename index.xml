@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PaySuper Documentation</title>
+    <link>https://docs.pay.super.com/</link>
+    <description>Recent content on PaySuper Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://docs.pay.super.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Example markdown</title>
+      <link>https://docs.pay.super.com/docs/markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/markdown/</guid>
+      <description>Title with a line Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
+Headings h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Notes  The note with padding example.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://docs.pay.super.com/docs/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/glossary/</guid>
+      <description>Payment form: a Checkout Form
+Terms in uppercase: PaySuper Checkout
+PaySuper JS SDK
+PaySuper API
+PaySuper
+PaySuper Dashboard
+PaySuper Dashboard entities and properties: a Project
+a Product
+a Project&amp;rsquo;s Secret key
+a Virtual currency
+a Game key
+a Virtual item
+a key-activated product
+a virtual item
+an in-game currency
+PaySuper Dashboard pages: the Projects list page
+the Project settings page
+the Project webhooks page
+the Transactions page
+the Company Onboarding page</description>
+    </item>
+    
+    <item>
+      <title>After the payment</title>
+      <link>https://docs.pay.super.com/docs/payments/fulfillment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/fulfillment/</guid>
+      <description>After the payment When your customers successfully complete payments they are redirected to the success URL page that you passed in a request parameter. Typically, this is a page on your website that informs your customer that their payment was successful.
+To fulfil the customer’s purchase you can make it in several ways:
+Fulfilling purchases manually with the PaySuper Dashboard
+Fulfilling purchases automatically with webhooks
+Email receipts
+Fulfilling purchases with the PaySuper Dashboard Every customers&amp;rsquo; payment is recorded as a new entry in the payments log shown on the Transactions page.</description>
+    </item>
+    
+    <item>
+      <title>Canceling and refunding payments</title>
+      <link>https://docs.pay.super.com/docs/refunds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/refunds/</guid>
+      <description> Canceling and refunding payments </description>
+    </item>
+    
+    <item>
+      <title>Client-side payment initialization</title>
+      <link>https://docs.pay.super.com/docs/payments/sdk-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/sdk-integration/</guid>
+      <description>Payment initialization on the client-side The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
+It’s easy to embed PaySuper JS SDK with just a few lines of Javascript code to start a payment process and display a purchase status finally whithout any server-side code.
+ HOW IT WORKS
+Try out the payment sample or see the code on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Customizing Checkout</title>
+      <link>https://docs.pay.super.com/docs/payments/customization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/customization/</guid>
+      <description>Customizing Checkout Learn about the different ways you can customize your Checkout.
+Localization The Checkout Form is localized to 2 languages with 10 more translations coming soon.
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
+Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&amp;rsquo;s name and email.</description>
+    </item>
+    
+    <item>
+      <title>Going Live</title>
+      <link>https://docs.pay.super.com/docs/payments/live/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/live/</guid>
+      <description>PaySuper Checkout integration checklist When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&amp;rsquo;ve covered all the significant steps.
+Complete the Company onboarding Dashboard
+When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement.
+ Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry.</description>
+    </item>
+    
+    <item>
+      <title>Payment initialization with token</title>
+      <link>https://docs.pay.super.com/docs/payments/token/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/token/</guid>
+      <description>Payment initialization with token A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.
+You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client.</description>
+    </item>
+    
+    <item>
+      <title>Quick start</title>
+      <link>https://docs.pay.super.com/docs/payments/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/quick-start/</guid>
+      <description>Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project.  When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement.</description>
+    </item>
+    
+    <item>
+      <title>Receiving Payouts</title>
+      <link>https://docs.pay.super.com/docs/payouts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payouts/</guid>
+      <description> Receiving Payouts </description>
+    </item>
+    
+    <item>
+      <title>Server-side payment initialization</title>
+      <link>https://docs.pay.super.com/docs/payments/integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/integration/</guid>
+      <description>Payment initialization on the server-side The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using PaySuper API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
+You can use PaySuper JS SDK for the client-side payment initialization to integrate a Checkout Form into your website only on the client-side.</description>
+    </item>
+    
+    <item>
+      <title>Testing Checkout</title>
+      <link>https://docs.pay.super.com/docs/payments/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/testing/</guid>
+      <description>Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
+The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
+When using PaySuper JS SDK ensure that:
+ Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or token.  In case of using the PaySuper API in your server-side code ensure that:</description>
+    </item>
+    
+    <item>
+      <title>Understanding Declines and Failed Payments</title>
+      <link>https://docs.pay.super.com/docs/declines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/declines/</guid>
+      <description>Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.
+But some reasons for the failed payments are unclear and uninformative.</description>
+    </item>
+    
+    <item>
+      <title>Webhooks</title>
+      <link>https://docs.pay.super.com/docs/webhooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/webhooks/</guid>
+      <description>Webhooks The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
+These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
+In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund payment and other.</description>
+    </item>
+    
+  </channel>
+</rss>
