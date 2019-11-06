@@ -16,45 +16,39 @@ When you are ready to start selling you will need to fill in all your company de
 
 > Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.
 
-## Filling in the info about your Project
+## Fill in the info about your Project
 
 `Dashboard`
 
-Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. It will be mentioned in a payment form and different customer correspondence.
+Choose the complete set of supported languages for the project and product descriptions on the Projects page in your PaySuper Dashboard. Fill in localised project and products descriptions. These will be listed on the payment form and customer receipt emails.
 
-## Prefilling customer data
+## Prefill the customer data
 
 `Token`
 
-Use a [token](/docs/payments/token/) to prefill the Checkout Form with all required information about your customer on the payment initialization.
+You can use a [token](/docs/payments/token/) to prefill the Checkout Form with all required information about your customer for the payment.
 
-## Redirecting after a payment
+## Fill in Redirect URLs
 
 `PaySuper JS SDK` `PaySuper API`
 
-Check your redirect URLs for a successful or failed payment are available.
+Check your Redirect URLs found in the Payment form menu under Project in the PaySuper Dashboard. You can set what would your customers see after a successful or a failed payment.
 
-## Customizing PaySuper Form
+## Customize the PaySuper Form
 
 `PaySuper JS SDK`
 
-Add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
+You can add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
 
-## Fulfiling purchases
+## Fulfill the purchases
 
 `Webhooks`
 
-You can manually fulfil a purchase. Instead, create a handler for the [webhook](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) events and execute your server-side code to fulfil the payment.
+You can manually fulfil a purchase by looking into [Transaction Search](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) in your PaySuper Admin. Or you can create a handler for the [webhook](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) events and execute your server-side code to fulfill payments.
 
 ***
 
 ## Next steps
-
-{{< hint info >}}
-[**After the payment**](/docs/payments/live/)
-
-After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
-{{< /hint >}}
 
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
