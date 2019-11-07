@@ -36,7 +36,6 @@ Check your Redirect URLs found in the Payment form menu under Project in the Pay
 
 {{< figure src="/images/redirect-urls.png">}}
 
-
 ## Customize the PaySuper Form
 
 `PaySuper JS SDK`
