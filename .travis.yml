@@ -29,6 +29,7 @@ jobs:
           target-branch: master
           verbose: true
           repo: paysuper/paysuper-docs-stage
+          fqdn: docs.stg.pay.super.com
           local-dir: "./public"
           on:
             branch: develop
@@ -45,6 +46,7 @@ jobs:
           target-branch: gh-pages
           verbose: true
           repo: paysuper/paysuper-docs
+          fqdn: docs.pay.super.com
           local-dir: "./public"
           on:
             branch: master

@@ -24,7 +24,7 @@ bookToc: true
 1. [Sign up](https://paysupermgmt.tst.protocol.one).
 2. Verify your email address with the delivered confirmation email.
 3. Follow the steps of a brief [Welcome Onboarding](https://paysupermgmt.tst.protocol.one/profile).
-4. You are required to fill in the Banking info in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to be able create a project.
+4. You are required to fill in the Banking info in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for [payouts](/docs/payouts/) filled in the Banking info.
 
 {{< hint info >}}
 When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and sign the documents in the License Agreement.
