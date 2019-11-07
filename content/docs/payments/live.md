@@ -32,23 +32,16 @@ You can use a [token](/docs/payments/token/) to prefill the Checkout Form with a
 
 `Dashboard`
 
-Check your redirect URLs for a successful or failed payment are added in the Project Payment form page.
-
-<<<<<<< HEAD
 Check your Redirect URLs found in the Payment form menu under Project in the PaySuper Dashboard. You can set what would your customers see after a successful or a failed payment.
-=======
+
 {{< figure src="/images/redirect-urls.png">}}
->>>>>>> pr/7
+
 
 ## Customize the PaySuper Form
 
 `PaySuper JS SDK`
 
-<<<<<<< HEAD
 You can add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
-=======
-Add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
->>>>>>> pr/7
 
 ## Fulfill the purchases
 
