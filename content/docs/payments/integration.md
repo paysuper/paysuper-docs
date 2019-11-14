@@ -157,7 +157,7 @@ function buyItems() {
 ## Next steps
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**After the payment**](/docs/payments/fulfillment/)
 
 After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}

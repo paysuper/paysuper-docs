@@ -10,13 +10,13 @@ The PaySuper system can send you notifications for a set of events during the fl
 
 These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
 
-In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund payment and other.
+In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.
 
 ## Setting up a webhook
 
 **1.** Add the URL of the server that will receive the webhook requests in the Functional URL section on the Project Webhooks page.
 
-**2.** [Verify the webhook request](/docs/payments/webhooks/#verifying-a-webhook).
+**2.** [Verify the webhook request](/docs/webhooks/#verifying-a-webhook).
 
 **3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook. 
 
@@ -33,14 +33,14 @@ Type|Payload|Description
 
 Attribute|Type|Description
 ---|---|---
-`id`|string| Unique identifier for the object.
-`type`|string| String representing the webhook's type.
-`event`|string| String representing the event's type.
-`live`|boolean| Equals to `true` if notification originated from the live environment.
-`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when an event has been created.
+`id`|string| The unique identifier for the object.
+`type`|string| The string representing the webhook's type.
+`event`|string| The string representing the event's type.
+`live`|boolean| Equals to `true` if notification originated from a live environment.
+`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event has been created.
 `expires_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event stops trying to deliver.
-`delivery_try`|integer|The current delivery try for this event.
-`object`|object| The object representing payload of event with a given type. Objects of the same type share the same value.
+`delivery_try`|integer|The current delivery try for the event.
+`object`|object| The object representing the payload of the event with a given type. Objects of the same type share the same value.
 
 ## The Webhook object example
 
@@ -74,7 +74,7 @@ For instance, this is the base object representing the webhook event `payment.su
       "refunded_at": {
          "seconds": -62135596800
       },
-      "receipt_email": "michael.kirpa@gmail.com",
+      "receipt_email": "user.email@example.com",
       "receipt_phone": "",
       "receipt_number": "",
       "receipt_url": "",
@@ -93,7 +93,7 @@ For instance, this is the base object representing the webhook event `payment.su
          "object": "user",
          "external_id": "",
          "name": "",
-         "email": "michael.kirpa@gmail.com",
+         "email": "user.email@example.com",
          "email_verified": false,
          "phone": "",
          "phone_verified": false,
@@ -152,12 +152,12 @@ For instance, this is the base object representing the webhook event `payment.su
 
 ## Verifying a webhook
 
-PaySuper signs the webhook events it sends to your endpoint, allowing you to validate that they were not sent by a third-party and prevent hacker attacks.
+PaySuper signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.
 
-The PaySuper API uses a Secret key to check a notification request. 
+The PaySuper API uses a Secret key to check the notification request.
 
 {{< hint warning >}}
-Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
+Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in any publicly accessible areas such as GitHub, client-side code, and so forth.
 {{< /hint >}}
 
 **To check a digital signature:**

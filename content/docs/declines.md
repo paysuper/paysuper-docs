@@ -12,14 +12,14 @@ But some reasons for the failed payments are unclear and uninformative. Moreover
 
 We highlight the common possible reasons for the failed payments:
 
-* [Payment declined by card issuers or APM](/docs/payments/declines/#payment-declined-by-card-issuers-or-apm)
-* [Payment blocked due to suspected fraud](/docs/payments/declines/#payment-blocked-due-to-suspected-fraud)
+* [Payment declined by card issuers or APM](/docs/declines/#payment-declined-by-card-issuers-or-apm)
+* [Payment blocked due to suspected fraud](/docs/declines/#payment-blocked-due-to-suspected-fraud)
 
 In most cases, each type of failure is variously handled. To help you better understand what happened, the reason for a payment’s failure is provided within the payment’s details opened from the [Transactions](https://paysupermgmt.tst.protocol.one/transactions) page.
 
 ## Payment declined by card issuers or APM
 
-Usually, the issuer of your customer’s card have automated systems or risk models which determine whether or not to authorize it when a charge is submitted. Black and white lists, your customer’s spending habits, account balance and a card information like the expiration date, cardholder and CVC are taken into account. You can find the decline reason for your customer’s card issuer in the transaction details from the [Transactions](https://paysupermgmt.tst.protocol.one/transactions) page or in the [webhook](/docs/payments/webhooks/) event `payment.canceled`.
+Usually, the issuer of your customer’s card have automated systems or risk models which determine whether or not to authorize it when a charge is submitted. Black and white lists, your customer’s spending habits, account balance and a card information like the expiration date, cardholder and CVC are taken into account. You can find the decline reason for your customer’s card issuer in the transaction details from the [Transactions](https://paysupermgmt.tst.protocol.one/transactions) page or in the [webhook](/docs/webhooks/) event `payment.canceled`.
 
 Unfortunately, most of the declines are reported as “generic”. So it’s not always possible to know exactly why a payment was declined. Especially for a payment that was processed with APM. For privacy and security, card issuers can only discuss the specifics of the declined payment with their cardholders but not with the merchant or PaySuper team. If you are sure that card information is correct, it’s perfect to have your customer contact his card issuer to get more information about the decline.
 
@@ -62,6 +62,22 @@ Code|Description
 21|No payment was received (for BITCOIN payment method only)
 22|Wrong payment was received (for BITCOIN payment method only)
 23|Confirmations payment timeout (for BITCOIN payment method only)
+
+***
+
+## Next steps
+
+{{< hint info >}}
+[**Testing the Checkout**](/docs/payments/testing/)
+
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+{{< /hint >}}
+
+{{< hint info >}}
+[**Going live checklist**](/docs/payments/live/)
+
+You can inspect this checklist before going live to ensure you've implemented all the significant setup steps.
+{{< /hint >}}
 
 ***
 

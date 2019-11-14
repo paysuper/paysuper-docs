@@ -10,7 +10,7 @@ Learn about the different ways you can customize your Checkout.
 
 ## Localization
 
-The Checkout Form is localized to 2 languages with 10 more translations coming soon.
+The Checkout Form is localized for [24 languages](/docs/payments/localization).
 
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
 
@@ -43,14 +43,14 @@ const paySuper = new PaySuper({
 });
 {{< /highlight >}}
 
-[Available parameters of **`viewSchemeConfig`**](https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig)
+[Available parameters of **`viewSchemeConfig`**](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig)
 
 ***
 
 ## Next steps
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**After the payment**](/docs/payments/fulfillment/)
 
 After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}

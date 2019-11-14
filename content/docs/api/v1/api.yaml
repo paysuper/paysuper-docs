@@ -1,0 +1,3563 @@
+swagger: '2.0'
+definitions:
+  model.Country:
+    properties:
+      code_a2:
+        description: |
+          2 chars ISO 3166-1 country code
+        type: string
+      code_a3:
+        description: |
+          3 chars ISO 3166-1 country code
+        type: string
+      code_int:
+        description: |
+          numeric ISO 3166-1 country code
+        type: integer
+      created_at:
+        description: |
+          date of create country in system
+        type: string
+      is_active:
+        description: |
+          is country active
+        type: boolean
+      name:
+        $ref: '#/definitions/model.Name'
+        description: |
+          list of country names
+        type: object
+    type: object
+  model.Error:
+    properties:
+      message:
+        description: A description of the error.
+        type: string
+      code:
+        type: string
+        description: A status code of the error.
+    type: object
+  model.JsonOrderCreateResponse.user.address:
+    properties:
+      country:
+        type: string
+        description: >-
+          string representing the the user's country. two-letter uppercase
+          country code in ISO 3166-1 alpha-2 format
+      city:
+        type: string
+        description: user's city
+      zip:
+        type: string
+        description: postal code
+  model.JsonOrderCreateResponse.item:
+    properties:
+      id:
+        description: item identifier
+        type: string
+      object:
+        description: item type
+        type: string
+      sku:
+        description: item sku identifier
+        type: string
+      name:
+        description: item name
+        type: string
+      description:
+        description: item description
+        type: string
+      amount:
+        description: item price
+        type: number
+      currency:
+        description: >-
+          item price currency. three-letter ISO 4217 currency code, in
+          uppercase.
+        type: string
+      images:
+        description: list of urls to item images
+        type: array
+        items:
+          type: string
+      url:
+        description: url to item on project site
+      metadata:
+        description: object contain item metadata
+        type: object
+      code:
+        description: item code
+        type: string
+      created_at:
+        description: object contain information about time when payment created
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: >-
+          object contain information about time when payment updated at last
+          time
+        $ref: '#/definitions/ProtobufTimestamp'
+      platform_id:
+        description: item platform identifier
+        type: string
+  model.JsonOrderCreateResponse:
+    properties:
+      id:
+        description: The unique identifier for the order.
+        type: string
+      payment_form_url:
+        description: The PaySuper-hosted URL of payment form.
+        type: string
+  model.PaymentFormDataResponse:
+    properties:
+      account:
+        description: |
+          user account, may be null
+        type: string
+      has_vat:
+        description: |
+          flag to show VAT commission amount in payment form
+        type: boolean
+      vat:
+        description: VAT amount
+        type: number
+      amount:
+        description: order amount without VAT
+        type: number
+      total_amount:
+        description: total order amount with VAT
+        type: number
+      currency:
+        description: order currency
+        type: string
+      user_address_data_required:
+        description: flag to get information about user real geo position
+        type: boolean
+      id:
+        description: |
+          order unique identifier
+        type: string
+      payment_methods:
+        description: |
+          contain data about payment methods
+        items:
+          $ref: '#/definitions/model.PaymentMethodJsonOrderResponse'
+        type: array
+      project:
+        $ref: '#/definitions/model.ProjectJsonOrderResponse'
+        description: |
+          contain data about project
+        type: object
+      token:
+        description: |
+          access token to websocket private chanel
+        type: string
+      user_ip_data:
+        description: object contain information about user address get by user ip address
+        $ref: '#/definitions/model.JsonOrderCreateResponse.user.address'
+      items:
+        description: list of buyed items in order
+        type: array
+        items:
+          $ref: '#/definitions/model.JsonOrderCreateResponse.item'
+      cookie:
+        description: >-
+          value to set to cookie for user identification. if user was identified
+          by other data than value can be empty.
+        type: string
+      email:
+        description: user email
+        type: string
+      description:
+        description: order description
+        type: string
+      country_payments_allowed:
+        description: true is payments from user country is allowed
+        type: boolean
+      country_change_allowed:
+        description: >-
+          true if user can change self country if payments from his country
+          disallow
+        type: boolean
+      platforms:
+        description: >-
+          list of supported platforms if this payment with type key (for other
+          types this field can be empty)
+        type: array
+        items:
+          type: string
+    type: object
+  model.Name:
+    properties:
+      en:
+        description: |
+          english name
+        type: string
+      ru:
+        description: |
+          russian name
+        type: string
+    type: object
+  model.OrderCreatePaymentRequest:
+    properties:
+      address:
+        description: >
+          user wallet address in crypto payment system. required only for crypto
+          payment
+        type: string
+      card_holder:
+        description: |
+          bank card card holder name. required only for bank card payment
+        type: string
+      cvv:
+        description: |
+          bank card cvv code. required only for bank card payment
+        type: integer
+      ewallet:
+        description: >
+          user account in ewallet payment system. required only for ewallet
+          payment
+        type: string
+      month:
+        description: >
+          month of expire date of user bank card. required only for bank card
+          payment
+        type: integer
+      order_id:
+        description: |
+          unique identifier of order on PSP (P1) side
+        type: string
+      pan:
+        description: |
+          user bank card number. required only for bank card payment
+        type: string
+      payment_method_id:
+        description: |
+          unique identifier of payment method by PSP (P1) classifier
+        type: string
+      year:
+        description: >
+          year of expire date of user bank card. required only for bank card
+          payment
+        type: integer
+    type: object
+  order.project:
+    properties:
+      id:
+        type: string
+        description: project unique identifier
+      merchant_id:
+        type: string
+        description: project merchant unique identifier
+      url_success:
+        type: string
+        description: url for redirect user after successfully completed payment
+      url_fail:
+        type: string
+        description: url for redirect user after failed payment
+      send_notify_email:
+        type: boolean
+        description: >-
+          flag to send notification emails by "notify_emails" list after
+          successfully completed payment
+      notify_emails:
+        type: array
+        description: >-
+          emails list to send notification email after successfully completed
+          payment
+        items:
+          type: string
+      secret_key:
+        type: string
+        description: project secret key
+      url_check_account:
+        type: string
+        description: callback url to check payment requisites
+      url_process_payment:
+        type: string
+        description: callback url to send payment complete request
+      callback_protocol:
+        type: string
+        description: >-
+          type of callback notification protocol. now available next values:
+          empty - notification request not send, order just mark as successfully
+          complete; default - notification request send by PaySuper notification
+          protocol;
+  order.payment_method.card:
+    properties:
+      first6:
+        type: string
+        description: >-
+          string representing the first 6 digits of the card. Available only for
+          a card method
+      last4:
+        type: string
+        description: >-
+          string representing the last 4 digits of the card. Available only for
+          a card method
+      masked:
+        type: string
+        description: masked pan of bank card
+      expiry_month:
+        type: string
+        description: month of expiration bank card
+      expiry_year:
+        type: string
+        description: year of expiration bank card
+      brand:
+        type: string
+        description: bank card brand
+      fingerprint:
+        type: string
+        description: string representing the internal fingerprint for given card
+      secure3d:
+        type: boolean
+        description: true is 3DS secure was used during payment
+  order.payment_method.wallet:
+    properties:
+      brand:
+        type: string
+        description: name of payment system
+      account:
+        type: string
+        description: payer wallet number in payment system
+  order.payment_method.crypto_currency:
+    properties:
+      brand:
+        type: string
+        description: name of crypto currency system
+      address:
+        type: string
+        description: payer address in crypto cyrrency system
+  order.payment_method:
+    properties:
+      title:
+        type: string
+        description: payment method name
+      external_id:
+        type: string
+        description: payment method identifier in payment system
+      payment_system_id:
+        type: string
+        description: payment system identifier
+      saved:
+        type: boolean
+        description: true is payment method was saved by user for future usage
+      card:
+        $ref: '#/definitions/order.payment_method.card'
+        description: >-
+          object contain main information about requisites if payment was by
+          bank card. may be null
+      wallet:
+        $ref: '#/definitions/order.payment_method.wallet'
+        description: >-
+          object contain main information about requisites if payment was by
+          e-wallets. may be null
+      crypto_currency:
+        $ref: '#/definitions/order.payment_method.crypto_currency'
+        description: >-
+          object contain main information about requisites if payment was by
+          crypto currency. may be null
+  order.user.address:
+    properties:
+      country:
+        type: string
+        description: >-
+          string representing the the user's country. two-letter uppercase
+          country code in ISO 3166-1 alpha-2 format
+      city:
+        type: string
+        description: user's city
+      postal_code:
+        type: string
+        description: postal code
+      state:
+        type: string
+        description: state name
+  order.user:
+    properties:
+      id:
+        type: string
+        description: customer identity identifier
+      object:
+        type: string
+        description: constant with object name
+      external_id:
+        type: string
+        description: user identifier in project
+      name:
+        type: string
+        description: user name
+      email:
+        type: string
+        description: user email
+      email_verified:
+        type: boolean
+        description: true is email was verified
+      phone:
+        type: string
+        description: user phone
+      phone_verified:
+        type: boolean
+        description: true is phone was verified
+      ip:
+        type: string
+        description: user ip address
+      locale:
+        type: string
+        description: user's locale. two-letter code in lowercase
+      address:
+        $ref: '#/definitions/order.user.address'
+      metadata:
+        type: object
+        description: >-
+          set of key-value pairs that attached to an object on create order
+          state
+      notify_new_region:
+        type: boolean
+        description: >-
+          true is user wanting to receiving notification when paysuper will work
+          in user's region
+      notify_new_region_email:
+        type: string
+        description: >-
+          user's email to send notification email when paysuper starting work in
+          user's region
+  order.money:
+    properties:
+      amount:
+        type: number
+        description: entry amount
+      currency:
+        type: string
+        description: 'entry currency. three-letter ISO 4217 currency code, in uppercase.'
+  order.public:
+    properties:
+      uuid:
+        type: string
+        description: order unique identifier
+      total_payment_amount:
+        type: number
+        description: payment amount
+      currency:
+        type: string
+        description: 'payment currency. three-letter ISO 4217 currency code, in uppercase.'
+      project:
+        description: object contain main iformation about project
+        $ref: '#/definitions/order.project'
+      created_at:
+        description: object contain information about time when payment created
+        $ref: '#/definitions/ProtobufTimestamp'
+      transaction:
+        type: string
+        description: unique identifier for the transaction in payment system
+      transaction_date:
+        $ref: '#/definitions/ProtobufTimestamp'
+        description: >-
+          object contain information about time when payment processed in
+          payment system
+      payment_method:
+        $ref: '#/definitions/order.payment_method'
+        description: object contain information about payment method
+      country_code:
+        type: string
+        description: >-
+          string representing the the user's country. two-letter uppercase
+          country code in ISO 3166-1 alpha-2 format
+      merchant_id:
+        type: string
+        description: project merchant unique identifier
+      locale:
+        type: string
+        description: user's locale. two-letter code in lowercase
+      status:
+        type: string
+        description: >-
+          string representing the order current status. possible statuses:
+          created - the order created but not processed yet; canceled - the
+          order was canceled and money refunded to user; rejected - the order
+          was rejected by payment system with any reasons; processed - the order
+          was processed in payment system;
+      user:
+        $ref: '#/definitions/order.user'
+        description: object contain information about user
+      billing_address:
+        $ref: '#/definitions/order.user.address'
+        description: object contain information about user address by payment form
+      type:
+        type: string
+        description: constant with object type
+      is_vat_deduction:
+        type: boolean
+        description: true is vat deduction
+      gross_revenue:
+        $ref: '#/definitions/order.money'
+        description: object contain information about gross revenue
+      tax_fee:
+        $ref: '#/definitions/order.money'
+        description: object contain information about tax fee
+      tax_fee_currency_exchange_fee:
+        $ref: '#/definitions/order.money'
+        description: object contain information about tax fee currency exchange fee
+      tax_fee_total:
+        $ref: '#/definitions/order.money'
+        description: object contain information about tax fee total
+      method_fee_total:
+        $ref: '#/definitions/order.money'
+        description: object contain information about method fee total
+      method_fee_tariff:
+        $ref: '#/definitions/order.money'
+        description: object contain information about method fee tariff
+      method_fixed_fee_tariff:
+        $ref: '#/definitions/order.money'
+        description: object contain information about method fixed fee tariff
+      paysuper_fixed_fee:
+        $ref: '#/definitions/order.money'
+        description: object contain information about paysuper fixed fee
+      fees_total:
+        $ref: '#/definitions/order.money'
+        description: object contain information about fees total
+      fees_total_local:
+        $ref: '#/definitions/order.money'
+        description: object contain information about fees total local
+      net_revenue:
+        $ref: '#/definitions/order.money'
+        description: object contain information about net revenue
+      refund_gross_revenue:
+        $ref: '#/definitions/order.money'
+        description: object contain information about refund gross revenue
+      method_refund_fee_tariff:
+        $ref: '#/definitions/order.money'
+        description: object contain information about method refund fee tariff
+      merchant_refund_fixed_fee_tariff:
+        $ref: '#/definitions/order.money'
+        description: object contain information about merchant refund fixed fee tariff
+      refund_tax_fee:
+        $ref: '#/definitions/order.money'
+        description: object contain information about refund tax fee
+      refund_tax_fee_currency_exchange_fee:
+        $ref: '#/definitions/order.money'
+        description: object contain information about refund tax fee currency exchange fee
+      paysuper_refund_tax_fee_currency_exchange_fee:
+        $ref: '#/definitions/order.money'
+        description: >-
+          object contain information about paysuper refund tax fee currency
+          exchange fee
+      refund_reverse_revenue:
+        $ref: '#/definitions/order.money'
+        description: object contain information about refund reverse revenue
+      refund_fees_total:
+        $ref: '#/definitions/order.money'
+        description: object contain information about refund fees total
+      refund_fees_total_local:
+        $ref: '#/definitions/order.money'
+        description: object contain information about refund fees total local
+  order.list.public:
+    properties:
+      count:
+        description: total count of selected orders
+        type: integer
+      items:
+        description: array of selected orders
+        items:
+          $ref: '#/definitions/order.public'
+        type: array
+    type: object
+  order.create.request.user:
+    properties:
+      external_id:
+        description: The user unique identifier on the merchant side.
+        type: string
+      name:
+        description: The user's name.
+        type: string
+      email:
+        description: The user's email address.
+        type: string
+      email_verified:
+        description: Whether the user's email address has been verified on the merchant side.
+        type: boolean
+      phone:
+        description: The user's phone number.
+        type: string
+      phone_verified:
+        description: Whether the user’s phone number has been verified on the merchant side.
+        type: boolean
+      ip:
+        description: The user's IP address.
+        type: string
+      locale:
+        description: The user's locale name. Two-letter language code by ISO 639-1, in lowercase.
+        type: string
+      address:
+        description: Details of the user's address.
+        $ref: '#/definitions/order.BillingAddress'
+      metadata:
+        description: >-
+          A string-value description that you can attach to the user object. 
+          It can be useful for storing additional information about your customer payment.
+        type: object
+  model.OrderScalar:
+    properties:
+      account:
+        description: The user unique account in the Project.
+        type: string
+      amount:
+        description: The order amount as a positive number. It is required for a simple checkout payment.
+        type: number
+      currency:
+        description: >-
+          The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. 
+          If provided, the amount will be processed in this currency. 
+          It is required for a simple checkout payment.
+        type: string
+      description:
+        description: The arbitrary order description.
+        type: string
+      order_id:
+        description: >-
+          The unique order identifier on the merchant side. This field is not required,
+          but we recommend sending this field always.
+        type: string
+      project:
+        description: The ID of the Project found in your merchant account in the PaySuper Dashboard.
+        type: string
+      url_fail:
+        description: >-
+          The redirect URL for the failed payment. 
+          Enable the dynamic notify URLs option in the Project Settings to use this field.
+        type: string
+      url_success:
+        description: >-
+          The redirect URL for the successful payment. 
+          Enable the dynamic notify URLs option in the Project Settings to use this field.
+        type: string
+      type:
+        description: >-
+          The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type, 
+          as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type.
+        type: string
+        enum:
+          - simple
+          - product
+          - key
+      products:
+        description: >-
+          The list of unique identifiers of Products being in the Project.
+          It is required if a payment type is equal to 'product' or 'key'.
+        type: array
+        items:
+          type: string
+      platform_id:
+        description: >-
+          The default platform identifier for which customer buys the in-game key.
+          This field used only for a payment type 'key'.
+        type: string
+        enum:
+          - steam
+          - gog
+          - uplay
+          - origin
+          - psn
+          - xbox
+          - nintendo
+          - itch
+          - egs
+      token:
+        description: >-
+          An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters. 
+          The token encrypted parameters override the corresponding parameters in an order object even the required parameters.
+        type: string
+      user:
+        description: >-
+          Your customer data. 
+          If this field is sent it is required to provide an authorisation header X-API-SIGNATURE.
+        $ref: '#/definitions/order.create.request.user'
+    required:
+      - project
+      - type
+    type: object
+  model.PaymentMethodJsonOrderResponse:
+    properties:
+      account_regexp:
+        description: |
+          regexp mask for check main requisite of payment method
+        type: string
+      group_alias:
+        description: |
+          payment method group alias
+        type: string
+      icon:
+        description: |
+          url to payment method icon
+        type: string
+      id:
+        description: |
+          payment method unique identifier
+        type: string
+      name:
+        description: |
+          payment method name
+        type: string
+      type:
+        description: |
+          payment method type. allowed: bank_card, ewallet, crypto
+        type: string
+    type: object
+  model.Project:
+    properties:
+      id:
+        description: |
+          unique project identifier
+        type: string
+      merchant_id:
+        description: project merchant id
+        type: string
+      image:
+        description: url to project logo
+        type: string
+      callback_currency:
+        type: string
+        description: currency to send payment notification
+      callback_protocol:
+        description: >
+          protocol identifier to send payment notification. Now available:
+          default, empty
+        type: string
+      create_invoice_allowed_urls:
+        description: |
+          list of urls rom which you can send a request to create an order
+        items:
+          type: string
+        type: array
+      status:
+        description: >-
+          project status. now available: 0 - new project; 1 - project
+          successfully complete integration tests; 2 - project fail one or more
+          integration test; 3 - project in production; 4 - project deleted
+        type: integer
+      allow_dynamic_notify_urls:
+        description: |
+          is allow send dynamic notification urls in request to create an order
+        type: boolean
+      allow_dynamic_redirect_urls:
+        description: >
+          is allow send dynamic user's redirect urls in request to create an
+          order
+        type: boolean
+      limits_currency:
+        description: currency for amount's limit
+        type: string
+      max_payment_amount:
+        description: |
+          maximal amount allowed for create order
+        type: number
+      min_payment_amount:
+        description: |
+          minimal amount allowed for create order
+        type: number
+      name:
+        description: >-
+          project names map in other language: {"en": "project name", "ru": "имя
+          проекта"}
+        type: object
+      notify_emails:
+        description: >
+          list of emails to send notifications about successfully completed
+          payment operations
+        items:
+          type: string
+        type: array
+      is_products_checkout:
+        description: |
+          is allow create order only with amounts from products list
+        type: boolean
+      secret_key:
+        description: >
+          secret key for create check hash for request about order statuses
+          changes
+        type: string
+      send_notify_email:
+        description: >
+          is allow send notifications about successfully completed payment
+          operations to user's emails
+        type: boolean
+      url_check_account:
+        description: |
+          default url to send request for verification payment data to project
+        type: string
+      url_process_payment:
+        description: >
+          default url to send request for notification about successfully
+          completed payment to project
+        type: string
+      url_redirect_fail:
+        description: |
+          default url to redirect user after failed payment
+        type: string
+      url_redirect_success:
+        description: |
+          default url to redirect user after successfully completed payment
+        type: string
+      products_count:
+        description: count of project's products
+        type: integer
+      created_at:
+        description: date of create merchant in system in unix timestamp
+        type: object
+      updated_at:
+        description: date of update merchant in system in unix timestamp
+        type: object
+      localizations:
+        description: languages for product to localize
+        type: array
+        items:
+          type: string
+      full_description:
+        description: localized full description for product
+        type: object
+        additionalProperties:
+          type: string
+      short_description:
+        description: localized short description for product
+        type: object
+        additionalProperties:
+          type: string
+      cover:
+        type: object
+        properties:
+          images:
+            type: object
+            additionalProperties:
+              type: string
+            example:
+              en: en_image
+              ru: ru_image
+          use_one_for_all:
+            type: boolean
+      virtual_currency:
+        $ref: '#/definitions/model.VirtualCurrency'
+    type: object
+  model.VirtualCurrency:
+    type: object
+    properties:
+      logo:
+        type: string
+      name:
+        type: string
+        additionalProperties:
+          type: string
+        example:
+          en: Some name
+          ru: Какое то имя
+      SuccessMessage:
+        type: string
+        additionalProperties:
+          type: string
+        example:
+          en: Thanks!
+          ru: Спасибо!
+      MinPurchaseValue:
+        type: number
+        format: double
+      MaxPurchaseValue:
+        type: number
+        format: double
+      SellCountType:
+        type: string
+        enum:
+          - fractional
+          - integral
+      Prices:
+        type: array
+        items:
+          $ref: '#/definitions/product.Price'
+  model.ProjectJsonOrderResponse:
+    properties:
+      name:
+        description: |
+          project name
+        type: string
+      url_fail:
+        description: >
+          url to redirect user after failed payment. may be NULL if not set in
+          project settings
+        type: string
+      url_success:
+        description: >
+          url to redirect user after successfully completed payment. may be NULL
+          if not set in project settings
+        type: string
+    type: object
+  payment_system.PaymentResponse:
+    properties:
+      error:
+        type: string
+      redirect_url:
+        type: string
+    type: object
+  taxes.TaxRate:
+    properties:
+      id:
+        type: string
+      country:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      zip:
+        type: string
+      rate:
+        type: number
+    type: object
+    required:
+      - country
+      - rate
+  report_file.CreateReportFileParams:
+    properties:
+      merchant_id:
+        type: string
+      file_type:
+        type: string
+      report_type:
+        type: string
+      template:
+        type: string
+      params:
+        type: object
+    type: object
+    required:
+      - file_type
+      - report_type
+      - params
+  report_file.CreateReportFileResponse:
+    properties:
+      status:
+        type: number
+      message:
+        type: string
+      file_id:
+        type: string
+    type: object
+  payment_method.PaymentMethodParams:
+    properties:
+      currency:
+        type: string
+      terminal_id:
+        type: string
+      secret:
+        type: string
+      secret_callback:
+        type: string
+    type: object
+    required:
+      - currency
+  payment_method.PostProductMethod:
+    properties:
+      name:
+        description: Name of method
+        type: string
+      group_alias:
+        description: Name of group for currency type
+        type: string
+      external_id:
+        description: External id
+        type: string
+      currencies:
+        description: List of currency int codes
+        type: array
+        items:
+          type: integer
+      min_payment_amount:
+        description: Minimal payment amount
+        type: integer
+      max_payment_amount:
+        description: Maximum payment amount
+        type: integer
+      type:
+        description: Type of payment method
+        type: string
+      account_regexp:
+        description: Regular expression for validation
+        type: string
+      is_active:
+        description: Active or not
+        type: boolean
+      payment_system_id:
+        description: Payment system identifier
+        type: string
+      test_settings:
+        description: List of test settings
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/payment_method.PaymentMethodParams'
+      production_settings:
+        description: List of production settings
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/payment_method.PaymentMethodParams'
+    type: object
+    required:
+      - name
+      - external_id
+      - payment_system_id
+  payment_method.PutProductMethod:
+    properties:
+      id:
+        description: Payment method identifier
+        type: string
+      name:
+        description: Name of method
+        type: string
+      group_alias:
+        description: Name of group for currency type
+        type: string
+      external_id:
+        description: External id
+        type: string
+      currencies:
+        description: List of currency int codes
+        type: array
+        items:
+          type: integer
+      min_payment_amount:
+        description: Minimal payment amount
+        type: integer
+      max_payment_amount:
+        description: Maximum payment amount
+        type: integer
+      type:
+        description: Type of payment method
+        type: string
+      account_regexp:
+        description: Regular expression for validation
+        type: string
+      is_active:
+        description: Active or not
+        type: boolean
+      payment_system_id:
+        description: Payment system identifier
+        type: string
+      test_settings:
+        description: List of test settings
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/payment_method.PaymentMethodParams'
+      production_settings:
+        description: List of production settings
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/payment_method.PaymentMethodParams'
+    type: object
+    required:
+      - id
+      - name
+      - external_id
+      - payment_system_id
+  payment_method.UpdatePaymentMethodParams:
+    properties:
+      id:
+        description: Payment method identifier
+        type: string
+      payment_system_id:
+        description: Payment system identifier
+        type: string
+      params:
+        description: List of settings
+        type: object
+        $ref: '#/definitions/payment_method.PaymentMethodParams'
+    type: object
+    required:
+      - id
+      - payment_system_id
+      - params
+  onboarding.Contacts.Authorized:
+    properties:
+      name:
+        description: person full name
+        type: string
+      email:
+        description: person email
+        type: string
+      phone:
+        description: person contact phone
+        type: string
+      position:
+        description: person position in company
+        type: string
+    required:
+      - name
+      - email
+      - phone
+      - position
+  onboarding.Contacts.Technical:
+    properties:
+      name:
+        description: person full name
+        type: string
+      email:
+        description: person email
+        type: string
+      phone:
+        description: person contact phone
+        type: string
+    required:
+      - name
+      - email
+      - phone
+  onboarding.Company:
+    properties:
+      name:
+        type: string
+        description: name
+      alternative_name:
+        type: string
+        description: brand
+      website:
+        type: string
+        description: website url
+      country:
+        type: string
+        description: destination country 2 letter code by ISO 3166-1
+      state:
+        type: string
+        description: destination state or region
+      zip:
+        type: string
+        description: destination zip code
+      city:
+        type: string
+        description: destination city
+      address:
+        type: string
+        description: destination address
+      address_additional:
+        type: string
+        description: additional company address
+      registration_number:
+        type: string
+        description: company registration number
+      tax_id:
+        type: string
+        description: company tax identifier
+    required:
+      - name
+      - alternative_name
+      - website
+      - country
+      - state
+      - zip
+      - city
+      - address
+  onboarding.Contacts:
+    properties:
+      authorized:
+        description: object contain information about merchant authorized person contacts
+        $ref: '#/definitions/onboarding.Contacts.Authorized'
+      technical:
+        description: object contain information about contacts of merchant tecnican
+        $ref: '#/definitions/onboarding.Contacts.Technical'
+    required:
+      - authorized
+      - technical
+  onboarding.Banking:
+    properties:
+      name:
+        description: bank name
+        type: string
+      address:
+        description: bank address
+        type: string
+      account_number:
+        description: merchant accounting number in bank
+        type: string
+      swift:
+        description: bank SWIFT code
+        type: string
+      details:
+        description: any details abount merchant accounting bank
+        type: string
+      correspondent_account:
+        description: bank correspondent account
+        type: string
+    required:
+      - name
+      - address
+      - account_number
+      - swift
+  onboarding.Merchant.LastPayout:
+    properties:
+      date:
+        description: date in unix timestamp when was last payout to merchant
+        type: integer
+      amount:
+        description: last payout amount to merchant
+        type: number
+  onboarding.Tariff.Item:
+    properties:
+      method_percent_fee:
+        description: payment method fee in percents
+        type: number
+      method_fixed_fee:
+        description: payment method fixed fee in particular currency
+        type: number
+      method_fixed_fee_currency:
+        type: string
+        description: currency of payment method fixed fee.  letters code by ISO 4217
+      is_paid_by_merchant:
+        description: if true than commission will to take from merchant
+        type: boolean
+  onboarding.Tariff.Payment:
+    properties:
+      min_amount:
+        description: min payment amount
+        type: number
+      max_amount:
+        description: max payment amount
+        type: number
+      method_name:
+        type: string
+        description: payment method name
+      method_percent_fee:
+        description: payment method fee in percents
+        type: number
+      method_fixed_fee:
+        description: payment method fixed fee in particular currency
+        type: number
+      method_fixed_fee_currency:
+        type: string
+        description: currency of payment method fixed fee.  letters code by ISO 4217
+      ps_percent_fee:
+        type: number
+        description: paysuper fee in percents
+      ps_fixed_fee:
+        type: number
+        description: paysuper fixed fee in particular currency
+      ps_fixed_fee_currency:
+        type: string
+        description: currency of paysuper fixed fee.  letters code by ISO 4217
+      merchant_home_region:
+        description: merchant region name
+        type: string
+      payer_regions:
+        description: payer region name
+        type: string
+  onboarding.Tariff:
+    properties:
+      payment:
+        description: payment tariffs
+        $ref: '#/definitions/onboarding.Tariff.Payment'
+      chargeback:
+        description: chargeback tariff
+        $ref: '#/definitions/onboarding.Tariff.Item'
+      payout:
+        description: payout tariff
+        $ref: '#/definitions/onboarding.Tariff.Item'
+  onboarding.Tariff.Set.Request:
+    properties:
+      home_region:
+        type: string
+        description: >-
+          merchant home region name. possible values: asia, europe,
+          latin_america, russia_and_cis, worldwide
+  onboarding.Merchant.user:
+    properties:
+      id:
+        description: user identifier
+        type: string
+      email:
+        description: user email
+        type: string
+      first_name:
+        description: user first name
+        type: string
+      last_name:
+        description: user last name
+        type: string
+      profile_id:
+        description: user primary onboarding profile identifier
+        type: string
+      registration_date:
+        description: time when user email was confirm
+        $ref: '#/definitions/ProtobufTimestamp'
+  onboarding.Merchant:
+    properties:
+      id:
+        description: merchant unique identifier in system
+        type: string
+      company:
+        description: merchant company info
+        $ref: '#/definitions/onboarding.Company'
+      contacts:
+        description: contain information about contacts of merchant
+        $ref: '#/definitions/onboarding.Contacts'
+      banking:
+        description: contain information about merchan bank
+        $ref: '#/definitions/onboarding.Banking'
+      status:
+        description: merchant status in system
+        type: integer
+      created_at:
+        description: date of create merchant in system in unix timestamp
+        type: integer
+      updated_at:
+        description: date of update merchant in system in unix timestamp
+        type: integer
+      first_payment_at:
+        description: >-
+          date when was first payment by some merchant project in system in unix
+          timestamp
+        type: integer
+      last_payout:
+        description: contain information about last payout to merchant
+        $ref: '#/definitions/onboarding.Merchant.LastPayout'
+      is_signed:
+        description: agreement between merchant and system fully signed
+        type: boolean
+      payment_methods:
+        description: list of payment methods activated to merchant
+        type: object
+      agreement_type:
+        description: >-
+          type of agreement which merchant selected. possible values: 0 - type
+          not select; 1 - paper agreement; 2 - e-sign agreement;
+        type: integer
+      agreement_sent_via_mail:
+        description: mark agreement as sent via post
+        type: boolean
+      mail_tracking_link:
+        description: link to tracking package with agreement in post
+        type: string
+      signature_request:
+        description: object contained signatire request data
+        $ref: '#/definitions/onboarding.merchant.signatureRequest'
+      tariff:
+        description: tariff identifier
+        type: string
+      agreement_template:
+        description: license agreement template identifier in hellosign
+        type: string
+      received_date:
+        description: time when merchant owner sign license agreement
+        $ref: '#/definitions/ProtobufTimestamp'
+      status_last_updated_at:
+        description: time when merchant status was updated at last time
+        $ref: '#/definitions/ProtobufTimestamp'
+      has_projects:
+        description: true is merchant has created projects
+        type: boolean
+      user:
+        description: >-
+          object contain main information about merchant owner from primary
+          onboarding profile
+        $ref: '#/definitions/onboarding.Merchant.user'
+  onboarding.Merchant.ChangeStatus:
+    properties:
+      status:
+        description: >-
+          new status identifier of merchant. possible statuses: 5 - deleted, 6 -
+          rejected
+        type: integer
+      message:
+        description: string description to new status
+        type: string
+    required:
+      - status
+  payment_method.ChangePaymentMethodResponse:
+    properties:
+      status:
+        description: status as result of operation
+        type: integer
+      message:
+        description: string description for error message
+        type: string
+    required:
+      - status
+  payment_method.ChangePaymentMethodParamsResponse:
+    properties:
+      status:
+        description: status as result of operation
+        type: integer
+      message:
+        description: string description for error message
+        type: string
+    required:
+      - status
+  price_group.CurrencyRegion:
+    properties:
+      id:
+        description: price group identifier
+        type: string
+      region:
+        description: name of region
+        type: string
+      currency:
+        description: code of currency
+        type: string
+  price_group.CurrencyListResponse:
+    properties:
+      regions:
+        description: list of currency
+        $ref: '#/definitions/price_group.Regions'
+  price_group.Regions:
+    properties:
+      currency:
+        description: name of currency
+        type: string
+      region:
+        description: list of regions
+        $ref: '#/definitions/price_group.Region'
+  price_group.Region:
+    properties:
+      region:
+        description: name of region
+        type: string
+      country:
+        description: list of countries
+        type: array
+  price_group.RecommendedPriceResponse:
+    properties:
+      recommended_price:
+        description: list of price
+        $ref: '#/definitions/price_group.RecommendedPrice'
+  price_group.RecommendedPrice:
+    properties:
+      region:
+        description: name of region
+        type: string
+      currency:
+        description: name of currency
+        type: string
+      amount:
+        description: recommended amount
+        type: number
+  price_group.RecommendedPriceTableResponse:
+    properties:
+      ranges:
+        type: array
+        description: list of price
+        $ref: '#/definitions/price_group.RecommendedPriceTableItem'
+  price_group.RecommendedPriceTableItem:
+    properties:
+      from:
+        type: integer
+        description: start point of range
+        example: 0.99
+      to:
+        type: integer
+        description: end point of range
+        example: 1.99
+  onboarding.Merchant.Notification.Statuses:
+    properties:
+      from:
+        description: status before changes
+        type: integer
+      to:
+        description: status after changes
+        type: integer
+  onboarding.Merchant.Notification:
+    properties:
+      id:
+        description: notification unique identifier in system
+        type: string
+      title:
+        description: notification title
+        type: string
+      message:
+        description: notification message
+        type: string
+      merchant_id:
+        description: merchant identifier who must recieve notification
+        type: string
+      user_id:
+        description: user identifier who send notification
+        type: string
+      is_system:
+        description: notification generated automaticaly
+        type: boolean
+      is_read:
+        description: receiver read notification
+        type: boolean
+      statuses:
+        description: >-
+          statuses "from -> to" for system notification. for not system
+          notification this field will be equal NULL
+        $ref: '#/definitions/onboarding.Merchant.Notification.Statuses'
+      created_at:
+        description: dete of create notification in unix timestamp format
+        type: integer
+      updated_at:
+        description: dete of last update notification in unix timestamp format
+        type: integer
+  onboarding.Merchant.Notifications:
+    properties:
+      count:
+        description: total number of filtered notifications
+        type: integer
+      items:
+        description: list of filtered notifications
+        $ref: '#/definitions/onboarding.Merchant.Notification'
+  onboarding.Merchant.Notification.CreateRequest:
+    properties:
+      title:
+        description: notification title
+        type: string
+      message:
+        description: notification message
+        type: string
+    required:
+      - title
+      - message
+  order.Refund:
+    properties:
+      id:
+        description: refund unique identifier
+        type: string
+      order_id:
+        description: order unique identifier for which the refund was created
+        type: string
+      external_id:
+        description: refund unique identifier on payment system side
+        type: string
+      amount:
+        description: refund amount
+        type: number
+      creator_id:
+        description: user identifier who created refund
+        type: string
+      reason:
+        description: reason to refund
+        type: string
+      currency:
+        description: refund currency
+        type: string
+      status:
+        description: >-
+          refund status. available statuses: 0 - refund was created; 1 - refund
+          rejected on payment system side; 2 - refund in processing on payment
+          system side; 3 - refund successfully completed;
+        type: integer
+      created_at:
+        description: dete of create notification in unix timestamp format
+        type: integer
+      updated_at:
+        description: dete of last update notification in unix timestamp format
+        type: integer
+  order.Refund.CreateRequest:
+    properties:
+      amount:
+        description: refund amount
+        type: number
+      reason:
+        description: reason to refund
+        type: string
+    required:
+      - amount
+  onboarding.Merchant.ChangeAgreementDataRequest:
+    properties:
+      has_psp_signature:
+        description: flag for set peysuper signature on the agreement
+        type: boolean
+      has_merchant_signature:
+        description: flag for set merchant signature on the agreement
+        type: boolean
+  onboarding.Merchant.PrintableAgreementData.Metadata:
+    properties:
+      name:
+        description: agreement file name
+        type: string
+      extension:
+        description: agreement file extension
+        type: string
+      content_type:
+        description: agreement file content type
+        type: string
+      size:
+        description: agreement file size in Kb
+        type: integer
+    required:
+      - name
+      - extension
+      - content_type
+      - size
+  onboarding.Merchant.PrintableAgreementData.Response:
+    properties:
+      url:
+        description: link to download printable agreement
+        type: string
+      metadata:
+        description: agreement file metadata
+        $ref: '#/definitions/onboarding.Merchant.PrintableAgreementData.Metadata'
+  onboarding.Merchant.ChangeAgreementType.Request:
+    properties:
+      agreement_type:
+        description: >-
+          type of agreement which merchant selected. possible values: 1 - paper
+          agreement; 2 - e-sign agreement;
+        type: integer
+    required:
+      - agreement_type
+  projects.CreateRequest:
+    properties:
+      merchant_id:
+        description: project merchant id
+        type: string
+      image:
+        description: url to project logo
+        type: string
+      callback_currency:
+        type: string
+        description: currency to send payment notification
+      callback_protocol:
+        description: >-
+          protocol identifier to send payment notification. Now available:
+          default, empty
+        type: string
+      create_invoice_allowed_urls:
+        description: list of urls rom which you can send a request to create an order
+        items:
+          type: string
+        type: array
+      allow_dynamic_notify_urls:
+        description: is allow send dynamic notification urls in request to create an order
+        type: boolean
+      allow_dynamic_redirect_urls:
+        description: >-
+          is allow send dynamic user's redirect urls in request to create an
+          order
+        type: boolean
+      limits_currency:
+        description: currency for amount's limit
+        type: string
+      max_payment_amount:
+        description: maximal amount allowed for create order
+        type: number
+      min_payment_amount:
+        description: minimal amount allowed for create order
+        type: number
+      name:
+        description: >-
+          project names map in other language: {"en": "project name", "ru": "имя
+          проекта"}
+        type: object
+      notify_emails:
+        description: >-
+          list of emails to send notifications about successfully completed
+          payment operations
+        items:
+          type: string
+        type: array
+      is_products_checkout:
+        description: is allow create order only with amounts from products list
+        type: boolean
+      secret_key:
+        description: >-
+          secret key for create check hash for request about order statuses
+          changes
+        type: string
+      send_notify_email:
+        description: >-
+          is allow send notifications about successfully completed payment
+          operations to user's emails
+        type: boolean
+      url_check_account:
+        description: default url to send request for verification payment data to project
+        type: string
+      url_process_payment:
+        description: >
+          default url to send request for notification about successfully
+          completed payment to project
+        type: string
+      url_redirect_fail:
+        description: default url to redirect user after failed payment
+        type: string
+      url_redirect_success:
+        description: default url to redirect user after successfully completed payment
+        type: string
+  order.BillingAddress:
+    properties:
+      country:
+        description: The user's country. Two-letter language code by ISO 3166-1, in lowercase.
+        type: string
+      city:
+        description: The user's city.
+        type: string
+      postal_code:
+        description: The user's postal code.
+        type: string
+      state:
+        description: The user's state code by ISO 3166-2.
+        type: string
+  token.TokenRequest.ValueVerified:
+    properties:
+      value:
+        description: The parameter value.
+        type: string
+      verified:
+        description: Whether the value has been verified on the merchant side.
+        type: boolean
+    required:
+      - value
+  token.TokenRequest.Value:
+    properties:
+      value:
+        description: The parameter value.
+        type: string
+    required:
+      - value
+  token.TokenRequest.User:
+    properties:
+      id:
+        description: The user unique identifier on the merchant side.
+        type: string
+      email:
+        description: The user's email address.
+        $ref: '#/definitions/token.TokenRequest.ValueVerified'
+      phone:
+        description: The user's phone number.
+        $ref: '#/definitions/token.TokenRequest.ValueVerified'
+      name:
+        description: The user's name.
+        $ref: '#/definitions/token.TokenRequest.Value'
+      ip:
+        description: The user's IP address.
+        $ref: '#/definitions/token.TokenRequest.Value'
+      locale:
+        description: The user's locale name. Two-letter language code by ISO 639-1, in lowercase.
+        $ref: '#/definitions/token.TokenRequest.Value'
+      address:
+        description: Details of the user's address.
+        $ref: '#/definitions/order.BillingAddress'
+      metadata:
+        description: >-
+          A string value description that you can attach to the user object. 
+          It can be useful for storing additional information about your customer payment.
+        type: object
+    required:
+      - id
+  token.TokenRequest.Settings.ReturnUrl:
+    properties:
+      success:
+        description: The redirect URL for the successful payment.
+        type: string
+      fail:
+        description: The redirect URL for the failed payment.
+        type: string
+  token.TokenRequest.Settings:
+    properties:
+      project_id:
+        description: The ID of the Project found in your merchant account in the PaySuper Dashboard.
+        type: string
+      return_url:
+        description: >-
+          Redirect URLs for successful and failed payments. 
+          Enable the dynamic notify URLs option in the Project Settings to use this field.
+        $ref: '#/definitions/token.TokenRequest.Settings.ReturnUrl'
+      currency:
+        description: >-
+          The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. 
+          If provided, the amount will be processed in this currency. 
+          It is required for a simple checkout payment.
+        type: string
+      amount:
+        description: The order amount as a positive number. It is required for a simple checkout payment.
+        type: number
+      products_ids:
+        description: >-
+          The list of unique identifiers of Products being in the Project.
+          It is required if a payment type is equal to 'product' or 'key'.
+        type: array
+        items:
+          type: string
+      description:
+        description: The arbitrary order description.
+        type: string
+      type:
+        description: >-
+          The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type, 
+          as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type.
+        type: string
+        enum:
+          - simple
+          - product
+          - key
+      metadata:
+        description: >-
+          A string value description that you can attach to the user object. 
+          It can be useful for storing additional information about your customer payment.
+        type: object
+    required:
+      - project_id
+      - type
+  token.TokenRequest:
+    properties:
+      user:
+        description: Your customer data.
+        $ref: '#/definitions/token.TokenRequest.User'
+      settings:
+        description: The payment data.
+        $ref: '#/definitions/token.TokenRequest.Settings'
+    required:
+      - user
+      - settings
+  token.TokenResponse:
+    properties:
+      token:
+        description: A secure string which contains encrypted information about your customer and sales option data.
+        type: string
+      payment_form_url:
+        description: The PaySuper-hosted URL of payment form.
+        type: string
+    required:
+      - token
+  product.Price:
+    properties:
+      amount:
+        description: price
+        type: number
+      currency:
+        description: currency
+        type: string
+      region:
+        description: region
+        type: string
+      is_virtual_currency:
+        description: virtual currency flag
+        type: boolean
+  product.PutPrice:
+    properties:
+      id:
+        description: id of product
+        type: string
+      prices:
+        description: list of prices
+        type: array
+        items:
+          $ref: '#/definitions/product.Price'
+          type: object
+    required:
+      - id
+      - prices
+  userProfile.personal:
+    properties:
+      first_name:
+        description: user first name
+        type: string
+      last_name:
+        description: user last name
+        type: string
+      position:
+        description: user position in company
+        type: string
+  userProfile.help:
+    properties:
+      product_promotion_and_development:
+        description: User need help with product promotion and development
+        type: boolean
+      released_game_promotion:
+        description: User need help with games promotion that have already been released
+        type: boolean
+      international_sales:
+        description: User need help with international sales
+        type: boolean
+      other:
+        description: User need help with other problems
+        type: boolean
+  RangeInt:
+    properties:
+      from:
+        description: range start value
+        type: integer
+      to:
+        description: range end value
+        type: integer
+  userProfile.company.monetization:
+    properties:
+      paid_subscription:
+        description: company monetisation from buy paid subscription by company users
+        type: boolean
+      in_game_advertising:
+        description: company monetisation from buy in game advertising
+        type: boolean
+      in_game_purchases:
+        description: company monetisation from buy in game purchases by company users
+        type: boolean
+      premium_access:
+        description: company monetisation from buy premium access by company users
+        type: boolean
+      other:
+        description: company monetisation from other activities
+        type: boolean
+  userProfile.company.platforms:
+    properties:
+      pc_mac:
+        description: PC/MacOs
+        type: boolean
+      game_console:
+        description: game console
+        type: boolean
+      mobile_device:
+        description: mobile device
+        type: boolean
+      web_browser:
+        description: web browsers
+        type: boolean
+      other:
+        description: other platforms
+        type: boolean
+  userProfile.company:
+    properties:
+      company_name:
+        description: company name
+        type: string
+      website:
+        description: company website url
+        type: string
+      annual_income:
+        description: company annual income
+        $ref: '#/definitions/RangeInt'
+      number_of_employees:
+        description: company number of employees
+        $ref: '#/definitions/RangeInt'
+      kind_of_activity:
+        description: >-
+          company kind of activity. available values:
+          develop_and_publish_your_games, publish_games_of_other_companies,
+          publish_your_games_through_other_publishers, other
+        type: string
+      monetization:
+        description: company monetization activities
+        $ref: '#/definitions/userProfile.company.monetization'
+      platforms:
+        description: platforms
+        $ref: '#/definitions/userProfile.company.platforms'
+  ProtobufTimestamp:
+    properties:
+      seconds:
+        description: time in unix timestamp
+        type: integer
+      nanos:
+        description: time nano seconds
+        type: integer
+  userProfile.request:
+    properties:
+      personal:
+        description: object contain personal information about user
+        $ref: '#/definitions/userProfile.personal'
+      help:
+        description: object contain information about user problem which need help
+        $ref: '#/definitions/userProfile.help'
+      company:
+        description: object contain information about user company
+        $ref: '#/definitions/userProfile.company'
+      last_step:
+        description: identifier of wizard last step which user ended
+        type: string
+  userProfile.response:
+    properties:
+      personal:
+        description: object contain personal information about user
+        $ref: '#/definitions/userProfile.personal'
+      help:
+        description: object contain information about user problem which need help
+        $ref: '#/definitions/userProfile.help'
+      company:
+        description: object contain information about user company
+        $ref: '#/definitions/userProfile.company'
+      last_step:
+        description: identifier of wizard last step which user ended
+        type: string
+      centrifugo_token:
+        description: user authorisation token to connect to centrifigo channel
+        type: string
+      created_at:
+        description: time of create user profile
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: time of last update user profile
+        $ref: '#/definitions/ProtobufTimestamp'
+  pageReview.request:
+    properties:
+      review:
+        description: user review about page
+        type: string
+      page_id:
+        description: >-
+          page identifier. now allowed values: primary_onboarding,
+          merchant_onboarding
+        type: string
+    required:
+      - review
+      - page_id
+  user.confirmEmail.request:
+    properties:
+      token:
+        description: email confirmation token
+        type: string
+    required:
+      - token
+  onboarding.merchant.fillStatus.Steps:
+    properties:
+      company:
+        type: boolean
+        description: step company basic info complete
+      contacts:
+        type: boolean
+        description: step company contacts complete
+      banking:
+        type: boolean
+        description: step company banking complete
+      tariff:
+        type: boolean
+        description: step tariff complete
+  onboarding.merchant.fillStatus:
+    properties:
+      status:
+        type: string
+        description: 'fill status. possible values: draft, life'
+      steps:
+        description: object contain information about fill status different steps
+        $ref: '#/definitions/onboarding.merchant.fillStatus.Steps'
+      complete_steps_count:
+        type: integer
+        description: count of complete steps
+  onboarding.merchant.signatureRequest:
+    properties:
+      signer_type:
+        type: integer
+        description: >-
+          type of signer which request a signing license agreement. possible
+          values: 0 - merchant owner; 1 - paysuper admin
+    required:
+      - signer_type
+  onboarding.merchant.signatureResponse:
+    properties:
+      sign_url:
+        type: string
+        description: URL of the signature page to display in the embedded iFrame
+      expires_at:
+        description: time of create user profile
+        $ref: '#/definitions/ProtobufTimestamp'
+  onboarding.cost.payment.system:
+    properties:
+      id:
+        description: unique identifier
+        type: string
+      name:
+        description: payment method name
+        type: string
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      percent:
+        description: percent fee
+        type: number
+      fix_amount:
+        description: fixed fee in particular currency
+        type: number
+      fix_amount_currency:
+        description: currency of fixed fee.  letters code by ISO 4217
+        type: string
+      created_at:
+        $ref: '#/definitions/ProtobufTimestamp'
+        description: date of create cost record
+      updated_at:
+        $ref: '#/definitions/ProtobufTimestamp'
+        description: date of create cost record
+      is_active:
+        description: true is cost record is active
+        type: boolean
+  onboarding.cost.payment.system.create:
+    properties:
+      name:
+        description: payment method name
+        type: string
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      percent:
+        description: percent fee
+        type: number
+      fix_amount:
+        description: fixed fee in particular currency
+        type: number
+      fix_amount_currency:
+        description: currency of fixed fee.  letters code by ISO 4217
+        type: string
+    required:
+      - name
+      - region
+      - percent
+      - fix_amount_currency
+  onboarding.cost.payment.system.all:
+    properties:
+      items:
+        description: array of system payment costs
+        type: array
+        items:
+          $ref: '#/definitions/onboarding.cost.payment.system'
+  onboarding.cost.money_back.system.all:
+    properties:
+      items:
+        description: array of system money back costs
+        type: array
+        items:
+          $ref: '#/definitions/onboarding.cost.money_back.system'
+  onboarding.cost.payment.merchant:
+    properties:
+      id:
+        description: unique identifier
+        type: string
+      merchant_id:
+        description: merchant identifier
+        type: string
+      name:
+        description: payment method name
+        type: string
+      payout_currency:
+        description: payout currency. 3 lettre code by ISO 4217
+        type: string
+      min_amount:
+        description: payment min amount in payout currency
+        type: number
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      method_percent:
+        description: payment method fee in percents
+        type: number
+      method_fix_amount:
+        description: payment method fixed fee in particular currency
+        type: number
+      method_fix_amount_currency:
+        description: currency of payment method fixed fee. 3-letters code by ISO 4217
+        type: string
+      ps_percent:
+        description: paysuper fixed fee in particular currency
+        type: number
+      ps_fixed_fee:
+        description: paysuper fixed fee in particular currency
+        type: number
+      ps_fixed_fee_currency:
+        description: currency of paysuper fixed fee. 3-letters code by ISO 4217
+        type: string
+      created_at:
+        description: time when retes record was created for merchant
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: time when retes record was updated at last time for merchant
+        $ref: '#/definitions/ProtobufTimestamp'
+      is_active:
+        description: true is rates record active for merchant
+        type: boolean
+  onboarding.cost.payment.merchant.create:
+    properties:
+      name:
+        description: payment method name
+        type: string
+      payout_currency:
+        description: payout currency. 3 lettre code by ISO 4217
+        type: string
+      min_amount:
+        description: payment min amount in payout currency
+        type: number
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      method_percent:
+        description: payment method fee in percents
+        type: number
+      method_fix_amount:
+        description: payment method fixed fee in particular currency
+        type: number
+      method_fix_amount_currency:
+        description: currency of payment method fixed fee. 3-letters code by ISO 4217
+        type: string
+      ps_percent:
+        description: paysuper fixed fee in particular currency
+        type: number
+      ps_fixed_fee:
+        description: paysuper fixed fee in particular currency
+        type: number
+      ps_fixed_fee_currency:
+        description: currency of paysuper fixed fee. 3-letters code by ISO 4217
+        type: string
+    required:
+      - name
+      - payout_currency
+      - min_amount
+      - region
+      - method_percent
+      - method_fix_amount_currency
+      - ps_percent
+      - ps_fixed_fee_currency
+  onboarding.cost.money_back.system:
+    properties:
+      id:
+        description: unique identifier
+        type: string
+      name:
+        description: payment method name
+        type: string
+      payout_currency:
+        description: payout currency. 3 lettre code by ISO 4217
+        type: string
+      undo_reason:
+        description: 'money back type. available values: refund, reversal, chargeback'
+        type: string
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      days_from:
+        description: number of days after payment operation
+        type: number
+      payment_stage:
+        description: payment stage
+        type: number
+      percent:
+        description: payment method fee in percents
+        type: number
+      fix_amount:
+        description: payment method fixed fee
+        type: number
+      created_at:
+        description: time when retes record was created
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: time when retes record was updated at last time
+        $ref: '#/definitions/ProtobufTimestamp'
+      is_active:
+        description: true is rates record is active
+        type: boolean
+  onboarding.cost.money_back.system.create:
+    properties:
+      name:
+        description: payment method name
+        type: string
+      payout_currency:
+        description: payout currency. 3 lettre code by ISO 4217
+        type: string
+      undo_reason:
+        description: 'money back type. available values: refund, reversal, chargeback'
+        type: string
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      days_from:
+        description: number of days after payment operation
+        type: number
+      payment_stage:
+        description: payment stage
+        type: number
+      percent:
+        description: payment method fee in percents
+        type: number
+      fix_amount:
+        description: payment method fixed fee
+        type: number
+    required:
+      - name
+      - payout_currency
+      - undo_reason
+      - region
+  onboarding.cost.money_back.merchant:
+    properties:
+      id:
+        description: unique identifier
+        type: string
+      merchant_id:
+        description: merchant identifier
+        type: string
+      name:
+        description: payment method name
+        type: string
+      payout_currency:
+        description: payout currency. 3 lettre code by ISO 4217
+        type: string
+      undo_reason:
+        description: 'money back type. available values: refund, reversal, chargeback'
+        type: string
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      days_from:
+        description: number of days after payment operation
+        type: number
+      payment_stage:
+        description: payment stage
+        type: number
+      percent:
+        description: payment method fee in percents
+        type: number
+      fix_amount:
+        description: payment method fixed fee in particular currency
+        type: number
+      fix_amount_currency:
+        description: currency of payment method fixed fee.  letters code by ISO 4217
+        type: string
+      is_paid_by_merchant:
+        description: >-
+          if true than commission will to take from merchant when money back
+          operation will be processing
+        type: boolean
+      created_at:
+        description: time when retes record was created
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: time when retes record was updated at last time
+        $ref: '#/definitions/ProtobufTimestamp'
+      is_active:
+        description: true is rates record is active
+        type: boolean
+  onboarding.cost.money_back.merchant.create:
+    properties:
+      name:
+        description: payment method name
+        type: string
+      payout_currency:
+        description: payout currency. 3 lettre code by ISO 4217
+        type: string
+      undo_reason:
+        description: 'money back type. available values: refund, reversal, chargeback'
+        type: string
+      region:
+        description: region name
+        type: string
+      country:
+        description: two-letter country code by ISO 3166-1
+        type: string
+      days_from:
+        description: number of days after payment operation
+        type: number
+      payment_stage:
+        description: payment stage
+        type: number
+      percent:
+        description: payment method fee in percents
+        type: number
+      fix_amount:
+        description: payment method fixed fee in particular currency
+        type: number
+      fix_amount_currency:
+        description: currency of payment method fixed fee.  letters code by ISO 4217
+        type: string
+      is_paid_by_merchant:
+        description: >-
+          if true than commission will to take from merchant when money back
+          operation will be processing
+        type: boolean
+    required:
+      - name
+      - payout_currency
+      - undo_reason
+      - region
+      - percent
+      - fix_amount_currency
+  onboarding.cost.payment.merchant.all:
+    properties:
+      items:
+        description: array of merchant payment costs
+        type: array
+        items:
+          $ref: '#/definitions/onboarding.cost.payment.merchant'
+  onboarding.cost.money_back.merchant.all:
+    properties:
+      items:
+        description: array of merchant payment costs
+        type: array
+        items:
+          $ref: '#/definitions/onboarding.cost.money_back.merchant'
+  dashboard.main_reports.chart.float:
+    properties:
+      label:
+        description: >-
+          point label. for example: if period to get report equal month then
+          point label will be equal one day
+        type: string
+      value:
+        description: point value
+        type: number
+  dashboard.main_reports.chart.integer:
+    properties:
+      label:
+        description: >-
+          point label. for example: if period to get report equal month then
+          point label will be equal one day
+        type: string
+      value:
+        description: point value
+        type: integer
+  dashboard.main_reports.amount_with_chart:
+    properties:
+      amount_current:
+        description: total amount calculated for current report
+        type: number
+      amount_previous:
+        description: total amount calculated for previous report
+        type: number
+      currency:
+        description: >-
+          report amount currency.  three-letter ISO 4217 currency code, in
+          uppercase.
+        type: string
+      chart:
+        description: array contain objects for chart drawing
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.main_reports.chart.float'
+  dashboard.main_reports.total_transactions:
+    properties:
+      count_current:
+        description: total count of transactions by current period
+        type: integer
+      count_previous:
+        description: total count of transactions by previous period
+        type: integer
+      chart:
+        description: array contain objects for chart drawing
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.main_reports.chart.integer'
+  dashboard.main_reports:
+    properties:
+      gross_revenue:
+        description: object contain information for block gross revenue
+        $ref: '#/definitions/dashboard.main_reports.amount_with_chart'
+      vat:
+        description: object contain information for block VAT
+        $ref: '#/definitions/dashboard.main_reports.amount_with_chart'
+      total_transactions:
+        description: object contain information for block total transactions
+        $ref: '#/definitions/dashboard.main_reports.total_transactions'
+      arpu:
+        description: object contain information for block ARPU
+        $ref: '#/definitions/dashboard.main_reports.amount_with_chart'
+  dashboard.revenue_dynamics.item:
+    properties:
+      label:
+        description: >-
+          point label. for example: if period to get report equal month then
+          point label will be equal one day
+        type: string
+      amount:
+        description: revenue amount for label
+        type: number
+      count:
+        description: transactions count for label
+        type: integer
+  dashboard.revenue_dynamics:
+    properties:
+      currency:
+        description: 'amount currency. three-letter ISO 4217 currency code, in uppercase.'
+        type: string
+      items:
+        description: array of points
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.revenue_dynamics.item'
+  dashboard.base.revenue_by_country.top:
+    properties:
+      country:
+        description: >-
+          country, two-letter uppercase country code in ISO 3166-1 alpha-2
+          format
+        type: string
+      amount:
+        description: amount by country
+        type: number
+  dashboard.base.chart:
+    properties:
+      label:
+        description: >-
+          point label. for example: if period to get report equal month then
+          point label will be equal one day
+        type: string
+      amount:
+        description: amount for label
+        type: number
+  dashboard.base.revenue_by_country:
+    properties:
+      top:
+        description: >-
+          array of objects with information about top 5 countries by revenue by
+          period
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.base.revenue_by_country.top'
+      total_current:
+        description: total revenue amount by current period
+        type: number
+      total_previous:
+        description: total revenue amount by previous period
+        type: number
+      currency:
+        description: 'amount currency. three-letter ISO 4217 currency code, in uppercase.'
+        type: string
+      chart:
+        description: array contain objects for chart drawing
+        $ref: '#/definitions/dashboard.base.chart'
+  dashboard.base.sales_today.top.item:
+    properties:
+      name:
+        description: sold item name
+        type: string
+      count:
+        description: item total count which were sold in period
+        type: integer
+  dashboard.base.sales_today:
+    properties:
+      top:
+        description: >-
+          array of objects with information about top 5 merchant products
+          (projects) which were sold in period
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.base.sales_today.top.item'
+      total_current:
+        description: items total count which were sold by chosen period
+        type: integer
+      total_previous:
+        description: items total count which were sold by previous period to chosen period
+        type: integer
+      chart:
+        description: array contain objects for chart drawing
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.main_reports.chart.integer'
+  dashboard.base.sources.top.item:
+    properties:
+      name:
+        description: url of issuer
+        type: string
+      count:
+        description: total count
+        type: integer
+  dashboard.base.sources:
+    properties:
+      top:
+        description: array of objects with information about top 5 issuers url
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.base.sources.top.item'
+      total_current:
+        description: transactions total count by chosen period
+        type: integer
+      total_previous:
+        description: transactions total count by previous period to chosen period
+        type: integer
+      chart:
+        description: array contain objects for chart drawing
+        type: array
+        items:
+          $ref: '#/definitions/dashboard.main_reports.chart.integer'
+  dashboard.base:
+    properties:
+      revenue_by_country:
+        description: object contain information for block revenue by country
+        $ref: '#/definitions/dashboard.base.revenue_by_country'
+      sales_today:
+        description: object contain information for block sales today
+        $ref: '#/definitions/dashboard.base.sales_today'
+      sources:
+        description: object contain information for block sources
+        $ref: '#/definitions/dashboard.base.sources'
+  merchant_balance:
+    properties:
+      merchant_id:
+        type: string
+        description: merchant identificator
+      currency:
+        type: string
+        description: currency
+      debit:
+        type: number
+        description: balance debit
+      credit:
+        type: string
+        description: balance credit
+      rolling_reserve:
+        type: number
+        description: current rooling reserve balance
+      total:
+        type: number
+        description: total amount
+      created_at:
+        type: string
+        description: last update date
+  billingPayoutDocument:
+    type: object
+    properties:
+      id:
+        type: string
+        description: document id
+      source_id:
+        type: array
+        items:
+          type: string
+        description: royalty reports id
+      transaction:
+        type: string
+        description: transaction id
+      total_fees:
+        type: number
+        format: double
+        description: total_fees
+      balance:
+        type: number
+        format: double
+        description: amount
+      currency:
+        type: string
+        description: currency
+      status:
+        type: string
+        description: 'status, one of skip pending in_progress paid canceled failed'
+      description:
+        type: string
+        description: description
+      destination:
+        $ref: '#/definitions/onboarding.Banking'
+        description: merchant banking details
+      created_at:
+        type: string
+        format: date-time
+        description: creation date
+      updated_at:
+        type: string
+        format: date-time
+        description: update date
+      arrival_date:
+        type: string
+        format: date-time
+        description: arrival date
+      failure_code:
+        type: string
+        description: >-
+          failure code, one of account_closed account_frozen account_restricted
+          destination_bank_invalid could_not_process declined insufficient_funds
+          invalid_account_number incorrect_account_holder_name invalid_currency
+      failure_message:
+        type: string
+        description: failure message
+      failure_transaction:
+        type: string
+        description: failure transaction
+      merchant_id:
+        type: string
+        description: merchant identificator
+      signature_data:
+        $ref: '#/definitions/billingPayoutDocumentSignatureData'
+        description: hellosign signature data
+      has_merchant_signature:
+        type: boolean
+        format: boolean
+        description: is document signed by merchant
+      has_psp_signature:
+        type: boolean
+        format: boolean
+        description: is document signed by paysuper
+      signed_document_file_url:
+        type: string
+        description: url to signed file
+      period_from:
+        type: string
+        format: date-time
+        description: payout period start
+      period_to:
+        type: string
+        format: date-time
+        description: payout period end
+  billingPayoutDocumentSignatureData:
+    type: object
+    properties:
+      details_url:
+        type: string
+      files_url:
+        type: string
+      signature_request_id:
+        type: string
+      merchant_signature_id:
+        type: string
+      ps_signature_id:
+        type: string
+      merchant_sign_url:
+        $ref: '#/definitions/billingPayoutDocumentSignatureDataSignUrl'
+      ps_sign_url:
+        $ref: '#/definitions/billingPayoutDocumentSignatureDataSignUrl'
+  billingPayoutDocumentSignatureDataSignUrl:
+    type: object
+    properties:
+      sign_url:
+        type: string
+      expires_at:
+        type: string
+        format: date-time
+  payout_documents_list:
+    properties:
+      count:
+        type: number
+        description: number of found documents
+      items:
+        description: array with documents
+        items:
+          $ref: '#/definitions/billingPayoutDocument'
+        type: array
+  payout_documents_create:
+    properties:
+      merchant_id:
+        type: string
+        description: merchant identificator to create payout document for
+      description:
+        type: string
+        description: document description
+  payout_documents_update:
+    properties:
+      transaction:
+        type: string
+        description: transaction id
+      status:
+        type: string
+        description: 'status, one of skip pending in_progress paid canceled failed'
+      failure_code:
+        type: string
+        description: >-
+          failure code, one of account_closed account_frozen account_restricted
+          destination_bank_invalid could_not_process declined insufficient_funds
+          invalid_account_number incorrect_account_holder_name invalid_currency
+      failure_message:
+        type: string
+        description: failure message
+      failure_transaction:
+        type: string
+        description: failure transaction
+  price:
+    properties:
+      amount:
+        description: price amount
+        type: number
+      currency:
+        description: 'price currency. three-letter ISO 4217 currency code, in uppercase.'
+        type: string
+      region:
+        description: >-
+          region name for this price. available regions: oceania, eu, cis,
+          north_europe, north_africa, polynesia, north_america, central_africa,
+          south_europe, antarctica, south_america, south_asia, caribbean,
+          west_asia, central_america, west_africa, southern_africa,
+          southeast_asia, east_africa, east_asia, micronesia, west_europe,
+          latin_america, melanesia, russia, sub_saharan_africa, south_africa
+        type: string
+  product:
+    properties:
+      id:
+        description: product identifier
+        type: string
+      project_id:
+        description: project identifier for which created product
+        type: string
+      object:
+        description: >-
+          system constant conteined returning object type. for product object
+          always must be - product
+        type: string
+      type:
+        description: product type
+        type: string
+      sku:
+        description: product sku (simple slug name)
+        type: string
+      name:
+        description: >-
+          product names map in other language: {"en": "project name", "ru": "имя
+          проекта"}
+        type: object
+      default_currency:
+        description: >-
+          default currency for selling product. three-letter ISO 4217 currency
+          code, in uppercase.
+        type: string
+      enabled:
+        description: true is product is enabled
+        type: boolean
+      prices:
+        description: array of available prices for product
+        type: array
+        items:
+          $ref: '#/definitions/price'
+      description:
+        description: >-
+          product short descriptions map in other language: {"en": "project
+          short description", "ru": "короткое описание проекта"}
+        type: object
+      long_description:
+        description: >-
+          product long descriptions map in other language: {"en": "project long
+          description", "ru": "длинное описание проекта"}
+        type: object
+      created_at:
+        description: time when retes record was created
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: time when retes record was updated at last time
+        $ref: '#/definitions/ProtobufTimestamp'
+      images:
+        description: array of product images. if images not set then field can be null
+        type: array
+        items:
+          type: string
+      url:
+        description: url to product on project side
+        type: string
+      metadata:
+        description: >-
+          object can contain any other information about product. object must
+          contain only string values
+        type: object
+      billing_type:
+        description: Type of billing
+        type: string
+        enum:
+          - real
+          - virtual
+  product.create_or_update:
+    properties:
+      project_id:
+        description: project identifier for which created product
+        type: string
+      object:
+        description: >-
+          system constant conteined returning object type. for product object
+          always must be - product
+        type: string
+      type:
+        description: product type
+        type: string
+      sku:
+        description: product sku (simple slug name)
+        type: string
+      name:
+        description: >-
+          product names map in other language: {"en": "project name", "ru": "имя
+          проекта"}
+        type: object
+      default_currency:
+        description: >-
+          default currency for selling product. three-letter ISO 4217 currency
+          code, in uppercase.
+        type: string
+      enabled:
+        description: true is product is enabled
+        type: boolean
+      prices:
+        description: array of available prices for product
+        type: array
+        items:
+          $ref: '#/definitions/price'
+      description:
+        description: >-
+          product short descriptions map in other language: {"en": "project
+          short description", "ru": "короткое описание проекта"}
+        type: object
+      long_description:
+        description: >-
+          product long descriptions map in other language: {"en": "project long
+          description", "ru": "длинное описание проекта"}
+        type: object
+      created_at:
+        description: time when retes record was created
+        $ref: '#/definitions/ProtobufTimestamp'
+      updated_at:
+        description: time when retes record was updated at last time
+        $ref: '#/definitions/ProtobufTimestamp'
+      images:
+        description: array of product images. if images not set then field can be null
+        type: array
+        items:
+          type: string
+      url:
+        description: url to product on project side
+        type: string
+      metadata:
+        description: >-
+          object can contain any other information about product. object must
+          contain only string values
+        type: object
+  billingRoyaltyReport:
+    type: object
+    properties:
+      id:
+        type: string
+        description: report id
+      merchant_id:
+        type: string
+        description: merchant id
+      created_at:
+        type: string
+        format: date-time
+        description: date of report creation
+      updated_at:
+        type: string
+        format: date-time
+        description: date of report last update
+      payout_date:
+        type: string
+        format: date-time
+        description: date when report was paid
+      status:
+        type: string
+        description: status of report
+      period_from:
+        type: string
+        format: date-time
+        description: start of report time period
+      period_to:
+        type: string
+        format: date-time
+        description: end of report time period
+      accept_expire_at:
+        type: string
+        format: date-time
+        description: >-
+          date when report will be auto-accepted, if merchant didn't accept or
+          start a dispute yet
+      accepted_at:
+        type: string
+        format: date-time
+        description: date when report was accepted
+      totals:
+        $ref: '#/definitions/billingRoyaltyReportTotals'
+        description: totals section of report
+      currency:
+        type: string
+        description: currency of report
+      summary:
+        $ref: '#/definitions/billingRoyaltyReportSummary'
+        description: summary section
+      dispute_reason:
+        type: string
+        description: reason of dispute (if it was started)
+      dispute_started_at:
+        type: string
+        format: date-time
+        description: date of dispute beginning (if it was started)
+      dispute_closed_at:
+        type: string
+        format: date-time
+        description: date of dispute resolve (if it was started)
+      is_auto_accepted:
+        type: boolean
+        format: boolean
+        description: flag of auto-acceptance
+      payout_document_id:
+        type: string
+        description: 'cross-link to payout invoice, that includes this royalty report'
+  billingRoyaltyReportCorrectionItem:
+    type: object
+    properties:
+      accounting_entry_id:
+        type: string
+        description: linked accounting entry id
+      amount:
+        type: number
+        format: double
+        description: amount of correction
+      currency:
+        type: string
+        description: currency
+      reason:
+        type: string
+        description: reason if correction
+      entry_date:
+        type: string
+        format: date-time
+        description: date of correction
+  billingRoyaltyReportProductSummaryItem:
+    type: object
+    properties:
+      product:
+        type: string
+        description: product or project name
+      region:
+        type: string
+        description: country ISO Alpha2 code
+      total_transactions:
+        type: integer
+        format: int32
+        description: >-
+          total number of transactions for current product/project in current
+          country (including sales and returns)
+      sales_count:
+        type: integer
+        format: int32
+        description: number of sales for current product/project in current country
+      gross_sales_amount:
+        type: number
+        format: double
+        description: gross amount of sales for current product/project in current country
+      returns_count:
+        type: integer
+        format: int32
+        description: number of returns for current product/project in current country
+      gross_returns_amount:
+        type: number
+        format: double
+        description: gross amount of returns for current product/project in current country
+      gross_total_amount:
+        type: number
+        format: double
+        description: >-
+          resulting gross amount for current product/project in current country
+          (sales minus returns)
+      total_fees:
+        type: number
+        format: double
+        description: fees amount for current product/project in current country
+      total_vat:
+        type: number
+        format: double
+        description: vat amount for current product/project in current country
+      payout_amount:
+        type: number
+        format: double
+        description: payout amount for current product/project in current country
+  billingRoyaltyReportSummary:
+    type: object
+    properties:
+      products_items:
+        type: array
+        items:
+          $ref: '#/definitions/billingRoyaltyReportProductSummaryItem'
+        description: summary details for each product/project and country
+      products_total:
+        $ref: '#/definitions/billingRoyaltyReportProductSummaryItem'
+        description: summary totals for all product/project and country
+      corrections:
+        type: array
+        items:
+          $ref: '#/definitions/billingRoyaltyReportCorrectionItem'
+        description: list of corrections applied (if any)
+      rolling_reserves:
+        type: array
+        items:
+          $ref: '#/definitions/billingRoyaltyReportCorrectionItem'
+        description: list of rolling reserves applied (if any)
+  billingRoyaltyReportTotals:
+    type: object
+    properties:
+      transactions_count:
+        type: integer
+        format: int32
+        description: total transactions count (including sales and returns)
+      fee_amount:
+        type: number
+        format: double
+        description: fees amount
+      vat_amount:
+        type: number
+        format: double
+        description: vat amount
+      payout_amount:
+        type: number
+        format: double
+        description: payput amount
+      rolling_reserve_amount:
+        type: number
+        format: double
+        description: applied rolling reserve total amount
+      correction_amount:
+        type: number
+        format: double
+        description: applied corrections total amount
+  grpcChangeRoyaltyReport:
+    type: object
+    properties:
+      status:
+        type: string
+        description: new report status
+      reason:
+        type: string
+        description: correction reason
+      correction:
+        $ref: '#/definitions/grpcChangeRoyaltyReportCorrection'
+    required:
+      - reason
+  grpcChangeRoyaltyReportCorrection:
+    type: object
+    properties:
+      amount:
+        type: number
+        format: double
+        description: correction amount (in report's currency)
+      reason:
+        type: string
+        description: correction reason
+    required:
+      - amount
+      - reason
+  grpcRoyaltyReportsPaginate:
+    type: object
+    properties:
+      count:
+        type: integer
+        format: int32
+        description: total items count
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/billingRoyaltyReport'
+        description: royalty reports
+  grpcPaylinksPaginate:
+    type: object
+    properties:
+      count:
+        type: integer
+        format: int32
+        title: total found paylinks counter
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/paylinkPaylink'
+        title: paylikns
+  paylinkGroupStatCommon:
+    type: object
+    properties:
+      top:
+        type: array
+        items:
+          $ref: '#/definitions/paylinkStatCommon'
+        description: top items of grouping stat data
+      total:
+        $ref: '#/definitions/paylinkStatCommon'
+        description: overall results of grouping stat data
+  paylinkPaylink:
+    type: object
+    properties:
+      id:
+        type: string
+        description: paylink id
+      object:
+        type: string
+        description: object type
+      products:
+        type: array
+        items:
+          type: string
+        description: list of products included to paylink
+      expires_at:
+        type: string
+        format: date-time
+        description: expiration date
+      created_at:
+        type: string
+        format: date-time
+        description: creation date
+      updated_at:
+        type: string
+        format: date-time
+        description: last updation date
+      merchant_id:
+        type: string
+        description: paylink merchant id"
+      project_id:
+        type: string
+        description: paylink project id"
+      name:
+        type: string
+        description: paylink name
+      is_expired:
+        type: boolean
+        format: boolean
+        description: is expired flag
+      visits:
+        type: integer
+        format: int32
+        description: total visits count
+      no_expiry_date:
+        type: boolean
+        format: boolean
+        description: no expiry date flag
+      products_type:
+        type: string
+        description: products type
+      total_transactions:
+        type: integer
+        format: int32
+        description: total transactions count
+      sales_count:
+        type: integer
+        format: int32
+        description: sales count
+      returns_count:
+        type: integer
+        format: int32
+        description: returns count
+      conversion:
+        type: number
+        format: double
+        description: conversion (sales per visits relation)
+      gross_sales_amount:
+        type: number
+        format: double
+        description: gross sales amount
+      gross_returns_amount:
+        type: number
+        format: double
+        description: gross returns amount
+      gross_total_amount:
+        type: number
+        format: double
+        description: gross total amount
+      transactions_currency:
+        type: string
+        description: transactions currency ISO code
+  paylinkStatCommon:
+    type: object
+    properties:
+      paylink_id:
+        type: string
+        description: paylink id
+      visits:
+        type: integer
+        format: int32
+        description: total visits count
+      total_transactions:
+        type: integer
+        format: int32
+        description: total transactions count
+      sales_count:
+        type: integer
+        format: int32
+        description: sales count
+      returns_count:
+        type: integer
+        format: int32
+        description: returns count
+      gross_sales_amount:
+        type: number
+        format: double
+        description: gross sales amount
+      gross_returns_amount:
+        type: number
+        format: double
+        description: gross returns amount
+      gross_total_amount:
+        type: number
+        format: double
+        description: gross total amount
+      transactions_currency:
+        type: string
+        description: transactions currency ISO code
+      conversion:
+        type: number
+        format: double
+        description: 'conversion, optional'
+      country_code:
+        type: string
+        description: 'country iso code A2, optional'
+      date:
+        type: string
+        description: 'date yyyy-mm-dd, optional'
+      referrer_host:
+        type: string
+        description: 'referrer host value, optional'
+      utm:
+        $ref: '#/definitions/paylinkUtm'
+        description: 'utm stat values, optional'
+  paylinkUtm:
+    type: object
+    properties:
+      utm_source:
+        type: string
+        description: utm_source value
+      utm_medium:
+        type: string
+        description: utm_medium value
+      utm_campaign:
+        type: string
+        description: utm_campaign value
+  createPaylinkRequest:
+    type: object
+    properties:
+      id:
+        type: string
+        description: 'paylink id, optional, used only for edit existing paylink'
+      products:
+        type: array
+        items:
+          type: string
+        description: list of products included to paylink
+      expires_at:
+        type: number
+        description: expiration date as unix timestamp
+      project_id:
+        type: string
+        description: paylink project id"
+      name:
+        type: string
+        description: paylink name
+      no_expiry_date:
+        type: boolean
+        format: boolean
+        description: no expiry date flag
+      products_type:
+        type: string
+        description: products type
+  billingVatReport:
+    type: object
+    properties:
+      id:
+        type: string
+        description: vat report id
+      country:
+        type: string
+        description: country ISO A2 code
+      vat_rate:
+        type: number
+        format: double
+        description: rate value of VAT
+      currency:
+        type: string
+        description: vat currency ISO code
+      transactions_count:
+        type: integer
+        format: int32
+        description: total transactions count in period
+      gross_revenue:
+        type: number
+        format: double
+        description: gross revenue amount in period
+      vat_amount:
+        type: number
+        format: double
+        description: vat amount in period
+      fees_amount:
+        type: number
+        format: double
+        description: fees amount in period
+      deduction_amount:
+        type: number
+        format: double
+        description: deduction amount in period
+      correction_amount:
+        type: number
+        format: double
+        description: manual correction amount in period
+      status:
+        type: string
+        description: status
+      country_annual_turnover:
+        type: number
+        format: double
+        description: annual turnover for country
+      world_annual_turnover:
+        type: number
+        format: double
+        description: world annual turnover
+      amounts_approximate:
+        type: boolean
+        format: boolean
+        description: flag of non-final amounts due to currency exchange rates delay
+      date_from:
+        type: string
+        format: date-time
+        description: period start date
+      date_to:
+        type: string
+        format: date-time
+        description: period end date
+      pay_until_date:
+        type: string
+        format: date-time
+        description: VAT payment deadline date
+      created_at:
+        type: string
+        format: date-time
+        description: report creation date
+      updated_at:
+        type: string
+        format: date-time
+        description: report last update date
+      paid_at:
+        type: string
+        format: date-time
+        description: date of payment
+  grpcVatReportsPaginate:
+    type: object
+    properties:
+      count:
+        type: integer
+        format: int32
+        description: total reports count
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/billingVatReport'
+        description: reports
+host: p1payapi.tst.protocol.one
+info:
+  description: |
+    # Introduction
+
+    The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
+    JSON will be returned in all responses from the API, including errors.
+    
+    All API requests must be made over **HTTPS**.
+
+    # Authentication
+    
+    Authentication to the API occurs via Signature-based authentication. You must authenticate for all requests that contain a user data.
+
+    Add a Header **X-API-SIGNATURE** with the Project's Secret key found on the Project webhooks page.
+    
+    **Your API keys carry many privileges, so be sure to keep them secret.**
+
+    # Errors
+    
+    PaySuper uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with PaySupers's servers.
+
+    **HTTP status codes summary**
+
+    ***
+
+    **200 OK** - Everything worked as expected.
+
+    **201 Created** - Resource has been successfully created
+
+    **202 Accepted** - Request has been accepted, but requires asynchronous work to be fully performed
+
+    **400 Bad Request** - Request failed due to a combination of errors
+
+    **401 Unauthorized** - No valid API credentials provided.
+
+    **402 Payment Required** - Your request was in livemode while your account is not activated for live requests yet.
+
+    **403 Forbidden** - You are not authorized to access the requested item.
+
+    **404 Not Found** - The requested item doesn't exist.
+
+    **406 Unacceptable** - Your request format was not supported. Use JSON.
+
+    **409 Conflict** - The data you submitted is in conflict with existing data.
+
+    **422 Unprocessable Entity** - Often missing a required parameter.
+
+    **429 Too Many Requests** - You sent us too many API requests in a row. Please retry later.
+
+    **500, 502, 503, 504 Server errors** - something went wrong on PaySupers's end.
+
+    ***
+
+    # Versioning
+
+    PaySuper is developed incrementally. We use [semantic versioning](https://semver.org/) and approach to release new versions of the specification.
+
+    The content of each release is the result of the work of the project team located on GitHub. 
+    All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.
+
+    While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side. 
+    The version passed is specified as major and minor of the version using semantic versioning. 
+    For the transmission version must use the header 'x-paysuper-api-version' '1.0'.
+
+    # Compression
+
+    The amount of data transferred with notifications can be huge, and endpoints are required to support data compression to reduce the amount and speed of data transfer over the network.
+
+    Endpoints that send HTTP 1.1 messages are required to send gzip-compressed data by specifying the appropriate value in the HTTP [Accept-Encoding header](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+
+    Receiving hosts are required to support gzip and respond to requests by passing an HTTP [Content-Encoding header](https://tools.ietf.org/html/rfc7231#section-3.1.2.2).
+
+  title: PaySuper API Reference
+  version: '1.0'
+paths:
+  /api/v1/order:
+    post:
+      consumes:
+        - application/json
+      description:  Create a payment order with details about your customer and sales option data.
+      parameters:
+        - description: Order create data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/model.OrderScalar'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Object which contain data to render payment form
+          schema:
+            $ref: '#/definitions/model.JsonOrderCreateResponse'
+        '400':
+          description: Object with error message
+          schema:
+            $ref: '#/definitions/model.Error'
+        '500':
+          description: Object with error message
+          schema:
+            $ref: '#/definitions/model.Error'
+      summary: Create a payment order
+      tags:
+        - Payment Order
+  /api/v1/tokens:
+    post:
+      security:
+        - XAPISignatureHeader: []
+      summary: Create a token
+      tags:
+        - Token
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      description: Create a token that encrypts certain details of your customer, a game and purchase parameters. 
+      parameters:
+        - description: Data to process a payment.
+          in: body
+          name: data
+          schema:
+            $ref: '#/definitions/token.TokenRequest'
+            type: object
+          required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/token.TokenResponse'
+        '400':
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/model.Error'
+        '404':
+          description: Object not found
+          schema:
+            $ref: '#/definitions/model.Error'
+        '500':
+          description: Some unknown error on server side
+          schema:
+            $ref: '#/definitions/model.Error'

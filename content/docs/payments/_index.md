@@ -16,8 +16,8 @@ PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect pa
 - **Payment methods:** VISA, Master Card, AMEX, JCB, China UnionPay, Bitcoin payments, Alipay, QIWI, Bank Wire Transfers.
 - **Payment types:** Simple Checkout, Items Checkout.
 - **Authentication:** Dynamic 3D Secure (ready for Strong Customer Authentication).
-- **Localization:** Localized for 2 languages with 10 more translations coming soon.
-- **Email receipts:** Automatic email receipts right to your customers' inbox.
+- **Localization:** Localized for [24 languages](/docs/payments/localization).
+- **Email receipts:** Automatic [email receipts](/docs/payments/fulfillment/#email-receipts) right to your customers' inbox.
 - **Automated calculations:** Automatically calculates the taxes and VAT due on your orders.
 - **Conversion-optimized:** The payment form loads instantly with a single-page layout.
 

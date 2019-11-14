@@ -13,12 +13,12 @@ The Sandbox provides full functionality but it only emulates processing, no actu
 When using PaySuper JS SDK ensure that:
 
 * [Handlers for the events](/docs/payments/sdk-integration/#step-4-handle-the-purchase-events) are displayed properly.
-* The PaySuper object is created with all [required parameters](/docs/payments/sdk-integration/#step-2-provide-parameters) or [token](/docs/payments/token/).
+* The PaySuper object is created with all [required parameters](/docs/payments/sdk-integration/#step-2-provide-parameters) or a [token](/docs/payments/token/).
 
-In case of using the PaySuper API in your server-side code ensure that:
+If you're using the PaySuper API in your server-side code then ensure that:
 
 * All [API errors](/docs/api/#section/Errors) are handled accurately.
-* [Webhooks](/docs/payments/webhooks/) contains properly URL configured in the Functional URL section on the Project webhooks page.
+* [Webhooks](/docs/webhooks/) contains properly URL configured in the Functional URL section on the Project webhooks page.
 
 ## Test card numbers 
 
@@ -28,17 +28,17 @@ To test a bank card payment in the Sandbox enter arbitrary expiry date (the form
 You can also specify incorrect details (card number, expiration date, or CVV) to generate an error.
 {{< /hint >}}
 
-You will be redirected to the Sandbox page to select the desired results the success or failure. After you click the result button the current page will be closed and you will be redirected to the Checkout Form to view the purchase status.
+You will be redirected to the Sandbox page to select the desired results for success or failure. After you click the result button the current page will be closed and you will be redirected to the Checkout Form to view the purchase status.
 
-> Note, that when Merchant chooses to fail authentication, payment is always declined, no matter what PAN has been used.
+> Note, that when Merchant chooses to fail the authentication, then the payment is always declined, no matter what PAN has been used.
 
 Use any of the following test card numbers:
 
-> Note that `Authorized` cards must be used only to test antifraud system reaction with compulsory transfer payment to preauthorization.
+> Note that the `Authorized` cards must only be used to test the antifraud system reaction with a compulsory transfer payment to preauthorization.
 
 ### 3-D Secure test cards
 
-3-D Secure is emulated with a page that doesn’t require any password but only shows 2 buttons. One button is for successful authentication, another is for failed authentication. 
+3-D Secure is emulated with a page that doesn’t require any passwords and shows two buttons instead. One button is for a successful authentication, another is for a failed authentication.
 
 {{< columns >}}
 {{< card "Confirmed" "green" "mastercard" >}}4000 0000 0000 0002{{< /card >}}
@@ -62,7 +62,7 @@ Use any of the following test card numbers:
 
 You can choose a fixed set of currencies which will be actual for all products in your project on the Project settings page.
 
-The full list of currencies are supported for testing:
+The full list of currencies that are supported for testing:
 
 {{< columns >}}
 Code|Country and Currency
@@ -123,12 +123,12 @@ SEK|Sweden Krona
 ## Webhooks
 
 {{< columns >}}
-After the payments, PaySuper can send you webhook events to your server. You can make a successful payment with a test card number and verify the resulting event data and ensure that your webhook's endpoint is working and configured correctly.
+PaySuper can send you webhook events to your server to notify on the payment status. You can make a successful payment with a test card number and verify the resulting event data and to ensure that your webhook's endpoint is working and is configured properly.
 
 <--->
 **GETTING STARTED**
 
-[Configure Webhooks](/docs/payments/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
+[Configure Webhooks](/docs/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
 
 {{< /columns >}}
 
@@ -137,7 +137,7 @@ After the payments, PaySuper can send you webhook events to your server. You can
 ## Next steps
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**After the payment**](/docs/payments/fulfillment/)
 
 After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}

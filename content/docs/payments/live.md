@@ -16,31 +16,33 @@ When you are ready to start selling you will need to fill in all your company de
 
 > Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.
 
-## Filling in the info about your Project
+## Fill in the info about your Project
 
 `Dashboard`
 
-Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. It will be mentioned in a payment form and different customer correspondence.
+Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. These will be listed on the payment form and customer receipt emails.
 
-## Prefilling customer data
+## Prefill the customer data
 
 `Token`
 
-Use a [token](/docs/payments/token/) to prefill the Checkout Form with all required information about your customer on the payment initialization.
+You can use a [token](/docs/payments/token/) to prefill the Checkout Form with all required information about your customer on the payment initialization.
 
-## Redirecting after a payment
+## Fill in the redirect URLs
 
-`PaySuper JS SDK` `PaySuper API`
+`Dashboard`
 
-Check your redirect URLs for a successful or failed payment are available.
+Check your redirect URLs for a successful or failed payment are added in the Project Payment form page.
 
-## Customizing PaySuper Form
+{{< figure src="/images/redirect-urls.png">}}
+
+## Customize the Checkout Form
 
 `PaySuper JS SDK`
 
-Add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
+You can add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
 
-## Fulfiling purchases
+## Fulfill the purchases
 
 `Webhooks`
 
@@ -51,7 +53,7 @@ You can manually fulfil a purchase. Instead, create a handler for the [webhook](
 ## Next steps
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**After the payment**](/docs/payments/fulfillment/)
 
 After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}

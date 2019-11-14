@@ -93,7 +93,7 @@ const paySuper = new PaySuper({
 {{< /tab >}}
 {{< /tabs >}}
 
-[Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#paysuper-options)
+[Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#paysuper-form-parameters)
 
 {{< hint warning >}}
 Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
@@ -155,14 +155,14 @@ paySuper.on('paymentCompleted', function() {
 })
 {{< /highlight >}}
 
-[Full events list in the expected order of execution](https://github.com/paysuper/paysuper-js-sdk#paysuper-events)
+[Full events list in the expected order of execution](https://github.com/paysuper/paysuper-js-sdk#paysuper-form-events)
 
 ***
 
 ## Next steps
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**After the payment**](/docs/payments/fulfillment/)
 
 After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}
