@@ -7,7 +7,7 @@
 <meta property="og:description" content="Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
 When using PaySuper JS SDK ensure that:
- Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or token.  In case of using the PaySuper API in your server-side code ensure that:" />
+ Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or a token.  If you&rsquo;re using the PaySuper API in your server-side code then ensure that:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.pay.super.com/docs/payments/testing/" />
 
@@ -20,7 +20,7 @@ When using PaySuper JS SDK ensure that:
 <meta name="twitter:description" content="Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
 When using PaySuper JS SDK ensure that:
- Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or token.  In case of using the PaySuper API in your server-side code ensure that:"/>
+ Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or a token.  If you&rsquo;re using the PaySuper API in your server-side code then ensure that:"/>
 <title>Testing Checkout | PaySuper Documentation</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
@@ -28,7 +28,7 @@ When using PaySuper JS SDK ensure that:
 <link rel="stylesheet" href="/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
 
 
-<script defer src="/search.min.7e9b5ffac1aff51a3320ed3c6f085e159a8667536e370e4ab3b35a9205c5955f.js" integrity="sha256-fptf&#43;sGv9RozIO08bwheFZqGZ1NuNw5Ks7NakgXFlV8="></script>
+<script defer src="/search.min.a742546b8743431a5e506335aeb4fc96f5946b2ce0964b1402b0db013824dae6.js" integrity="sha256-p0JUa4dDQxpeUGM1rrT8lvWUayzglksUArDbATgk2uY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -143,14 +143,14 @@ https://github.com/alex-shpak/hugo-book
 
 <ul>
 <li><a href="/docs/payments/sdk-integration/#step-4-handle-the-purchase-events">Handlers for the events</a> are displayed properly.</li>
-<li>The PaySuper object is created with all <a href="/docs/payments/sdk-integration/#step-2-provide-parameters">required parameters</a> or <a href="/docs/payments/token/">token</a>.</li>
+<li>The PaySuper object is created with all <a href="/docs/payments/sdk-integration/#step-2-provide-parameters">required parameters</a> or a <a href="/docs/payments/token/">token</a>.</li>
 </ul>
 
-<p>In case of using the PaySuper API in your server-side code ensure that:</p>
+<p>If you&rsquo;re using the PaySuper API in your server-side code then ensure that:</p>
 
 <ul>
 <li>All <a href="/docs/api/#section/Errors">API errors</a> are handled accurately.</li>
-<li><a href="/docs/payments/webhooks/">Webhooks</a> contains properly URL configured in the Functional URL section on the Project webhooks page.</li>
+<li><a href="/docs/webhooks/">Webhooks</a> contains properly URL configured in the Functional URL section on the Project webhooks page.</li>
 </ul>
 
 <h2 id="test-card-numbers">Test card numbers</h2>
@@ -162,21 +162,21 @@ https://github.com/alex-shpak/hugo-book
 </blockquote>
 
 
-<p>You will be redirected to the Sandbox page to select the desired results the success or failure. After you click the result button the current page will be closed and you will be redirected to the Checkout Form to view the purchase status.</p>
+<p>You will be redirected to the Sandbox page to select the desired results for success or failure. After you click the result button the current page will be closed and you will be redirected to the Checkout Form to view the purchase status.</p>
 
 <blockquote>
-<p>Note, that when Merchant chooses to fail authentication, payment is always declined, no matter what PAN has been used.</p>
+<p>Note, that when Merchant chooses to fail the authentication, then the payment is always declined, no matter what PAN has been used.</p>
 </blockquote>
 
 <p>Use any of the following test card numbers:</p>
 
 <blockquote>
-<p>Note that <code>Authorized</code> cards must be used only to test antifraud system reaction with compulsory transfer payment to preauthorization.</p>
+<p>Note that the <code>Authorized</code> cards must only be used to test the antifraud system reaction with a compulsory transfer payment to preauthorization.</p>
 </blockquote>
 
 <h3 id="3-d-secure-test-cards">3-D Secure test cards</h3>
 
-<p>3-D Secure is emulated with a page that doesn’t require any password but only shows 2 buttons. One button is for successful authentication, another is for failed authentication.</p>
+<p>3-D Secure is emulated with a page that doesn’t require any passwords and shows two buttons instead. One button is for a successful authentication, another is for a failed authentication.</p>
 
 <div class="book-columns flex flex-wrap">
   
@@ -368,7 +368,7 @@ https://github.com/alex-shpak/hugo-book
 
 <p>You can choose a fixed set of currencies which will be actual for all products in your project on the Project settings page.</p>
 
-<p>The full list of currencies are supported for testing:</p>
+<p>The full list of currencies that are supported for testing:</p>
 
 <div class="book-columns flex flex-wrap">
   
@@ -631,13 +631,13 @@ https://github.com/alex-shpak/hugo-book
 <div class="book-columns flex flex-wrap">
   
   <div class="flex-even markdown-inner">
-    After the payments, PaySuper can send you webhook events to your server. You can make a successful payment with a test card number and verify the resulting event data and ensure that your webhook&rsquo;s endpoint is working and configured correctly.
+    PaySuper can send you webhook events to your server to notify on the payment status. You can make a successful payment with a test card number and verify the resulting event data and to ensure that your webhook&rsquo;s endpoint is working and is configured properly.
   </div>
   
   <div class="flex-even markdown-inner">
     <p><strong>GETTING STARTED</strong></p>
 
-<p><a href="/docs/payments/webhooks/">Configure Webhooks</a> for your Project in PaySuper Dashboard and handle them on your server.</p>
+<p><a href="/docs/webhooks/">Configure Webhooks</a> for your Project in PaySuper Dashboard and handle them on your server.</p>
 
   </div>
   
@@ -649,7 +649,7 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="next-steps">Next steps</h2>
 
 <blockquote class="book-hint info">
-  <p><a href="/docs/payments/live/"><strong>After the payment</strong></a></p>
+  <p><a href="/docs/payments/fulfillment/"><strong>After the payment</strong></a></p>
 
 <p>After a successful payment, you have to fulfil the customer’s purchase. You can use <a href="/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks">webhooks</a> or the <a href="/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard">Transactions</a> to accomplish the purchase.</p>
 
@@ -741,11 +741,10 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
   <script>
     function buyItems() {
       const paySuper = new PaySuper({
-        project: '5db16ae811bf0d0001fdfbd1',
+        project: '5dc9a3ab0b9bcb0001c0be08',
         amount: 10,
         currency: 'USD',
         type: 'simple',
-        apiUrl: 'https://p1payapi.tst.protocol.one'
       });
 
       paySuper.renderModal();

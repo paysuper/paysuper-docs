@@ -43,9 +43,9 @@ Try out the payment sample or see the code on GitHub.</description>
       
       <guid>https://docs.pay.super.com/docs/payments/customization/</guid>
       <description>Customizing Checkout Learn about the different ways you can customize your Checkout.
-Localization The Checkout Form is localized to 2 languages with 10 more translations coming soon.
+Localization The Checkout Form is localized for 24 languages.
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
-Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&amp;rsquo;s name and email.</description>
+Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&amp;rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&amp;rsquo;s intent to pay.</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@ You can create a token before your customer intents to pay and use it in the fut
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payments/quick-start/</guid>
-      <description>Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project.  When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement.</description>
+      <description>Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for payouts filled in the Banking info.</description>
     </item>
     
     <item>
@@ -90,6 +90,15 @@ You can use PaySuper JS SDK for the client-side payment initialization to integr
     </item>
     
     <item>
+      <title>Supported languages</title>
+      <link>https://docs.pay.super.com/docs/payments/localization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/payments/localization/</guid>
+      <description>Supported languages for PaySuper Checkout    Language ISO 639 Code     Arabic ar   Brazilian portuguese pt   Bulgarian bg   Chinese simplified zh   Chinese traditional zh   Czech cs   Danish da   English en   Finnish fi   French fr   German de   Greek el   Hebrew he   Italian it   Japanese ja   Korean ko   Polish pl   Portuguese pt   Russian ru   Spanish es   Swedish sv   Tai th   Turkish tr   Vietnamese vi    Questions?</description>
+    </item>
+    
+    <item>
       <title>Testing Checkout</title>
       <link>https://docs.pay.super.com/docs/payments/testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -98,7 +107,7 @@ You can use PaySuper JS SDK for the client-side payment initialization to integr
       <description>Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
 When using PaySuper JS SDK ensure that:
- Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or token.  In case of using the PaySuper API in your server-side code ensure that:</description>
+ Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or a token.  If you&amp;rsquo;re using the PaySuper API in your server-side code then ensure that:</description>
     </item>
     
   </channel>

@@ -28,7 +28,7 @@ When you are ready to start selling you will need to fill in all your company de
 <link rel="stylesheet" href="/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
 
 
-<script defer src="/search.min.7e9b5ffac1aff51a3320ed3c6f085e159a8667536e370e4ab3b35a9205c5955f.js" integrity="sha256-fptf&#43;sGv9RozIO08bwheFZqGZ1NuNw5Ks7NakgXFlV8="></script>
+<script defer src="/search.min.a742546b8743431a5e506335aeb4fc96f5946b2ce0964b1402b0db013824dae6.js" integrity="sha256-p0JUa4dDQxpeUGM1rrT8lvWUayzglksUArDbATgk2uY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -147,31 +147,36 @@ https://github.com/alex-shpak/hugo-book
 <p>Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.</p>
 </blockquote>
 
-<h2 id="filling-in-the-info-about-your-project">Filling in the info about your Project</h2>
+<h2 id="fill-in-the-info-about-your-project">Fill in the info about your Project</h2>
 
 <p><code>Dashboard</code></p>
 
-<p>Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. It will be mentioned in a payment form and different customer correspondence.</p>
+<p>Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. These will be listed on the payment form and customer receipt emails.</p>
 
-<h2 id="prefilling-customer-data">Prefilling customer data</h2>
+<h2 id="prefill-the-customer-data">Prefill the customer data</h2>
 
 <p><code>Token</code></p>
 
-<p>Use a <a href="/docs/payments/token/">token</a> to prefill the Checkout Form with all required information about your customer on the payment initialization.</p>
+<p>You can use a <a href="/docs/payments/token/">token</a> to prefill the Checkout Form with all required information about your customer on the payment initialization.</p>
 
-<h2 id="redirecting-after-a-payment">Redirecting after a payment</h2>
+<h2 id="fill-in-the-redirect-urls">Fill in the redirect URLs</h2>
 
-<p><code>PaySuper JS SDK</code> <code>PaySuper API</code></p>
+<p><code>Dashboard</code></p>
 
-<p>Check your redirect URLs for a successful or failed payment are available.</p>
+<p>Check your redirect URLs for a successful or failed payment are added in the Project Payment form page.</p>
 
-<h2 id="customizing-paysuper-form">Customizing PaySuper Form</h2>
+<figure>
+    <img src="/images/redirect-urls.png"/> 
+</figure>
+
+
+<h2 id="customize-the-checkout-form">Customize the Checkout Form</h2>
 
 <p><code>PaySuper JS SDK</code></p>
 
-<p>Add your branding colors to the Checkout Form <a href="https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig">view scheme</a>.</p>
+<p>You can add your branding colors to the Checkout Form <a href="https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig">view scheme</a>.</p>
 
-<h2 id="fulfiling-purchases">Fulfiling purchases</h2>
+<h2 id="fulfill-the-purchases">Fulfill the purchases</h2>
 
 <p><code>Webhooks</code></p>
 
@@ -182,7 +187,7 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="next-steps">Next steps</h2>
 
 <blockquote class="book-hint info">
-  <p><a href="/docs/payments/live/"><strong>After the payment</strong></a></p>
+  <p><a href="/docs/payments/fulfillment/"><strong>After the payment</strong></a></p>
 
 <p>After a successful payment, you have to fulfil the customer’s purchase. You can use <a href="/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks">webhooks</a> or the <a href="/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard">Transactions</a> to accomplish the purchase.</p>
 
@@ -246,11 +251,11 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
 <li><a href="#paysuper-checkout-integration-checklist">PaySuper Checkout integration checklist</a>
 <ul>
 <li><a href="#complete-the-company-onboarding">Complete the Company onboarding</a></li>
-<li><a href="#filling-in-the-info-about-your-project">Filling in the info about your Project</a></li>
-<li><a href="#prefilling-customer-data">Prefilling customer data</a></li>
-<li><a href="#redirecting-after-a-payment">Redirecting after a payment</a></li>
-<li><a href="#customizing-paysuper-form">Customizing PaySuper Form</a></li>
-<li><a href="#fulfiling-purchases">Fulfiling purchases</a></li>
+<li><a href="#fill-in-the-info-about-your-project">Fill in the info about your Project</a></li>
+<li><a href="#prefill-the-customer-data">Prefill the customer data</a></li>
+<li><a href="#fill-in-the-redirect-urls">Fill in the redirect URLs</a></li>
+<li><a href="#customize-the-checkout-form">Customize the Checkout Form</a></li>
+<li><a href="#fulfill-the-purchases">Fulfill the purchases</a></li>
 <li><a href="#next-steps">Next steps</a></li>
 </ul></li>
 </ul>
@@ -265,11 +270,10 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
   <script>
     function buyItems() {
       const paySuper = new PaySuper({
-        project: '5db16ae811bf0d0001fdfbd1',
+        project: '5dc9a3ab0b9bcb0001c0be08',
         amount: 10,
         currency: 'USD',
         type: 'simple',
-        apiUrl: 'https://p1payapi.tst.protocol.one'
       });
 
       paySuper.renderModal();

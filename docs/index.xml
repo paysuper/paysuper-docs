@@ -49,21 +49,25 @@ the Company Onboarding page</description>
     </item>
     
     <item>
-      <title>Canceling and refunding payments</title>
-      <link>https://docs.pay.super.com/docs/refunds/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://docs.pay.super.com/docs/refunds/</guid>
-      <description> Canceling and refunding payments </description>
-    </item>
-    
-    <item>
       <title>Receiving Payouts</title>
       <link>https://docs.pay.super.com/docs/payouts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payouts/</guid>
-      <description> Receiving Payouts </description>
+      <description>Receiving Payouts Your customers&amp;rsquo; successful payments are stored on your PaySuper account balance and can be received to your bank account using Payouts.
+Setting up your bank account to receive payouts When you are ready to start selling you will need to fill in all your company details in Company Onboarding.
+Bank account details for payouts are required when filling in Company Onboarding.
+Note that the currency of the bank account must be the same as the Account Currency for payouts filled in the Banking info.</description>
+    </item>
+    
+    <item>
+      <title>Refunding payments</title>
+      <link>https://docs.pay.super.com/docs/refunds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/refunds/</guid>
+      <description>Refunding payments You can request to refund a charge in whole for a processed transaction. After requesting a refund it cannot be cancelled. PaySuper automatically sends email receipt to your customers whenever they have a refunded purchase.
+The refund can be sent only to the same customer&amp;rsquo;s bank card was used in a payment. If the customer&amp;rsquo;s card is expired, the refund will be made to the reissued card.  The refund costs Notice that all refund fees are being paid by PaySuper, so they are free of charge for you, but the fees from the original charge are not returned.</description>
     </item>
     
     <item>
@@ -84,7 +88,7 @@ But some reasons for the failed payments are unclear and uninformative.</descrip
       <guid>https://docs.pay.super.com/docs/webhooks/</guid>
       <description>Webhooks The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
-In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund payment and other.</description>
+In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.</description>
     </item>
     
   </channel>

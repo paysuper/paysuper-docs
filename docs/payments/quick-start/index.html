@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Quick start" />
-<meta property="og:description" content="Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project.  When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement." />
+<meta property="og:description" content="Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for payouts filled in the Banking info." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.pay.super.com/docs/payments/quick-start/" />
 
@@ -14,7 +14,7 @@
 <meta name="twitter:image" content="https://docs.pay.super.com/products-dark-form.png"/>
 
 <meta name="twitter:title" content="Quick start"/>
-<meta name="twitter:description" content="Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project.  When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement."/>
+<meta name="twitter:description" content="Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for payouts filled in the Banking info."/>
 <title>Quick start | PaySuper Documentation</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
 
 
-<script defer src="/search.min.7e9b5ffac1aff51a3320ed3c6f085e159a8667536e370e4ab3b35a9205c5955f.js" integrity="sha256-fptf&#43;sGv9RozIO08bwheFZqGZ1NuNw5Ks7NakgXFlV8="></script>
+<script defer src="/search.min.a742546b8743431a5e506335aeb4fc96f5946b2ce0964b1402b0db013824dae6.js" integrity="sha256-p0JUa4dDQxpeUGM1rrT8lvWUayzglksUArDbATgk2uY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -161,7 +161,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="https://paysupermgmt.tst.protocol.one">Sign up</a>.</li>
 <li>Verify your email address with the delivered confirmation email.</li>
 <li>Follow the steps of a brief <a href="https://paysupermgmt.tst.protocol.one/profile">Welcome Onboarding</a>.</li>
-<li>You are required to fill in the Banking info in the <a href="https://paysupermgmt.tst.protocol.one/company">Company Onboarding</a> to be able create a project.</li>
+<li>You are required to fill in the Banking info in the <a href="https://paysupermgmt.tst.protocol.one/company">Company Onboarding</a> to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for <a href="/docs/payouts/">payouts</a> filled in the Banking info.</li>
 </ol>
 
 <blockquote class="book-hint info">
@@ -298,7 +298,7 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="next-steps">Next steps</h2>
 
 <blockquote class="book-hint info">
-  <p><a href="/docs/payments/live/"><strong>After the payment</strong></a></p>
+  <p><a href="/docs/payments/fulfillment/"><strong>After the payment</strong></a></p>
 
 <p>After a successful payment, you have to fulfil the customer’s purchase. You can use <a href="/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks">webhooks</a> or the <a href="/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard">Transactions</a> to accomplish the purchase.</p>
 
@@ -398,11 +398,10 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
   <script>
     function buyItems() {
       const paySuper = new PaySuper({
-        project: '5db16ae811bf0d0001fdfbd1',
+        project: '5dc9a3ab0b9bcb0001c0be08',
         amount: 10,
         currency: 'USD',
         type: 'simple',
-        apiUrl: 'https://p1payapi.tst.protocol.one'
       });
 
       paySuper.renderModal();
