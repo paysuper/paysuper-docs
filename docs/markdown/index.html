@@ -635,10 +635,9 @@ sequenceDiagram
   <script>
     function buyItems() {
       const paySuper = new PaySuper({
-        project: '5dc9a3ab0b9bcb0001c0be08',
-        amount: 10,
-        currency: 'USD',
-        type: 'simple',
+        project: '5dcd11bc218dc30001d7098f',
+        products: ['5dcdb73d218dc30001d73c25', '5dcdb841218dc30001d73c26'],
+        type: 'product'
       });
 
       paySuper.renderModal();
