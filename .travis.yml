@@ -16,9 +16,13 @@ if: branch in (testhugo)
 #cache: bundler
 
 before_install:
-  - sudo snap install hugo --channel=extended
+#  - sudo snap install hugo --channel=extended
 #  - sudo apt-get update
 #  - sudo apt-get -y install hugo
+  - git clone https://github.com/gohugoio/hugo.git
+  - cd hugo
+  - go install --tags extended
+
 
 jobs:
   include: 
