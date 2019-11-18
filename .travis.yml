@@ -30,12 +30,12 @@ jobs:
       install: true
       script:
       - hugo --environment staging
-      - mkdir $TRAVIS_BUILD_DIR/public/api
+      - mkdir ./public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
 #      - hugo env
 #      - hugo mod vendor 
-      - go mod download
-      - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* $TRAVIS_BUILD_DIR/public/api/
+      - echo $TRAVIS_BUILD_DIR
+      - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
       # deploy:
       #   - provider: pages
       #     skip-cleanup: true
