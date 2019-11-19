@@ -33,11 +33,12 @@ jobs:
       install: true
       script:
       - hugo --environment staging
-      - mkdir ./public/api
+      - mkdir $TRAVIS_BUILD_DIR/public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
 #      - hugo env
 #      - hugo mod vendor 
       - echo $TRAVIS_BUILD_DIR
+      - echo $PWD
       - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
       # deploy:
       #   - provider: pages
