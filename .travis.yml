@@ -33,7 +33,7 @@ jobs:
       install: true
       script:
       - hugo --environment staging
-      - ls -al $TRAVIS_BUILD_DIR/hugo
+      - ls -al $TRAVIS_BUILD_DIR/hugo/public/
       - mkdir $TRAVIS_BUILD_DIR/public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
 #      - hugo env
@@ -41,6 +41,7 @@ jobs:
       - echo $TRAVIS_BUILD_DIR
       - echo $PWD
       - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
+      - ls -al $TRAVIS_BUILD_DIR/api-reference
       # deploy:
       #   - provider: pages
       #     skip-cleanup: true
