@@ -15,6 +15,10 @@ dist: bionic
 if: branch in (testhugo)
 #cache: bundler
 
+cache:
+  directories:
+  - $HOME/gopath/pkg/mod
+
 before_install:
 #  - sudo snap install hugo --channel=extended
 #  - sudo apt-get update
@@ -22,7 +26,6 @@ before_install:
   - git clone https://github.com/gohugoio/hugo.git
   - cd hugo
   - go install --tags extended
-
 
 jobs:
   include: 
