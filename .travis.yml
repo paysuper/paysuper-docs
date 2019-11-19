@@ -36,10 +36,7 @@ jobs:
       - hugo --environment staging
       - mkdir $TRAVIS_BUILD_DIR/public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
-      - echo $TRAVIS_BUILD_DIR
-      - echo $PWD
       - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
-      - ls -al $TRAVIS_BUILD_DIR/api-reference
       # deploy:
       #   - provider: pages
       #     skip-cleanup: true
