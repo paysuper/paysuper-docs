@@ -32,12 +32,10 @@ jobs:
     - if: branch = testhugo
       install: true
       script:
+      - cd $TRAVIS_BUILD_DIR
       - hugo --environment staging
-      - ls -al $TRAVIS_BUILD_DIR/hugo/public/
       - mkdir $TRAVIS_BUILD_DIR/public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
-#      - hugo env
-#      - hugo mod vendor 
       - echo $TRAVIS_BUILD_DIR
       - echo $PWD
       - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
