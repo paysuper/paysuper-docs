@@ -33,6 +33,7 @@ jobs:
       install: true
       script:
       - hugo --environment staging
+      - ls -al $TRAVIS_BUILD_DIR
       - mkdir $TRAVIS_BUILD_DIR/public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
 #      - hugo env
