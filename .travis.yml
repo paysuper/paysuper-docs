@@ -12,9 +12,9 @@ sudo: required
 
 dist: bionic
 
-cache:
-  directories:
-  - $HOME/gopath/pkg/mod
+#cache:
+#  directories:
+#  - $HOME/gopath/pkg/mod
 
 if: branch in (master, develop)
 
