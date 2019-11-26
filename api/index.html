@@ -1,0 +1,2051 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.59.1" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href='/api/images/favicon.png' type='image/x-icon'>
+    <title>DocuAPI Example Site</title>
+    
+
+
+
+
+<link href='/api/styles/screen.css' rel="stylesheet" media="screen" integrity="" />
+<link href='/api/styles/print.css' rel="stylesheet" media="print" integrity="" />
+
+
+    
+
+
+
+
+
+
+<script src='/api/js/all.js'></script>
+
+    
+</head>
+<body class="index" data-languages="[ &#34;shell&#34; ]">
+    <a href="#" id="nav-button">
+        <span>
+        NAV
+        <img src='/api/images/navbar.png'/>
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        
+         <img src='/api/images/logo.png' class="logo" />
+        
+        <div class="lang-selector">
+            
+            <a href="#" data-language-name="shell">cURL</a>
+            
+        </div>
+         
+        
+        <div class="search">
+            <input type="search" class="search" id="input-search" placeholder='Search'>
+        </div>
+        <ul class="search-results"></ul>
+        
+        
+    <ul id="toc" class="toc-list-h1">
+        
+        
+            <li>
+                <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+                
+            </li>
+        
+            <li>
+                <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+                
+            </li>
+        
+            <li>
+                <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+                
+            </li>
+        
+            <li>
+                <a href="#versioning" class="toc-h1 toc-link" data-title="Versioning">Versioning</a>
+                
+            </li>
+        
+            <li>
+                <a href="#compression" class="toc-h1 toc-link" data-title="Compression">Compression</a>
+                
+            </li>
+        
+            <li>
+                <a href="#pagination" class="toc-h1 toc-link" data-title="Pagination">Pagination</a>
+                
+            </li>
+        
+            <li>
+                <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+                
+                    <ul class="toc-list-h2">
+                        
+                            <li><a href="#verifying-a-webhook" class="toc-h2 toc-link" data-title="Verifying a webhook">Verifying a webhook</a></li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="#order" class="toc-h1 toc-link" data-title="Order">Order</a>
+                
+                    <ul class="toc-list-h2">
+                        
+                            <li><a href="#create-a-payment-order" class="toc-h2 toc-link" data-title="Create a payment order">Create a payment order</a></li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="#token" class="toc-h1 toc-link" data-title="Token">Token</a>
+                
+                    <ul class="toc-list-h2">
+                        
+                            <li><a href="#create-a-token" class="toc-h2 toc-link" data-title="Create a token">Create a token</a></li>
+                        
+                    </ul>
+                
+            </li>
+        
+    </ul>
+
+        
+        
+        <ul class="toc-footer">
+            
+            <li><a href='https://docs.pay.super.com' target='_blank'>Documentation</a></li>
+            
+            <li><a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>PaySuper API on GitHub</a></li>
+            
+        </ul>
+        
+        
+
+    </div>
+    <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content">
+            
+    
+        
+
+<h1 id="introduction">Introduction</h1>
+
+<p>The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
+JSON will be returned in all responses from the API, including errors.</p>
+
+<p>All API requests must be made over <strong>HTTPS</strong>.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>Authentication to the API occurs via Signature-based authentication. You must authenticate for all requests that contain a user data.</p>
+
+<p>Add a Header <strong>X-API-SIGNATURE</strong> with the Project&rsquo;s Secret key found on the Project webhooks page.</p>
+
+<aside class="notice">
+Your API keys carry many privileges, so be sure to keep them secret.
+</aside>
+
+<h1 id="errors">Errors</h1>
+
+<p>PaySuper uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with PaySupers&rsquo;s servers.</p>
+
+<p><strong>HTTP status codes summary:</strong></p>
+
+<p><strong>200 OK</strong> - Everything worked as expected.</p>
+
+<p><strong>201 Created</strong> - Resource has been successfully created</p>
+
+<p><strong>202 Accepted</strong> - Request has been accepted, but requires asynchronous work to be fully performed</p>
+
+<p><strong>400 Bad Request</strong> - Request failed due to a combination of errors</p>
+
+<p><strong>401 Unauthorized</strong> - No valid API credentials provided.</p>
+
+<p><strong>402 Payment Required</strong> - Your request was in livemode while your account is not activated for live requests yet.</p>
+
+<p><strong>403 Forbidden</strong> - You are not authorized to access the requested item.</p>
+
+<p><strong>404 Not Found</strong> - The requested item doesn&rsquo;t exist.</p>
+
+<p><strong>406 Unacceptable</strong> - Your request format was not supported. Use JSON.</p>
+
+<p><strong>409 Conflict</strong> - The data you submitted is in conflict with existing data.</p>
+
+<p><strong>422 Unprocessable Entity</strong> - Often missing a required parameter.</p>
+
+<p><strong>429 Too Many Requests</strong> - You sent us too many API requests in a row. Please retry later.</p>
+
+<p><strong>500, 502, 503, 504 Server errors</strong> - Something went wrong on PaySupers&rsquo;s end.</p>
+
+<h1 id="versioning">Versioning</h1>
+
+<p>PaySuper is developed incrementally. We use <a href="https://semver.org/" target="_blank">semantic versioning</a> and approach to release new versions of the specification.</p>
+
+<p>The content of each release is the result of the work of the project team located on GitHub.
+All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.</p>
+
+<p>While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side.
+The version passed is specified as major and minor of the version using semantic versioning.</p>
+
+<p>For the transmission version must use the header <code>'x-paysuper-api-version': '1.0'</code>.</p>
+
+<h1 id="compression">Compression</h1>
+
+<p>The amount of data transferred with notifications can be huge, and endpoints are required to support data compression to reduce the amount and speed of data transfer over the network.</p>
+
+<p>Endpoints that send HTTP 1.1 messages are required to send gzip-compressed data by specifying the appropriate value in the HTTP <a href="https://tools.ietf.org/html/rfc7231#section-5.3.4" target="_blank">Accept-Encoding header</a>.</p>
+
+<p>Receiving hosts are required to support gzip and respond to requests by passing an HTTP <a href="https://tools.ietf.org/html/rfc7231#section-3.1.2.2" target="_blank">Content-Encoding header</a>.</p>
+
+<h1 id="pagination">Pagination</h1>
+
+<aside class="warning">
+Implemention of the pagination is in progress.
+</aside>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl https://api.pay.super.com/payouts?limit<span style="color:#666">=</span><span style="color:#40a070">3</span> <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>   -u tkHCYYOUVrYyY5rBFZxNzgtt:</code></pre></div>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;list&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;has_more&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+  <span style="color:#062873;font-weight:bold">&#34;has_before&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;total_count&#34;</span>: <span style="color:#40a070">240</span>,
+  <span style="color:#062873;font-weight:bold">&#34;data&#34;</span>: [
+    {
+      <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;po_1ED765CmSJsu7cy1iQZUkPKz&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;payout&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;bank_account&#34;</span>,  
+      <span style="color:#062873;font-weight:bold">&#34;status&#34;</span>: <span style="color:#4070a0">&#34;in_transit&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: <span style="color:#4070a0">&#34;2018-07-10T14:27:54.691Z&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;arrival_date&#34;</span>: <span style="color:#4070a0">&#34;2018-07-10T14:27:54.691Z&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#4070a0">&#34;2.00&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;USD&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;payout_url&#34;</span>: <span style="color:#4070a0">&#34;https://pay.super.com/receipts/long-id-string-for-receipt&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;automatic&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;PAYSUPER PAYOUT&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;destination&#34;</span>: <span style="color:#4070a0">&#34;ba_1ED765CmSJsu7cy1ZufOeBtW&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;failure_balance_transaction&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;failure_code&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;failure_message&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;live&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {}
+    },
+    {<span style="">...</span>},
+    {<span style="">...</span>}
+  ]
+}</code></pre></div>
+<p>All top-level PaySuper API resources have support for bulk fetches &ldquo;list&rdquo; API methods. For instance, you can list users, list orders.
+Like Stripe, PaySuper uses cursor-based pagination using the parameter <code>starting_after</code>. Pass <code>starting_after</code> parameter
+at the previous page last object id value to determine where to start in the list.</p>
+
+<table>
+<thead>
+<tr>
+<th>PARAMETER</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>limit</code></td>
+<td>integer</td>
+<td>A limit on the number of objects to be returned. Must be included between 1 and 100.</td>
+</tr>
+
+<tr>
+<td><code>starting_after</code></td>
+<td>string</td>
+<td>A cursor for use in pagination. <code>starting_after</code> is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with <code>obj_foo</code>, your subsequent call can include <code>starting_after=obj_foo</code> in order to fetch the next page of the list.</td>
+</tr>
+
+<tr>
+<td><code>ending_before</code></td>
+<td>string</td>
+<td>A cursor for use in pagination. <code>ending_before</code> is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with <code>obj_bar</code>, your subsequent call can include <code>ending_before=obj_bar</code> in order to fetch the previous page of the list.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<table>
+<thead>
+<tr>
+<th>PARAMETER</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>string</td>
+<td>The string representing the object’s type. Value: <code>list</code>.</td>
+</tr>
+
+<tr>
+<td><code>data</code></td>
+<td>array</td>
+<td>An array containing the actual response elements, paginated by any request parameters.</td>
+</tr>
+
+<tr>
+<td><code>has_more</code></td>
+<td>boolean</td>
+<td>Whether or not there are more elements available after this page. If <code>false</code>, this page is the end of the list.</td>
+</tr>
+
+<tr>
+<td><code>has_before</code></td>
+<td>boolean</td>
+<td>Whether or not there are more elements available before this page. If <code>false</code>, this page is the beginning of the list.</td>
+</tr>
+
+<tr>
+<td><code>total_count</code></td>
+<td>boolean</td>
+<td>The total count of all recipients that match your filters, as if there was no pagination.</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="webhooks">Webhooks</h1>
+
+<p>The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.</p>
+
+<p>These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.</p>
+
+<p>In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.</p>
+
+<blockquote>
+<p>The Webhook object example</p>
+
+<p>For instance, this is the base object representing the webhook event <code>payment.success</code>:</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;5d23426ab8b1eea163304202653796fa801081e739d506615ddac583019045f3&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;notification&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;event&#34;</span>: <span style="color:#4070a0">&#34;payment.success&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;live&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: <span style="color:#4070a0">&#34;2019-11-16T05:41:05Z&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;expires_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;delivery_try&#34;</span>: <span style="color:#40a070">0</span>,
+  <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: {
+    <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;726d9e07-1dc8-4159-8d52-f95941066bc8&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;transaction&#34;</span>: <span style="color:#4070a0">&#34;2978077&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;order&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;status&#34;</span>: <span style="color:#4070a0">&#34;created&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;A summary for the purchase&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">1573882679</span>,
+      <span style="color:#062873;font-weight:bold">&#34;nanos&#34;</span>: <span style="color:#40a070">69000000</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;canceled_at&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;canceled&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;cancellation&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+    <span style="color:#062873;font-weight:bold">&#34;refunded&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;refunded_at&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;receipt_email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;receipt_phone&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;receipt_number&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;receipt_url&#34;</span>: <span style="color:#4070a0">&#34;https://dashboard.pay.super.com/receipt/purchase/efefc5d3-c2e2-4157-8789-4bfb7c1eec34/726d9e07-1dc8-4159-8d52-f95941066bc8&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;agreement_version&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;agreement_accepted&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;notify_sale&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;notify_sale_email&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;issuer&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;url&#34;</span>: <span style="color:#4070a0">&#34;https://domain.com&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;embedded&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;reference&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;reference_type&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;utm_source&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;utm_medium&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;utm_campaign&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;referrer_host&#34;</span>: <span style="color:#4070a0">&#34;domain.com&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">595</span>,
+    <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;user&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;5dcf8b24b5a6990001bac2b6&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;user&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;0000000000001&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;User Name&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;email_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;phone&#34;</span>: <span style="color:#4070a0">&#34;0639597531&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;phone_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;ip&#34;</span>: <span style="color:#4070a0">&#34;79.137.163.2&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;locale&#34;</span>: <span style="color:#4070a0">&#34;ru-RU&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;address&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;RU&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;city&#34;</span>: <span style="color:#4070a0">&#34;Moscow&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;postal_code&#34;</span>: <span style="color:#4070a0">&#34;127221&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;MOW&#34;</span>
+      },
+      <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;user.param1&#34;</span>: <span style="color:#4070a0">&#34;user.val1&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;user.param2&#34;</span>: <span style="color:#4070a0">&#34;user.val2&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;user.param3&#34;</span>: <span style="color:#4070a0">&#34;user.val3&#34;</span>
+      },
+      <span style="color:#062873;font-weight:bold">&#34;notify_new_region&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;notify_new_region_email&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;billing_address&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;DE&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;tax&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;vat&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;rate&#34;</span>: <span style="color:#40a070">0.19</span>,
+      <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">95</span>,
+      <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;method&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;title&#34;</span>: <span style="color:#4070a0">&#34;Bank card&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;BANKCARD&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;payment_system_id&#34;</span>: <span style="color:#4070a0">&#34;5be2d0b4b0b30d0007383ce5&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;saved&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;card&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;first6&#34;</span>: <span style="color:#4070a0">&#34;400000&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;last4&#34;</span>: <span style="color:#4070a0">&#34;0002&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;masked&#34;</span>: <span style="color:#4070a0">&#34;400000...0002&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;expiry_month&#34;</span>: <span style="color:#4070a0">&#34;11&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;expiry_year&#34;</span>: <span style="color:#4070a0">&#34;2023&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;brand&#34;</span>: <span style="color:#4070a0">&#34;VISA&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;fingerprint&#34;</span>: <span style="color:#4070a0">&#34;$2a$04$9VRouYlBC.qMYQrLpmlXOeGbL2WFZDGGq/KdTeeHSfWkosgJgrWw2&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;secure3d&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+      },
+      <span style="color:#062873;font-weight:bold">&#34;wallet&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;crypto_currency&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;refund_allowed&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;items&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+    <span style="color:#062873;font-weight:bold">&#34;refund&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+    <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;param1&#34;</span>: <span style="color:#4070a0">&#34;val1&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;param2&#34;</span>: <span style="color:#4070a0">&#34;val2&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;param3&#34;</span>: <span style="color:#4070a0">&#34;val3&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;original_amount&#34;</span>: <span style="color:#40a070">500</span>,
+    <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;DE&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;simple&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;platform_id&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;receipt_id&#34;</span>: <span style="color:#4070a0">&#34;efefc5d3-c2e2-4157-8789-4bfb7c1eec34&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;virtual_currency_amount&#34;</span>: <span style="color:#40a070">0</span>,
+    <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>
+  }
+}</code></pre></div>
+<h3 id="setting-up-a-webhook">Setting up a webhook</h3>
+
+<p><strong>1.</strong> Add the URL of the server that will receive the webhook requests in the Functional URL section on the Project Webhooks page.</p>
+
+<p><strong>2.</strong> <a href="#verifying-a-webhook">Verify the webhook request</a>.</p>
+
+<p><strong>3.</strong> Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.</p>
+
+<h3 id="webhook-event-types">Webhook event types</h3>
+
+<table>
+<thead>
+<tr>
+<th>TYPE</th>
+<th>PAYLOAD</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>payment.success</code></td>
+<td>Order</td>
+<td>Sent when a customer successfully completes a payment.</td>
+</tr>
+
+<tr>
+<td><code>payment.chargeback</code></td>
+<td>Order</td>
+<td>Sent when a payment must be cancelled for a chargeback.</td>
+</tr>
+
+<tr>
+<td><code>payment.refund</code></td>
+<td>Order</td>
+<td>Sent when a payment must be cancelled for refund for any reasons.</td>
+</tr>
+
+<tr>
+<td><code>payment.cancel</code></td>
+<td>Order</td>
+<td>Sent when a payment must be cancelled for cancel for any reasons.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="the-webhook-object">The Webhook object</h3>
+
+<table>
+<thead>
+<tr>
+<th>PARAMETER</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>The unique identifier for the object.</td>
+</tr>
+
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>The string representing the webhook&rsquo;s type. Value: <code>notification</code>.</td>
+</tr>
+
+<tr>
+<td><code>event</code></td>
+<td>string</td>
+<td>The string representing the event&rsquo;s type.</td>
+</tr>
+
+<tr>
+<td><code>live</code></td>
+<td>boolean</td>
+<td>Has a value <code>true</code> if notification originated from a live environment.</td>
+</tr>
+
+<tr>
+<td><code>created_at</code></td>
+<td>DateTime</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> when the event has been created.</td>
+</tr>
+
+<tr>
+<td><code>expires_at</code></td>
+<td>DateTime</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> when the event stops trying to deliver.</td>
+</tr>
+
+<tr>
+<td><code>delivery_try</code></td>
+<td>integer</td>
+<td>The current delivery try for the event.</td>
+</tr>
+
+<tr>
+<td><code>object</code></td>
+<td>object</td>
+<td>The object representing the payload of the event with a given type. Objects of the same type share the same value.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="verifying-a-webhook">Verifying a webhook</h2>
+
+<p>PaySuper signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.</p>
+
+<p>The PaySuper API uses a Secret key to check the notification request.</p>
+
+<aside class="notice">
+Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in any publicly accessible areas such as GitHub, client-side code, and so forth.
+</aside>
+
+<blockquote>
+<p>All API requests must be made over HTTPS. Calls made over a plain HTTP will fail.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#06287e">POST</span> <span style="color:#0e84b5;font-weight:bold">/your_endpoint</span> <span style="color:#007020;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#40a070">1.1</span>
+Host<span style="color:#666">:</span> your.host
+Accept<span style="color:#666">:</span> application/json
+Content-Type<span style="color:#666">:</span> application/json
+Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcrerhee50dypsp195mh</code></pre></div>
+<p><strong>To check a digital signature:</strong></p>
+
+<p><strong>1.</strong> Concatenate the request&rsquo;s JSON body with your Project&rsquo;s Secret key found on the Project webhooks page.</p>
+
+<p><strong>2.</strong> Apply SHA-256 hashing to the resulting string.</p>
+
+<p><strong>3.</strong> Compare the digital signature with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization" target="_blank">Authorization</a> HTTP Header value in the received notification.</p>
+
+    
+        
+
+<h1 id="order">Order</h1>
+
+<p>You can create a payment order with details about your customer and sales option data.</p>
+
+<blockquote>
+<p>The Order object example:</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;726d9e07-1dc8-4159-8d52-f95941066bc8&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;transaction&#34;</span>: <span style="color:#4070a0">&#34;2978077&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;order&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;status&#34;</span>: <span style="color:#4070a0">&#34;created&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;A summary for the purchase&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">1573882679</span>,
+      <span style="color:#062873;font-weight:bold">&#34;nanos&#34;</span>: <span style="color:#40a070">69000000</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;canceled_at&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;canceled&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;cancellation&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+  <span style="color:#062873;font-weight:bold">&#34;refunded&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;refunded_at&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;receipt_email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;receipt_phone&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;receipt_number&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;receipt_url&#34;</span>: <span style="color:#4070a0">&#34;https://dashboard.pay.super.com/receipt/purchase/efefc5d3-c2e2-415&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;agreement_version&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;agreement_accepted&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;notify_sale&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;notify_sale_email&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;issuer&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;url&#34;</span>: <span style="color:#4070a0">&#34;https://domain.com&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;embedded&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;reference&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;reference_type&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;utm_source&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;utm_medium&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;utm_campaign&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;referrer_host&#34;</span>: <span style="color:#4070a0">&#34;domain.com&#34;</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">595</span>,
+  <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;user&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;5dcf8b24b5a6990001bac2b6&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;user&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;0000000000001&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;User Name&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;email_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;phone&#34;</span>: <span style="color:#4070a0">&#34;0639597531&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;phone_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;ip&#34;</span>: <span style="color:#4070a0">&#34;79.137.163.2&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;locale&#34;</span>: <span style="color:#4070a0">&#34;ru-RU&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;address&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;RU&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;city&#34;</span>: <span style="color:#4070a0">&#34;Moscow&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;postal_code&#34;</span>: <span style="color:#4070a0">&#34;127221&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;MOW&#34;</span>
+      },
+      <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;user.param1&#34;</span>: <span style="color:#4070a0">&#34;user.val1&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;user.param2&#34;</span>: <span style="color:#4070a0">&#34;user.val2&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;user.param3&#34;</span>: <span style="color:#4070a0">&#34;user.val3&#34;</span>
+      },
+      <span style="color:#062873;font-weight:bold">&#34;notify_new_region&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;notify_new_region_email&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;billing_address&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;DE&#34;</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;tax&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;vat&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;rate&#34;</span>: <span style="color:#40a070">0.19</span>,
+      <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">95</span>,
+      <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;method&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;title&#34;</span>: <span style="color:#4070a0">&#34;Bank card&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;BANKCARD&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;payment_system_id&#34;</span>: <span style="color:#4070a0">&#34;5be2d0b4b0b30d0007383ce5&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;saved&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+      <span style="color:#062873;font-weight:bold">&#34;card&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;first6&#34;</span>: <span style="color:#4070a0">&#34;400000&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;last4&#34;</span>: <span style="color:#4070a0">&#34;0002&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;masked&#34;</span>: <span style="color:#4070a0">&#34;400000...0002&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;expiry_month&#34;</span>: <span style="color:#4070a0">&#34;11&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;expiry_year&#34;</span>: <span style="color:#4070a0">&#34;2023&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;brand&#34;</span>: <span style="color:#4070a0">&#34;VISA&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;fingerprint&#34;</span>: <span style="color:#4070a0">&#34;$2a$04$9VRouYlBC.qMYQrLpmlXOeGbL2WFZDGGq/KdTeeHSfWkosgJgrWw2&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;secure3d&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+      },
+      <span style="color:#062873;font-weight:bold">&#34;wallet&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;crypto_currency&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+      <span style="color:#062873;font-weight:bold">&#34;refund_allowed&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;items&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+  <span style="color:#062873;font-weight:bold">&#34;refund&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
+  <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;param1&#34;</span>: <span style="color:#4070a0">&#34;val1&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;param2&#34;</span>: <span style="color:#4070a0">&#34;val2&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;param3&#34;</span>: <span style="color:#4070a0">&#34;val3&#34;</span>
+  },
+  <span style="color:#062873;font-weight:bold">&#34;original_amount&#34;</span>: <span style="color:#40a070">500</span>,
+  <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;DE&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;simple&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;platform_id&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;receipt_id&#34;</span>: <span style="color:#4070a0">&#34;efefc5d3-c2e2-4157-8789-4bfb7c1eec34&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;virtual_currency_amount&#34;</span>: <span style="color:#40a070">0</span>,
+  <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>
+}</code></pre></div>
+<h3 id="statuses">Statuses</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>created</code></td>
+<td>It’s an initial state of the requested order but it is not processed in a payment system yet. The <code>created</code> order can become one of the statuses: <code>processed</code>, <code>canceled</code>, <code>rejected</code>.</td>
+</tr>
+
+<tr>
+<td><code>processed</code></td>
+<td>The order is successfully processed in the payment system. The <code>processed</code> order can become <code>refunded</code> or <code>chargeback</code>.</td>
+</tr>
+
+<tr>
+<td><code>rejected</code></td>
+<td>The order is rejected by a payment system with any reasons.</td>
+</tr>
+
+<tr>
+<td><code>canceled</code></td>
+<td>The order is canceled by a user.</td>
+</tr>
+
+<tr>
+<td><code>refunded</code></td>
+<td>The processed order is refunded by a merchant request.</td>
+</tr>
+
+<tr>
+<td><code>chargeback</code></td>
+<td>The processed order is refunded by a payment system with any reasons.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="the-order-object">The Order object:</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>The unique identifier for the object.</td>
+</tr>
+
+<tr>
+<td><code>transaction</code></td>
+<td>string</td>
+<td>The unique identifier for the transaction in the payment system.</td>
+</tr>
+
+<tr>
+<td><code>object</code></td>
+<td>string</td>
+<td>The string representing the object’s type. Value: <code>order</code>.</td>
+</tr>
+
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>The current status of the order.</td>
+</tr>
+
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.</td>
+</tr>
+
+<tr>
+<td><code>created_at</code></td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> at which the order was created.</td>
+</tr>
+
+<tr>
+<td><code>· seconds</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· nanos</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>canceled_at</code></td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> at which the order was created.</td>
+</tr>
+
+<tr>
+<td><code>· seconds</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>canceled</code></td>
+<td>boolean</td>
+<td>Has the value <code>true</code> if the current order was canceled.</td>
+</tr>
+
+<tr>
+<td><code>cancellation</code></td>
+<td>string</td>
+<td>The cancellation reason. Has the value <code>null</code> if the order is not canceled.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· reason</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>refunded</code></td>
+<td>boolean</td>
+<td>Has the value <code>true</code> if the current order was refunded.</td>
+</tr>
+
+<tr>
+<td><code>refunded_at</code></td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> at which the order was refunded.</td>
+</tr>
+
+<tr>
+<td><code>· seconds</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>receipt_email</code></td>
+<td>string</td>
+<td>The customer&rsquo;s email for receipt information.</td>
+</tr>
+
+<tr>
+<td><code>receipt_phone</code></td>
+<td>string</td>
+<td>The customer&rsquo;s phone for receipt information.</td>
+</tr>
+
+<tr>
+<td><code>receipt_number</code></td>
+<td>string</td>
+<td>The unique identifier for a receipt. Has a non-empty value if the order has <code>refunded</code> status.</td>
+</tr>
+
+<tr>
+<td><code>receipt_url</code></td>
+<td>string</td>
+<td>The URL in PaySuper service for online access to the receipt.</td>
+</tr>
+
+<tr>
+<td><code>agreement_version</code></td>
+<td>string</td>
+<td>The EULA agreement accepted by payment.</td>
+</tr>
+
+<tr>
+<td><code>agreement_accepted</code></td>
+<td>boolean</td>
+<td>Has the value <code>true</code> if the agreement was accepted.</td>
+</tr>
+
+<tr>
+<td><code>notify_sale</code></td>
+<td>boolean</td>
+<td>Has the value <code>true</code> if a user confirmed to be informed about feature sales or discounts.</td>
+</tr>
+
+<tr>
+<td><code>notify_sale_email</code></td>
+<td>string</td>
+<td>The customer&rsquo;s email for sales or discounts.</td>
+</tr>
+
+<tr>
+<td><code>issuer</code></td>
+<td></td>
+<td>Details about issuer.</td>
+</tr>
+
+<tr>
+<td><code>· url</code></td>
+<td>string</td>
+<td>The referer URL.</td>
+</tr>
+
+<tr>
+<td><code>· embedded</code></td>
+<td>boolean</td>
+<td>Has the value <code>true</code> if the PaySuper form was embedded to collect payment.</td>
+</tr>
+
+<tr>
+<td><code>· reference</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· reference_type</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· utm_source</code></td>
+<td>string</td>
+<td>The URL of an advertisement.</td>
+</tr>
+
+<tr>
+<td><code>· utm_medium</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· utm_campaign</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· referrer_host</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>amount</code></td>
+<td>float</td>
+<td>The total amount for the order. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td><code>currency</code></td>
+<td>string</td>
+<td>The currency for the order. Three-letter Currency Code ISO 4217, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>user</code></td>
+<td></td>
+<td>Details about customer.</td>
+</tr>
+
+<tr>
+<td><code>· id</code></td>
+<td>string</td>
+<td>The user unique identifier on the PaySuper side.</td>
+</tr>
+
+<tr>
+<td><code>· object</code></td>
+<td>string</td>
+<td>The string representing the object’s type. Value: <code>user</code>.</td>
+</tr>
+
+<tr>
+<td><code>· external_id</code></td>
+<td>string</td>
+<td>The user unique identifier in the merchant project.</td>
+</tr>
+
+<tr>
+<td><code>· name</code></td>
+<td>string</td>
+<td>The user&rsquo;s name.</td>
+</tr>
+
+<tr>
+<td><code>· email</code></td>
+<td>string</td>
+<td>The user&rsquo;s email.</td>
+</tr>
+
+<tr>
+<td><code>· email_verified</code></td>
+<td>boolean</td>
+<td>Whether the user’s email address has been verified in the merchant project.</td>
+</tr>
+
+<tr>
+<td><code>· phone</code></td>
+<td>string</td>
+<td>The user’s phone number.</td>
+</tr>
+
+<tr>
+<td><code>· phone_verified</code></td>
+<td>boolean</td>
+<td>Whether the user’s phone number has been verified in the merchant project.</td>
+</tr>
+
+<tr>
+<td><code>· ip</code></td>
+<td>string</td>
+<td>The user’s IP address.</td>
+</tr>
+
+<tr>
+<td><code>· locale</code></td>
+<td>string</td>
+<td>The user’s locale name. Two-letter language code by ISO 639-1, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>· address</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>·· country</code></td>
+<td>string</td>
+<td>The user’s country. Two-letter language code by ISO 3166-1, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>·· city</code></td>
+<td>string</td>
+<td>The user’s city.</td>
+</tr>
+
+<tr>
+<td><code>·· postal_code</code></td>
+<td>string</td>
+<td>The user’s postal code.</td>
+</tr>
+
+<tr>
+<td><code>·· state</code></td>
+<td>string</td>
+<td>The user’s state code by ISO 3166-2.</td>
+</tr>
+
+<tr>
+<td><code>· metadata</code></td>
+<td>string</td>
+<td>A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
+</tr>
+
+<tr>
+<td><code>· notify_new_region</code></td>
+<td>boolean</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· notify_new_region_email</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>billing_address</code></td>
+<td></td>
+<td>Details about user&rsquo;s billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a <code>country</code> value and for the USA has <code>country</code>, <code>state</code> and <code>zip</code>.</td>
+</tr>
+
+<tr>
+<td><code>· country</code></td>
+<td>string</td>
+<td>The user&rsquo;s country.</td>
+</tr>
+
+<tr>
+<td><code>tax</code></td>
+<td></td>
+<td>Details about a tax.</td>
+</tr>
+
+<tr>
+<td><code>· type</code></td>
+<td>string</td>
+<td>The tax type (Sales tax for USA, VAT for EU and Russia).</td>
+</tr>
+
+<tr>
+<td><code>· rate</code></td>
+<td>float</td>
+<td>The current user&rsquo;s location taxes. A positive float with two decimal points.</td>
+</tr>
+
+<tr>
+<td><code>· amount</code></td>
+<td>float</td>
+<td>The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00)</td>
+</tr>
+
+<tr>
+<td><code>· currency</code></td>
+<td>string</td>
+<td>The currency for the tax. Three-letter Currency Code ISO 4217, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>method</code></td>
+<td></td>
+<td>Details about the payment method.</td>
+</tr>
+
+<tr>
+<td><code>· title</code></td>
+<td>string</td>
+<td>The human readable method name.</td>
+</tr>
+
+<tr>
+<td><code>· external_id</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· payment_system_id</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>· saved</code></td>
+<td>boolean</td>
+<td>Has a value <code>true</code> if a payment method was saved by a user for a future usage.</td>
+</tr>
+
+<tr>
+<td><code>· card</code></td>
+<td></td>
+<td>Details about the user&rsquo;s card.</td>
+</tr>
+
+<tr>
+<td><code>·· first6</code></td>
+<td>string</td>
+<td>The first 6 digits of the card. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· last4</code></td>
+<td>string</td>
+<td>The last 4 digits of the card. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· masked</code></td>
+<td>string</td>
+<td>The mask for a user&rsquo;s card. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· expiry_month</code></td>
+<td>string</td>
+<td>The validity month of the card. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· expiry_year</code></td>
+<td>string</td>
+<td>The validity year of the card. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· brand</code></td>
+<td>string</td>
+<td>The brand of the card issuer. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· fingerprint</code></td>
+<td>string</td>
+<td>The internal fingerprint for given card. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>·· secure3d</code></td>
+<td>string</td>
+<td>Has a value <code>true</code> if 3D-secure was used during payment. Available only for a card method.</td>
+</tr>
+
+<tr>
+<td><code>· wallet</code></td>
+<td>string</td>
+<td>The name of the wallet. Available only for an integrated wallet payment systems.</td>
+</tr>
+
+<tr>
+<td><code>· crypto_currency</code></td>
+<td>string</td>
+<td>The name of the crypto currency. Available only for a crypto currency.</td>
+</tr>
+
+<tr>
+<td><code>· refund_allowed</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>items</code></td>
+<td>object[]</td>
+<td>An array of OrderItem objects associated with current Order.</td>
+</tr>
+
+<tr>
+<td><code>refund</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>metadata</code></td>
+<td>object</td>
+<td>A set of key-value pairs of description that you can attach to the order object. It can be useful for storing additional information about your customer payment..</td>
+</tr>
+
+<tr>
+<td><code>original_amount</code></td>
+<td>float</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>country</code></td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the <code>key</code> type, as Virtual Items - the <code>product</code> type, for a simple checkout - the <code>simple</code> type. <strong>Enum values:</strong> key, products, simple.</td>
+</tr>
+
+<tr>
+<td><code>platform_id</code></td>
+<td>string</td>
+<td>The default platform identifier for which customer buys the in-game key. This field used only for a payment type <code>key</code>. <strong>Enum values:</strong> steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.</td>
+</tr>
+
+<tr>
+<td><code>receipt_id</code></td>
+<td>string</td>
+<td>The receipt unique identifier .</td>
+</tr>
+
+<tr>
+<td><code>virtual_currency_amount</code></td>
+<td>float</td>
+<td>The virtual currancy amount for the order.</td>
+</tr>
+
+<tr>
+<td><code>is_buy_for_virtual_currency</code></td>
+<td>boolean</td>
+<td>Has a value <code>true</code> if the order createc for a virtual currency.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="create-a-payment-order">Create a payment order</h2>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -X POST <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>  https://api.pay.super.com/api/v1/order <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>  -H <span style="color:#4070a0">&#39;Content-Type: application/json&#39;</span> <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>  -H <span style="color:#4070a0">&#39;X-API-SIGNATURE: YOUR_SECRET_KEY \
+</span><span style="color:#4070a0">  -d &#39;</span><span style="color:#666">{</span>
+    <span style="color:#4070a0">&#34;project&#34;</span>: <span style="color:#4070a0">&#34;5db16ae811bf0d0001fdfbd1&#34;</span>,
+    <span style="color:#4070a0">&#34;amount&#34;</span>: <span style="color:#40a070">10</span>,
+    <span style="color:#4070a0">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;USD&#34;</span>,
+    <span style="color:#4070a0">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;simple&#34;</span>,
+  <span style="color:#4070a0">&#34;user&#34;</span>: <span style="color:#666">{</span>
+      <span style="color:#4070a0">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;58799f2c2564296bd2cb&#34;</span>,
+      <span style="color:#4070a0">&#34;email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+      <span style="color:#4070a0">&#34;email_verified&#34;</span>: <span style="color:#007020">true</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span><span style="">&#39;</span></code></pre></div>
+<h3 id="post-api-v1-order">POST /api/v1/order</h3>
+
+<p>Create a payment order with details about your customer and sales option data.</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;account&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">0</span>,
+  <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;order_id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;project&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;url_fail&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;url_success&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;key&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;products&#34;</span>: [
+    <span style="color:#4070a0">&#34;string&#34;</span>
+  ],
+  <span style="color:#062873;font-weight:bold">&#34;platform_id&#34;</span>: <span style="color:#4070a0">&#34;steam&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;token&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;user&#34;</span>: {
+    <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;email&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;email_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+    <span style="color:#062873;font-weight:bold">&#34;phone&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;phone_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+    <span style="color:#062873;font-weight:bold">&#34;ip&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;locale&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;address&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;city&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;postal_code&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {}
+  }
+}</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>PARAMETER</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>body</code>  <br><p style="color: red;">required</p></td>
+<td></td>
+<td>Parameters to create a payment order.</td>
+</tr>
+
+<tr>
+<td><code>· account</code></td>
+<td>string</td>
+<td>The user unique account in the Project.</td>
+</tr>
+
+<tr>
+<td><code>· amount</code></td>
+<td>number</td>
+<td>The order amount as a positive number. It is required for a simple checkout payment.</td>
+</tr>
+
+<tr>
+<td><code>· currency</code></td>
+<td>string</td>
+<td>The currency of the order. Three-letter Currency Code ISO 4217, in uppercase.  If provided, the amount will be processed in this currency.  It is required for a simple checkout payment.</td>
+</tr>
+
+<tr>
+<td><code>· description</code></td>
+<td>string</td>
+<td>The arbitrary order description.</td>
+</tr>
+
+<tr>
+<td><code>· order_id</code></td>
+<td>string</td>
+<td>The unique order identifier on the merchant side. This field is not required, but we recommend sending this field always.</td>
+</tr>
+
+<tr>
+<td><code>· project</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The ID of the Project found in your merchant account in the PaySuper Dashboard.</td>
+</tr>
+
+<tr>
+<td><code>· url_fail</code></td>
+<td>string</td>
+<td>The redirect URL for the failed payment.  Enable the dynamic notify URLs option in the Project Settings to use this field.</td>
+</tr>
+
+<tr>
+<td><code>· url_success</code></td>
+<td>string</td>
+<td>The redirect URL for the successful payment.  Enable the dynamic notify URLs option in the Project Settings to use this field.</td>
+</tr>
+
+<tr>
+<td><code>· type</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the <code>key</code> type,  as Virtual Items - the <code>product</code> type, for a simple checkout - the <code>simple</code> type. <br><strong>Enum values:</strong> <br>key<br>product<br>simple</td>
+</tr>
+
+<tr>
+<td><code>· products</code></td>
+<td>[string]</td>
+<td>The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to &lsquo;product&rsquo; or &lsquo;key&rsquo;.</td>
+</tr>
+
+<tr>
+<td><code>· platform_id</code></td>
+<td>string</td>
+<td>The default platform identifier for which customer buys the in-game key. This field used only for a payment type &lsquo;key&rsquo;. <br><strong>Enum values:</strong> <br>steam<br>gog<br>uplay<br>origin<br>psn<br>xbox<br>nintendo<br>itch<br>egs</td>
+</tr>
+
+<tr>
+<td><code>· token</code></td>
+<td>string</td>
+<td>An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters in an order object even the required parameters.</td>
+</tr>
+
+<tr>
+<td><code>· user</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>·· external_id</code></td>
+<td>string</td>
+<td>The user unique identifier in the merchant project.</td>
+</tr>
+
+<tr>
+<td><code>·· name</code></td>
+<td>string</td>
+<td>The user&rsquo;s name.</td>
+</tr>
+
+<tr>
+<td><code>·· email</code></td>
+<td>string</td>
+<td>The user&rsquo;s email address.</td>
+</tr>
+
+<tr>
+<td><code>·· email_verified</code></td>
+<td>boolean</td>
+<td>Whether the user&rsquo;s email address has been verified on the merchant side.</td>
+</tr>
+
+<tr>
+<td><code>·· phone</code></td>
+<td>string</td>
+<td>The user&rsquo;s phone number.</td>
+</tr>
+
+<tr>
+<td><code>·· phone_verified</code></td>
+<td>boolean</td>
+<td>Whether the user’s phone number has been verified on the merchant side.</td>
+</tr>
+
+<tr>
+<td><code>·· ip</code></td>
+<td>string</td>
+<td>The user&rsquo;s IP address.</td>
+</tr>
+
+<tr>
+<td><code>·· locale</code></td>
+<td>string</td>
+<td>The user&rsquo;s locale name. Two-letter language code by ISO 639-1, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>·· address</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>··· country</code></td>
+<td>string</td>
+<td>The user&rsquo;s country. Two-letter language code by ISO 3166-1, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>··· city</code></td>
+<td>string</td>
+<td>The user&rsquo;s city.</td>
+</tr>
+
+<tr>
+<td><code>··· postal_code</code></td>
+<td>string</td>
+<td>The user&rsquo;s postal code.</td>
+</tr>
+
+<tr>
+<td><code>··· state</code></td>
+<td>string</td>
+<td>The user&rsquo;s state code by ISO 3166-2.</td>
+</tr>
+
+<tr>
+<td><code>·· metadata</code></td>
+<td>object</td>
+<td>A string-value description that you can attach to the user object.  It can be useful for storing additional information about your customer&rsquo;s payment.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="responses">Responses</h3>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;payment_form_url&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+}</code></pre></div>
+<h3 id="200-an-object-with-the-unique-identifier-of-the-order-and-a-paysuper-hosted-url-of-a-payment-form">200 An object with the unique identifier of the order and a PaySuper-hosted URL of a payment form.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· id</code></td>
+<td>string</td>
+<td>The unique identifier for the order.</td>
+</tr>
+
+<tr>
+<td><code>· payment_form_url</code></td>
+<td>string</td>
+<td>The PaySuper-hosted URL of payment form.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="400-an-error-message-object-with-a-reason">400 An error message object with a reason.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· message</code></td>
+<td>string</td>
+<td>A description of the error.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>A status code of the error.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="401-an-error-message-object-with-an-unauthorized-reason">401 An error message object with an unauthorized reason.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· message</code></td>
+<td>string</td>
+<td>A description of the error.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>A status code of the error.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="500-an-error-message-object-with-a-reason-on-the-paysuper-server-side">500 An error message object with a reason on the PaySuper server side.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· message</code></td>
+<td>string</td>
+<td>A description of the error.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>A status code of the error.</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="token">Token</h1>
+
+<p>A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.</p>
+
+<h2 id="create-a-token">Create a token</h2>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -X POST <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>  https://api.pay.super.com/api/v1/tokens <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>  -H <span style="color:#4070a0">&#39;Content-Type: application/json&#39;</span> <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>  -H <span style="color:#4070a0">&#39;X-API-SIGNATURE: YOUR_SECRET_KEY \
+</span><span style="color:#4070a0">  -d &#39;</span><span style="color:#666">{</span>
+      <span style="color:#4070a0">&#34;settings&#34;</span>: <span style="color:#666">{</span>
+          <span style="color:#4070a0">&#34;project_id&#34;</span>: <span style="color:#4070a0">&#34;5dcd11bc218dc30001d7098f&#34;</span>,
+          <span style="color:#4070a0">&#34;amount&#34;</span>: <span style="color:#40a070">10</span>,
+          <span style="color:#4070a0">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;USD&#34;</span>,
+          <span style="color:#4070a0">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;simple&#34;</span>
+      <span style="color:#666">}</span>,
+      <span style="color:#4070a0">&#34;user&#34;</span>: <span style="color:#666">{</span>
+          <span style="color:#4070a0">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;58799f2c2564296bd2cb&#34;</span>,
+          <span style="color:#4070a0">&#34;address&#34;</span>: <span style="color:#666">{</span>
+            <span style="color:#4070a0">&#34;city&#34;</span>: <span style="color:#4070a0">&#34;Almere&#34;</span>,
+            <span style="color:#4070a0">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;NL&#34;</span>,
+            <span style="color:#4070a0">&#34;postal_code&#34;</span>: <span style="color:#4070a0">&#34;1326 PA&#34;</span>,
+            <span style="color:#4070a0">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;Flevoland&#34;</span>
+          <span style="color:#666">}</span>,
+          <span style="color:#4070a0">&#34;email&#34;</span>: <span style="color:#666">{</span>
+            <span style="color:#4070a0">&#34;value&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+            <span style="color:#4070a0">&#34;verified&#34;</span>: <span style="color:#007020">true</span>
+          <span style="color:#666">}</span>
+      <span style="color:#666">}</span>
+<span style="color:#666">}</span><span style="">&#39;</span></code></pre></div>
+<h3 id="post-api-v1-tokens">POST /api/v1/tokens</h3>
+
+<p>Create a token that encrypts certain details of your customer, a game and purchase parameters.</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;user&#34;</span>: {
+    <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;email&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;value&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;phone&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;value&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;value&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;ip&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;value&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;locale&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;value&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;address&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;city&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;postal_code&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {}
+  },
+  <span style="color:#062873;font-weight:bold">&#34;settings&#34;</span>: {
+    <span style="color:#062873;font-weight:bold">&#34;project_id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;return_url&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;success&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;fail&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">0</span>,
+    <span style="color:#062873;font-weight:bold">&#34;products_ids&#34;</span>: [
+      <span style="color:#4070a0">&#34;string&#34;</span>
+    ],
+    <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;simple&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {}
+  }
+}</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>PARAMETER</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>body</code>  <br><p style="color: red;">required</p></td>
+<td></td>
+<td>Parameters to create a token.</td>
+</tr>
+
+<tr>
+<td><code>· user</code>  <br><p style="color: red;">required</p></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>·· id</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The user unique identifier in the merchant project.</td>
+</tr>
+
+<tr>
+<td><code>·· email</code></td>
+<td>object</td>
+<td>The user’s email address.</td>
+</tr>
+
+<tr>
+<td><code>··· value</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The parameter value.</td>
+</tr>
+
+<tr>
+<td><code>··· verified</code></td>
+<td>boolean</td>
+<td>Whether the value has been verified on the merchant side.</td>
+</tr>
+
+<tr>
+<td><code>·· phone</code></td>
+<td>object</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>··· value</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The parameter value.</td>
+</tr>
+
+<tr>
+<td><code>··· verified</code></td>
+<td>boolean</td>
+<td>Whether the value has been verified on the merchant side.</td>
+</tr>
+
+<tr>
+<td><code>·· name</code></td>
+<td>object</td>
+<td>The user’s name.</td>
+</tr>
+
+<tr>
+<td><code>··· value</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The parameter value.</td>
+</tr>
+
+<tr>
+<td><code>·· ip</code></td>
+<td>object</td>
+<td>The user’s IP address.</td>
+</tr>
+
+<tr>
+<td><code>··· value</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The parameter value.</td>
+</tr>
+
+<tr>
+<td><code>·· locale</code></td>
+<td>object</td>
+<td>The user’s locale name. Two-letter language code by ISO 639-1, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>··· value</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The parameter value.</td>
+</tr>
+
+<tr>
+<td><code>·· address</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>··· country</code></td>
+<td>string</td>
+<td>The user&rsquo;s country. Two-letter language code by ISO 3166-1, in lowercase.</td>
+</tr>
+
+<tr>
+<td><code>··· city</code></td>
+<td>string</td>
+<td>The user&rsquo;s city.</td>
+</tr>
+
+<tr>
+<td><code>··· postal_code</code></td>
+<td>string</td>
+<td>The user&rsquo;s postal code.</td>
+</tr>
+
+<tr>
+<td><code>··· state</code></td>
+<td>string</td>
+<td>The user&rsquo;s state code by ISO 3166-2.</td>
+</tr>
+
+<tr>
+<td><code>·· metadata</code></td>
+<td>object</td>
+<td>A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment. The key and value have the string type.</td>
+</tr>
+
+<tr>
+<td><code>· settings</code>  <br><p style="color: red;">required</p></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>·· project_id</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The ID of the Project found in your merchant account in the PaySuper Dashboard.</td>
+</tr>
+
+<tr>
+<td><code>·· return_url</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>··· success</code></td>
+<td>string</td>
+<td>The redirect URL for the successful payment.</td>
+</tr>
+
+<tr>
+<td><code>··· fail</code></td>
+<td>string</td>
+<td>The redirect URL for the failed payment.</td>
+</tr>
+
+<tr>
+<td><code>·· currency</code></td>
+<td>string</td>
+<td>The currency of the order. Three-letter Currency Code ISO 4217, in uppercase.  If provided, the amount will be processed in this currency.  It is required for a simple checkout payment.</td>
+</tr>
+
+<tr>
+<td><code>·· amount</code></td>
+<td>number</td>
+<td>The order amount as a positive number. It is required for a simple checkout payment.</td>
+</tr>
+
+<tr>
+<td><code>·· products_ids</code></td>
+<td>[string]</td>
+<td>The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to &lsquo;product&rsquo; or &lsquo;key&rsquo;.</td>
+</tr>
+
+<tr>
+<td><code>·· description</code></td>
+<td>string</td>
+<td>The arbitrary order description.</td>
+</tr>
+
+<tr>
+<td><code>·· type</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the &lsquo;key&rsquo; type,  as Virtual Items - the &lsquo;product&rsquo; type, for a simple checkout - the &lsquo;simple&rsquo; type. <br><strong>Enum values:</strong> <br>simple<br>product<br>key</td>
+</tr>
+
+<tr>
+<td><code>·· metadata</code></td>
+<td>object</td>
+<td>A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment. The key and value have the string type.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="responses-1">Responses</h3>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;token&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;payment_form_url&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+}</code></pre></div>
+<h3 id="200-an-object-with-a-token-string-and-a-paysuper-hosted-url-of-a-payment-form">200 An object with a token string and a PaySuper-hosted URL of a payment form.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· token</code>  <br><p style="color: red;">required</p></td>
+<td>string</td>
+<td>A secure string which contains encrypted information about your customer and sales option data.</td>
+</tr>
+
+<tr>
+<td><code>· payment_form_url</code></td>
+<td>string</td>
+<td>The PaySuper-hosted URL of payment form.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="400-an-error-message-object-with-a-reason-1">400 An error message object with a reason.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· message</code></td>
+<td>string</td>
+<td>A description of the error.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>A status code of the error.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="500-an-error-message-object-with-a-reason-on-the-paysuper-server-side-1">500 An error message object with a reason on the PaySuper server side.</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>· message</code></td>
+<td>string</td>
+<td>A description of the error.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>A status code of the error.</td>
+</tr>
+</tbody>
+</table>
+
+    
+
+        </div>
+        <div class="dark-box">
+            
+            <div class="lang-selector">
+                
+                <a href="#" data-language-name="shell">cURL</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

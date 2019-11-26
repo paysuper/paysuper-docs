@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DocuAPI Example Site</title>
+    <link>https://docs.pay.super.com/api/</link>
+    <description>Recent content on DocuAPI Example Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://docs.pay.super.com/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API Reference</title>
+      <link>https://docs.pay.super.com/api/main/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/api/main/</guid>
+      <description>Introduction The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients. JSON will be returned in all responses from the API, including errors.
+All API requests must be made over HTTPS.
+Authentication Authentication to the API occurs via Signature-based authentication.</description>
+    </item>
+    
+    <item>
+      <title>PaySuper API Reference</title>
+      <link>https://docs.pay.super.com/api/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/api/api/</guid>
+      <description>Order You can create a payment order with details about your customer and sales option data.
+ The Order object example:
+ { &amp;#34;id&amp;#34;: &amp;#34;726d9e07-1dc8-4159-8d52-f95941066bc8&amp;#34;, &amp;#34;transaction&amp;#34;: &amp;#34;2978077&amp;#34;, &amp;#34;object&amp;#34;: &amp;#34;order&amp;#34;, &amp;#34;status&amp;#34;: &amp;#34;created&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;A summary for the purchase&amp;#34;, &amp;#34;created_at&amp;#34;: { &amp;#34;seconds&amp;#34;: 1573882679, &amp;#34;nanos&amp;#34;: 69000000 }, &amp;#34;canceled_at&amp;#34;: { &amp;#34;seconds&amp;#34;: -62135596800 }, &amp;#34;canceled&amp;#34;: false, &amp;#34;cancellation&amp;#34;: null, &amp;#34;refunded&amp;#34;: false, &amp;#34;refunded_at&amp;#34;: { &amp;#34;seconds&amp;#34;: -62135596800 }, &amp;#34;receipt_email&amp;#34;: &amp;#34;user.email@example.com&amp;#34;, &amp;#34;receipt_phone&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;receipt_number&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;receipt_url&amp;#34;: &amp;#34;https://dashboard.pay.super.com/receipt/purchase/efefc5d3-c2e2-415&amp;#34;, &amp;#34;agreement_version&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;agreement_accepted&amp;#34;: false, &amp;#34;notify_sale&amp;#34;: false, &amp;#34;notify_sale_email&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;issuer&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;https://domain.</description>
+    </item>
+    
+  </channel>
+</rss>

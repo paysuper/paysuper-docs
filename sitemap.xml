@@ -40,10 +40,6 @@
   </url>
   
   <url>
-    <loc>https://docs.pay.super.com/docs/api/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.pay.super.com/</loc>
   </url>
   
@@ -73,10 +69,6 @@
   
   <url>
     <loc>https://docs.pay.super.com/docs/declines/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.pay.super.com/docs/webhooks/</loc>
   </url>
   
 </urlset>

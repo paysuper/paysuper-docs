@@ -80,16 +80,5 @@ The refund can be sent only to the same customer&amp;rsquo;s bank card was used 
 But some reasons for the failed payments are unclear and uninformative.</description>
     </item>
     
-    <item>
-      <title>Webhooks</title>
-      <link>https://docs.pay.super.com/docs/webhooks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://docs.pay.super.com/docs/webhooks/</guid>
-      <description>Webhooks The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
-These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
-In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.</description>
-    </item>
-    
   </channel>
 </rss>
