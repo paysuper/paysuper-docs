@@ -463,14 +463,18 @@ Create a token that encrypts certain details of your customer, a game and purcha
 |`body`  <br><p style="color: red;">required</p> ||Parameters to create a token.  |
 |`· user`  <br><p style="color: red;">required</p> ||   |
 |`·· id`  <br><p style="color: red;">required</p> | string |The user unique identifier in the merchant project.  |
-|`·· email` ||   |
+|`·· email` | object |The user’s email address.  |
 |`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
 |`··· verified` | boolean |Whether the value has been verified on the merchant side.  |
-|`·· phone` ||   |
-|`·· name` ||   |
+|`·· phone` | object |   |
 |`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
-|`·· ip` ||   |
-|`·· locale` ||   |
+|`··· verified` | boolean |Whether the value has been verified on the merchant side.  |
+|`·· name` | object |The user’s name.  |
+|`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
+|`·· ip` | object |The user’s IP address.  |
+|`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
+|`·· locale` | object |The user’s locale name. Two-letter language code by ISO 639-1, in lowercase.  |
+|`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
 |`·· address` ||   |
 |`··· country` | string |The user's country. Two-letter language code by ISO 3166-1, in lowercase.  |
 |`··· city` | string |The user's city.  |

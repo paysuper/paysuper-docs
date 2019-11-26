@@ -2007,19 +2007,54 @@ components:
           description: The user unique identifier in the merchant project.
         email:
           description: The user’s email address.
-          $ref: '#/components/schemas/Token.ValueVerified'
+          required:
+          - value
+          type: object
+          properties:
+            value:
+              type: string
+              description: The parameter value.
+            verified:
+              type: boolean
+              description: Whether the value has been verified on the merchant side.
         phone:
-          description: The user’s phone number.
-          $ref: '#/components/schemas/Token.ValueVerified'
+          required:
+          - value
+          type: object
+          properties:
+            value:
+              type: string
+              description: The parameter value.
+            verified:
+              type: boolean
+              description: Whether the value has been verified on the merchant side.
         name:
           description: The user’s name.
-          $ref: '#/components/schemas/Token.Value'
+          required:
+          - value
+          type: object
+          properties:
+            value:
+              type: string
+              description: The parameter value.
         ip:
           description: The user’s IP address.
-          $ref: '#/components/schemas/Token.Value'
+          required:
+          - value
+          type: object
+          properties:
+            value:
+              type: string
+              description: The parameter value.
         locale:
           description: The user’s locale name. Two-letter language code by ISO 639-1, in lowercase.
-          $ref: '#/components/schemas/Token.Value'
+          required:
+          - value
+          type: object
+          properties:
+            value:
+              type: string
+              description: The parameter value.
         address:
           $ref: '#/components/schemas/Order.BillingAddress'
         metadata:
