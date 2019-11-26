@@ -9,7 +9,7 @@ PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect pa
 
 ***
 
-{{< figure src="/images/products-dark-form.png">}}
+{{< figure src="/images/chreckout-form.gif">}}
 
 ## PaySuper Checkout features
 

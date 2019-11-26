@@ -32,6 +32,8 @@ const paySuper = new PaySuper({
 
 Available options: **`dark`** (default), **`light`**.
 
+{{< figure src="/images/themes-form.gif">}}
+
 ## Customizing the colors
 
 {{< highlight javascript >}}
@@ -44,6 +46,8 @@ const paySuper = new PaySuper({
 {{< /highlight >}}
 
 [Available parameters of **`viewSchemeConfig`**](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig)
+
+{{< figure src="/images/colors-form.gif">}}
 
 ***
 

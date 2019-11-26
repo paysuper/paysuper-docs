@@ -17,6 +17,5 @@ headless: true
   - [Payouts]({{< relref "/docs/payouts" >}})
   - [Refunds]({{< relref "/docs/refunds" >}})
   - [Declines]({{< relref "/docs/declines" >}})
-  - [Webhooks]({{< relref "/docs/webhooks" >}})
 
-- [**API Reference**]({{< relref "/docs/api" >}})
+- [**API Reference**](/api)

@@ -1,0 +1,89 @@
+// Overrides
+.toc-wrapper {
+    background-color: #f4f6f9 !important;
+}
+
+.toc-link {
+    color: #333 !important;
+}
+
+.page-wrapper {
+    background-color: #ffffff !important;
+}
+
+.toc-wrapper > .search input {
+    background-color: #f4f6f9 !important;
+    color: #333 !important;
+    border-color: #ccc !important;
+}
+
+input[placeholder="Search"] {
+    color: #ccc !important;
+}
+
+.toc-wrapper > .search:before {
+    color: #ccc !important;
+}
+
+.toc-wrapper .search-results {
+    background-color: #f4f6f9 !important;
+    color: #333 !important;
+}
+
+.toc-wrapper li {
+    color: #333 !important;
+}
+
+.toc-wrapper .search-results a {
+    color: #333 !important;
+}
+
+.toc-wrapper .toc-footer {
+    border-top: 1px solid #ccc !important;
+}
+
+.toc-link,
+.toc-footer a {
+    color: #333 !important;
+}
+
+.toc-wrapper .toc-link.active {
+    background-color: #f4f6f9 !important;
+    color: #2E00A8 !important;
+}
+
+.toc-wrapper .toc-list-h2 {
+    background-color: #f4f6f9 !important;
+}
+
+.toc-wrapper .toc-link.active-parent {
+    background-color: #f4f6f9 !important;
+}
+
+.content h1 {
+    border-top: 0px solid #ccc !important;
+}
+
+.page-wrapper .dark-box {
+    background-color: #f4f6f9 !important;
+}
+
+.page-wrapper .lang-selector {
+    border-bottom: 5px solid #f4f6f9 !important;
+    background-color: #f4f6f9 !important;
+}
+
+.lang-selector a.active {
+    background-color: #f4f6f9 !important;
+    color: #333 !important;
+    border-bottom: 3px solid #2E00A8 !important;
+}
+
+.content pre {
+    color:#333 !important;
+}
+
+.content blockquote > p {
+    background-color: #f4f6f9 !important;
+    color:#333 !important;
+}

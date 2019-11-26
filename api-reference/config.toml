@@ -1,0 +1,47 @@
+theme = "docuapi"
+languageCode = "en-us"
+baseURL = 'https://docs.stg.pay.super.com/api'
+title = "PaySuper API Reference"
+
+disableKinds = ["taxonomyTerm"]
+
+# Code higlighting settings
+pygmentsCodefences = true
+pygmentsCodeFencesGuesSsyntax = false
+pygmentsOptions = ""
+pygmentsStyle = "friendly"
+pygmentsUseClasses = false
+
+defaultContentLanguage = "en"
+
+[module]
+[module.hugoVersion]
+[[module.imports]]
+# We include the theme by "../.." above, but we need one module import for Hugo to detect us as a Hugo Module.
+path="github.com/bep/empty-hugo-module"
+
+[params]
+search = true
+  
+# Configure the language example tabs.
+[[params.language_tabs]]
+key = "shell"
+name = "cURL" 
+
+#Languages 
+[languages]
+
+[languages.en]
+languageName = "English"
+weight = 2
+title = "PaySuper API Reference"
+
+# Left sidebar footer items. Use HTMl or Markdown.
+toc_footers = [ 
+"<a href='https://docs.pay.super.com' target='_blank'>Documentation</a>",
+"<a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>PaySuper API on GitHub</a>",
+]
+
+[languages.en.blackfriday]
+angledQuotes = false
+hrefTargetBlank = true

@@ -44,10 +44,10 @@ To create a payout your PaySuper account balance must be more than a minimum pay
 
 Currency|Minimum payout
 ---|---
-USD|1.00 USD
-EUR|1.00 EUR
-RUB|1.00 RUB
-GBP|1.00 GBP
+USD|100.00 USD
+EUR|100.00 EUR
+RUB|10000.00 RUB
+GBP|100.00 GBP
 
 ## Payout costs
 

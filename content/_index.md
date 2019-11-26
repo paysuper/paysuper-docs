@@ -11,7 +11,7 @@ type: docs
 
 PaySuper is a payment service with an open source multifunctional toolkit that provides secure and immediate online payment transactions for the games industry.
 
-{{< figure src="/images/light-theme-form.png">}}
+{{< figure src="/images/dark-form.png">}}
 
 ## Expand the market with online payments
 

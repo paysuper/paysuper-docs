@@ -2,24 +2,39 @@ os:
 - linux
 language: go
 go:
-- 1.11.x
+- 1.13.x
+
+env:
+  global:
+  - GO111MODULE=on 
 
 sudo: required
 
 dist: bionic
 
+cache:
+  directories:
+  - $HOME/gopath/pkg/mod
+
 if: branch in (master, develop)
-#cache: bundler
 
 before_install:
- - sudo snap install hugo --channel=extended
+#  - sudo snap install hugo --channel=extended
+  - git clone -b v0.59.1 https://github.com/gohugoio/hugo.git
+  - cd hugo
+  - go install --tags extended
+  - hugo env
 
 jobs:
   include: 
     - if: branch = develop
       install: true
       script:
+      - cd $TRAVIS_BUILD_DIR
       - hugo --environment staging
+      - mkdir $TRAVIS_BUILD_DIR/public/api
+      - cd $TRAVIS_BUILD_DIR/api-reference 
+      - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
       - echo "docs.stg.pay.super.com" > ./public/CNAME
       deploy:
         - provider: pages
@@ -36,7 +51,11 @@ jobs:
     - if: branch = master
       install: true
       script:
+      - cd $TRAVIS_BUILD_DIR
       - hugo --environment production
+      - mkdir $TRAVIS_BUILD_DIR/public/api
+      - cd $TRAVIS_BUILD_DIR/api-reference 
+      - hugo --environment production && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
       - echo "docs.pay.super.com" > ./public/CNAME
       deploy:
         - provider: pages
@@ -50,7 +69,6 @@ jobs:
           local-dir: "./public"
           on:
             branch: master
-
 
 notifications:
   slack:

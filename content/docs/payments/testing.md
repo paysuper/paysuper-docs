@@ -17,8 +17,8 @@ When using PaySuper JS SDK ensure that:
 
 If you're using the PaySuper API in your server-side code then ensure that:
 
-* All [API errors](/docs/api/#section/Errors) are handled accurately.
-* [Webhooks](/docs/webhooks/) contains properly URL configured in the Functional URL section on the Project webhooks page.
+* All [API errors](/api/#errors) are handled accurately.
+* [Webhooks](/api/#webhooks) contains properly URL configured in the Functional URL section on the Project webhooks page.
 
 ## Test card numbers 
 
@@ -128,7 +128,7 @@ PaySuper can send you webhook events to your server to notify on the payment sta
 <--->
 **GETTING STARTED**
 
-[Configure Webhooks](/docs/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
+[Configure Webhooks](/api/#webhooks) for your Project in PaySuper Dashboard and handle them on your server.
 
 {{< /columns >}}
 

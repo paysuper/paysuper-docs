@@ -22,7 +22,7 @@ You can follow these steps to create a Checkout Form:
 
 ## **Step 1.** Create a token on your server
 
-Send the [POST /api/v1/tokens](/docs/api/#tag/Token) to receive an encrypted string. Learn more about the [full list of parameters](/docs/api/#tag/Token/paths/~1api~1v1~1tokens/post).
+Send the [POST /api/v1/tokens](/api/#create-a-token) to receive an encrypted string. Learn more about the [full list of parameters](/api/#create-a-token).
 
 {{< hint warning >}}
 Remember to add a Header `X-API-SIGNATURE` with the Project's Secret key found on the Project webhooks page.
@@ -64,7 +64,7 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SECRET_KEY' -d '{
       "verified": true
    }
  }
-}' 'https://p1payapi.tst.protocol.one/api/v1/tokens'
+}' 'https://api.pay.super.com/api/v1/tokens'
 {{< /highlight >}}
 {{< /tab >}}
 
@@ -130,7 +130,7 @@ Note that the parameters used in the `POST /api/v1/tokens` request override the 
 
 To integrate a Checkout Form you can follow the [client-side payment initialization](/docs/payments/sdk-integration/) but instead pass a token parameter when creating a PaySuper object.
 
-If your token contains [user and order parameters](/docs/api/#tag/Token) then you can create a Checkout Form instance with just a single parameter:
+If your token contains [user and order parameters](/api/#create-a-token) then you can create a Checkout Form instance with just a single parameter:
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -142,7 +142,7 @@ const paySuper = new PaySuper({
 
 To integrate a Checkout Form you can follow the [server-side payment initialization](/docs/payments/integration/) with the `token` parameter.
 
-If your token contains the [user and order parameters](/docs/api/#tag/Token) then you can request a Checkout Form URL with just a single parameter:
+If your token contains the [user and order parameters](/api/#create-a-token) then you can request a Checkout Form URL with just a single parameter:
 
 {{< tabs "token-product-checkout" >}}
 
@@ -160,7 +160,7 @@ Or try it with cURL to interact with the API over HTTP from your console:
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
     "token": "YOUR_TOKEN"
-}' 'https://p1payapi.tst.protocol.one/api/v1/order'
+}' 'https://api.pay.super.com/api/v1/order'
 {{< /highlight >}}
 {{< /tab >}}
 

@@ -1,0 +1,65 @@
+theme = "docuapi"
+languageCode = "en-us"
+baseurl = "https://docs.pay.super.com/api"
+title = "PaySuper API Reference"
+
+disableKinds = ["taxonomyTerm"]
+
+# Code higlighting settings
+pygmentsCodefences = true
+pygmentsCodeFencesGuesSsyntax = false
+pygmentsOptions = ""
+pygmentsStyle = "friendly"
+pygmentsUseClasses = false
+
+defaultContentLanguage = "en"
+
+[module]
+[module.hugoVersion]
+[[module.imports]]
+# We include the theme by "../.." above, but we need one module import for Hugo to detect us as a Hugo Module.
+path="github.com/bep/empty-hugo-module"
+
+[params]
+search = true
+  
+# Configure the language example tabs.
+[[params.language_tabs]]
+key = "shell"
+name = "cURL" 
+
+#Languages 
+[languages]
+
+[languages.en]
+languageName = "English"
+weight = 2
+title = "DocuAPI Example Site"
+
+# Left sidebar footer items. Use HTMl or Markdown.
+toc_footers = [ 
+"<a href='https://docs.pay.super.com' target='_blank'>Documentation</a>",
+"<a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>PaySuper API on GitHub</a>",
+]
+
+[languages.en.blackfriday]
+angledQuotes = false
+hrefTargetBlank = true
+
+
+[languages.nn]
+languageName = "Nynorsk"
+weight = 1
+title = "DocuAPI-døme"
+
+# Left sidebar footer items. Use HTMl or Markdown.
+toc_footers = [ 
+"<a href='#'>Registrer deg for ein utviklarnøkkel</a>",
+"Dokumentasjonen er driven av [DocuAPI](https://github.com/bep/docuapi)",
+"Hugo Theme av [bep](https://github.com/bep)"
+]
+
+[languages.nn.blackfriday]
+# Norwegian uses angled quotes
+angledQuotes = true
+hrefTargetBlank = true

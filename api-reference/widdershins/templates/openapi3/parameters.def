@@ -1,0 +1,11 @@
+|PARAMETER|TYPE|DESCRIPTION|
+|---|---|---|
+{{~ data.parameters :p}}|`{{=p.name}}` {{? p.required}} <br><p style="color: red;">required</p> {{?}}|{{? p.safeType.indexOf('#schema') == -1}} {{=p.safeType}} {{?}}|{{=p.shortDesc || p.description || ' '}} {{? p.schema && p.schema.enum }}<br>**Enum values:** {{~ p.schema.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}} {{? p.schema && p.schema.items && p.schema.items.enum }}<br>**Enum values:** {{~ p.schema.items.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}}|
+{{~}}
+
+{{? data.longDescs }}
+#### Detailed descriptions
+{{~ data.parameters :p}}{{? p.shortDesc !== p.description}}
+**{{=p.name}}**: {{=p.description}}{{?}}
+{{~}}
+{{?}}

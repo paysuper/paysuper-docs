@@ -1,5 +1,5 @@
 /.idea
-/public
+**/public
 nohup.out
 .DS_Store
 trace.out

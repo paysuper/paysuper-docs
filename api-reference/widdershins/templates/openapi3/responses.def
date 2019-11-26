@@ -1,0 +1,60 @@
+{{ data.responses = data.utils.getResponses(data); }}
+
+### Responses
+
+> Example responses
+
+{{= data.utils.getResponseExamples(data) }}
+
+{{~ data.responses :response}}
+
+### {{=response.status}} {{=response.description || ' '}}
+
+{{? Object.keys(response.content).length }}
+{{ var responseKey = Object.keys(response.content)[0]; }}
+{{ var responseSchema = response.content[responseKey].schema; }}
+{{ var enums = []; }}
+{{ var blocks = data.utils.schemaToArray(responseSchema,0,{trim:true,join:true},data); }}
+{{ for (var block of blocks) {
+     for (var p of block.rows) {
+       if (p.schema && p.schema.enum) {
+         for (var e of p.schema.enum) {
+           enums.push({name:p.name,value:e});
+         }
+       }
+     }
+   }
+}}
+
+{{? blocks[0].rows.length || blocks[0].title }}
+
+{{~ blocks :block}}
+{{? block.title }}*{{=block.title}}*
+{{?}}
+
+||||
+|---|---|---|
+{{~block.rows :p}}|`{{=p.displayName}}` {{? p.required}} <br><p style="color: red;">required</p> {{?}}|{{=p.safeType}}|{{=p.description || ' '}} {{? p.schema && p.schema.enum }}<br>**Enum values:** {{~ p.schema.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}} {{? p.schema && p.schema.items && p.schema.items.enum }}<br>**Enum values:** {{~ p.schema.items.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}}|
+{{~}}
+
+{{~}}
+{{?}}
+
+{{ data.response = response; }}
+{{#def.links}}
+
+{{?}}
+
+{{~}}
+
+{{ data.responseHeaders = data.utils.getResponseHeaders(data); }}
+{{? data.responseHeaders.length }}
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+{{~ data.responseHeaders :h}}|{{=h.status}}|{{=h.header}}|{{=h.type}}|{{=h.format||''}}|{{=h.description||'none'}}|
+{{~}}
+
+{{?}}

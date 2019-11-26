@@ -14,7 +14,7 @@ You can use PaySuper JS SDK for the [client-side payment initialization](/docs/p
 
 ## **Step 1.** Create a Checkout order on your server
 
-Send the [POST /api/v1/order](/docs/api/#tag/Payment-Order) to receive an Order ID. Learn more about the [full list of parameters](/docs/api/#tag/Payment-Order/paths/~1api~1v1~1order/post) that can be used for instance the redirect URLs for successful and failed payments.
+Send the [POST /api/v1/order](/api/#create-a-payment-order) to receive an Order ID. Learn more about the [full list of parameters](/api/#create-a-payment-order) that can be used for instance the redirect URLs for successful and failed payments.
 
 ### **Simple Checkout**
 
@@ -41,7 +41,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "amount": 10,
     "currency": "USD",
     "type": "simple"
-}' 'https://p1payapi.tst.protocol.one/api/v1/order'
+}' 'https://api.pay.super.com/api/v1/order'
 {{< /highlight >}}
 {{< /tab >}}
 
@@ -72,7 +72,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "project": "YOUR_PROJECT_ID",
     "products": ["YOUR_GAME_KEY_ID"],
     "type": "key"
-}' 'https://p1payapi.tst.protocol.one/api/v1/order'
+}' 'https://api.pay.super.com/api/v1/order'
 {{< /highlight >}}
 
 {{< /tab >}}
@@ -92,7 +92,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "project": "YOUR_PROJECT_ID",
     "products": ["YOUR_VIRTUAL_ITEM_ID_1", "YOUR_VIRTUAL_ITEM_ID_2"],
     "type": "product"
-}' 'https://p1payapi.tst.protocol.one/api/v1/order'
+}' 'https://api.pay.super.com/api/v1/order'
 {{< /highlight >}}
 
 {{< /tab >}}
