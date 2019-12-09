@@ -97,11 +97,6 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 {{< /tab >}}
 
-{{< tab "Virtual Currency" >}}
-
-
-{{< /tab >}}
-
 {{< /tabs >}}
 
 ## **Step 2.** Display a Checkout Form
