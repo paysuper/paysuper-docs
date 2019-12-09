@@ -80,9 +80,6 @@ const paySuper = new PaySuper({
 
 {{< /tab >}}
 
-{{< tab "Virtual Currency" >}}
-
-{{< /tab >}}
 {{< /tabs >}}
 
 [Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#paysuper-form-parameters)
