@@ -80,17 +80,6 @@ const paySuper = new PaySuper({
 
 {{< /tab >}}
 
-{{< tab "Virtual Currency" >}}
-
-ПРИМЕР КОДА ПРОСИТЬ У ДИМЫ или АНДРЕЯ кода реализуют
-
-{{< highlight javascript >}}
-const paySuper = new PaySuper({
-    
-});
-{{< /highlight >}}
-
-{{< /tab >}}
 {{< /tabs >}}
 
 [Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#paysuper-form-parameters)
