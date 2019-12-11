@@ -356,19 +356,12 @@ at the previous page last object id value to determine where to start in the lis
     <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;order&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;status&#34;</span>: <span style="color:#4070a0">&#34;created&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;A summary for the purchase&#34;</span>,
-    <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: {
-      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">1573882679</span>,
-      <span style="color:#062873;font-weight:bold">&#34;nanos&#34;</span>: <span style="color:#40a070">69000000</span>
-    },
-    <span style="color:#062873;font-weight:bold">&#34;canceled_at&#34;</span>: {
-      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
-    },
+    <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: <span style="color:#4070a0">&#34;2019-07-10T14:27:54.691Z&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;canceled_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;canceled&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
     <span style="color:#062873;font-weight:bold">&#34;cancellation&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
     <span style="color:#062873;font-weight:bold">&#34;refunded&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
-    <span style="color:#062873;font-weight:bold">&#34;refunded_at&#34;</span>: {
-      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
-    },
+    <span style="color:#062873;font-weight:bold">&#34;refunded_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;receipt_email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;receipt_phone&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;receipt_number&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
@@ -599,6 +592,49 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <p>You can create a payment order with details about your customer and sales option data.</p>
 
+<h3 id="statuses">Statuses</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>created</code></td>
+<td>It’s an initial state of the requested order but it is not processed in a payment system yet. The <code>created</code> order can become one of the statuses: <code>processed</code>, <code>canceled</code>, <code>rejected</code>.</td>
+</tr>
+
+<tr>
+<td><code>processed</code></td>
+<td>The order is successfully processed in the payment system. The <code>processed</code> order can become <code>refunded</code> or <code>chargeback</code>.</td>
+</tr>
+
+<tr>
+<td><code>rejected</code></td>
+<td>The order is rejected by a payment system with any reasons.</td>
+</tr>
+
+<tr>
+<td><code>canceled</code></td>
+<td>The order is canceled by a user.</td>
+</tr>
+
+<tr>
+<td><code>refunded</code></td>
+<td>The processed order is refunded by a merchant request.</td>
+</tr>
+
+<tr>
+<td><code>chargeback</code></td>
+<td>The processed order is refunded by a payment system with any reasons.</td>
+</tr>
+</tbody>
+</table>
+
 <blockquote>
 <p>The Order object example:</p>
 </blockquote>
@@ -608,19 +644,12 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
   <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;order&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;status&#34;</span>: <span style="color:#4070a0">&#34;created&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;A summary for the purchase&#34;</span>,
-  <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: {
-      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">1573882679</span>,
-      <span style="color:#062873;font-weight:bold">&#34;nanos&#34;</span>: <span style="color:#40a070">69000000</span>
-  },
-  <span style="color:#062873;font-weight:bold">&#34;canceled_at&#34;</span>: {
-      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
-  },
+  <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: <span style="color:#4070a0">&#34;2019-07-10T14:27:54.691Z&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;canceled&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;canceled_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;cancellation&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
   <span style="color:#062873;font-weight:bold">&#34;refunded&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
-  <span style="color:#062873;font-weight:bold">&#34;refunded_at&#34;</span>: {
-      <span style="color:#062873;font-weight:bold">&#34;seconds&#34;</span>: <span style="color:#40a070">-62135596800</span>
-  },
+  <span style="color:#062873;font-weight:bold">&#34;refunded_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;receipt_email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;receipt_phone&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;receipt_number&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
@@ -709,49 +738,6 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
   <span style="color:#062873;font-weight:bold">&#34;virtual_currency_amount&#34;</span>: <span style="color:#40a070">0</span>,
   <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>
 }</code></pre></div>
-<h3 id="statuses">Statuses</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>created</code></td>
-<td>It’s an initial state of the requested order but it is not processed in a payment system yet. The <code>created</code> order can become one of the statuses: <code>processed</code>, <code>canceled</code>, <code>rejected</code>.</td>
-</tr>
-
-<tr>
-<td><code>processed</code></td>
-<td>The order is successfully processed in the payment system. The <code>processed</code> order can become <code>refunded</code> or <code>chargeback</code>.</td>
-</tr>
-
-<tr>
-<td><code>rejected</code></td>
-<td>The order is rejected by a payment system with any reasons.</td>
-</tr>
-
-<tr>
-<td><code>canceled</code></td>
-<td>The order is canceled by a user.</td>
-</tr>
-
-<tr>
-<td><code>refunded</code></td>
-<td>The processed order is refunded by a merchant request.</td>
-</tr>
-
-<tr>
-<td><code>chargeback</code></td>
-<td>The processed order is refunded by a payment system with any reasons.</td>
-</tr>
-</tbody>
-</table>
-
 <h3 id="the-order-object">The Order object:</h3>
 
 <table>
@@ -801,27 +787,9 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td><code>· seconds</code></td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td><code>· nanos</code></td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
 <td><code>canceled_at</code></td>
 <td>string</td>
-<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> at which the order was created.</td>
-</tr>
-
-<tr>
-<td><code>· seconds</code></td>
-<td></td>
-<td></td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> at which the order was cancelled.</td>
 </tr>
 
 <tr>
@@ -832,20 +800,20 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <tr>
 <td><code>cancellation</code></td>
-<td>string</td>
+<td>object</td>
 <td>The cancellation reason. Has the value <code>null</code> if the order is not canceled.</td>
 </tr>
 
 <tr>
 <td><code>· code</code></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The cancellation reason code.</td>
 </tr>
 
 <tr>
 <td><code>· reason</code></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The cancellation description.</td>
 </tr>
 
 <tr>
@@ -858,12 +826,6 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <td><code>refunded_at</code></td>
 <td>string</td>
 <td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO 8601</a> at which the order was refunded.</td>
-</tr>
-
-<tr>
-<td><code>· seconds</code></td>
-<td></td>
-<td></td>
 </tr>
 
 <tr>
@@ -916,8 +878,8 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <tr>
 <td><code>issuer</code></td>
-<td></td>
-<td>Details about issuer.</td>
+<td>object</td>
+<td>Details about an issuer.</td>
 </tr>
 
 <tr>
@@ -935,37 +897,37 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>· reference</code></td>
 <td>string</td>
-<td></td>
+<td>The unique identifier of an entity linked to the order, for instance <code>paylink ID</code>.</td>
 </tr>
 
 <tr>
 <td><code>· reference_type</code></td>
 <td>string</td>
-<td></td>
+<td>The type of an entity linked to the order, for instance <code>paylink</code>.</td>
 </tr>
 
 <tr>
 <td><code>· utm_source</code></td>
 <td>string</td>
-<td>The URL of an advertisement.</td>
+<td>The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.</td>
 </tr>
 
 <tr>
 <td><code>· utm_medium</code></td>
 <td>string</td>
-<td></td>
+<td>The UTM-tag of the traffic type, e.g.: cpc, cpm, email newsletter.</td>
 </tr>
 
 <tr>
 <td><code>· utm_campaign</code></td>
 <td>string</td>
-<td></td>
+<td>The UTM-tag of the advertising campaign, for example: Online games, Simulation game.</td>
 </tr>
 
 <tr>
 <td><code>· referrer_host</code></td>
 <td>string</td>
-<td></td>
+<td>The host of the referrer URL.</td>
 </tr>
 
 <tr>
@@ -977,13 +939,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>currency</code></td>
 <td>string</td>
-<td>The currency for the order. Three-letter Currency Code ISO 4217, in lowercase.</td>
+<td>The currency for the order. Three-letter Currency Code ISO 4217, in uppercase.</td>
 </tr>
 
 <tr>
 <td><code>user</code></td>
-<td></td>
-<td>Details about customer.</td>
+<td>object</td>
+<td>Details about a customer.</td>
 </tr>
 
 <tr>
@@ -1043,19 +1005,19 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>· locale</code></td>
 <td>string</td>
-<td>The user’s locale name. Two-letter language code by ISO 639-1, in lowercase.</td>
+<td>The user’s locale name. Four-letter language code by ISO 639, for instance en-US.</td>
 </tr>
 
 <tr>
 <td><code>· address</code></td>
-<td></td>
-<td></td>
+<td>object</td>
+<td>Details about a user&rsquo;s address.</td>
 </tr>
 
 <tr>
 <td><code>·· country</code></td>
 <td>string</td>
-<td>The user’s country. Two-letter language code by ISO 3166-1, in lowercase.</td>
+<td>The user’s country. Two-letter language code by ISO 3166-1, in uppercase.</td>
 </tr>
 
 <tr>
@@ -1078,37 +1040,37 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <tr>
 <td><code>· metadata</code></td>
-<td>string</td>
+<td>object</td>
 <td>A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
 </tr>
 
 <tr>
 <td><code>· notify_new_region</code></td>
 <td>boolean</td>
-<td></td>
+<td>Has the value <code>true</code> if a user confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.</td>
 </tr>
 
 <tr>
 <td><code>· notify_new_region_email</code></td>
 <td>string</td>
-<td></td>
+<td>The customer&rsquo;s email for a newsletter about the beginning of payment acceptance in new regions.</td>
 </tr>
 
 <tr>
 <td><code>billing_address</code></td>
 <td></td>
-<td>Details about user&rsquo;s billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a <code>country</code> value and for the USA has <code>country</code>, <code>state</code> and <code>zip</code>.</td>
+<td>Details about a user&rsquo;s billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a <code>country</code> value and for the USA has <code>country</code>, <code>state</code> and <code>zip</code>.</td>
 </tr>
 
 <tr>
 <td><code>· country</code></td>
 <td>string</td>
-<td>The user&rsquo;s country.</td>
+<td>The user&rsquo;s country. Two-letter language code by ISO 3166-1, in uppercase.</td>
 </tr>
 
 <tr>
 <td><code>tax</code></td>
-<td></td>
+<td>object</td>
 <td>Details about a tax.</td>
 </tr>
 
@@ -1127,19 +1089,19 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>· amount</code></td>
 <td>float</td>
-<td>The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00)</td>
+<td>The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
 </tr>
 
 <tr>
 <td><code>· currency</code></td>
 <td>string</td>
-<td>The currency for the tax. Three-letter Currency Code ISO 4217, in lowercase.</td>
+<td>The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.</td>
 </tr>
 
 <tr>
 <td><code>method</code></td>
 <td></td>
-<td>Details about the payment method.</td>
+<td>Details about a payment method.</td>
 </tr>
 
 <tr>
@@ -1151,13 +1113,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>· external_id</code></td>
 <td>string</td>
-<td></td>
+<td>The unique identifier of the payment method.</td>
 </tr>
 
 <tr>
 <td><code>· payment_system_id</code></td>
 <td>string</td>
-<td></td>
+<td>The unique identifier of payment system on the PaySuper side.</td>
 </tr>
 
 <tr>
@@ -1168,8 +1130,8 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <tr>
 <td><code>· card</code></td>
-<td></td>
-<td>Details about the user&rsquo;s card.</td>
+<td>object</td>
+<td>Details about a user&rsquo;s card.</td>
 </tr>
 
 <tr>
@@ -1222,20 +1184,44 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <tr>
 <td><code>· wallet</code></td>
-<td>string</td>
+<td>object</td>
 <td>The name of the wallet. Available only for an integrated wallet payment systems.</td>
 </tr>
 
 <tr>
-<td><code>· crypto_currency</code></td>
+<td><code>·· brand</code></td>
 <td>string</td>
+<td>The name of the wallet.</td>
+</tr>
+
+<tr>
+<td><code>·· account</code></td>
+<td>string</td>
+<td>The customer identity in the wallet.</td>
+</tr>
+
+<tr>
+<td><code>· crypto_currency</code></td>
+<td>object</td>
 <td>The name of the crypto currency. Available only for a crypto currency.</td>
 </tr>
 
 <tr>
+<td><code>·· brand</code></td>
+<td>string</td>
+<td>The name of the crypto currency.</td>
+</tr>
+
+<tr>
+<td><code>·· address</code></td>
+<td>string</td>
+<td>The customer&rsquo;s address in the crypto currency.</td>
+</tr>
+
+<tr>
 <td><code>· refund_allowed</code></td>
-<td></td>
-<td></td>
+<td>boolean</td>
+<td>Has a value <code>true</code> if a refund is allowed.</td>
 </tr>
 
 <tr>
@@ -1245,27 +1231,111 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
+<td><code>· id</code></td>
+<td>string</td>
+<td>The unique identifier of the object.</td>
+</tr>
+
+<tr>
+<td><code>· sku</code></td>
+<td>string</td>
+<td>The stock keeping unit.</td>
+</tr>
+
+<tr>
+<td><code>· name</code></td>
+<td>string</td>
+<td>A localized name of the object.</td>
+</tr>
+
+<tr>
+<td><code>· description</code></td>
+<td>string</td>
+<td>A localized description of the object.</td>
+</tr>
+
+<tr>
+<td><code>· images</code></td>
+<td>string[]</td>
+<td>Image urls associated with the object.</td>
+</tr>
+
+<tr>
+<td><code>· metadata</code></td>
+<td>object</td>
+<td>A string-value description that attached to an object on creating a product.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>An activation code of the object. Can be ommited if the order is not processed or type of the order does not equal <code>key</code>.</td>
+</tr>
+
+<tr>
+<td><code>· platform</code></td>
+<td>string</td>
+<td>A platform for an activation code. Can be ommited if the order is not processed or type of the order does not equal <code>key</code>.</td>
+</tr>
+
+<tr>
 <td><code>refund</code></td>
-<td></td>
-<td></td>
+<td>object</td>
+<td>Details about a refund.</td>
+</tr>
+
+<tr>
+<td><code>· amount</code></td>
+<td>float</td>
+<td>The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td><code>· currency</code></td>
+<td>string</td>
+<td>The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
+<td><code>· reason</code></td>
+<td>string</td>
+<td>The refund reason.</td>
+</tr>
+
+<tr>
+<td><code>· code</code></td>
+<td>string</td>
+<td>The PaySuper internal identity for the refund reason.</td>
+</tr>
+
+<tr>
+<td><code>· receipt_number</code></td>
+<td>string</td>
+<td>The unique identifier of the refund receipt.</td>
+</tr>
+
+<tr>
+<td><code>· receipt_url</code></td>
+<td>string</td>
+<td>The URL in PaySuper service for online access to given refund receipt.</td>
 </tr>
 
 <tr>
 <td><code>metadata</code></td>
 <td>object</td>
-<td>A set of key-value pairs of description that you can attach to the order object. It can be useful for storing additional information about your customer payment..</td>
+<td>A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.</td>
 </tr>
 
 <tr>
 <td><code>original_amount</code></td>
 <td>float</td>
-<td></td>
+<td>The order amount excluding any taxes and commissions.</td>
 </tr>
 
 <tr>
 <td><code>country</code></td>
 <td>string</td>
-<td></td>
+<td>Two-letter language code by ISO 3166-1, in uppercase.</td>
 </tr>
 
 <tr>
@@ -1283,7 +1353,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>receipt_id</code></td>
 <td>string</td>
-<td>The receipt unique identifier .</td>
+<td>The receipt unique identifier.</td>
 </tr>
 
 <tr>
@@ -1295,7 +1365,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>is_buy_for_virtual_currency</code></td>
 <td>boolean</td>
-<td>Has a value <code>true</code> if the order createc for a virtual currency.</td>
+<td>Has a value <code>true</code> if the order created for a virtual currency.</td>
 </tr>
 </tbody>
 </table>
@@ -1535,7 +1605,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>·· metadata</code></td>
 <td>object</td>
-<td>A string-value description that you can attach to the user object.  It can be useful for storing additional information about your customer&rsquo;s payment.</td>
+<td>A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
 </tr>
 </tbody>
 </table>
@@ -1873,7 +1943,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>·· metadata</code></td>
 <td>object</td>
-<td>A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment. The key and value have the string type.</td>
+<td>A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
 </tr>
 
 <tr>
@@ -1939,7 +2009,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>·· metadata</code></td>
 <td>object</td>
-<td>A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment. The key and value have the string type.</td>
+<td>A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
 </tr>
 </tbody>
 </table>
