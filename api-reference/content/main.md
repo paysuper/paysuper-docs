@@ -165,19 +165,12 @@ In most cases, webhooks are triggered by user actions on your website or by back
     "object": "order",
     "status": "created",
     "description": "A summary for the purchase",
-    "created_at": {
-      "seconds": 1573882679,
-      "nanos": 69000000
-    },
-    "canceled_at": {
-      "seconds": -62135596800
-    },
+    "created_at": "2019-07-10T14:27:54.691Z",
+    "canceled_at": "",
     "canceled": false,
     "cancellation": null,
     "refunded": false,
-    "refunded_at": {
-      "seconds": -62135596800
-    },
+    "refunded_at": "",
     "receipt_email": "user.email@example.com",
     "receipt_phone": "",
     "receipt_number": "",

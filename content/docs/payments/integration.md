@@ -48,7 +48,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 {{< /tabs >}}
 
 {{< hint warning >}}
-Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
+Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://dashboard.pay.super.com/projects). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
 {{< /hint >}}
 
 ### **Products Checkout**

@@ -12,7 +12,7 @@ When you’re done with PaySuper Checkout integration and are thinking about goi
 
 `Dashboard`
 
-When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and sign the documents in the License Agreement.
+When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://dashboard.pay.super.com/company) and sign the documents in the License Agreement.
 
 > Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.
 

@@ -18,7 +18,7 @@ To fulfil the customer’s purchase you can make it in several ways:
 
 ## Fulfilling purchases with the PaySuper Dashboard
 
-Every customers' payment is recorded as a new entry in the payments log shown on the [Transactions page](https://paysupermgmt.tst.protocol.one/transactions).
+Every customers' payment is recorded as a new entry in the payments log shown on the [Transactions page](https://dashboard.pay.super.com/transactions).
 
 All your customers' transactions are organised by Products, Dates and other payment parameters.
 

@@ -20,7 +20,7 @@ Notice that all refund fees are being paid by PaySuper, so they are free of char
 
 To refund a payment:
 
-1. Search the payment in the [Transactions](https://paysupermgmt.tst.protocol.one/transactions) page.
+1. Search the payment in the [Transactions](https://dashboard.pay.super.com/transactions) page.
 2. Click the **Request to refund** icon to the right of the Amount column.
 3. Choose a reason for the refund and confirm return.
 

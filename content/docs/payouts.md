@@ -6,11 +6,11 @@ bookToc: true
 # Receiving Payouts
 ***
 
-Your customers' successful payments are stored on your PaySuper account balance and can be received to your bank account using [Payouts](https://paysupermgmt.tst.protocol.one/payouts).
+Your customers' successful payments are stored on your PaySuper account balance and can be received to your bank account using [Payouts](https://dashboard.pay.super.com/payouts).
 
 ## Setting up your bank account to receive payouts
 
-When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company).
+When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://dashboard.pay.super.com/company).
 
 Bank account details for payouts are required when filling in Company Onboarding.
 
@@ -26,11 +26,11 @@ Accounts can receive payouts in the following settlement currencies: **USD**, **
 
 ## Confirming a Royalty report
 
-PaySuper automatically generates a [Royalty report](https://paysupermgmt.tst.protocol.one/reports) based on the successfully received payments during the last 7 days. This report contains detailed information like fees, VAT, license share and so on. The PaySuper Royalty reports have a credible legal basis for receiving an invoice for a payout and making a payment to your bank account.
+PaySuper automatically generates a [Royalty report](https://dashboard.pay.super.com/reports) based on the successfully received payments during the last 7 days. This report contains detailed information like fees, VAT, license share and so on. The PaySuper Royalty reports have a credible legal basis for receiving an invoice for a payout and making a payment to your bank account.
 
 {{< figure src="/images/royalty-report.png">}}
 
-Once in 7 days, you will be notified in the Dashboard and by email about a new Royalty report. If you confirm this report for 5 days you can proceed with the payout process on the [Payouts](https://paysupermgmt.tst.protocol.one/payouts) page. In another case, in 5 days your Royalty report will be automatically confirmed. But if you reject the Royalty report then PaySuper will process the disputed report within 5 days and resend for your confirmation.
+Once in 7 days, you will be notified in the Dashboard and by email about a new Royalty report. If you confirm this report for 5 days you can proceed with the payout process on the [Payouts](https://dashboard.pay.super.com/payouts) page. In another case, in 5 days your Royalty report will be automatically confirmed. But if you reject the Royalty report then PaySuper will process the disputed report within 5 days and resend for your confirmation.
 
 ## Schedule the payouts
 
