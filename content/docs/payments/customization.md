@@ -10,11 +10,15 @@ Learn about the different ways you can customize your Checkout.
 
 ## Localization
 
+`Dashboard`
+
 The Checkout Form is localized for [24 languages](/docs/payments/localization).
 
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
 
 ## Prefilling customer data
+
+`Token`
 
 Boost your payment conversion rate with a payment form pre-filled with your customer's name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer's intent to pay.
 
@@ -23,6 +27,8 @@ Boost your payment conversion rate with a payment form pre-filled with your cust
 PaySuper can securely store your customer's billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.
 
 ## Customizing theme
+
+`PaySuper JS SDK`
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -36,6 +42,8 @@ Available options: **`dark`** (default), **`light`**.
 
 ## Customizing the colors
 
+`PaySuper JS SDK`
+
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
     viewSchemeConfig: { 
@@ -48,6 +56,12 @@ const paySuper = new PaySuper({
 [Available parameters of **`viewSchemeConfig`**](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig)
 
 {{< figure src="/images/colors-form.gif">}}
+
+## Analytics Integration
+
+`PaySuper JS SDK`
+
+Nowadays we set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we'll release the [analytics integration](/docs/analytics-integration) to use with a customer's tracking ID.
 
 ***
 

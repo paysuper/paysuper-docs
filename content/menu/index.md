@@ -13,6 +13,7 @@ headless: true
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
   - [Testing]({{< relref "/docs/payments/testing" >}})
   - [Going Live]({{< relref "/docs/payments/live" >}})
+  - [Analytics integration]({{< relref "/docs/analytics-integration" >}})
 - **After the payment**
   - [Payouts]({{< relref "/docs/payouts" >}})
   - [Refunds]({{< relref "/docs/refunds" >}})
