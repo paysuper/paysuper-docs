@@ -30,6 +30,17 @@ Headings h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Notes
     </item>
     
     <item>
+      <title>Analytics Integration</title>
+      <link>https://docs.pay.super.com/docs/analytics-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/analytics-integration/</guid>
+      <description>Analytics Integration It&amp;rsquo;s assumed that you have already integrated PaySuper Checkout via SDK and have set up your Google Analytics account.
+Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we&amp;rsquo;ll release the analytics integration to use with a customer&amp;rsquo;s tracking ID.  Google Analytics You can track the following events:
+   Category Action Description     userAction clickCloseCross Close the form by clicking on the cross (for the modal window mode).</description>
+    </item>
+    
+    <item>
       <title>Receiving Payouts</title>
       <link>https://docs.pay.super.com/docs/payouts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -44,6 +44,17 @@ Fulfilling purchases with the PaySuper Dashboard Every customers&amp;rsquo; paym
     </item>
     
     <item>
+      <title>Analytics Integration</title>
+      <link>https://docs.pay.super.com/docs/analytics-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/analytics-integration/</guid>
+      <description>Analytics Integration It&amp;rsquo;s assumed that you have already integrated PaySuper Checkout via SDK and have set up your Google Analytics account.
+Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we&amp;rsquo;ll release the analytics integration to use with a customer&amp;rsquo;s tracking ID.  Google Analytics You can track the following events:
+   Category Action Description     userAction clickCloseCross Close the form by clicking on the cross (for the modal window mode).</description>
+    </item>
+    
+    <item>
       <title>Client-side payment initialization</title>
       <link>https://docs.pay.super.com/docs/payments/sdk-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -62,9 +73,11 @@ Try out the payment sample or see the code on GitHub.</description>
       
       <guid>https://docs.pay.super.com/docs/payments/customization/</guid>
       <description>Customizing Checkout Learn about the different ways you can customize your Checkout.
-Localization The Checkout Form is localized for 24 languages.
+Localization Dashboard
+The Checkout Form is localized for 24 languages.
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
-Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&amp;rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&amp;rsquo;s intent to pay.</description>
+Prefilling customer data Token
+Boost your payment conversion rate with a payment form pre-filled with your customer&amp;rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&amp;rsquo;s intent to pay.</description>
     </item>
     
     <item>

@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Customizing Checkout" />
 <meta property="og:description" content="Customizing Checkout Learn about the different ways you can customize your Checkout.
-Localization The Checkout Form is localized for 24 languages.
+Localization Dashboard
+The Checkout Form is localized for 24 languages.
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
-Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&rsquo;s intent to pay." />
+Prefilling customer data Token
+Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&rsquo;s intent to pay." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.pay.super.com/docs/payments/customization/" />
 
@@ -18,9 +20,11 @@ Prefilling customer data Boost your payment conversion rate with a payment form 
 
 <meta name="twitter:title" content="Customizing Checkout"/>
 <meta name="twitter:description" content="Customizing Checkout Learn about the different ways you can customize your Checkout.
-Localization The Checkout Form is localized for 24 languages.
+Localization Dashboard
+The Checkout Form is localized for 24 languages.
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
-Prefilling customer data Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&rsquo;s intent to pay."/>
+Prefilling customer data Token
+Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&rsquo;s intent to pay."/>
 <title>Customizing Checkout | PaySuper Documentation</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
@@ -28,7 +32,7 @@ Prefilling customer data Boost your payment conversion rate with a payment form 
 <link rel="stylesheet" href="/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
 
 
-<script defer src="/search.min.6c53f537f2e403ce4d6fc937e4b269a76877b93ae2815659f6576129a47dd40b.js" integrity="sha256-bFP1N/LkA85Nb8k35LJpp2h3uTrigVZZ9ldhKaR91As="></script>
+<script defer src="/search.min.d3d52f4aaf6e3b2e06aecd2950b3ff44453b7746c6e238b0a2ef0d8396de2d39.js" integrity="sha256-09UvSq9uOy4Grs0pULP/REU7d0bG4jiwou8Ng5beLTk="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -87,6 +91,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/payments/customization/"class=active>Customizing Checkout</a></li>
 <li><a href="/docs/payments/testing/">Testing</a></li>
 <li><a href="/docs/payments/live/">Going Live</a></li>
+<li><a href="/docs/analytics-integration/">Analytics integration</a></li>
 </ul></li>
 
 <li><p><strong>After the payment</strong></p>
@@ -138,11 +143,15 @@ https://github.com/alex-shpak/hugo-book
 
 <h2 id="localization">Localization</h2>
 
+<p><code>Dashboard</code></p>
+
 <p>The Checkout Form is localized for <a href="/docs/payments/localization">24 languages</a>.</p>
 
 <p>You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.</p>
 
 <h2 id="prefilling-customer-data">Prefilling customer data</h2>
+
+<p><code>Token</code></p>
 
 <p>Boost your payment conversion rate with a payment form pre-filled with your customer&rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&rsquo;s intent to pay.</p>
 
@@ -151,6 +160,8 @@ https://github.com/alex-shpak/hugo-book
 <p>PaySuper can securely store your customer&rsquo;s billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.</p>
 
 <h2 id="customizing-theme">Customizing theme</h2>
+
+<p><code>PaySuper JS SDK</code></p>
 
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007020;font-weight:bold">const</span> paySuper <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> PaySuper({
     viewScheme<span style="color:#666">:</span> <span style="color:#4070a0">&#39;light&#39;</span>
@@ -166,6 +177,8 @@ https://github.com/alex-shpak/hugo-book
 
 <h2 id="customizing-the-colors">Customizing the colors</h2>
 
+<p><code>PaySuper JS SDK</code></p>
+
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007020;font-weight:bold">const</span> paySuper <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> PaySuper({
     viewSchemeConfig<span style="color:#666">:</span> { 
         <span style="color:#60a0b0;font-style:italic">// headerTextColor overrides the default value of the viewSchemeConfig object
@@ -180,6 +193,12 @@ https://github.com/alex-shpak/hugo-book
     <img src="/images/colors-form.gif"/> 
 </figure>
 
+
+<h2 id="analytics-integration">Analytics Integration</h2>
+
+<p><code>PaySuper JS SDK</code></p>
+
+<p>Nowadays we set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we&rsquo;ll release the <a href="/docs/analytics-integration">analytics integration</a> to use with a customer&rsquo;s tracking ID.</p>
 
 <hr />
 
@@ -262,6 +281,7 @@ If you want something very special and crazy custom yet don&rsquo;t have a suita
 <li><a href="#saving-payment-methods-for-future">Saving payment methods for future</a></li>
 <li><a href="#customizing-theme">Customizing theme</a></li>
 <li><a href="#customizing-the-colors">Customizing the colors</a></li>
+<li><a href="#analytics-integration">Analytics Integration</a></li>
 <li><a href="#next-steps">Next steps</a></li>
 </ul></li>
 </ul>
