@@ -61,7 +61,7 @@ Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mo
       
       <guid>https://docs.pay.super.com/docs/payments/sdk-integration/</guid>
       <description>Payment initialization on the client-side The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
-It’s easy to embed PaySuper JS SDK with just a few lines of Javascript code to start a payment process and display a purchase status finally whithout any server-side code.
+It’s easy to embed PaySuper JS SDK with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
  HOW IT WORKS
 Try out the payment sample or see the code on GitHub.</description>
     </item>
