@@ -10,13 +10,13 @@ bookToc: true
 
 The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
 
-It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of Javascript code to start a payment process and display a purchase status finally whithout any server-side code.
+It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
 
 <--->
 
 **HOW IT WORKS**
 
-Try out [the payment sample](https://dashboard.pay.super.com/form-demo) or see [the code on GitHub](https://github.com/paysuper/paysuper-examples).
+Try out [the payment sample](https://checkout.pay.super.com/demo/shop) or see [the code on GitHub](https://github.com/paysuper/paysuper-examples).
 {{< /columns >}}
 
 {{< hint warning >}}
