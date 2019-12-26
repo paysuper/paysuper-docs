@@ -150,7 +150,7 @@ If your token contains the [user and order parameters](/api/#create-a-token) the
 Run the script and view the response data:
 
 {{< runkit "token-products-checkout-order">}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL2FwaS5wYXkuc3VwZXIuY29tL2FwaS92MS9vcmRlcicsCnsKICAgInRva2VuIjogIll0WmNVdWpMdmlNS3kxektNUkNMdGdydFdJQkplWFU1Igp9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICB9CiAgfQop
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL2NoZWNrb3V0LnBheS5zdXBlci5jb20vYXBpL3YxL29yZGVyJywKewogICAidG9rZW4iOiAidHFCdDlTSmZNQk92dXpuU2tYckJVakNUMjJDTzQwd28iCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9Cik=
 {{< /runkit >}}
 {{< /tab >}}
 
@@ -160,7 +160,7 @@ Or try it with cURL to interact with the API over HTTP from your console:
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
     "token": "YOUR_TOKEN"
-}' 'https://api.pay.super.com/api/v1/order'
+}' 'https://checkout.pay.super.com/api/v1/order'
 {{< /highlight >}}
 {{< /tab >}}
 

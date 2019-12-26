@@ -244,7 +244,7 @@ You can create a payment order with details about your customer and sales option
 
 ```shell
 curl -X POST \
-  https://api.pay.super.com/api/v1/order \
+  https://checkout.pay.super.com/api/v1/order \
   -H 'Content-Type: application/json' \
   -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
   -d '{
@@ -385,7 +385,7 @@ A token is an encrypted string that represents certain details of your customer 
 
 ```shell
 curl -X POST \
-  https://api.pay.super.com/api/v1/tokens \
+  https://checkout.pay.super.com/api/v1/tokens \
   -H 'Content-Type: application/json' \
   -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
   -d '{

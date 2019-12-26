@@ -28,7 +28,7 @@ Use this sample code to create an Order ID with the required parameters for a si
 Run the script and view the response data:
 
 {{< runkit "simple-checkout-order" >}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogJ2h0dHBzOi8vYXBpLnBheS5zdXBlci5jb20vYXBpL3YxL29yZGVyJywKIHsKICAgInByb2plY3QiOiAiNWRjZDExYmMyMThkYzMwMDAxZDcwOThmIiwKICAgImFtb3VudCI6IDEwLAogICAgImN1cnJlbmN5IjogIlVTRCIsCiAgICAidHlwZSI6ICJzaW1wbGUiCiB9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICB9CiAgfQop
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogJ2h0dHBzOi8vY2hlY2tvdXQucGF5LnN1cGVyLmNvbS9hcGkvdjEvb3JkZXInLAogewogICAicHJvamVjdCI6ICI1ZGNkMTFiYzIxOGRjMzAwMDFkNzA5OGYiLAogICAiYW1vdW50IjogMTAsCiAgICAiY3VycmVuY3kiOiAiVVNEIiwKICAgICJ0eXBlIjogInNpbXBsZSIKIH0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9Cik=
 {{< /runkit >}}
 {{< /tab >}}
 
@@ -41,7 +41,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "amount": 10,
     "currency": "USD",
     "type": "simple"
-}' 'https://api.pay.super.com/api/v1/order'
+}' 'https://checkout.pay.super.com/api/v1/order'
 {{< /highlight >}}
 {{< /tab >}}
 
@@ -62,7 +62,7 @@ If you're selling products such as [key-activated products, virtual items or in-
 Run the script and view the response data:
 
 {{< runkit "key-checkout-order" >}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogJ2h0dHBzOi8vYXBpLnBheS5zdXBlci5jb20vYXBpL3YxL29yZGVyJywKIHsKICAgInByb2plY3QiOiAiNWRjZDExYmMyMThkYzMwMDAxZDcwOThmIiwKICAgInByb2R1Y3RzIjogWyI1ZGNkYjg4NTIxOGRjMzAwMDFkNzNjMjciXSwKICAgInR5cGUiOiAia2V5IgogfSwKICB7CiAgICBoZWFkZXJzOiB7CiAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJwogICAgfQogIH0KKQ==
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogJ2h0dHBzOi8vY2hlY2tvdXQucGF5LnN1cGVyLmNvbS9hcGkvdjEvb3JkZXInLAogewogICAicHJvamVjdCI6ICI1ZGNkMTFiYzIxOGRjMzAwMDFkNzA5OGYiLAogICAicHJvZHVjdHMiOiBbIjVkY2RiODg1MjE4ZGMzMDAwMWQ3M2MyNyJdLAogICAidHlwZSI6ICJrZXkiCiB9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICB9CiAgfQop
 {{< /runkit >}}
 
 Or try it with cURL to interact with the API over HTTP from your console:
@@ -72,7 +72,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "project": "YOUR_PROJECT_ID",
     "products": ["YOUR_GAME_KEY_ID"],
     "type": "key"
-}' 'https://api.pay.super.com/api/v1/order'
+}' 'https://checkout.pay.super.com/api/v1/order'
 {{< /highlight >}}
 
 {{< /tab >}}
@@ -82,7 +82,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 Run the script and view the response data:
 
 {{< runkit "products-checkout-order" >}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL2FwaS5wYXkuc3VwZXIuY29tL2FwaS92MS9vcmRlcicsCnsKICAgICJwcm9qZWN0IjogIjVkY2QxMWJjMjE4ZGMzMDAwMWQ3MDk4ZiIsCiAgICAicHJvZHVjdHMiOiBbIjVkY2RiNzNkMjE4ZGMzMDAwMWQ3M2MyNSIsICI1ZGNkYjg0MTIxOGRjMzAwMDFkNzNjMjYiXSwKICAgICJ0eXBlIjogInByb2R1Y3QiCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9Cik=
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL2NoZWNrb3V0LnBheS5zdXBlci5jb20vYXBpL3YxL29yZGVyJywKewogICAgInByb2plY3QiOiAiNWRjZDExYmMyMThkYzMwMDAxZDcwOThmIiwKICAgICJwcm9kdWN0cyI6IFsiNWRjZGI3M2QyMThkYzMwMDAxZDczYzI1IiwgIjVkY2RiODQxMjE4ZGMzMDAwMWQ3M2MyNiJdLAogICAgInR5cGUiOiAicHJvZHVjdCIKfSwKICB7CiAgICBoZWFkZXJzOiB7CiAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJwogICAgfQogIH0KKQ==
 {{< /runkit >}}
 
 Or try it with cURL to interact with the API over HTTP from your console:
@@ -92,7 +92,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "project": "YOUR_PROJECT_ID",
     "products": ["YOUR_VIRTUAL_ITEM_ID_1", "YOUR_VIRTUAL_ITEM_ID_2"],
     "type": "product"
-}' 'https://api.pay.super.com/api/v1/order'
+}' 'https://checkout.pay.super.com/api/v1/order'
 {{< /highlight >}}
 
 {{< /tab >}}
