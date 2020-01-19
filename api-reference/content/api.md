@@ -504,7 +504,7 @@ Create a token that encrypts details of your customer, a game and purchase param
 }
 ```
 
-### 200 OK
+### 200 Returns the token and payment form URL
 
 ||||
 |---|---|---|
