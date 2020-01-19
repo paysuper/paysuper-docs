@@ -21,7 +21,7 @@ You can create a payment order with details about your customer and sales option
 |`created`|It’s an initial state of the requested order but it is not processed in a payment system yet. The `created` order can become one of the statuses: `processed`, `canceled`, `rejected`.|
 |`processed`|The order is successfully processed in the payment system. The `processed` order can become `refunded` or `chargeback`.|
 |`rejected`|The order is rejected by a payment system with any reasons.|
-|`canceled`|The order is canceled by a user.|
+|`canceled`|The order is canceled by a customer.|
 |`refunded`|The processed order is refunded by a merchant request.|
 |`chargeback`|The processed order is refunded by a payment system with any reasons.|
 
@@ -143,8 +143,8 @@ You can create a payment order with details about your customer and sales option
 |`canceled_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was cancelled.|
 |`canceled`|boolean|Has the value `true` if the current order was canceled.|
 |`cancellation`|object|The cancellation reason. Has the value `null` if the order is not canceled.|
-|`· code`|string|The cancellation reason code.|
-|`· reason`|string|The cancellation description.|
+|&ensp;&ensp;`code`|string|The cancellation reason code.|
+|&ensp;&ensp;`reason`|string|The cancellation description.|
 |`refunded`|boolean|Has the value `true` if the current order was refunded.|
 |`refunded_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was refunded.|
 |`receipt_email`|string|The customer's email for receipt information.|
@@ -153,88 +153,88 @@ You can create a payment order with details about your customer and sales option
 |`receipt_url`|string|The URL in PaySuper service for online access to the receipt.|
 |`agreement_version`|string|The EULA agreement accepted by payment.|
 |`agreement_accepted`|boolean|Has the value `true` if the agreement was accepted.|
-|`notify_sale`|boolean|Has the value `true` if a user confirmed to be informed about feature sales or discounts.|
+|`notify_sale`|boolean|Has the value `true` if a customer confirmed to be informed about sales or discounts.|
 |`notify_sale_email`|string|The customer's email for sales or discounts.|
 |`issuer`|object|Details about an issuer.|
-|`· url`|string|The referer URL.|
-|`· embedded`|boolean|Has the value `true` if the PaySuper form was embedded to collect payment.|
-|`· reference`|string|The unique identifier of an entity linked to the order, for instance `paylink ID`.|
-|`· reference_type`|string|The type of an entity linked to the order, for instance `paylink`.|
-|`· utm_source`|string|The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.|
-|`· utm_medium`|string|The UTM-tag of the traffic type, e.g.: cpc, cpm, email newsletter.|
-|`· utm_campaign`|string|The UTM-tag of the advertising campaign, for example: Online games, Simulation game.|
-|`· referrer_host`|string|The host of the referrer URL.|
+|&ensp;&ensp;`url`|string|The referer URL.|
+|&ensp;&ensp;`embedded`|boolean|Has the value `true` if the PaySuper form was embedded to collect payment.|
+|&ensp;&ensp;`reference`|string|The unique identifier of an entity linked to the order, for instance `paylink ID`.|
+|&ensp;&ensp;`reference_type`|string|The type of an entity linked to the order, for instance `paylink`.|
+|&ensp;&ensp;`utm_source`|string|The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.|
+|&ensp;&ensp;`utm_medium`|string|The UTM-tag of the traffic type, e.g.: cpc, cpm, email newsletter.|
+|&ensp;&ensp;`utm_campaign`|string|The UTM-tag of the advertising campaign, for example: Online games, Simulation game.|
+|&ensp;&ensp;`referrer_host`|string|The host of the referrer URL.|
 |`amount`|float|The total amount for the order. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
 |`currency`|string|The currency for the order. Three-letter Currency Code ISO 4217, in uppercase.|
 |`user`|object|Details about a customer.|
-|`· id`|string|The user unique identifier on the PaySuper side.|
-|`· object`|string|The string representing the object’s type. Value: `user`.|
-|`· external_id`|string|The user unique identifier in the merchant project.|
-|`· name`|string|The user's name.|
-|`· email`|string|The user's email.|
-|`· email_verified`|boolean|Whether the user’s email address has been verified in the merchant project.|
-|`· phone`|string|The user’s phone number.|
-|`· phone_verified`|boolean|Whether the user’s phone number has been verified in the merchant project.|
-|`· ip`|string|	The user’s IP address.|
-|`· locale`|string|The user’s locale name. Four-letter language code by ISO 639, for instance en-US.|
-|`· address`|object|Details about a user's address.|
-|`·· country`|string|The user’s country. Two-letter language code by ISO 3166-1, in uppercase.|
-|`·· city`|string|The user’s city.|
-|`·· postal_code`|string|The user’s postal code.|
-|`·· state`|string|The user’s state code by ISO 3166-2.|
-|`· metadata`|object|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
-|`· notify_new_region`|boolean|Has the value `true` if a user confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
-|`· notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
-|`billing_address`||Details about a user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
-|`· country`|string|The user's country. Two-letter language code by ISO 3166-1, in uppercase.|
+|&ensp;&ensp;`id`|string|The unique identifier for the customer on the PaySuper side.|
+|&ensp;&ensp;`object`|string|The string representing the object’s type. Value: `user`.|
+|&ensp;&ensp;`external_id`|string|The unique identifier for the customer in the merchant project.|
+|&ensp;&ensp;`name`|string|The customer's name.|
+|&ensp;&ensp;`email`|string|The customer's email.|
+|&ensp;&ensp;`email_verified`|boolean|Whether the customer’s email address has been verified in the merchant project.|
+|&ensp;&ensp;`phone`|string|The customer’s phone number.|
+|&ensp;&ensp;`phone_verified`|boolean|Whether the customer’s phone number has been verified in the merchant project.|
+|&ensp;&ensp;`ip`|string|The customer’s IP address.|
+|&ensp;&ensp;`locale`|string|The customer’s locale name. Four-letter language code by ISO 639, for instance en-US.|
+|&ensp;&ensp;`address`|object|Details about a customer's address.|
+|&ensp;&ensp;&ensp;&ensp;`country`|string|The customer’s country. Two-letter language code by ISO 3166-1, in uppercase.|
+|&ensp;&ensp;&ensp;&ensp;`city`|string|The customer’s city.|
+|&ensp;&ensp;&ensp;&ensp;`postal_code`|string|The customer’s postal code.|
+|&ensp;&ensp;&ensp;&ensp;`state`|string|The customer’s state code by ISO 3166-2.|
+|&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
+|&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if a customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
+|&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
+|`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
+|&ensp;&ensp;`country`|string|The customer's country. Two-letter language code by ISO 3166-1, in uppercase.|
 |`tax`|object|Details about a tax.|
-|`· type`|string|The tax type (Sales tax for USA, VAT for EU and Russia).|
-|`· rate`|float|The current user's location taxes. A positive float with two decimal points.|
-|`· amount`|float|The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
-|`· currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
-|`method`||Details about a payment method.|
-|`· title`|string|The human readable method name.|
-|`· external_id`|string|The unique identifier of the payment method.|
-|`· payment_system_id`|string|The unique identifier of payment system on the PaySuper side.|
-|`· saved`|boolean|Has a value `true` if a payment method was saved by a user for a future usage.|
-|`· card`|object|Details about a user's card.|
-|`·· first6`|string|The first 6 digits of the card. Available only for a card method.|
-|`·· last4`|string|The last 4 digits of the card. Available only for a card method.|
-|`·· masked`|string|The mask for a user's card. Available only for a card method.|
-|`·· expiry_month`|string|The validity month of the card. Available only for a card method.|
-|`·· expiry_year`|string|The validity year of the card. Available only for a card method.|
-|`·· brand`|string|The brand of the card issuer. Available only for a card method.|
-|`·· fingerprint`|string|The internal fingerprint for given card. Available only for a card method.|
-|`·· secure3d`|string|Has a value `true` if 3D-secure was used during payment. Available only for a card method.|
-|`· wallet`|object|The name of the wallet. Available only for an integrated wallet payment systems.|
-|`·· brand`|string|The name of the wallet.|
-|`·· account`|string|The customer identity in the wallet.|
-|`· crypto_currency`|object|The name of the crypto currency. Available only for a crypto currency.|
-|`·· brand`|string|The name of the crypto currency.|
-|`·· address`|string|The customer's address in the crypto currency.|
-|`· refund_allowed`|boolean|Has a value `true` if a refund is allowed.|
+|&ensp;&ensp;`type`|string|The tax type (Sales tax for USA, VAT for EU and Russia).|
+|&ensp;&ensp;`rate`|float|The customer's current location taxes. A positive float with two decimal points.|
+|&ensp;&ensp;`amount`|float|The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+|&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
+|`method`|object|Details about a payment method.|
+|&ensp;&ensp;`title`|string|The human readable method name.|
+|&ensp;&ensp;`external_id`|string|The unique identifier for a payment method.|
+|&ensp;&ensp;`payment_system_id`|string|The unique identifier for a payment system on the PaySuper side.|
+|&ensp;&ensp;`saved`|boolean|Has a value `true` if a payment method was saved by a customer for a future usage.|
+|&ensp;&ensp;`card`|object|Details about a customer's card.|
+|&ensp;&ensp;&ensp;&ensp;`first6`|string|The first 6 digits of the card. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`last4`|string|The last 4 digits of the card. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`masked`|string|The mask for a customer's card. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`expiry_month`|string|The validity month of the card. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`expiry_year`|string|The validity year of the card. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`brand`|string|The brand of the card issuer. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`fingerprint`|string|The internal fingerprint for given card. Available only for a card method.|
+|&ensp;&ensp;&ensp;&ensp;`secure3d`|string|Has a value `true` if 3D-secure was used during payment. Available only for a card method.|
+|&ensp;&ensp;`wallet`|object|The name of the wallet. Available only for an integrated wallet payment systems.|
+|&ensp;&ensp;&ensp;&ensp;`brand`|string|The name of the wallet.|
+|&ensp;&ensp;&ensp;&ensp;`account`|string|The customer identity in the wallet.|
+|&ensp;&ensp;`crypto_currency`|object|The name of the crypto currency. Available only for a crypto currency.|
+|&ensp;&ensp;&ensp;&ensp;`brand`|string|The name of the crypto currency.|
+|&ensp;&ensp;&ensp;&ensp;`address`|string|The customer's address in the crypto currency.|
+|&ensp;&ensp;`refund_allowed`|boolean|Has a value `true` if a refund is allowed.|
 |`items`|object[]|An array of OrderItem objects associated with current Order.|
-|`· id`|string|The unique identifier of the object.|
-|`· sku`|string|The stock keeping unit.|
-|`· name`|string|A localized name of the object.|
-|`· description`|string|A localized description of the object.|
-|`· images`|string[]|Image urls associated with the object.|
-|`· metadata`|object|A string-value description that attached to an object on creating a product.|
-|`· code`|string|An activation code of the object. Can be ommited if the order is not processed or type of the order does not equal `key`.|
-|`· platform`|string|A platform for an activation code. Can be ommited if the order is not processed or type of the order does not equal `key`.|
+|&ensp;&ensp;`id`|string|The unique identifier for the object.|
+|&ensp;&ensp;`sku`|string|The stock keeping unit.|
+|&ensp;&ensp;`name`|string|A localized name of the object.|
+|&ensp;&ensp;`description`|string|A localized description of the object.|
+|&ensp;&ensp;`images`|string[]|Image urls associated with the object.|
+|&ensp;&ensp;`metadata`|object|A string-value description that attached to an object on creating a product.|
+|&ensp;&ensp;`code`|string|An activation code of the object. Can be ommited if the order is not processed or type of the order does not equal `key`.|
+|&ensp;&ensp;`platform`|string|A platform for an activation code. Can be ommited if the order is not processed or type of the order does not equal `key`.|
 |`refund`|object|Details about a refund.|
-|`· amount`|float|The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
-|`· currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
-|`· reason`|string|The refund reason.|
-|`· code`|string|The PaySuper internal identity for the refund reason.|
-|`· receipt_number`|string|The unique identifier of the refund receipt.|
-|`· receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
+|&ensp;&ensp;`amount`|float|The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+|&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
+|&ensp;&ensp;`reason`|string|The refund reason.|
+|&ensp;&ensp;`code`|string|The PaySuper internal identity for the refund reason.|
+|&ensp;&ensp;`receipt_number`|string|The unique identifier for the refund receipt.|
+|&ensp;&ensp;`receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
 |`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
 |`original_amount`|float|The order amount excluding any taxes and commissions.|
 |`country`|string|Two-letter language code by ISO 3166-1, in uppercase.|
 |`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. **Enum values:** key, products, simple.|
 |`platform_id`|string|The default platform identifier for which customer buys the in-game key. This field used only for a payment type `key`. **Enum values:** steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
-|`receipt_id`|string|The receipt unique identifier.|
+|`receipt_id`|string|The unique identifier for the receipt.|
 |`virtual_currency_amount`|float|The virtual currancy amount for the order.|
 |`is_buy_for_virtual_currency`|boolean|Has a value `true` if the order created for a virtual currency.|
 
@@ -263,7 +263,7 @@ curl -X POST \
 
 ### POST /api/v1/order
 
-Create a payment order with a user and order data
+Create a payment order with a customer and order data
 
 > Body parameter
 
@@ -304,33 +304,32 @@ Create a payment order with a user and order data
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|`body` ||   |
-|`. project`  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
-|`. amount` | number |The order amount as a positive number. It is required for a simple checkout payment.  |
-|`. currency` | string |The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. If provided, the amount will be processed in this currency. It is required for a payment when the type equals to simple.  |
-|`. account` | string |The user's unique account in the merchant project.  |
-|`. order_id` | string |The unique order identifier in the merchant project. This field is not required, but we recommend always sending this field.  |
-|`. description` | string |The arbitrary order description.  |
-|`. url_success` | string |The redirect URL for the successful payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field.  |
-|`. url_fail` | string |The redirect URL for the failed payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field.  |
-|`. products` | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to product or key.  |
-|`. token` | string |An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters in an order object even the required parameters.  |
-|`. user` | object |   |
-|`.. external_id` | string |The user unique identifier in the merchant project.  |
-|`.. name` | string |The user's name.  |
-|`.. email` | string |The user's email address.  |
-|`.. email_verified` | boolean |Whether the user's email address has been verified on the merchant side.  |
-|`.. phone` | string |The user's phone number.  |
-|`.. phone_verified` | boolean |Whether the user's phone number has been verified on the merchant side.  |
-|`.. ip` | string |The user's IP address.  |
-|`.. locale` | string |The user's locale name. The language code by ISO 639-1 (for instance" en-U").  |
-|`.. address` | object |   |
-|`... country` | string |The user's country. Two-letter country code by ISO 3166-1, in uppercase (for instance" U").  |
-|`... city` | string |The user’s city.  |
-|`... postal_code` | string |The user's postal code.  |
-|`... state` | string |The user's state code by ISO 3166-2.  |
-|`.. type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, for a simple checkout - the simple type. Enum values: key, product, simple.  |
-|`.. platform_id` | string |The default platform's name for which a customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.  |
+|`project` <span style="color: red;">*</span> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
+|`amount` | number |The order amount as a positive number. It is required for a simple checkout payment.  |
+|`currency` | string |The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. If provided, the amount will be processed in this currency. It is required for a payment when the type equals to simple.  |
+|`account` | string |The customer's unique account in the merchant project.  |
+|`order_id` | string |The unique order identifier in the merchant project. This field is not required, but we recommend always sending this field.  |
+|`description` | string |The arbitrary order description.  |
+|`url_success` | string |The redirect URL for the successful payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field.  |
+|`url_fail` | string |The redirect URL for the failed payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field.  |
+|`products` | [string] |The list of unique identifiers for products being in the Project. It is required if a payment type is equal to product or key.  |
+|`token` | string |An encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters in an order object even the required parameters.  |
+|`user` | object |The customer data.|
+|&ensp;&ensp;`external_id` | string |The unique identifier for the customer in the merchant project.  |
+|&ensp;&ensp;`name` | string |The customer's name.  |
+|&ensp;&ensp;`email` | string |The customer's email address.  |
+|&ensp;&ensp;`email_verified` | boolean |Whether the customer's email address has been verified on the merchant side.  |
+|&ensp;&ensp;`phone` | string |The customer's phone number.  |
+|&ensp;&ensp;`phone_verified` | boolean |Whether the customer's phone number has been verified on the merchant side.  |
+|&ensp;&ensp;`ip` | string |The customer's IP address.  |
+|&ensp;&ensp;`locale` | string |The customer's locale name. The language code by ISO 639-1 (for instance" en-U").  |
+|&ensp;&ensp;`address` | object |The customer's address data.|
+|&ensp;&ensp;&ensp;&ensp;`country` | string |The customer's country. Two-letter country code by ISO 3166-1, in uppercase (for instance" U").  |
+|&ensp;&ensp;&ensp;&ensp;`city` | string |The customer’s city.  |
+|&ensp;&ensp;&ensp;&ensp;`postal_code` | string |The customer's postal code.  |
+|&ensp;&ensp;&ensp;&ensp;`state` | string |The customer's state code by ISO 3166-2.  |
+|&ensp;&ensp;`type` <span style="color: red;">*</span>| string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, for a simple checkout - the simple type. Enum values: key, product, simple.  |
+|&ensp;&ensp;`platform_id` | string |The default platform's name for which a customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.  |
 
 ### Responses
 
@@ -345,7 +344,7 @@ Create a payment order with a user and order data
 }
 ```
 
-### 200 OK
+### 200 Returns the order ID and payment form URL.
 
 ||||
 |---|---|---|
@@ -370,7 +369,7 @@ Create a payment order with a user and order data
 
 # Token
 
-A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.
+A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.
 
 ## Create a token
 
@@ -460,38 +459,37 @@ Create a token that encrypts details of your customer, a game and purchase param
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|`body` ||   |
-|`. user` | object |   |
-|`.. id`  <br><p style="color: red;">required</p> | string |The unique identifier for a user in the merchant project.  |
-|`.. email` | object |   |
-|`... value` | string |The user’s email address.  |
-|`... verified` | boolean |Whether the email has been verified on the merchant side.  |
-|`.. phone` | object |   |
-|`... value` | string |The user’s phone.  |
-|`... verified` | boolean |Whether the phone has been verified on the merchant side.  |
-|`.. name` | object |   |
-|`... value` | string |The user’s name.  |
-|`.. ip` | object |   |
-|`... value` | string |The user’s IP address.  |
-|`.. locale` | object |   |
-|`... value` | string |The user’s locale name. The Accept-Language format by RFC 7231.  |
-|`.. address` | object |   |
-|`... country` | string |The user's country. Two-letter country code by ISO 3166-1, in uppercase (for instance" U").  |
-|`... city` | string |The user’s city.  |
-|`... postal_code` | string |The user's postal code.  |
-|`... state` | string |The user's state code by ISO 3166-2.  |
-|`.. settings` | object |   |
-|`... project_id`  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
-|`... return_url` | object |   |
-|`.... success` | string |The redirect URL for a successful payment.  |
-|`.... fail` | string |The redirect URL for a failed payment.  |
-|`... currency` | string |The order currency. Three-letter Currency Code ISO 4217, in uppercase. It's required for a simple checkout payment.  |
-|`... amount` | number |The order amount. It's required for a simple checkout payment.  |
-|`... description` | string |An arbitrary order description.  |
-|`... products_ids` | [string] |A list of unique identifiers for Project's products. It's required if a payment type equals to ‘product’ or ‘key’.  |
-|`... platform_id` | string |The default platform's name for which a customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.  |
-|`... type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option: Game Keys, Virtual Items, Simple Checkout. Available values: key, product, simple.  |
-|`... is_buy_for_virtual_currency` | boolean |Has a true value if an order must be processed using a virtual currency.  |
+|`user` | object |The customer data.|
+|&ensp;&ensp;`id` <span style="color: red;">*</span>| string |The unique identifier for a customer in the merchant project.  |
+|&ensp;&ensp;`email` | object |The customer's email data.|
+|&ensp;&ensp;&ensp;&ensp;`value` | string |The customer’s email address.  |
+|&ensp;&ensp;&ensp;&ensp;`verified` | boolean |Whether the email has been verified on the merchant side.  |
+|&ensp;&ensp;`phone` | object |The customer's phone data.|
+|&ensp;&ensp;&ensp;&ensp;`value` | string |The customer’s phone.  |
+|&ensp;&ensp;&ensp;&ensp;`verified` | boolean |Whether the phone has been verified on the merchant side.  |
+|&ensp;&ensp;`name` | object |The customer's name data.|
+|&ensp;&ensp;&ensp;&ensp;`value` | string |The customer’s name.  |
+|&ensp;&ensp;`ip` | object |The customer's IP address data|
+|&ensp;&ensp;&ensp;&ensp;`value` | string |The customer’s IP address.  |
+|&ensp;&ensp;`locale` | object |The customer's locale data.|
+|&ensp;&ensp;&ensp;&ensp;`value` | string |The customer’s locale name. The Accept-Language format by RFC 7231.  |
+|&ensp;&ensp;`address` | object |The customer's address data.|
+|&ensp;&ensp;&ensp;&ensp;`country` | string |The customer's country. Two-letter country code by ISO 3166-1, in uppercase (for instance" U").  |
+|&ensp;&ensp;&ensp;&ensp;`city` | string |The customer’s city.  |
+|&ensp;&ensp;&ensp;&ensp;`postal_code` | string |The customer's postal code.  |
+|&ensp;&ensp;&ensp;&ensp;`state` | string |The customer's state code by ISO 3166-2.  |
+|&ensp;&ensp;`settings` | object |The project data.|
+|&ensp;&ensp;&ensp;&ensp;`project_id` <span style="color: red;">*</span>| string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
+|&ensp;&ensp;&ensp;&ensp;`return_url` | object |The redirect URLs.|
+|&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`success` | string |The redirect URL for a successful payment.  |
+|&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`fail` | string |The redirect URL for a failed payment.  |
+|&ensp;&ensp;&ensp;&ensp;`currency` | string |The order currency. Three-letter Currency Code ISO 4217, in uppercase. It's required for a simple checkout payment.  |
+|&ensp;&ensp;&ensp;&ensp;`amount` | number |The order amount. It's required for a simple checkout payment.  |
+|&ensp;&ensp;&ensp;&ensp;`description` | string |An arbitrary order description.  |
+|&ensp;&ensp;&ensp;&ensp;`products_ids` | [string] |A list of unique identifiers for Project's products. It's required if a payment type equals to ‘product’ or ‘key’.  |
+|&ensp;&ensp;&ensp;&ensp;`platform_id` | string |The default platform's name for which a customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.  |
+|&ensp;&ensp;&ensp;&ensp;`type` <span style="color: red;">*</span>| string |The order type. It depends on your sales option: Game Keys, Virtual Items, Simple Checkout. Available values: key, product, simple.  |
+|&ensp;&ensp;&ensp;&ensp;`is_buy_for_virtual_currency` | boolean |Has a true value if an order must be processed using a virtual currency.  |
 
 ### Responses
 
