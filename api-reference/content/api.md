@@ -489,6 +489,7 @@ Create a token that encrypts details of your customer, a game and purchase param
 |&ensp;&ensp;&ensp;&ensp;`products_ids` | [string] |A list of unique identifiers for Project's products. It's required if a payment type equals to ‘product’ or ‘key’.  |
 |&ensp;&ensp;&ensp;&ensp;`platform_id` | string |The default platform's name for which a customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.  |
 |&ensp;&ensp;&ensp;&ensp;`type` <span style="color: red;">*</span>| string |The order type. It depends on your sales option: Game Keys, Virtual Items, Simple Checkout. Available values: key, product, simple.  |
+|&ensp;&ensp;&ensp;&ensp;`button_caption`| string |The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK.|
 |&ensp;&ensp;&ensp;&ensp;`is_buy_for_virtual_currency` | boolean |Has a true value if an order must be processed using a virtual currency.  |
 
 ### Responses

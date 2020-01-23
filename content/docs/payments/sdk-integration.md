@@ -60,8 +60,8 @@ If you're selling such products such as [key-activated products, virtual items o
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    project: '5cd5624a06ae110001509186',
-    products: ['5d7baee015ff7d0001b986a8'],
+    project: '5dcd11bc218dc30001d7098f',
+    products: ['5dcdb885218dc30001d73c27'],
     type: 'key'
 });
 {{< /highlight >}}
@@ -72,8 +72,20 @@ const paySuper = new PaySuper({
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    project: '5cd5624a06ae110001509186',
-    products: ['5d848f484dd6a50001970479', '5d8c7a219e362100013de214'],
+    project: '5dcd11bc218dc30001d7098f',
+    products: ['5dcdb73d218dc30001d73c25', '5dcdb841218dc30001d73c26'],
+    type: 'product'
+});
+{{< /highlight >}}
+
+{{< /tab >}}
+
+{{< tab "Virtual Currency" >}}
+
+{{< highlight javascript >}}
+const paySuper = new PaySuper({
+    project: '5dcd11bc218dc30001d7098f',
+    products: ['5e292ba2769774c7377b739e'],
     type: 'product'
 });
 {{< /highlight >}}
