@@ -86,8 +86,9 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 1. Open your Project from the [**Projects list page**](https://dashboard.pay.super.com/projects)
 2. Select the Sales options in the left sidebar and open the Virtual currency tab.
-3. Fill in the unique name and localised project descriptions.
+3. Fill in the unique name and setup the price for one virtual currency unit in all your project currencies.
 4. **Enable** and click **Save**.
+5. Now you can create in-game items using the virtual currency for a price.
 
 {{< /expand >}}
 
