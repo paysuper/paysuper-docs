@@ -176,17 +176,17 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`phone`|string|The customer’s phone number.|
 |&ensp;&ensp;`phone_verified`|boolean|Whether the customer’s phone number has been verified in the merchant project.|
 |&ensp;&ensp;`ip`|string|The customer’s IP address.|
-|&ensp;&ensp;`locale`|string|The customer’s locale name. Four-letter language code by ISO 639, for instance en-US.|
+|&ensp;&ensp;`locale`|string|The customer’s locale name. Four-letter language code in ISO 639, for instance en-US.|
 |&ensp;&ensp;`address`|object|Details about a customer's address.|
-|&ensp;&ensp;&ensp;&ensp;`country`|string|The customer’s country. Two-letter language code by ISO 3166-1, in uppercase.|
+|&ensp;&ensp;&ensp;&ensp;`country`|string|The customer’s country. Two-letter country code in ISO 3166-1, in uppercase.|
 |&ensp;&ensp;&ensp;&ensp;`city`|string|The customer’s city.|
 |&ensp;&ensp;&ensp;&ensp;`postal_code`|string|The customer’s postal code.|
-|&ensp;&ensp;&ensp;&ensp;`state`|string|The customer’s state code by ISO 3166-2.|
+|&ensp;&ensp;&ensp;&ensp;`state`|string|The customer’s state code in ISO 3166-2.|
 |&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
 |&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if a customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
 |&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
 |`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
-|&ensp;&ensp;`country`|string|The customer's country. Two-letter language code by ISO 3166-1, in uppercase.|
+|&ensp;&ensp;`country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase.|
 |`tax`|object|Details about a tax.|
 |&ensp;&ensp;`type`|string|The tax type (Sales tax for USA, VAT for EU and Russia).|
 |&ensp;&ensp;`rate`|float|The customer's current location taxes. A positive float with two decimal points.|
@@ -231,7 +231,7 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
 |`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
 |`original_amount`|float|The order amount excluding any taxes and commissions.|
-|`country`|string|Two-letter language code by ISO 3166-1, in uppercase.|
+|`country`|string|Two-letter country code in ISO 3166-1, in uppercase.|
 |`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. **Enum values:** key, products, simple.|
 |`platform_id`|string|The default platform identifier for which customer buys the in-game key. This field used only for a payment type `key`. **Enum values:** steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
 |`receipt_id`|string|The unique identifier for the receipt.|
@@ -322,12 +322,12 @@ Create a payment order with a customer and order data
 |&ensp;&ensp;`phone` | string |The customer's phone number.  |
 |&ensp;&ensp;`phone_verified` | boolean |Whether the customer's phone number has been verified on the merchant side.  |
 |&ensp;&ensp;`ip` | string |The customer's IP address.  |
-|&ensp;&ensp;`locale` | string |The customer's locale name. The language code by ISO 639-1 (for instance" en-U").  |
+|&ensp;&ensp;`locale` | string |The customer's locale name. The language code in ISO 639-1 (for instance" en-U").  |
 |&ensp;&ensp;`address` | object |The customer's address data.|
-|&ensp;&ensp;&ensp;&ensp;`country` | string |The customer's country. Two-letter country code by ISO 3166-1, in uppercase (for instance" U").  |
+|&ensp;&ensp;&ensp;&ensp;`country` | string |The customer's country. Two-letter country code in ISO 3166-1, in uppercase (for instance" U").  |
 |&ensp;&ensp;&ensp;&ensp;`city` | string |The customer’s city.  |
 |&ensp;&ensp;&ensp;&ensp;`postal_code` | string |The customer's postal code.  |
-|&ensp;&ensp;&ensp;&ensp;`state` | string |The customer's state code by ISO 3166-2.  |
+|&ensp;&ensp;&ensp;&ensp;`state` | string |The customer's state code in ISO 3166-2.  |
 |&ensp;&ensp;`type` <span style="color: red;">*</span>| string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, for a simple checkout - the simple type. Enum values: key, product, simple.  |
 |&ensp;&ensp;`platform_id` | string |The default platform's name for which a customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.  |
 
@@ -474,10 +474,10 @@ Create a token that encrypts details of your customer, a game and purchase param
 |&ensp;&ensp;`locale` | object |The customer's locale data.|
 |&ensp;&ensp;&ensp;&ensp;`value` | string |The customer’s locale name. The Accept-Language format by RFC 7231.  |
 |&ensp;&ensp;`address` | object |The customer's address data.|
-|&ensp;&ensp;&ensp;&ensp;`country` | string |The customer's country. Two-letter country code by ISO 3166-1, in uppercase (for instance" U").  |
+|&ensp;&ensp;&ensp;&ensp;`country` | string |The customer's country. Two-letter country code in ISO 3166-1, in uppercase (for instance" U").  |
 |&ensp;&ensp;&ensp;&ensp;`city` | string |The customer’s city.  |
 |&ensp;&ensp;&ensp;&ensp;`postal_code` | string |The customer's postal code.  |
-|&ensp;&ensp;&ensp;&ensp;`state` | string |The customer's state code by ISO 3166-2.  |
+|&ensp;&ensp;&ensp;&ensp;`state` | string |The customer's state code in ISO 3166-2.  |
 |&ensp;&ensp;`settings` | object |The project data.|
 |&ensp;&ensp;&ensp;&ensp;`project_id` <span style="color: red;">*</span>| string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
 |&ensp;&ensp;&ensp;&ensp;`return_url` | object |The redirect URLs.|
