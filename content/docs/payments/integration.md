@@ -97,11 +97,11 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 {{< /tab >}}
 
-{{< tab "Virtual Currency" >}}
+{{< tab "Virtual Currency (product)" >}}
 
 Run the script and view the response data:
 
-{{< runkit "currency-checkout-order" >}}
+{{< runkit "virtual_currency-product-order" >}}
 Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL2NoZWNrb3V0LnBheS5zdXBlci5jb20vYXBpL3YxL29yZGVyJywKewogICAgInByb2plY3QiOiAiNWRjZDExYmMyMThkYzMwMDAxZDcwOThmIiwKICAgICJwcm9kdWN0cyI6IFsiNWUyOTJiYTI3Njk3NzRjNzM3N2I3MzllIl0sCiAgICAidHlwZSI6ICJwcm9kdWN0Igp9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICB9CiAgfQop
 {{< /runkit >}}
 
@@ -112,6 +112,26 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "project": "YOUR_PROJECT_ID",
     "products": ["YOUR_VIRTUAL_ITEM_ID_1"],
     "type": "product"
+}' 'https://checkout.pay.super.com/api/v1/order'
+{{< /highlight >}}
+
+{{< /tab >}}
+
+{{< tab "Virtual Currency (simple)" >}}
+
+Run the script and view the response data:
+
+{{< runkit "virtual_currency-simple-order" >}}
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL2NoZWNrb3V0LnBheS5zdXBlci5jb20vYXBpL3YxL29yZGVyJywKewogICAgInByb2plY3QiOiAiNWRjZDExYmMyMThkYzMwMDAxZDcwOThmIiwKICAgICJhbW91bnQiOiAyMCwKICAgICJ0eXBlIjogInZpcnR1YWxfY3VycmVuY3kiCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9Cik=
+{{< /runkit >}}
+
+Or try it with cURL to interact with the API over HTTP from your console:
+
+{{< highlight bash >}}
+curl -X POST -H 'Content-Type: application/json' -d '{
+    "project": "YOUR_PROJECT_ID",
+    "amount": 50,
+    "type": "virtual_currency"
 }' 'https://checkout.pay.super.com/api/v1/order'
 {{< /highlight >}}
 
