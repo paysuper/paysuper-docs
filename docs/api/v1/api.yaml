@@ -175,17 +175,17 @@ tags:
       |`· phone`|string|The user’s phone number.|
       |`· phone_verified`|boolean|Whether the user’s phone number has been verified in the merchant project.|
       |`· ip`|string|	The user’s IP address.|
-      |`· locale`|string|The user’s locale name. Four-letter language code by ISO 639, for instance en-US.|
+      |`· locale`|string|The user’s locale name. Four-letter language code in ISO 639, for instance en-US.|
       |`· address`|object|Details about a user's address.|
-      |`·· country`|string|The user’s country. Two-letter language code by ISO 3166-1, in uppercase.|
+      |`·· country`|string|The user’s country. Two-letter country code in ISO 3166-1, in uppercase.|
       |`·· city`|string|The user’s city.|
       |`·· postal_code`|string|The user’s postal code.|
-      |`·· state`|string|The user’s state code by ISO 3166-2.|
+      |`·· state`|string|The user’s state code in ISO 3166-2.|
       |`· metadata`|object|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
       |`· notify_new_region`|boolean|Has the value `true` if a user confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
       |`· notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
       |`billing_address`||Details about a user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
-      |`· country`|string|The user's country. Two-letter language code by ISO 3166-1, in uppercase.|
+      |`· country`|string|The user's country. Two-letter country code in ISO 3166-1, in uppercase.|
       |`tax`|object|Details about a tax.|
       |`· type`|string|The tax type (Sales tax for USA, VAT for EU and Russia).|
       |`· rate`|float|The current user's location taxes. A positive float with two decimal points.|
@@ -230,7 +230,7 @@ tags:
       |`· receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
       |`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
       |`original_amount`|float|The order amount excluding any taxes and commissions.|
-      |`country`|string|Two-letter language code by ISO 3166-1, in uppercase.|
+      |`country`|string|Two-letter language code in ISO 3166-1, in uppercase.|
       |`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. **Enum values:** key, products, simple.|
       |`platform_id`|string|The default platform identifier for which customer buys the in-game key. This field used only for a payment type `key`. **Enum values:** steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
       |`receipt_id`|string|The receipt unique identifier.|
@@ -422,13 +422,13 @@ components:
               description: "The user's IP address."
               type: string
             locale:
-              description: "The user's locale name. The language code by ISO 639-1 (for instance\" en-U\")."
+              description: "The user's locale name. The language code in ISO 639-1 (for instance\" en-U\")."
               type: string
             address:
               type: object
               properties:
                 country:
-                  description: "The user's country. Two-letter country code by ISO 3166-1, in uppercase (for instance\" U\")."
+                  description: "The user's country. Two-letter country code in ISO 3166-1, in uppercase (for instance\" U\")."
                   type: string
                 city:
                   description: "The user’s city."
@@ -437,7 +437,7 @@ components:
                   description: "The user's postal code."
                   type: string
                 state:
-                  description: "The user's state code by ISO 3166-2."
+                  description: "The user's state code in ISO 3166-2."
                   type: string
         type:
           description: "The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, for a simple checkout - the simple type. Enum values: key, product, simple."
@@ -517,7 +517,7 @@ components:
               type: object
               properties:
                 country:
-                  description: "The user's country. Two-letter country code by ISO 3166-1, in uppercase (for instance\" U\")."
+                  description: "The user's country. Two-letter country code in ISO 3166-1, in uppercase (for instance\" U\")."
                   type: string
                 city:
                   description: "The user’s city."
@@ -526,7 +526,7 @@ components:
                   description: "The user's postal code."
                   type: string
                 state:
-                  description: "The user's state code by ISO 3166-2."
+                  description: "The user's state code in ISO 3166-2."
                   type: string
         settings:
           type: object
