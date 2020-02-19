@@ -32,7 +32,8 @@ You can use a [token](/docs/payments/token/) to prefill the Checkout Form with a
 
 `Dashboard`
 
-Check your redirect URLs for a successful or failed payment are added in the Project Payment form page.
+Configure your Project Settings for the redirection from a payment form after the customer completes the payment. You can disable redirection or enable it only for a successful or failed payment. Moreover, you can configure redirect URLs both for successful or failed payments.
+The redirect feature could be used in different representations of the payment form with the customizable text for a redirect button.
 
 {{< figure src="/images/redirect-urls.png">}}
 
