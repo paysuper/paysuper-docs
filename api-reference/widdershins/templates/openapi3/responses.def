@@ -34,7 +34,7 @@
 
 ||||
 |---|---|---|
-{{~block.rows :p}}|`{{=p.displayName}}` {{? p.required}} <span style="color: red;">required</span> {{?}}|{{=p.safeType}}|{{=p.description || ' '}} {{? p.schema && p.schema.enum }}<br>**Enum values:** {{~ p.schema.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}} {{? p.schema && p.schema.items && p.schema.items.enum }}<br>**Enum values:** {{~ p.schema.items.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}}|
+{{~block.rows :p}}|{{=p.displayName}}{{? p.required}} <span style="color: red;">required</span> {{?}}|{{=p.safeType}}|{{=p.description || ' '}}{{? p.schema && p.schema.enum }}<br>**Enum values:** {{~ p.schema.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}}{{? p.schema && p.schema.items && p.schema.items.enum }}<br>**Enum values:** {{~ p.schema.items.enum :e}}<br>{{=data.utils.toPrimitive(e)}}{{~}}{{?}}|
 {{~}}
 
 {{~}}
