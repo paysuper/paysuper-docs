@@ -111,7 +111,7 @@
                 
                     <ul class="toc-list-h2">
                         
-                            <li><a href="#create-a-token" class="toc-h2 toc-link" data-title="Create a token">Create a token</a></li>
+                            <li><a href="#create-a-payment-token" class="toc-h2 toc-link" data-title="Create a payment token">Create a payment token</a></li>
                         
                     </ul>
                 
@@ -615,22 +615,22 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <tr>
 <td><code>rejected</code></td>
-<td>The order is rejected by a payment system with any reasons.</td>
+<td>The order is rejected by the payment system with any reasons.</td>
 </tr>
 
 <tr>
 <td><code>canceled</code></td>
-<td>The order is canceled by a customer.</td>
+<td>The order is canceled by the customer.</td>
 </tr>
 
 <tr>
 <td><code>refunded</code></td>
-<td>The processed order is refunded by a merchant request.</td>
+<td>The processed order is refunded by the merchant request.</td>
 </tr>
 
 <tr>
 <td><code>chargeback</code></td>
-<td>The processed order is refunded by a payment system with any reasons.</td>
+<td>The processed order is refunded by the payment system with any reasons.</td>
 </tr>
 </tbody>
 </table>
@@ -867,7 +867,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>notify_sale</code></td>
 <td>boolean</td>
-<td>Has the value <code>true</code> if a customer confirmed to be informed about sales or discounts.</td>
+<td>Has the value <code>true</code> if the customer confirmed to be informed about sales or discounts.</td>
 </tr>
 
 <tr>
@@ -897,7 +897,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>reference</code></td>
 <td>string</td>
-<td>The unique identifier of an entity linked to the order, for instance <code>paylink ID</code>.</td>
+<td>The unique identifier for the entity linked to the order, for instance <code>paylink ID</code>.</td>
 </tr>
 
 <tr>
@@ -951,7 +951,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>id</code></td>
 <td>string</td>
-<td>The unique identifier for the customer on the PaySuper side.</td>
+<td>The customer unique identifier on the PaySuper side.</td>
 </tr>
 
 <tr>
@@ -963,7 +963,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>external_id</code></td>
 <td>string</td>
-<td>The unique identifier for the customer in the merchant project.</td>
+<td>The customer unique identifier in the merchant project.</td>
 </tr>
 
 <tr>
@@ -1041,13 +1041,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>metadata</code></td>
 <td>object</td>
-<td>A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
+<td>A string-value description that you can attach to the customer object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
 </tr>
 
 <tr>
 <td>&ensp;&ensp;<code>notify_new_region</code></td>
 <td>boolean</td>
-<td>Has the value <code>true</code> if a customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.</td>
+<td>Has the value <code>true</code> if the customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.</td>
 </tr>
 
 <tr>
@@ -1083,7 +1083,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>rate</code></td>
 <td>float</td>
-<td>The customer&rsquo;s current location taxes. A positive float with two decimal points.</td>
+<td>The current customer&rsquo;s location taxes. A positive float with two decimal points.</td>
 </tr>
 
 <tr>
@@ -1113,19 +1113,19 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>external_id</code></td>
 <td>string</td>
-<td>The unique identifier for a payment method.</td>
+<td>The unique identifier for the payment method.</td>
 </tr>
 
 <tr>
 <td>&ensp;&ensp;<code>payment_system_id</code></td>
 <td>string</td>
-<td>The unique identifier for a payment system on the PaySuper side.</td>
+<td>The unique identifier for the payment system on the PaySuper side.</td>
 </tr>
 
 <tr>
 <td>&ensp;&ensp;<code>saved</code></td>
 <td>boolean</td>
-<td>Has a value <code>true</code> if a payment method was saved by a customer for a future usage.</td>
+<td>Has a value <code>true</code> if the payment method was saved by the customer for future usage.</td>
 </tr>
 
 <tr>
@@ -1353,7 +1353,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>receipt_id</code></td>
 <td>string</td>
-<td>The unique identifier for the receipt.</td>
+<td>The receipt unique identifier.</td>
 </tr>
 
 <tr>
@@ -1395,7 +1395,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <p>Create a payment order with a customer and order data</p>
 
 <blockquote>
-<p>Body parameter</p>
+<p>Body parameters</p>
 </blockquote>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#062873;font-weight:bold">&#34;project&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
@@ -1426,6 +1426,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
       <span style="color:#062873;font-weight:bold">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
     }
   },
+  <span style="color:#062873;font-weight:bold">&#34;order&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;platform_id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
 }</code></pre></div>
@@ -1460,13 +1461,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>account</code></td>
 <td>string</td>
-<td>The customer&rsquo;s unique account in the merchant project.</td>
+<td>The customer account in the merchant project.</td>
 </tr>
 
 <tr>
 <td><code>order_id</code></td>
 <td>string</td>
-<td>The unique order identifier in the merchant project. This field is not required, but we recommend always sending this field.</td>
+<td>The unique identifier for the order in the merchant project. This field is not required, but we recommend always sending this field.</td>
 </tr>
 
 <tr>
@@ -1490,13 +1491,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>products</code></td>
 <td>[string]</td>
-<td>The list of unique identifiers for products being in the Project. It is required if a payment type is equal to product or key.</td>
+<td>The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to product or key.</td>
 </tr>
 
 <tr>
 <td><code>token</code></td>
 <td>string</td>
-<td>An encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters in an order object even the required parameters.</td>
+<td>An encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters (including required parameters) in an order object.</td>
 </tr>
 
 <tr>
@@ -1506,93 +1507,99 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>external_id</code></td>
+<td>&ensp; <code>external_id</code></td>
 <td>string</td>
 <td>The unique identifier for the customer in the merchant project.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>name</code></td>
+<td>&ensp; <code>name</code></td>
 <td>string</td>
 <td>The customer&rsquo;s name.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>email</code></td>
+<td>&ensp; <code>email</code></td>
 <td>string</td>
 <td>The customer&rsquo;s email address.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>email_verified</code></td>
+<td>&ensp; <code>email_verified</code></td>
 <td>boolean</td>
 <td>Whether the customer&rsquo;s email address has been verified on the merchant side.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>phone</code></td>
+<td>&ensp; <code>phone</code></td>
 <td>string</td>
 <td>The customer&rsquo;s phone number.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>phone_verified</code></td>
+<td>&ensp; <code>phone_verified</code></td>
 <td>boolean</td>
 <td>Whether the customer&rsquo;s phone number has been verified on the merchant side.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>ip</code></td>
+<td>&ensp; <code>ip</code></td>
 <td>string</td>
 <td>The customer&rsquo;s IP address.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>locale</code></td>
+<td>&ensp; <code>locale</code></td>
 <td>string</td>
-<td>The customer&rsquo;s locale name. The language code in ISO 639-1 (for instance&rdquo; en-U&rdquo;).</td>
+<td>The customer&rsquo;s locale name. The language code in ISO 639-1 (for instance en-US).</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>address</code></td>
+<td>&ensp; <code>address</code></td>
 <td>object</td>
 <td>The customer&rsquo;s address data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>country</code></td>
+<td>&ensp; &ensp; <code>country</code></td>
 <td>string</td>
-<td>The customer&rsquo;s country. Two-letter country code in ISO 3166-1, in uppercase (for instance&rdquo; U&rdquo;).</td>
+<td>The customer&rsquo;s country. Two-letter country code in ISO 3166-1, in uppercase (for instance US).</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>city</code></td>
+<td>&ensp; &ensp; <code>city</code></td>
 <td>string</td>
 <td>The customer’s city.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>postal_code</code></td>
+<td>&ensp; &ensp; <code>postal_code</code></td>
 <td>string</td>
 <td>The customer&rsquo;s postal code.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>state</code></td>
+<td>&ensp; &ensp; <code>state</code></td>
 <td>string</td>
 <td>The customer&rsquo;s state code in ISO 3166-2.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>type</code> <span style="color: red;">*</span></td>
+<td>&ensp; <code>order</code></td>
 <td>string</td>
-<td>The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, for a simple checkout - the simple type. Enum values: key, product, simple.</td>
+<td>The PaySuper unique identifier for the order.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>platform_id</code></td>
+<td>&ensp; <code>type</code> <span style="color: red;">*</span></td>
 <td>string</td>
-<td>The default platform&rsquo;s name for which a customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.</td>
+<td>The order type. It depends on your sales option (Game Keys, Virtual Items, Virtual Currency the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, as Virtual Currency - the virtual_currency type, for a simple checkout - the simple type. Enum values: key, product, virtual_currency, simple.</td>
+</tr>
+
+<tr>
+<td>&ensp; <code>platform_id</code></td>
+<td>string</td>
+<td>The default platform&rsquo;s name for which the customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.</td>
 </tr>
 </tbody>
 </table>
@@ -1608,7 +1615,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
   <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;payment_form_url&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
 }</code></pre></div>
-<h3 id="200-returns-the-order-id-and-payment-form-url">200 Returns the order ID and payment form URL.</h3>
+<h3 id="200-returns-the-order-id-and-payment-form-url">200 Returns the order ID and payment form URL</h3>
 
 <table>
 <thead>
@@ -1634,7 +1641,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tbody>
 </table>
 
-<h3 id="400-invalid-request-data">400 Invalid request data</h3>
+<h3 id="400-the-error-code-and-message-with-the-error-details">400 The error code and message with the error details</h3>
 
 <table>
 <thead>
@@ -1702,7 +1709,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <p>A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.</p>
 
-<h2 id="create-a-token">Create a token</h2>
+<h2 id="create-a-payment-token">Create a payment token</h2>
 
 <blockquote>
 <p>Code samples</p>
@@ -1734,10 +1741,10 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <span style="color:#666">}</span><span style="">&#39;</span></code></pre></div>
 <h3 id="post-api-v1-tokens">POST /api/v1/tokens</h3>
 
-<p>Create a token that encrypts details of your customer, a game and purchase parameters.</p>
+<p>Create a payment token that encrypts details about your customer, the game and purchase parameters.</p>
 
 <blockquote>
-<p>Body parameter</p>
+<p>Body parameters</p>
 </blockquote>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#062873;font-weight:bold">&#34;user&#34;</span>: {
@@ -1780,7 +1787,8 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
     ],
     <span style="color:#062873;font-weight:bold">&#34;platform_id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
-    <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+    <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+    <span style="color:#062873;font-weight:bold">&#34;button_caption&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
   }
 }</code></pre></div>
 <table>
@@ -1800,189 +1808,189 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>id</code> <span style="color: red;">*</span></td>
+<td>&ensp; <code>id</code> <span style="color: red;">*</span></td>
 <td>string</td>
-<td>The unique identifier for a customer in the merchant project.</td>
+<td>The unique identifier for the customer in the merchant project.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>email</code></td>
+<td>&ensp; <code>email</code></td>
 <td>object</td>
 <td>The customer&rsquo;s email data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>value</code></td>
+<td>&ensp; &ensp; <code>value</code></td>
 <td>string</td>
 <td>The customer’s email address.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>verified</code></td>
+<td>&ensp; &ensp; <code>verified</code></td>
 <td>boolean</td>
 <td>Whether the email has been verified on the merchant side.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>phone</code></td>
+<td>&ensp; <code>phone</code></td>
 <td>object</td>
 <td>The customer&rsquo;s phone data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>value</code></td>
+<td>&ensp; &ensp; <code>value</code></td>
 <td>string</td>
 <td>The customer’s phone.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>verified</code></td>
+<td>&ensp; &ensp; <code>verified</code></td>
 <td>boolean</td>
 <td>Whether the phone has been verified on the merchant side.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>name</code></td>
+<td>&ensp; <code>name</code></td>
 <td>object</td>
 <td>The customer&rsquo;s name data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>value</code></td>
+<td>&ensp; &ensp; <code>value</code></td>
 <td>string</td>
 <td>The customer’s name.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>ip</code></td>
+<td>&ensp; <code>ip</code></td>
 <td>object</td>
-<td>The customer&rsquo;s IP address data</td>
+<td>The customer&rsquo;s IP address data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>value</code></td>
+<td>&ensp; &ensp; <code>value</code></td>
 <td>string</td>
 <td>The customer’s IP address.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>locale</code></td>
+<td>&ensp; <code>locale</code></td>
 <td>object</td>
 <td>The customer&rsquo;s locale data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>value</code></td>
+<td>&ensp; &ensp; <code>value</code></td>
 <td>string</td>
 <td>The customer’s locale name. The Accept-Language format by RFC 7231.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>address</code></td>
+<td>&ensp; <code>address</code></td>
 <td>object</td>
 <td>The customer&rsquo;s address data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>country</code></td>
+<td>&ensp; &ensp; <code>country</code></td>
 <td>string</td>
-<td>The customer&rsquo;s country. Two-letter country code in ISO 3166-1, in uppercase (for instance&rdquo; U&rdquo;).</td>
+<td>The customer&rsquo;s country. Two-letter country code in ISO 3166-1, in uppercase (for instance US).</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>city</code></td>
+<td>&ensp; &ensp; <code>city</code></td>
 <td>string</td>
 <td>The customer’s city.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>postal_code</code></td>
+<td>&ensp; &ensp; <code>postal_code</code></td>
 <td>string</td>
 <td>The customer&rsquo;s postal code.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>state</code></td>
+<td>&ensp; &ensp; <code>state</code></td>
 <td>string</td>
 <td>The customer&rsquo;s state code in ISO 3166-2.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>settings</code></td>
+<td>&ensp; <code>settings</code></td>
 <td>object</td>
 <td>The project data.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>project_id</code> <span style="color: red;">*</span></td>
+<td>&ensp; &ensp; <code>project_id</code> <span style="color: red;">*</span></td>
 <td>string</td>
-<td>The ID of the Project found in your merchant account in the PaySuper Dashboard.</td>
+<td>The unique identifier for the Project found in the merchant account in the PaySuper Dashboard.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>return_url</code></td>
+<td>&ensp; &ensp; <code>return_url</code></td>
 <td>object</td>
-<td>The redirect URLs.</td>
+<td>The redirect URLs after the successful or failed payment.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<code>success</code></td>
+<td>&ensp; &ensp; &ensp; <code>success</code></td>
 <td>string</td>
 <td>The redirect URL for a successful payment.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<code>fail</code></td>
+<td>&ensp; &ensp; &ensp; <code>fail</code></td>
 <td>string</td>
 <td>The redirect URL for a failed payment.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>currency</code></td>
+<td>&ensp; &ensp; <code>currency</code></td>
 <td>string</td>
 <td>The order currency. Three-letter Currency Code ISO 4217, in uppercase. It&rsquo;s required for a simple checkout payment.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>amount</code></td>
+<td>&ensp; &ensp; <code>amount</code></td>
 <td>number</td>
 <td>The order amount. It&rsquo;s required for a simple checkout payment.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>description</code></td>
+<td>&ensp; &ensp; <code>description</code></td>
 <td>string</td>
 <td>An arbitrary order description.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>products_ids</code></td>
+<td>&ensp; &ensp; <code>products_ids</code></td>
 <td>[string]</td>
 <td>A list of unique identifiers for Project&rsquo;s products. It&rsquo;s required if a payment type equals to ‘product’ or ‘key’.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>platform_id</code></td>
+<td>&ensp; &ensp; <code>platform_id</code></td>
 <td>string</td>
-<td>The default platform&rsquo;s name for which a customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.</td>
+<td>The default platform&rsquo;s name for which the customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>type</code> <span style="color: red;">*</span></td>
+<td>&ensp; &ensp; <code>type</code> <span style="color: red;">*</span></td>
 <td>string</td>
-<td>The order type. It depends on your sales option: Game Keys, Virtual Items, Simple Checkout. Available values: key, product, simple.</td>
+<td>The order type. It depends on your sales option: Game Keys, Virtual Items, Virtual Currency, Simple Checkout. Available values: key, product, virtual_currency, simple.</td>
 </tr>
 
 <tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>button_caption</code></td>
-<td>string</td>
-<td>The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK.</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;&ensp;&ensp;<code>is_buy_for_virtual_currency</code></td>
+<td>&ensp; &ensp; <code>is_buy_for_virtual_currency</code></td>
 <td>boolean</td>
 <td>Has a true value if an order must be processed using a virtual currency.</td>
+</tr>
+
+<tr>
+<td>&ensp; &ensp; <code>button_caption</code></td>
+<td>string</td>
+<td>The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK.</td>
 </tr>
 </tbody>
 </table>
@@ -1998,7 +2006,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
   <span style="color:#062873;font-weight:bold">&#34;token&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;payment_form_url&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
 }</code></pre></div>
-<h3 id="200-returns-the-token-and-payment-form-url">200 Returns the token and payment form URL</h3>
+<h3 id="200-returns-the-payment-token-string-and-the-paysuper-hosted-url-for-a-payment-form">200 Returns the payment token string and the PaySuper-hosted URL for a payment form</h3>
 
 <table>
 <thead>
@@ -2013,7 +2021,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>token</code></td>
 <td>string</td>
-<td>A secure string which contains encrypted information about your customer and sales option data.</td>
+<td>The secure string which contains encrypted information about your customer and sales option data.</td>
 </tr>
 
 <tr>
@@ -2024,7 +2032,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tbody>
 </table>
 
-<h3 id="400-invalid-request-data-1">400 Invalid request data</h3>
+<h3 id="400-invalid-request-data">400 Invalid request data</h3>
 
 <table>
 <thead>

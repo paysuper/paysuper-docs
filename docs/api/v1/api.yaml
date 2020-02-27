@@ -2,12 +2,6 @@ openapi: 3.0.1
 info:
   title: PaySuper API Reference
   version: "1.0"
-securityDefinitions:
-  XAPISignatureHeader:
-    type: apiKey
-    in: header
-    name: X-API-SIGNATURE
-    description: The Header **X-API-SIGNATURE** with the Project's Secret key found on the Project webhooks page.
 tags:
   - name: Order
     description: |
@@ -19,10 +13,10 @@ tags:
       |---|---|
       |`created`|It’s an initial state of the requested order but it is not processed in a payment system yet. The `created` order can become one of the statuses: `processed`, `canceled`, `rejected`.|
       |`processed`|The order is successfully processed in the payment system. The `processed` order can become `refunded` or `chargeback`.|
-      |`rejected`|The order is rejected by a payment system with any reasons.|
-      |`canceled`|The order is canceled by a user.|
-      |`refunded`|The processed order is refunded by a merchant request.|
-      |`chargeback`|The processed order is refunded by a payment system with any reasons.|
+      |`rejected`|The order is rejected by the payment system with any reasons.|
+      |`canceled`|The order is canceled by the customer.|
+      |`refunded`|The processed order is refunded by the merchant request.|
+      |`chargeback`|The processed order is refunded by the payment system with any reasons.|
 
       > The Order object example:
       
@@ -142,8 +136,8 @@ tags:
       |`canceled_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was cancelled.|
       |`canceled`|boolean|Has the value `true` if the current order was canceled.|
       |`cancellation`|object|The cancellation reason. Has the value `null` if the order is not canceled.|
-      |`· code`|string|The cancellation reason code.|
-      |`· reason`|string|The cancellation description.|
+      |&ensp;&ensp;`code`|string|The cancellation reason code.|
+      |&ensp;&ensp;`reason`|string|The cancellation description.|
       |`refunded`|boolean|Has the value `true` if the current order was refunded.|
       |`refunded_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was refunded.|
       |`receipt_email`|string|The customer's email for receipt information.|
@@ -152,85 +146,85 @@ tags:
       |`receipt_url`|string|The URL in PaySuper service for online access to the receipt.|
       |`agreement_version`|string|The EULA agreement accepted by payment.|
       |`agreement_accepted`|boolean|Has the value `true` if the agreement was accepted.|
-      |`notify_sale`|boolean|Has the value `true` if a user confirmed to be informed about feature sales or discounts.|
+      |`notify_sale`|boolean|Has the value `true` if the customer confirmed to be informed about sales or discounts.|
       |`notify_sale_email`|string|The customer's email for sales or discounts.|
       |`issuer`|object|Details about an issuer.|
-      |`· url`|string|The referer URL.|
-      |`· embedded`|boolean|Has the value `true` if the PaySuper form was embedded to collect payment.|
-      |`· reference`|string|The unique identifier of an entity linked to the order, for instance `paylink ID`.|
-      |`· reference_type`|string|The type of an entity linked to the order, for instance `paylink`.|
-      |`· utm_source`|string|The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.|
-      |`· utm_medium`|string|The UTM-tag of the traffic type, e.g.: cpc, cpm, email newsletter.|
-      |`· utm_campaign`|string|The UTM-tag of the advertising campaign, for example: Online games, Simulation game.|
-      |`· referrer_host`|string|The host of the referrer URL.|
+      |&ensp;&ensp;`url`|string|The referer URL.|
+      |&ensp;&ensp;`embedded`|boolean|Has the value `true` if the PaySuper form was embedded to collect payment.|
+      |&ensp;&ensp;`reference`|string|The unique identifier for the entity linked to the order, for instance `paylink ID`.|
+      |&ensp;&ensp;`reference_type`|string|The type of an entity linked to the order, for instance `paylink`.|
+      |&ensp;&ensp;`utm_source`|string|The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.|
+      |&ensp;&ensp;`utm_medium`|string|The UTM-tag of the traffic type, e.g.: cpc, cpm, email newsletter.|
+      |&ensp;&ensp;`utm_campaign`|string|The UTM-tag of the advertising campaign, for example: Online games, Simulation game.|
+      |&ensp;&ensp;`referrer_host`|string|The host of the referrer URL.|
       |`amount`|float|The total amount for the order. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
       |`currency`|string|The currency for the order. Three-letter Currency Code ISO 4217, in uppercase.|
       |`user`|object|Details about a customer.|
-      |`· id`|string|The user unique identifier on the PaySuper side.|
-      |`· object`|string|The string representing the object’s type. Value: `user`.|
-      |`· external_id`|string|The user unique identifier in the merchant project.|
-      |`· name`|string|The user's name.|
-      |`· email`|string|The user's email.|
-      |`· email_verified`|boolean|Whether the user’s email address has been verified in the merchant project.|
-      |`· phone`|string|The user’s phone number.|
-      |`· phone_verified`|boolean|Whether the user’s phone number has been verified in the merchant project.|
-      |`· ip`|string|	The user’s IP address.|
-      |`· locale`|string|The user’s locale name. Four-letter language code in ISO 639, for instance en-US.|
-      |`· address`|object|Details about a user's address.|
-      |`·· country`|string|The user’s country. Two-letter country code in ISO 3166-1, in uppercase.|
-      |`·· city`|string|The user’s city.|
-      |`·· postal_code`|string|The user’s postal code.|
-      |`·· state`|string|The user’s state code in ISO 3166-2.|
-      |`· metadata`|object|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
-      |`· notify_new_region`|boolean|Has the value `true` if a user confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
-      |`· notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
-      |`billing_address`||Details about a user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
-      |`· country`|string|The user's country. Two-letter country code in ISO 3166-1, in uppercase.|
+      |&ensp;&ensp;`id`|string|The customer unique identifier on the PaySuper side.|
+      |&ensp;&ensp;`object`|string|The string representing the object’s type. Value: `user`.|
+      |&ensp;&ensp;`external_id`|string|The customer unique identifier in the merchant project.|
+      |&ensp;&ensp;`name`|string|The customer's name.|
+      |&ensp;&ensp;`email`|string|The customer's email.|
+      |&ensp;&ensp;`email_verified`|boolean|Whether the customer’s email address has been verified in the merchant project.|
+      |&ensp;&ensp;`phone`|string|The customer’s phone number.|
+      |&ensp;&ensp;`phone_verified`|boolean|Whether the customer’s phone number has been verified in the merchant project.|
+      |&ensp;&ensp;`ip`|string|The customer’s IP address.|
+      |&ensp;&ensp;`locale`|string|The customer’s locale name. Four-letter language code in ISO 639, for instance en-US.|
+      |&ensp;&ensp;`address`|object|Details about a customer's address.|
+      |&ensp;&ensp;&ensp;&ensp;`country`|string|The customer’s country. Two-letter country code in ISO 3166-1, in uppercase.|
+      |&ensp;&ensp;&ensp;&ensp;`city`|string|The customer’s city.|
+      |&ensp;&ensp;&ensp;&ensp;`postal_code`|string|The customer’s postal code.|
+      |&ensp;&ensp;&ensp;&ensp;`state`|string|The customer’s state code in ISO 3166-2.|
+      |&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the customer object. It can be useful for storing additional information about your customer's payment.|
+      |&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if the customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
+      |&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
+      |`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
+      |&ensp;&ensp;`country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase.|
       |`tax`|object|Details about a tax.|
-      |`· type`|string|The tax type (Sales tax for USA, VAT for EU and Russia).|
-      |`· rate`|float|The current user's location taxes. A positive float with two decimal points.|
-      |`· amount`|float|The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
-      |`· currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
-      |`method`||Details about a payment method.|
-      |`· title`|string|The human readable method name.|
-      |`· external_id`|string|The unique identifier of the payment method.|
-      |`· payment_system_id`|string|The unique identifier of payment system on the PaySuper side.|
-      |`· saved`|boolean|Has a value `true` if a payment method was saved by a user for a future usage.|
-      |`· card`|object|Details about a user's card.|
-      |`·· first6`|string|The first 6 digits of the card. Available only for a card method.|
-      |`·· last4`|string|The last 4 digits of the card. Available only for a card method.|
-      |`·· masked`|string|The mask for a user's card. Available only for a card method.|
-      |`·· expiry_month`|string|The validity month of the card. Available only for a card method.|
-      |`·· expiry_year`|string|The validity year of the card. Available only for a card method.|
-      |`·· brand`|string|The brand of the card issuer. Available only for a card method.|
-      |`·· fingerprint`|string|The internal fingerprint for given card. Available only for a card method.|
-      |`·· secure3d`|string|Has a value `true` if 3D-secure was used during payment. Available only for a card method.|
-      |`· wallet`|object|The name of the wallet. Available only for an integrated wallet payment systems.|
-      |`·· brand`|string|The name of the wallet.|
-      |`·· account`|string|The customer identity in the wallet.|
-      |`· crypto_currency`|object|The name of the crypto currency. Available only for a crypto currency.|
-      |`·· brand`|string|The name of the crypto currency.|
-      |`·· address`|string|The customer's address in the crypto currency.|
-      |`· refund_allowed`|boolean|Has a value `true` if a refund is allowed.|
+      |&ensp;&ensp;`type`|string|The tax type (Sales tax for USA, VAT for EU and Russia).|
+      |&ensp;&ensp;`rate`|float|The current customer's location taxes. A positive float with two decimal points.|
+      |&ensp;&ensp;`amount`|float|The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+      |&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
+      |`method`|object|Details about a payment method.|
+      |&ensp;&ensp;`title`|string|The human readable method name.|
+      |&ensp;&ensp;`external_id`|string|The unique identifier for the payment method.|
+      |&ensp;&ensp;`payment_system_id`|string|The unique identifier for the payment system on the PaySuper side.|
+      |&ensp;&ensp;`saved`|boolean|Has a value `true` if the payment method was saved by the customer for future usage.|
+      |&ensp;&ensp;`card`|object|Details about a customer's card.|
+      |&ensp;&ensp;&ensp;&ensp;`first6`|string|The first 6 digits of the card. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`last4`|string|The last 4 digits of the card. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`masked`|string|The mask for a customer's card. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`expiry_month`|string|The validity month of the card. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`expiry_year`|string|The validity year of the card. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`brand`|string|The brand of the card issuer. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`fingerprint`|string|The internal fingerprint for given card. Available only for a card method.|
+      |&ensp;&ensp;&ensp;&ensp;`secure3d`|string|Has a value `true` if 3D-secure was used during payment. Available only for a card method.|
+      |&ensp;&ensp;`wallet`|object|The name of the wallet. Available only for an integrated wallet payment systems.|
+      |&ensp;&ensp;&ensp;&ensp;`brand`|string|The name of the wallet.|
+      |&ensp;&ensp;&ensp;&ensp;`account`|string|The customer identity in the wallet.|
+      |&ensp;&ensp;`crypto_currency`|object|The name of the crypto currency. Available only for a crypto currency.|
+      |&ensp;&ensp;&ensp;&ensp;`brand`|string|The name of the crypto currency.|
+      |&ensp;&ensp;&ensp;&ensp;`address`|string|The customer's address in the crypto currency.|
+      |&ensp;&ensp;`refund_allowed`|boolean|Has a value `true` if a refund is allowed.|
       |`items`|object[]|An array of OrderItem objects associated with current Order.|
-      |`· id`|string|The unique identifier of the object.|
-      |`· sku`|string|The stock keeping unit.|
-      |`· name`|string|A localized name of the object.|
-      |`· description`|string|A localized description of the object.|
-      |`· images`|string[]|Image urls associated with the object.|
-      |`· metadata`|object|A string-value description that attached to an object on creating a product.|
-      |`· code`|string|An activation code of the object. Can be ommited if the order is not processed or type of the order does not equal `key`.|
-      |`· platform`|string|A platform for an activation code. Can be ommited if the order is not processed or type of the order does not equal `key`.|
+      |&ensp;&ensp;`id`|string|The unique identifier for the object.|
+      |&ensp;&ensp;`sku`|string|The stock keeping unit.|
+      |&ensp;&ensp;`name`|string|A localized name of the object.|
+      |&ensp;&ensp;`description`|string|A localized description of the object.|
+      |&ensp;&ensp;`images`|string[]|Image urls associated with the object.|
+      |&ensp;&ensp;`metadata`|object|A string-value description that attached to an object on creating a product.|
+      |&ensp;&ensp;`code`|string|An activation code of the object. Can be ommited if the order is not processed or type of the order does not equal `key`.|
+      |&ensp;&ensp;`platform`|string|A platform for an activation code. Can be ommited if the order is not processed or type of the order does not equal `key`.|
       |`refund`|object|Details about a refund.|
-      |`· amount`|float|The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
-      |`· currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
-      |`· reason`|string|The refund reason.|
-      |`· code`|string|The PaySuper internal identity for the refund reason.|
-      |`· receipt_number`|string|The unique identifier of the refund receipt.|
-      |`· receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
+      |&ensp;&ensp;`amount`|float|The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+      |&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
+      |&ensp;&ensp;`reason`|string|The refund reason.|
+      |&ensp;&ensp;`code`|string|The PaySuper internal identity for the refund reason.|
+      |&ensp;&ensp;`receipt_number`|string|The unique identifier for the refund receipt.|
+      |&ensp;&ensp;`receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
       |`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
       |`original_amount`|float|The order amount excluding any taxes and commissions.|
-      |`country`|string|Two-letter language code in ISO 3166-1, in uppercase.|
+      |`country`|string|Two-letter country code in ISO 3166-1, in uppercase.|
       |`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. **Enum values:** key, products, simple.|
       |`platform_id`|string|The default platform identifier for which customer buys the in-game key. This field used only for a payment type `key`. **Enum values:** steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
       |`receipt_id`|string|The receipt unique identifier.|
@@ -238,7 +232,7 @@ tags:
       |`is_buy_for_virtual_currency`|boolean|Has a value `true` if the order created for a virtual currency.|
   - name: Token
     description: |
-      A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.
+      A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.
 x-tagGroups:
   - name: Payments
     tags:
@@ -247,10 +241,11 @@ x-tagGroups:
 paths:
   /api/v1/order:
     post:
-      tags:
-      - Order
       summary: Create a payment order
-      description: Create a payment order with a user and order data
+      operationId: orderPathСreateJson
+      description: Create a payment order with a customer and order data
+      tags:
+        - Order
       requestBody:
         content:
           application/json:
@@ -258,13 +253,13 @@ paths:
               $ref: "#/components/schemas/OrderCreateRequest"
       responses:
         "200":
-          description: OK
+          description: Returns the order ID and payment form URL
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/CreateOrderJsonProjectResponse"
         "400":
-          description: Invalid request data
+          description: The error code and message with the error details
           content:
             application/json:
               schema:
@@ -295,8 +290,9 @@ paths:
             }'
   /api/v1/tokens:
     post:
-      summary: Create a token
-      description: "Create a token that encrypts details of your customer, a game and purchase parameters."
+      summary: Create a payment token
+      operationId: tokenPathCreateToken
+      description: "Create a payment token that encrypts details about your customer, the game and purchase parameters."
       tags:
         - Token
       requestBody:
@@ -306,7 +302,7 @@ paths:
               $ref: "#/components/schemas/TokenRequest"
       responses:
         "200":
-          description: OK
+          description: "Returns the payment token string and the PaySuper-hosted URL for a payment form"
           content:
             application/json:
               schema:
@@ -358,6 +354,12 @@ paths:
                   }
             }'
 components:
+  securitySchemes:
+    XAPISignatureHeader:
+      type: apiKey
+      in: header
+      name: X-API-SIGNATURE
+      description: The Header **X-API-SIGNATURE** with the Project's Secret key found on the Project webhooks page.
   schemas:
     OrderCreateRequest:
       type: object
@@ -375,10 +377,10 @@ components:
           description: "The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. If provided, the amount will be processed in this currency. It is required for a payment when the type equals to simple."
           type: string
         account:
-          description: "The user's unique account in the merchant project."
+          description: "The customer account in the merchant project."
           type: string
         order_id:
-          description: "The unique order identifier in the merchant project. This field is not required, but we recommend always sending this field."
+          description: "The unique identifier for the order in the merchant project. This field is not required, but we recommend always sending this field."
           type: string
         description:
           description: "The arbitrary order description."
@@ -395,55 +397,60 @@ components:
           items:
             type: string
         token:
-          description: "An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters in an order object even the required parameters."
+          description: "An encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters (including required parameters) in an order object."
           type: string
         user:
+          description: "The customer data."
           type: object
           properties:
             external_id:
-              description: "The user unique identifier in the merchant project."
+              description: "The unique identifier for the customer in the merchant project."
               type: string
             name:
-              description: "The user's name."
+              description: "The customer's name."
               type: string
             email:
-              description: "The user's email address."
+              description: "The customer's email address."
               type: string
             email_verified:
-              description: "Whether the user's email address has been verified on the merchant side."
+              description: "Whether the customer's email address has been verified on the merchant side."
               type: boolean
             phone:
-              description: "The user's phone number."
+              description: "The customer's phone number."
               type: string
             phone_verified:
-              description: "Whether the user's phone number has been verified on the merchant side."
+              description: "Whether the customer's phone number has been verified on the merchant side."
               type: boolean
             ip:
-              description: "The user's IP address."
+              description: "The customer's IP address."
               type: string
             locale:
-              description: "The user's locale name. The language code in ISO 639-1 (for instance\" en-U\")."
+              description: "The customer's locale name. The language code in ISO 639-1 (for instance en-US)."
               type: string
             address:
+              description: "The customer's address data."
               type: object
               properties:
                 country:
-                  description: "The user's country. Two-letter country code in ISO 3166-1, in uppercase (for instance\" U\")."
+                  description: "The customer's country. Two-letter country code in ISO 3166-1, in uppercase (for instance US)."
                   type: string
                 city:
-                  description: "The user’s city."
+                  description: "The customer’s city."
                   type: string
                 postal_code:
-                  description: "The user's postal code."
+                  description: "The customer's postal code."
                   type: string
                 state:
-                  description: "The user's state code in ISO 3166-2."
+                  description: "The customer's state code in ISO 3166-2."
                   type: string
+        order:
+          description: "The PaySuper unique identifier for the order."
+          type: string
         type:
-          description: "The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, for a simple checkout - the simple type. Enum values: key, product, simple."
+          description: "The order type. It depends on your sales option (Game Keys, Virtual Items, Virtual Currency the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, as Virtual Currency - the virtual_currency type, for a simple checkout - the simple type. Enum values: key, product, virtual_currency, simple."
           type: string
         platform_id:
-          description: "The default platform's name for which a customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs."
+          description: "The default platform's name for which the customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs."
           type: string
     CreateOrderJsonProjectResponse:
       type: object
@@ -470,74 +477,83 @@ components:
       type: object
       properties:
         user:
+          description: "The customer data."
           type: object
           required:
             - id
           properties:
             id:
-              description: "The unique identifier for a user in the merchant project."
+              description: "The unique identifier for the customer in the merchant project."
               type: string
             email:
+              description: "The customer's email data."
               type: object
               properties:
                 value:
-                  description: "The user’s email address."
+                  description: "The customer’s email address."
                   type: string
                 verified:
                   description: "Whether the email has been verified on the merchant side."
                   type: boolean
             phone:
+              description: "The customer's phone data."
               type: object
               properties:
                 value:
-                  description: "The user’s phone."
+                  description: "The customer’s phone."
                   type: string
                 verified:
                   description: "Whether the phone has been verified on the merchant side."
                   type: boolean
             name:
+              description: "The customer's name data."
               type: object
               properties:
                 value:
-                  description: "The user’s name."
+                  description: "The customer’s name."
                   type: string
             ip:
+              description: "The customer's IP address data."
               type: object
               properties:
                 value:
-                  description: "The user’s IP address."
+                  description: "The customer’s IP address."
                   type: string
             locale:
+              description: "The customer's locale data."
               type: object
               properties:
                 value:
-                  description: "The user’s locale name. The Accept-Language format by RFC 7231."
+                  description: "The customer’s locale name. The Accept-Language format by RFC 7231."
                   type: string
             address:
+              description: "The customer's address data."
               type: object
               properties:
                 country:
-                  description: "The user's country. Two-letter country code in ISO 3166-1, in uppercase (for instance\" U\")."
+                  description: "The customer's country. Two-letter country code in ISO 3166-1, in uppercase (for instance US)."
                   type: string
                 city:
-                  description: "The user’s city."
+                  description: "The customer’s city."
                   type: string
                 postal_code:
-                  description: "The user's postal code."
+                  description: "The customer's postal code."
                   type: string
                 state:
-                  description: "The user's state code in ISO 3166-2."
+                  description: "The customer's state code in ISO 3166-2."
                   type: string
         settings:
+          description: "The project data."
           type: object
           required:
             - project_id
             - type
           properties:
             project_id:
-              description: "The ID of the Project found in your merchant account in the PaySuper Dashboard."
+              description: "The unique identifier for the Project found in the merchant account in the PaySuper Dashboard."
               type: string
             return_url:
+              description: "The redirect URLs after the successful or failed payment."
               type: object
               properties:
                 success:
@@ -561,22 +577,22 @@ components:
               items:
                 type: string
             platform_id:
-              description: "The default platform's name for which a customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs."
+              description: "The default platform's name for which the customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs."
               type: string
             type:
-              description: "The order type. It depends on your sales option: Game Keys, Virtual Items, Simple Checkout. Available values: key, product, simple."
-              type: string
-            button_caption:
-              description: "The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK."
+              description: "The order type. It depends on your sales option: Game Keys, Virtual Items, Virtual Currency, Simple Checkout. Available values: key, product, virtual_currency, simple."
               type: string
             is_buy_for_virtual_currency:
               description: "Has a true value if an order must be processed using a virtual currency."
               type: boolean
+            button_caption:
+              description: "The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK."
+              type: string
     TokenCreationResponse:
       type: object
       properties:
         token:
-          description: "A secure string which contains encrypted information about your customer and sales option data."
+          description: "The secure string which contains encrypted information about your customer and sales option data."
           type: string
         payment_form_url:
           description: "The PaySuper-hosted URL of a payment form."
