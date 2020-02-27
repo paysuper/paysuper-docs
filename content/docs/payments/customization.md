@@ -22,6 +22,14 @@ You can choose the complete set of supported languages for the project and produ
 
 Boost your payment conversion rate with a payment form pre-filled with your customer's name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer's intent to pay.
 
+## VAT collection mode
+
+`Dashboard`
+
+Configure your Project Settings to display the final price in a payment form and receipt. You can set up to show the final price with VAT already included just turn on the switcher "VAT included in price". By default, PaySuper displays a calculated VAT and product price separately.
+
+{{< figure src="/images/vat-included.gif">}}
+
 ## Saving payment methods for future
 
 PaySuper can securely store your customer's billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.

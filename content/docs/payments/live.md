@@ -32,7 +32,7 @@ You can use a [token](/docs/payments/token/) to prefill the Checkout Form with a
 
 `Dashboard`
 
-Check your redirect URLs for a successful or failed payment are added in the Project Payment form page.
+Check your redirect URLs for a successful or failed payment are added in the Project Setting for the Payment Form.
 
 {{< figure src="/images/redirect-urls.png">}}
 
