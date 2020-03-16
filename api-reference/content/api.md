@@ -134,8 +134,8 @@ You can create a payment order with details about your customer and sales option
 
 |Attribute|Type|Description|
 |---|---|---|
-|`id`|string|The unique identifier for the object.|
-|`transaction`|string|The unique identifier for the transaction in the payment system.|
+|`id`|string|The unique identifier for the order in PaySuper.|
+|`transaction`|string|The unique identifier for the transaction that is returned by the payment system.|
 |`object`|string|The string representing the object’s type. Value: `order`.|
 |`status`|string|The current status of the order.|
 |`description`|string|An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.|
@@ -273,8 +273,11 @@ Create a payment order with a customer and order data
   "amount": 0,
   "currency": "string",
   "account": "string",
-  "order_id": "string",
   "description": "string",
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
   "url_success": "string",
   "url_fail": "string",
   "products": [
@@ -309,8 +312,8 @@ Create a payment order with a customer and order data
 |`amount`|number|The order amount as a positive number. It is required for a simple checkout payment.|
 |`currency`|string|The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. If provided, the amount will be processed in this currency. It is required for a payment when the type equals to simple.|
 |`account`|string|The customer account in the merchant project.|
-|`order_id`|string|The unique identifier for the order in the merchant project. This field is not required, but we recommend always sending this field.|
 |`description`|string|The arbitrary order description.|
+|`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer's payment.|
 |`url_success`|string|The redirect URL for the successful payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field.|
 |`url_fail`|string|The redirect URL for the failed payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field.|
 |`products`|[string]|The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to product or key.|
