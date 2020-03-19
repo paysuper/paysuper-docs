@@ -135,7 +135,7 @@ You can create a payment order with details about your customer and sales option
 |Attribute|Type|Description|
 |---|---|---|
 |`id`|string|The unique identifier for the order in PaySuper.|
-|`transaction`|string|The unique identifier for the transaction that is returned by the payment system.|
+|`transaction`|string|The unique identifier for the transaction in the issuer system (the bank, QIWI, PayPal, etc.)|
 |`object`|string|The string representing the object’s type. Value: `order`.|
 |`status`|string|The current status of the order.|
 |`description`|string|An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.|
