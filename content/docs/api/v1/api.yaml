@@ -127,8 +127,8 @@ tags:
 
       |Attribute|Type|Description|
       |---|---|---|
-      |`id`|string|The unique identifier for the object.|
-      |`transaction`|string|The unique identifier for the transaction in the payment system.|
+      |`id`|string|The unique identifier for the order in PaySuper.|
+      |`transaction`|string|The unique identifier for the transaction in the issuer system (the bank, QIWI, PayPal, etc.)|
       |`object`|string|The string representing the object’s type. Value: `order`.|
       |`status`|string|The current status of the order.|
       |`description`|string|An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.|
@@ -379,12 +379,15 @@ components:
         account:
           description: "The customer account in the merchant project."
           type: string
-        order_id:
-          description: "The unique identifier for the order in the merchant project. This field is not required, but we recommend always sending this field."
-          type: string
         description:
           description: "The arbitrary order description."
           type: string
+        metadata:
+          description: "A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer's payment."
+          type: object
+          example:
+            "property1": "string"
+            "property2": "string"
         url_success:
           description: "The redirect URL for the successful payment. You need to enable the dynamic notify URLs option in the Project Settings to use this field."
           type: string
