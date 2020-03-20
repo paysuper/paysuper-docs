@@ -753,13 +753,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>id</code></td>
 <td>string</td>
-<td>The unique identifier for the object.</td>
+<td>The unique identifier for the order in PaySuper.</td>
 </tr>
 
 <tr>
 <td><code>transaction</code></td>
 <td>string</td>
-<td>The unique identifier for the transaction in the payment system.</td>
+<td>The unique identifier for the transaction in the issuer system (the bank, QIWI, PayPal, etc.)</td>
 </tr>
 
 <tr>
@@ -1402,8 +1402,11 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
   <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">0</span>,
   <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;account&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
-  <span style="color:#062873;font-weight:bold">&#34;order_id&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;description&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {
+    <span style="color:#062873;font-weight:bold">&#34;property1&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;property2&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
+  },
   <span style="color:#062873;font-weight:bold">&#34;url_success&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;url_fail&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;products&#34;</span>: [
@@ -1465,15 +1468,15 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td><code>order_id</code></td>
-<td>string</td>
-<td>The unique identifier for the order in the merchant project. This field is not required, but we recommend always sending this field.</td>
-</tr>
-
-<tr>
 <td><code>description</code></td>
 <td>string</td>
 <td>The arbitrary order description.</td>
+</tr>
+
+<tr>
+<td><code>metadata</code></td>
+<td>object</td>
+<td>A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer&rsquo;s payment.</td>
 </tr>
 
 <tr>
