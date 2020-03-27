@@ -28,7 +28,7 @@ Services supplied from abroad which are delivered over the Internet or an electr
 When buying electronically supplied services online, VAT is due. 
 The seller will charge the VAT rate applicable in the country where the customer is established, has a permanent address or usually reside.
 
-**Example:** If a private person residing in Sweden makes use of a Japanese on-line library, Swedish VAT will have to be paid on the amount the Japanese company charges.
+**Example:** If a private person residing in Germany makes use of a France on-line library, German VAT will have to be paid on the amount the France company charges.
 
 ## VAT rates
 
@@ -36,7 +36,7 @@ Actual rates applied vary between countries and between certain types of product
 
 You can check the VAT rates applied in each country:
 
-Country|Payout currency|Rate
+Country|Tax currency|Rate
 ---|---|---
 Australia|AUD|10%
 Austria|EUR|20%
