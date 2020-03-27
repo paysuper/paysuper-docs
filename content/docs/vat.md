@@ -83,7 +83,7 @@ Serbia|RSD|20.00%|Quarterly
 Singapore|SGD|7%|Quarterly
 Slovakia|EUR|20%|Quarterly
 Slovenia|EUR|22%|Quarterly
-USA|USD|Depends on the state|Depends on the state
+USA|USD|up to 20% (depending on the state)|Depends on the state
 Taiwan, China|TWD|5%|Every two months
 Tanzania|TZS|18%|Monthly
 Turkey|TRY|18%|Monthly
