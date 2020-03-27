@@ -14,7 +14,7 @@ You can only charge VAT if your business is registered for VAT.
 {{< hint >}}
 If you prefer to think in terms of equations:
 
-Net VAT payment for each merchant = VAT(price you sold product for) - VAT(price you paid for product). 
+Net VAT payment for each merchant = VAT(price you sold product for) - VAT(price you paid for the product). 
 {{< /hint >}}
 
 The VAT due on any sale is a percentage of the sale price but from this the taxable person is entitled to deduct all the tax already paid at the preceding stage. 
@@ -26,7 +26,7 @@ In this way, as the final price of the product is equal to the sum of the values
 Services supplied from abroad which are delivered over the Internet or an electronic network and the nature of which renders their supply essentially automated and involving minimal human intervention, and impossible to ensure in the absence of information technology. 
 
 When buying electronically supplied services online, VAT is due. 
-The seller will charge the VAT rate applicable in the country where customer is established, has permanent address or usually reside.
+The seller will charge the VAT rate applicable in the country where the customer is established, has a permanent address or usually reside.
 
 **Example:** If a private person residing in Sweden makes use of a Japanese on-line library, Swedish VAT will have to be paid on the amount the Japanese company charges.
 
