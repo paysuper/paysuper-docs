@@ -8,6 +8,16 @@ bookToc: true
 
 Learn about the different ways you can customize your Checkout.
 
+- [Localization](#localization)
+- [Prefilling customer data](#prefilling-customer-data)
+- [Displaying VAT in a payment form](#displaying-vat-in-a-payment-form)
+- [Saving payment methods for future](#saving-payment-methods-for-future)
+- [Customizing theme](#customizing-theme)
+- [Customizing the colors](#customizing-the-colors)
+- [Analytics Integration](#analytics-integration)
+
+***
+
 ## Localization
 
 `Dashboard`
@@ -22,11 +32,21 @@ You can choose the complete set of supported languages for the project and produ
 
 Boost your payment conversion rate with a payment form pre-filled with your customer's name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer's intent to pay.
 
-## VAT collection mode
+## Displaying VAT in a payment form
 
 `Dashboard`
 
-Configure your Project Settings to display the final price in a payment form and receipt. You can set up to show the final price with VAT already included just turn on the switcher "VAT included in price". By default, PaySuper displays a calculated VAT and product price separately.
+[Get to know about VAT for e-services of foreign companies.](/docs/vat)
+
+You can configure your Project Settings to display the total price and VAT in a payment form and receipt.
+
+To show the total price with VAT already included, choose "VAT included in price" on the Project Settings page in your PaySuper Dashboard. 
+By default, PaySuper displays a calculated VAT and product price separately in a payment form.
+
+{{< figure src="/images/vat-settings.png">}}
+
+As the example below shows, if the in-game purchase is $10 and you apply "VAT included in price" then the total price will be equal to the same $10 in a payment form. 
+By default, your customers see the total price with added taxes, for example, if the in-game purchase is $10 with VAT 20% then the total price is $12.
 
 {{< figure src="/images/vat-included.gif">}}
 
