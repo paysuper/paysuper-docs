@@ -30,73 +30,73 @@ The seller will charge the VAT rate applicable in the country where the customer
 
 **Example:** If a private person residing in Sweden makes use of a Japanese on-line library, Swedish VAT will have to be paid on the amount the Japanese company charges.
 
-## VAT rates and regularity
+## VAT rates
 
 Actual rates applied vary between countries and between certain types of products. 
 
 You can check the VAT rates applied in each country:
 
-Country|Payout currency|Rate|Regularity
----|---|---|---
-Australia|AUD|10%|Quarterly
-Austria|EUR|20%|Quarterly
-Albania|ALL|20%|Monthly
-Argentina|ARS|21%|-
-Armenia|AMD|20%|Monthly
-Bahrain|BHD|5.00%|Quarterly
-Belarus|BYN|20.00%|Quarterly
-Belgium|EUR|21%|Quarterly
-Bulgaria|EUR|20%|Quarterly
-Brazil|BRL|17%-19%|Monthly
-United Kingdom|EUR|20%|Quarterly
-Hungary|EUR|27%|Quarterly
-Ghana|GHC|12.50%|Monthly
-Germany|EUR|19%|Quarterly
-Greece|EUR|24%|Quarterly
-Denmark|EUR|25%|Quarterly
-Egypt|EGP|14%|Monthly
-India|INR|18%|Monthly
-Ireland|EUR|23%|Quarterly
-Iceland|ISK|24.0%|Every two months
-Spain|EUR|21%|Quarterly
-Italy|EUR|22%|Quarterly
-Canada (Quebec)|CAD|9,975%|Quarterly
-Kenya|KES|16%|Monthly
-Cyprus|EUR|19%|Quarterly
-Colombia|COP|19%|Every two months
-Latvia|EUR|21%|Quarterly
-Lithuania|EUR|21%|Quarterly
-Liechtenstein|CHF|7.70%|Quarterly
-Luxembourg|EUR|17%|Quarterly
-Malta|EUR|18%|Quarterly
-Netherlands|EUR|21%|Quarterly
-New Zealand|NZD|15%|Quarterly
-Norway|NOK|25%|Quarterly
-UAE|AED|5.00%|Quarterly
-Poland|EUR|23%|Quarterly
-Portugal|EUR|23%|Quarterly
-Republic of Korea|KRW|10%|-
-Russia|RUB|20%|Quarterly
-Romania|EUR|19%|Quarterly
-Saudi Arabia|SAR|5.00%|Quarterly
-Serbia|RSD|20.00%|Quarterly
-Singapore|SGD|7%|Quarterly
-Slovakia|EUR|20%|Quarterly
-Slovenia|EUR|22%|Quarterly
-USA|USD|up to 20% (depending on the state)|Depends on the state
-Taiwan, China|TWD|5%|Every two months
-Tanzania|TZS|18%|Monthly
-Turkey|TRY|18%|Monthly
-Uruguay|UYU|22%|Monthly
-Finland|EUR|24%|Quarterly
-France|EUR|20%|Quarterly
-Croatia|EUR|25%|Quarterly
-Czech Republic|EUR|21%|Quarterly
-Switzerland|CHF|7.70%|Quarterly
-Sweden|EUR|25%|Quarterly
-Estonia|EUR|20%|Quarterly
-South Africa|ZAR|15.00%|Every two months
-Japan|JPY|8%|Annually
+Country|Payout currency|Rate
+---|---|---
+Australia|AUD|10%
+Austria|EUR|20%
+Albania|ALL|20%
+Argentina|ARS|21%
+Armenia|AMD|20%
+Bahrain|BHD|5.00%
+Belarus|BYN|20.00%
+Belgium|EUR|21%
+Bulgaria|EUR|20%
+Brazil|BRL|17%-19%
+United Kingdom|EUR|20%
+Hungary|EUR|27%
+Ghana|GHC|12.50%
+Germany|EUR|19%
+Greece|EUR|24%
+Denmark|EUR|25%
+Egypt|EGP|14%
+India|INR|18%
+Ireland|EUR|23%
+Iceland|ISK|24.0%
+Spain|EUR|21%
+Italy|EUR|22%
+Canada (Quebec)|CAD|9,975%
+Kenya|KES|16%
+Cyprus|EUR|19%
+Colombia|COP|19%
+Latvia|EUR|21%
+Lithuania|EUR|21%
+Liechtenstein|CHF|7.70%
+Luxembourg|EUR|17%
+Malta|EUR|18%
+Netherlands|EUR|21%
+New Zealand|NZD|15%
+Norway|NOK|25%
+UAE|AED|5.00%
+Poland|EUR|23%
+Portugal|EUR|23%
+Republic of Korea|KRW|10%
+Russia|RUB|20%
+Romania|EUR|19%
+Saudi Arabia|SAR|5.00%
+Serbia|RSD|20.00%
+Singapore|SGD|7%
+Slovakia|EUR|20%
+Slovenia|EUR|22%
+USA|USD|up to 20% (depending on the state)
+Taiwan, China|TWD|5%
+Tanzania|TZS|18%
+Turkey|TRY|18%
+Uruguay|UYU|22%
+Finland|EUR|24%
+France|EUR|20%
+Croatia|EUR|25%
+Czech Republic|EUR|21%
+Switzerland|CHF|7.70%
+Sweden|EUR|25%
+Estonia|EUR|20%
+South Africa|ZAR|15.00%
+Japan|JPY|8%
 
 ***
 
