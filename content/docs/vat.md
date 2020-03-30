@@ -39,7 +39,7 @@ Bahrain|BHD|5%
 Belarus|BYN|20%
 Belgium|EUR|21%
 Bulgaria|EUR|20%
-Brazil|BRL|17%-19% (depends on the state)
+Brazil|BRL|17%-19% *
 United Kingdom|EUR|20%
 Hungary|EUR|27%
 Ghana|GHC|12.5%
@@ -75,7 +75,7 @@ Serbia|RSD|20%
 Singapore|SGD|7%
 Slovakia|EUR|20%
 Slovenia|EUR|22%
-USA|USD|up to 20% (depending on the state)
+USA|USD|up to 20% *
 Taiwan, China|TWD|5%
 Tanzania|TZS|18%
 Turkey|TRY|18%
@@ -89,6 +89,8 @@ Sweden|EUR|25%
 Estonia|EUR|20%
 South Africa|ZAR|15%
 Japan|JPY|8%
+
+    * - the rate depends on the state
 
 ***
 
