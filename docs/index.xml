@@ -72,5 +72,15 @@ The refund can be sent only to the same customer&amp;rsquo;s bank card was used 
 But some reasons for the failed payments are unclear and uninformative.</description>
     </item>
     
+    <item>
+      <title>VAT</title>
+      <link>https://docs.pay.super.com/docs/vat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/vat/</guid>
+      <description>VAT for e-services of foreign companies What is VAT? VAT (a value-added tax) is a consumption tax placed on a product whenever value added at each stage of the supply chain, from production to the point of sale. You can only charge VAT if your business registered for VAT.
+Most countries regulate the VAT payments for companies established in this country as well as for foreign companies that supply services for customers from this country.</description>
+    </item>
+    
   </channel>
 </rss>

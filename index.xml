@@ -73,11 +73,9 @@ Try out the payment sample or see the code on GitHub.</description>
       
       <guid>https://docs.pay.super.com/docs/payments/customization/</guid>
       <description>Customizing Checkout Learn about the different ways you can customize your Checkout.
-Localization Dashboard
+ Localization Prefilling customer data Displaying VAT in a payment form Saving payment methods for future Customizing theme Customizing the colors Analytics Integration  Localization Dashboard
 The Checkout Form is localized for 24 languages.
-You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
-Prefilling customer data Token
-Boost your payment conversion rate with a payment form pre-filled with your customer&amp;rsquo;s name and email. To have the payment form prefilled, you can generate a token to encrypt all required information about your customer&amp;rsquo;s intent to pay.</description>
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.</description>
     </item>
     
     <item>
@@ -172,6 +170,16 @@ When using PaySuper JS SDK ensure that:
       <guid>https://docs.pay.super.com/docs/declines/</guid>
       <description>Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.
 But some reasons for the failed payments are unclear and uninformative.</description>
+    </item>
+    
+    <item>
+      <title>VAT</title>
+      <link>https://docs.pay.super.com/docs/vat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.pay.super.com/docs/vat/</guid>
+      <description>VAT for e-services of foreign companies What is VAT? VAT (a value-added tax) is a consumption tax placed on a product whenever value added at each stage of the supply chain, from production to the point of sale. You can only charge VAT if your business registered for VAT.
+Most countries regulate the VAT payments for companies established in this country as well as for foreign companies that supply services for customers from this country.</description>
     </item>
     
   </channel>

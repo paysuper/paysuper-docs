@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="VAT" />
+<meta property="og:description" content="VAT for e-services of foreign companies What is VAT? VAT (a value-added tax) is a consumption tax placed on a product whenever value added at each stage of the supply chain, from production to the point of sale. You can only charge VAT if your business registered for VAT.
+Most countries regulate the VAT payments for companies established in this country as well as for foreign companies that supply services for customers from this country." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.pay.super.com/docs/vat/" />
+
+<meta property="og:image" content="https://docs.pay.super.com/dark-form.png" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://docs.pay.super.com/dark-form.png"/>
+
+<meta name="twitter:title" content="VAT"/>
+<meta name="twitter:description" content="VAT for e-services of foreign companies What is VAT? VAT (a value-added tax) is a consumption tax placed on a product whenever value added at each stage of the supply chain, from production to the point of sale. You can only charge VAT if your business registered for VAT.
+Most countries regulate the VAT payments for companies established in this country as well as for foreign companies that supply services for customers from this country."/>
+<title>VAT | PaySuper Documentation</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
+
+
+<script defer src="/search.min.ff0b0fb9d01cd2e31ddb75376842ef6e400862b701472cece97323b461bf5cbb.js" integrity="sha256-/wsPudAc0uMd23U3aELvbkAIYrcBRyzs6XMjtGG/XLs="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142750977-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+  <script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://docs.pay.super.com"><span>PaySuper Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/"><strong>Home</strong></a></li>
+<li><strong>Payments</strong>
+
+<ul>
+<li><a href="/docs/payments/">Checkout Overview</a></li>
+<li><a href="/docs/payments/quick-start/">Quick Start</a></li>
+<li><a href="/docs/payments/token/">Payments with token</a></li>
+<li><a href="/docs/payments/integration/">Payments from server-side</a></li>
+<li><a href="/docs/payments/sdk-integration/">Payments from client-side</a></li>
+<li><a href="/docs/payments/fulfillment/">After the payment</a></li>
+<li><a href="/docs/payments/customization/">Customizing Checkout</a></li>
+<li><a href="/docs/payments/testing/">Testing</a></li>
+<li><a href="/docs/payments/live/">Going Live</a></li>
+<li><a href="/docs/analytics-integration/">Analytics integration</a></li>
+</ul></li>
+
+<li><p><strong>After the payment</strong></p>
+
+<ul>
+<li><a href="/docs/payouts/">Payouts</a></li>
+<li><a href="/docs/refunds/">Refunds</a></li>
+<li><a href="/docs/declines/">Declines</a></li>
+</ul></li>
+
+<li><p><a href="/api"><strong>API Reference</strong></a></p></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>VAT</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="vat-for-e-services-of-foreign-companies">VAT for e-services of foreign companies</h1>
+
+<hr />
+
+<h2 id="what-is-vat">What is VAT?</h2>
+
+<p>VAT (a value-added tax) is a consumption tax placed on a product whenever value added at each stage of the supply chain, from production to the point of sale.
+You can only charge VAT if your business registered for VAT.</p>
+
+<p>Most countries regulate the VAT payments for companies established in this country as well as for foreign companies that supply services for customers from this country.</p>
+
+<h2 id="what-are-electronically-supplied-services-of-foreign-companies">What are electronically supplied services of foreign companies?</h2>
+
+<p>Services supplied from abroad which are delivered over the Internet or an electronic network (supply games, website supply, supply of software and its updates and others).</p>
+
+<p>When buying electronically supplied services online, VAT is due.
+The seller will charge the VAT rate applicable in the country where the customer is established, has a permanent address or usually reside.</p>
+
+<p>For instance, if a private person residing in Germany buys a game from an online store in France, according to the rules of VAT paid in the EU, the French company must charge from the buyer the VAT amount at German rates and has to pay its VAT to Germany.</p>
+
+<h2 id="vat-rates">VAT rates</h2>
+
+<p>Actual rates applied vary between countries and between certain types of products.</p>
+
+<p>You can check the VAT rates applied in each country:</p>
+
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Tax currency</th>
+<th>Rate</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Australia</td>
+<td>AUD</td>
+<td>10%</td>
+</tr>
+
+<tr>
+<td>Austria</td>
+<td>EUR</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Albania</td>
+<td>ALL</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Argentina</td>
+<td>ARS</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>Armenia</td>
+<td>AMD</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Bahrain</td>
+<td>BHD</td>
+<td>5%</td>
+</tr>
+
+<tr>
+<td>Belarus</td>
+<td>BYN</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Belgium</td>
+<td>EUR</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>Bulgaria</td>
+<td>EUR</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Brazil</td>
+<td>BRL</td>
+<td>17%-19% *</td>
+</tr>
+
+<tr>
+<td>United Kingdom</td>
+<td>EUR</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Hungary</td>
+<td>EUR</td>
+<td>27%</td>
+</tr>
+
+<tr>
+<td>Ghana</td>
+<td>GHC</td>
+<td>12.5%</td>
+</tr>
+
+<tr>
+<td>Germany</td>
+<td>EUR</td>
+<td>19%</td>
+</tr>
+
+<tr>
+<td>Greece</td>
+<td>EUR</td>
+<td>24%</td>
+</tr>
+
+<tr>
+<td>Denmark</td>
+<td>EUR</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Egypt</td>
+<td>EGP</td>
+<td>14%</td>
+</tr>
+
+<tr>
+<td>India</td>
+<td>INR</td>
+<td>18%</td>
+</tr>
+
+<tr>
+<td>Ireland</td>
+<td>EUR</td>
+<td>23%</td>
+</tr>
+
+<tr>
+<td>Iceland</td>
+<td>ISK</td>
+<td>24%</td>
+</tr>
+
+<tr>
+<td>Spain</td>
+<td>EUR</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>Italy</td>
+<td>EUR</td>
+<td>22%</td>
+</tr>
+
+<tr>
+<td>Canada (Quebec)</td>
+<td>CAD</td>
+<td>9.975%</td>
+</tr>
+
+<tr>
+<td>Kenya</td>
+<td>KES</td>
+<td>16%</td>
+</tr>
+
+<tr>
+<td>Cyprus</td>
+<td>EUR</td>
+<td>19%</td>
+</tr>
+
+<tr>
+<td>Colombia</td>
+<td>COP</td>
+<td>19%</td>
+</tr>
+
+<tr>
+<td>Latvia</td>
+<td>EUR</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>Lithuania</td>
+<td>EUR</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>Liechtenstein</td>
+<td>CHF</td>
+<td>7.7%</td>
+</tr>
+
+<tr>
+<td>Luxembourg</td>
+<td>EUR</td>
+<td>17%</td>
+</tr>
+
+<tr>
+<td>Malta</td>
+<td>EUR</td>
+<td>18%</td>
+</tr>
+
+<tr>
+<td>Netherlands</td>
+<td>EUR</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>New Zealand</td>
+<td>NZD</td>
+<td>15%</td>
+</tr>
+
+<tr>
+<td>Norway</td>
+<td>NOK</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>UAE</td>
+<td>AED</td>
+<td>5%</td>
+</tr>
+
+<tr>
+<td>Poland</td>
+<td>EUR</td>
+<td>23%</td>
+</tr>
+
+<tr>
+<td>Portugal</td>
+<td>EUR</td>
+<td>23%</td>
+</tr>
+
+<tr>
+<td>Republic of Korea</td>
+<td>KRW</td>
+<td>10%</td>
+</tr>
+
+<tr>
+<td>Russia</td>
+<td>RUB</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Romania</td>
+<td>EUR</td>
+<td>19%</td>
+</tr>
+
+<tr>
+<td>Saudi Arabia</td>
+<td>SAR</td>
+<td>5%</td>
+</tr>
+
+<tr>
+<td>Serbia</td>
+<td>RSD</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Singapore</td>
+<td>SGD</td>
+<td>7%</td>
+</tr>
+
+<tr>
+<td>Slovakia</td>
+<td>EUR</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Slovenia</td>
+<td>EUR</td>
+<td>22%</td>
+</tr>
+
+<tr>
+<td>USA</td>
+<td>USD</td>
+<td>up to 20% *</td>
+</tr>
+
+<tr>
+<td>Taiwan, China</td>
+<td>TWD</td>
+<td>5%</td>
+</tr>
+
+<tr>
+<td>Tanzania</td>
+<td>TZS</td>
+<td>18%</td>
+</tr>
+
+<tr>
+<td>Turkey</td>
+<td>TRY</td>
+<td>18%</td>
+</tr>
+
+<tr>
+<td>Uruguay</td>
+<td>UYU</td>
+<td>22%</td>
+</tr>
+
+<tr>
+<td>Finland</td>
+<td>EUR</td>
+<td>24%</td>
+</tr>
+
+<tr>
+<td>France</td>
+<td>EUR</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Croatia</td>
+<td>EUR</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Czech Republic</td>
+<td>EUR</td>
+<td>21%</td>
+</tr>
+
+<tr>
+<td>Switzerland</td>
+<td>CHF</td>
+<td>7.7%</td>
+</tr>
+
+<tr>
+<td>Sweden</td>
+<td>EUR</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Estonia</td>
+<td>EUR</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>South Africa</td>
+<td>ZAR</td>
+<td>15%</td>
+</tr>
+
+<tr>
+<td>Japan</td>
+<td>JPY</td>
+<td>8%</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code>* - the rate depends on the state
+</code></pre>
+
+<hr />
+
+<h2 id="questions">Questions?</h2>
+
+<div class="book-columns flex flex-wrap">
+
+<div class="flex-even markdown-inner">
+    <h4 id="sales-https-docs-google-com-forms-d-e-1faipqlscqpu83wkpkjeui-wvxgdoxwldl4vyd8gswnqf9-ccwdg3dew-viewform"><a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">Sales</a></h4>
+
+<p>Our salespeople are pleasant and friendly. Leave your contact details, and we&rsquo;ll be back to you in no time.
+</div>
+
+<div class="flex-even markdown-inner">
+    <h4 id="support-https-docs-google-com-forms-d-e-1faipqlscqpu83wkpkjeui-wvxgdoxwldl4vyd8gswnqf9-ccwdg3dew-viewform"><a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">Support</a></h4>
+
+<p>We are always happy to help with a code, improve a guide or consider a feature.
+</div>
+
+<div class="flex-even markdown-inner">
+    <h4 id="github-https-github-com-paysuper"><a href="https://github.com/paysuper">GitHub</a></h4>
+
+<p>The PaySuper Checkout Form, the JS SDK and even the server are available as a source code on our GitHub. You&rsquo;re welcome to explore the code and help us make PaySuper even better.
+</div>
+
+</div>
+
+<hr />
+
+<h2 id="not-a-developer">Not a developer?</h2>
+
+Our engineers will help you <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">integrate PaySuper</a> into your existing e-commerce platform, a website or a game in the best possible way.
+
+If you want something very special and crazy custom yet don&rsquo;t have a suitable programmer available nearby - <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">talk to us</a>! We won&rsquo;t let down a PaySuper user. We will try to help you in every possible way. We can even hire a programmer for you!
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-true fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#vat-for-e-services-of-foreign-companies">VAT for e-services of foreign companies</a>
+<ul>
+<li><a href="#what-is-vat">What is VAT?</a></li>
+<li><a href="#what-are-electronically-supplied-services-of-foreign-companies">What are electronically supplied services of foreign companies?</a></li>
+<li><a href="#vat-rates">VAT rates</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+  </main>
+
+  
+
+  <script>
+    function buyItems() {
+      const paySuper = new PaySuper({
+        project: '5dcd11bc218dc30001d7098f',
+        products: ['5dcdb73d218dc30001d73c25', '5dcdb841218dc30001d73c26'],
+        type: 'product'
+      });
+
+      paySuper.renderModal();
+    }
+  </script>
+</body>
+
+</html>
