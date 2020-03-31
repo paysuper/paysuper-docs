@@ -585,6 +585,9 @@ components:
             type:
               description: "The order type. It depends on your sales option: Game Keys, Virtual Items, Virtual Currency, Simple Checkout. Available values: key, product, virtual_currency, simple."
               type: string
+            button_caption:
+              description: "The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK."
+              type: string
             is_buy_for_virtual_currency:
               description: "Has a true value if an order must be processed using a virtual currency."
               type: boolean
