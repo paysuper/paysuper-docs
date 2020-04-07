@@ -146,7 +146,7 @@ These notifications are sent as webhooks to the corresponding URL configured on 
 
 In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.
 
-> The Webhook object example
+> The Webhook object examples:
 >
 >For instance, this is the base object representing the webhook event `payment.success`:
 
@@ -262,13 +262,64 @@ In most cases, webhooks are triggered by user actions on your website or by back
 }
 ```
 
+>This example is the base object representing the webhook event `user.validate`:
+
+```
+{
+  "id": "79bfd757-bb5a-4754-9d5c-5c7e131e7cf3",
+  "type": "notification",
+  "event": "user.validate",
+  "live": false,
+  "created_at": "2020-04-06T21:14:18Z",
+  "expires_at": "",
+  "delivery_try": 1,
+  "object": {
+    "id": "5e8b9baa8fba167a4a284572",
+    "object": "user",
+    "external_id": "bcbb8259-b65e-44bc-ba1d-2a150cc04338",
+    "name": "User Name",
+    "email": "user.email@example.com",
+    "email_verified": true,
+    "phone": "0639597531",
+    "phone_verified": true,
+    "ip": "79.137.163.2",
+    "locale": "ru-RU",
+    "address": {
+        "country": "RU",
+        "city": "Moscow",
+        "postal_code": "127221",
+        "state": "MOW"
+    },
+    "metadata": {
+      "user.param1": "user.val1",
+      "user.param2": "user.val2"
+    },
+    "notify_new_region": false,
+    "notify_new_region_email": ""
+  }
+}
+```
 ### Setting up a webhook
 
-**1.** Add the URL of the server that will receive the webhook requests in the Functional URL section on the Project Webhooks page.
+**1.** Add the URL of the server that will receive the webhook requests in the *Functional URL section* on the Project Webhooks page.
 
-**2.** [Verify the webhook request](#verifying-a-webhook).
+**2.** Select the Webhooks mode:
 
-**3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
+**Default** is the asynchronous mode for the payment webhook notifications.
+
+1. A customer initiates a request to create a payment from a PaySuper payment form.
+2. If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+
+**Pre-approval** is the synchronous mode for the user validation and payment webhook notifications.
+
+1. A customer initiates a request to create a payment from a PaySuper payment form.
+2. PaySuper sends the user validation request with the customer data to check the details of the user on the project side.
+3. When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.
+2. If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+
+**3.** [Verify the webhook request](#verifying-a-webhook).
+
+**4.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook notification.
 
 ### Webhook event types
 
@@ -278,6 +329,7 @@ In most cases, webhooks are triggered by user actions on your website or by back
 |`payment.chargeback`|Order|Sent when a payment must be cancelled for a chargeback.|
 |`payment.refund`|Order|Sent when a payment must be cancelled for refund for any reasons.|
 |`payment.cancel`|Order|Sent when a payment must be cancelled for cancel for any reasons.|
+|`user.validate`|User|Sent when a customer initiates a payment. It's applied for the pre-approval webhooks mode.|
 
 ### The Webhook object
 

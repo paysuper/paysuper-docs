@@ -46,6 +46,8 @@ Using the handler you can obtain information from the webhook's `object` paramet
 
 {{< hint warning >}}
 [Configure Webhooks](/api/#webhooks) for your Project in PaySuper Dashboard and handle them on your server.
+
+After webhooks enabled, [follow this instruction to test your notifications](/docs/payments/testing/#webhooks).
 {{< /hint >}}
 
 For instance, this is the base object representing the webhook event `payment.success`:
