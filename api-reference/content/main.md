@@ -307,15 +307,15 @@ In most cases, webhooks are triggered by user actions on your website or by back
 
 **Default** is the asynchronous mode for the payment webhook notifications.
 
-1. A customer initiates a request to create a payment from a PaySuper payment form.
-2. If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+    1. A customer initiates a request to create a payment from a PaySuper payment form.
+    2. If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
 
 **Pre-approval** is the synchronous mode for the user validation and payment webhook notifications.
 
-1. A customer initiates a request to create a payment from a PaySuper payment form.
-2. PaySuper sends the user validation request with the customer data to check the details of the user on the project side.
-3. When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.
-2. If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+    1. A customer initiates a request to create a payment from a PaySuper payment form.
+    2. PaySuper sends the user validation request with the customer data to check the details of the user on the project side.
+    3. When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.
+    2. If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
 
 **3.** [Verify the webhook request](#verifying-a-webhook).
 
