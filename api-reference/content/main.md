@@ -299,23 +299,24 @@ In most cases, webhooks are triggered by user actions on your website or by back
   }
 }
 ```
+
 ### Setting up a webhook
 
 **1.** Add the URL of the server that will receive the webhook requests in the *Functional URL section* on the Project Webhooks page.
 
 **2.** Select the Webhooks mode:
 
-**Default** is the asynchronous mode for the payment webhook notifications.
+**Default** is the asynchronous mode that provides webhook notifications only about a payment.
 
-   **1.** A customer initiates a request to create a payment from a PaySuper payment form.
-   **2.** If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+**a.** A customer sends a payment request using the PaySuper payment form.
+**b.** If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
 
-**Pre-approval** is the synchronous mode for the user validation and payment webhook notifications.
+**Pre-approval** is the mode that provides a synchronous notification for user validation and asynchronous notification about a payment.
 
-   **1.** A customer initiates a request to create a payment from a PaySuper payment form.
-   **2.** PaySuper sends the user validation request with the customer data to check the details of the user on the project side.
-   **3.** When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.
-   **2.** If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+**a.** A customer sends a payment request using the PaySuper payment form.
+**b.** PaySuper sends the user validation request with the customer data to check the details of the user on the project side.
+**c.** When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.
+**d.** If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
 
 **3.** [Verify the webhook request](#verifying-a-webhook).
 

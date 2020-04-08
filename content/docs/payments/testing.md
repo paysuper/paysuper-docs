@@ -134,7 +134,7 @@ PaySuper can send you webhook events to your server to notify on the payment sta
 
 **Testing the webhook notifications:**
 
-Before going live, check that your server responds with status code 200 and empty body to webhook notifications for all types of the order:
+Before going live, check that your server responds with status code 200 and empty body to webhook notifications to acknowledge about success (or any status code from 400 for failure) for all types of the order:
 
 1. Go to Project Webhooks page.
 2. Under Webhook Settings section choose the tab with the order's type: Simple checkout, Virtual currency, Virtual items, Game keys.
