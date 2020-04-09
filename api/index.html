@@ -338,7 +338,7 @@ at the previous page last object id value to determine where to start in the lis
 <p>In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.</p>
 
 <blockquote>
-<p>The Webhook object example</p>
+<p>The Webhook object examples:</p>
 
 <p>For instance, this is the base object representing the webhook event <code>payment.success</code>:</p>
 </blockquote>
@@ -451,13 +451,70 @@ at the previous page last object id value to determine where to start in the lis
     <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>
   }
 }</code></pre></div>
+<blockquote>
+<p>This example is the base object representing the webhook event <code>user.validate</code>:</p>
+</blockquote>
+
+<pre><code>{
+  &quot;id&quot;: &quot;79bfd757-bb5a-4754-9d5c-5c7e131e7cf3&quot;,
+  &quot;type&quot;: &quot;notification&quot;,
+  &quot;event&quot;: &quot;user.validate&quot;,
+  &quot;live&quot;: false,
+  &quot;created_at&quot;: &quot;2020-04-06T21:14:18Z&quot;,
+  &quot;expires_at&quot;: &quot;&quot;,
+  &quot;delivery_try&quot;: 1,
+  &quot;object&quot;: {
+    &quot;id&quot;: &quot;5e8b9baa8fba167a4a284572&quot;,
+    &quot;object&quot;: &quot;user&quot;,
+    &quot;external_id&quot;: &quot;bcbb8259-b65e-44bc-ba1d-2a150cc04338&quot;,
+    &quot;name&quot;: &quot;User Name&quot;,
+    &quot;email&quot;: &quot;user.email@example.com&quot;,
+    &quot;email_verified&quot;: true,
+    &quot;phone&quot;: &quot;0639597531&quot;,
+    &quot;phone_verified&quot;: true,
+    &quot;ip&quot;: &quot;79.137.163.2&quot;,
+    &quot;locale&quot;: &quot;ru-RU&quot;,
+    &quot;address&quot;: {
+        &quot;country&quot;: &quot;RU&quot;,
+        &quot;city&quot;: &quot;Moscow&quot;,
+        &quot;postal_code&quot;: &quot;127221&quot;,
+        &quot;state&quot;: &quot;MOW&quot;
+    },
+    &quot;metadata&quot;: {
+      &quot;user.param1&quot;: &quot;user.val1&quot;,
+      &quot;user.param2&quot;: &quot;user.val2&quot;
+    },
+    &quot;notify_new_region&quot;: false,
+    &quot;notify_new_region_email&quot;: &quot;&quot;
+  }
+}
+</code></pre>
+
 <h3 id="setting-up-a-webhook">Setting up a webhook</h3>
 
-<p><strong>1.</strong> Add the URL of the server that will receive the webhook requests in the Functional URL section on the Project Webhooks page.</p>
+<p><strong>1.</strong> Add the URL of the server that will receive the webhook requests in the <em>Functional URL section</em> on the Project Webhooks page.</p>
 
-<p><strong>2.</strong> <a href="#verifying-a-webhook">Verify the webhook request</a>.</p>
+<p><strong>2.</strong> Select the Webhooks mode:</p>
 
-<p><strong>3.</strong> Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.</p>
+<p><strong>Default</strong> is the asynchronous mode that provides webhook notifications only about a payment.</p>
+
+<p><strong>a.</strong> A customer initiates a payment request on your site via the PaySuper payment form.</p>
+
+<p><strong>b.</strong> If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.</p>
+
+<p><strong>Pre-approval</strong> is the mode that provides a synchronous notification for user validation and asynchronous notification about a payment.</p>
+
+<p><strong>a.</strong> A customer initiates a payment request on your site via the PaySuper payment form.</p>
+
+<p><strong>b.</strong> PaySuper sends the user validation request with the customer data to check the details of the user on the project side.</p>
+
+<p><strong>c.</strong> When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.</p>
+
+<p><strong>d.</strong> If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.</p>
+
+<p><strong>3.</strong> <a href="#verifying-a-webhook">Verify the webhook request</a>.</p>
+
+<p><strong>4.</strong> Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook notification.</p>
 
 <h3 id="webhook-event-types">Webhook event types</h3>
 
@@ -493,6 +550,12 @@ at the previous page last object id value to determine where to start in the lis
 <td><code>payment.cancel</code></td>
 <td>Order</td>
 <td>Sent when a payment must be cancelled for cancel for any reasons.</td>
+</tr>
+
+<tr>
+<td><code>user.validate</code></td>
+<td>User</td>
+<td>Sent when a customer initiates a payment. It&rsquo;s applied for the pre-approval webhooks mode.</td>
 </tr>
 </tbody>
 </table>
