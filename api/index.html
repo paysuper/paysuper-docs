@@ -454,42 +454,39 @@ at the previous page last object id value to determine where to start in the lis
 <blockquote>
 <p>This example is the base object representing the webhook event <code>user.validate</code>:</p>
 </blockquote>
-
-<pre><code>{
-  &quot;id&quot;: &quot;79bfd757-bb5a-4754-9d5c-5c7e131e7cf3&quot;,
-  &quot;type&quot;: &quot;notification&quot;,
-  &quot;event&quot;: &quot;user.validate&quot;,
-  &quot;live&quot;: false,
-  &quot;created_at&quot;: &quot;2020-04-06T21:14:18Z&quot;,
-  &quot;expires_at&quot;: &quot;&quot;,
-  &quot;delivery_try&quot;: 1,
-  &quot;object&quot;: {
-    &quot;id&quot;: &quot;5e8b9baa8fba167a4a284572&quot;,
-    &quot;object&quot;: &quot;user&quot;,
-    &quot;external_id&quot;: &quot;bcbb8259-b65e-44bc-ba1d-2a150cc04338&quot;,
-    &quot;name&quot;: &quot;User Name&quot;,
-    &quot;email&quot;: &quot;user.email@example.com&quot;,
-    &quot;email_verified&quot;: true,
-    &quot;phone&quot;: &quot;0639597531&quot;,
-    &quot;phone_verified&quot;: true,
-    &quot;ip&quot;: &quot;79.137.163.2&quot;,
-    &quot;locale&quot;: &quot;ru-RU&quot;,
-    &quot;address&quot;: {
-        &quot;country&quot;: &quot;RU&quot;,
-        &quot;city&quot;: &quot;Moscow&quot;,
-        &quot;postal_code&quot;: &quot;127221&quot;,
-        &quot;state&quot;: &quot;MOW&quot;
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;79bfd757-bb5a-4754-9d5c-5c7e131e7cf3&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;notification&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;event&#34;</span>: <span style="color:#4070a0">&#34;user.validate&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;live&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+  <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: <span style="color:#4070a0">&#34;2020-04-06T21:14:18Z&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;expires_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;delivery_try&#34;</span>: <span style="color:#40a070">1</span>,
+  <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: {
+    <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;5e8b9baa8fba167a4a284572&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;user&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;bcbb8259-b65e-44bc-ba1d-2a150cc04338&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;User Name&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;email_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+    <span style="color:#062873;font-weight:bold">&#34;phone&#34;</span>: <span style="color:#4070a0">&#34;0639597531&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;phone_verified&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+    <span style="color:#062873;font-weight:bold">&#34;ip&#34;</span>: <span style="color:#4070a0">&#34;79.137.163.2&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;locale&#34;</span>: <span style="color:#4070a0">&#34;ru-RU&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;address&#34;</span>: {
+        <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;RU&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;city&#34;</span>: <span style="color:#4070a0">&#34;Moscow&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;postal_code&#34;</span>: <span style="color:#4070a0">&#34;127221&#34;</span>,
+        <span style="color:#062873;font-weight:bold">&#34;state&#34;</span>: <span style="color:#4070a0">&#34;MOW&#34;</span>
     },
-    &quot;metadata&quot;: {
-      &quot;user.param1&quot;: &quot;user.val1&quot;,
-      &quot;user.param2&quot;: &quot;user.val2&quot;
+    <span style="color:#062873;font-weight:bold">&#34;metadata&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;user.param1&#34;</span>: <span style="color:#4070a0">&#34;user.val1&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;user.param2&#34;</span>: <span style="color:#4070a0">&#34;user.val2&#34;</span>
     },
-    &quot;notify_new_region&quot;: false,
-    &quot;notify_new_region_email&quot;: &quot;&quot;
+    <span style="color:#062873;font-weight:bold">&#34;notify_new_region&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;notify_new_region_email&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>
   }
-}
-</code></pre>
-
+}</code></pre></div>
 <h3 id="setting-up-a-webhook">Setting up a webhook</h3>
 
 <p><strong>1.</strong> Add the URL of the server that will receive the webhook requests in the <em>Functional URL section</em> on the Project Webhooks page.</p>
