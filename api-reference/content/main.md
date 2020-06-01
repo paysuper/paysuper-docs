@@ -264,7 +264,7 @@ In most cases, webhooks are triggered by user actions on your website or by back
 
 >This example is the base object representing the webhook event `user.validate`:
 
-```
+```json
 {
   "id": "79bfd757-bb5a-4754-9d5c-5c7e131e7cf3",
   "type": "notification",
