@@ -24,15 +24,12 @@ bookToc: true
 1. [Sign up](https://dashboard.pay.super.com).
 2. Verify your email address with the delivered confirmation email.
 3. Follow the steps of a brief [Welcome Onboarding](https://dashboard.pay.super.com/profile).
-4. You are required to fill in the Banking info in the [Company Onboarding](https://dashboard.pay.super.com/company) to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for [payouts](/docs/payouts/) filled in the Banking info.
-
-{{< hint info >}}
-When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://dashboard.pay.super.com/company) and sign the documents in the License Agreement.
-
-Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.
-{{< /hint >}}
 
 {{< /expand >}}
+
+{{< hint info >}}
+[Enable Live Mode when you are ready to start selling](/docs/payments/live/#complete-the-company-onboarding)
+{{< /hint >}}
 
 ## **Step 2.** Set up a Project
 
@@ -132,6 +129,12 @@ Verify that your integration with PaySuper Checkout works correctly. Our offered
 [**Customizing the Checkout**](/docs/payments/customization/)
 
 Learn about the different ways you can customize your Checkout.
+{{< /hint >}}
+
+{{< hint info >}}
+[**Enable Live Mode**](/docs/payments/live/#complete-the-company-onboarding)
+
+You can inspect this checklist before going live to ensure you've implemented all the significant setup steps.
 {{< /hint >}}
 
 ***
