@@ -27,9 +27,7 @@ bookToc: true
 
 {{< /expand >}}
 
-{{< hint info >}}
-[Enable Live Mode when you are ready to start selling](/docs/payments/live/#complete-the-company-onboarding)
-{{< /hint >}}
+[**Enable Live Mode when you are ready to start selling**](/docs/payments/live/#complete-the-company-onboarding)
 
 ## **Step 2.** Set up a Project
 
@@ -49,6 +47,8 @@ A single project is enough to start selling.
 {{< /expand >}}
 
 Now you can initiate a simple checkout payment. It's enough to create a payment order with your Project ID and an acceptable amount and currency.
+
+[**Enable processing real money within each project**](/docs/payments/live/#complete-the-company-onboarding)
 
 ## **Step 3.** Additional sales options
 

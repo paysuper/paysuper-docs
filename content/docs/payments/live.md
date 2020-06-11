@@ -13,7 +13,7 @@ When you’re done with PaySuper Checkout integration and are thinking about goi
 `Dashboard`
 
 {{< hint warning >}}
-Royalty reports, Payment links, Payouts sections disabled before the documents in the License Agreement will be signed by both our sides.
+Royalty reports and Payouts disabled before the documents in the License Agreement will be signed by both our sides.
 {{< /hint >}}
 
 **1.** Click the *Activate Live Mode button* on Dashboard at the Top menu or Side menu.
@@ -33,7 +33,9 @@ Royalty reports, Payment links, Payouts sections disabled before the documents i
 **4.** Now, you can enable processing real money within each project after the License Agreement signed:
 
 - Open your project's *Sales options*.
-- Enable processing real money for this project by clicking the *Going live toggle*.
+- Enable processing real money for this project by clicking the *Going live toggle switch*.
+
+{{< figure src="/images/project-sales-options.png">}}
 
 ## Fill in the info about your Project
 
