@@ -8,6 +8,16 @@ bookToc: true
 
 Your customers' successful payments are stored on your PaySuper account balance and can be received to your bank account using [Payouts](https://dashboard.pay.super.com/payouts).
 
+{{< figure src="/images/payouts-table.png">}}
+
+- **Amount available for withdraw** - the amount of the merchant balance as the difference between the total amount of all received royalty reports and all paid or pending payouts.
+- **Period** - the payout period. By default, the Royalty report automatically generates based on the successfully received payments during the last 7 days. [Learn more](/docs/payouts/#confirming-a-royalty-report) 
+- **Report date** - the date of the Royalty report confirmation. By default, your Royalty report will be automatically confirmed.
+- **Payout ID** - the unique identifier for the payout.
+- **Payment date** - the date when the payout amount transferred to the merchant bank account.
+- **Amount** - the payout amount.
+- **Status** - the current status of the payout. [Learn more](/docs/payouts/#payout-statuses)
+
 ## Setting up your bank account to receive payouts
 
 When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://dashboard.pay.super.com/company).
@@ -30,13 +40,11 @@ PaySuper automatically generates a [Royalty report](https://dashboard.pay.super.
 
 {{< figure src="/images/royalty-report.png">}}
 
-Once in 7 days, you will be notified in the Dashboard and by email about a new Royalty report. If you confirm this report for 5 days you can proceed with the payout process on the [Payouts](https://dashboard.pay.super.com/payouts) page. In another case, in 5 days your Royalty report will be automatically confirmed. But if you reject the Royalty report then PaySuper will process the disputed report within 5 days and resend for your confirmation.
+Once in 7 days, you will be notified in the Dashboard and by email about a new Royalty report. 
 
-## Schedule the payouts
+If you confirm this report for 5 days you can proceed with the payout process on the [Payouts](https://dashboard.pay.super.com/payouts) page. In another case, in 5 days your Royalty report will be automatically confirmed.
 
-By default, every quarter, you will get an automatically formed payout invoice based on one or more royalty reports to close a quarter taxation period.
-
-Faster payouts means faster growth. If it's crucial for your business to recoup the funds you’ve invested as quickly as possible you can turn off automatic payouts and manually send funds to your bank account. Moreover, you can set your schedule on the [Payout settings](ССЫЛКА) page. It's always possible to reset to default Payout schedule.
+If you reject the Royalty report then PaySuper will process the disputed report within 5 days and resend for your confirmation.
 
 ## Minimum payout amount
 
@@ -52,6 +60,16 @@ GBP|100.00 GBP
 ## Payout costs
 
 Please notice there is a fixed service price **$25.00** for every payout transaction for all payment methods.
+
+## Payout statuses
+
+Status|Description
+:---|:---
+PENDING|The payout has been sent to the merchant bank account.
+PAID|The merchant received the payout amount in a bank account.
+SKIP|The payout amount exceeded the minimum payout threshold limit. This amount will be included in the next payout.
+CANCELED|The payout has been rejected by the bank.
+FAILED|The payout has been rejected by the bank.
 
 ## Payout failures
 
