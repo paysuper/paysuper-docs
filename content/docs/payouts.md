@@ -10,7 +10,7 @@ Your customers' successful payments are stored on your PaySuper account balance 
 
 {{< figure src="/images/payouts-table.png">}}
 
-- **Amount available for withdraw** - the amount of the merchant balance as the difference between the total amount of all received royalty reports and all paid or pending payouts.
+- **Amount available for withdraw** - the amount of the merchant balance as the difference between the total amount of all received royalty reports and all paid or pending payouts. This amount includes the last week income with a confirmed Royalty report (if any). 
 - **Period** - the payout period. By default, the Royalty report automatically generates based on the successfully received payments during the last 7 days. [Learn more](/docs/payouts/#confirming-a-royalty-report) 
 - **Report date** - the date of the Royalty report confirmation. By default, your Royalty report will be automatically confirmed.
 - **Payout ID** - the unique identifier for the payout.
@@ -65,11 +65,11 @@ Please notice there is a fixed service price **$25.00** for every payout transac
 
 Status|Description
 :---|:---
-PENDING|The payout has been sent to the merchant bank account.
+PENDING|The payout sent to the merchant bank account.
 PAID|The merchant received the payout amount in a bank account.
-SKIP|The payout amount exceeded the minimum payout threshold limit. This amount will be included in the next payout.
-CANCELED|The payout has been rejected by the bank.
-FAILED|The payout has been rejected by the bank.
+SKIP|The payout amount is less than the minimum payout limit. This amount will be included in the next payout.
+CANCELED|The payout rejected manually or automatically.
+FAILED|The payout rejected by the bank.
 
 ## Payout failures
 
