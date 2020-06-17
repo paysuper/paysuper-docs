@@ -68,7 +68,7 @@ Status|Description
 PENDING|The payout sent to the merchant bank account.
 PAID|The merchant received the payout amount in a bank account.
 SKIP|The payout amount is less than the minimum payout limit. This amount will be included in the next payout.
-CANCELED|The payout rejected manually or automatically.
+CANCELED|The payout manually or automatically rejected.
 FAILED|The payout rejected by the bank.
 
 ## Payout failures
