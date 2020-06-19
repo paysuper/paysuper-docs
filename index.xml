@@ -86,8 +86,7 @@ You can choose the complete set of supported languages for the project and produ
       <guid>https://docs.pay.super.com/docs/payments/live/</guid>
       <description>PaySuper Checkout integration checklist When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&amp;rsquo;ve covered all the significant steps.
 Complete the Company onboarding Dashboard
-When you are ready to start selling you will need to fill in all your company details in Company Onboarding and sign the documents in the License Agreement.
- Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry.</description>
+Royalty reports and Payouts disabled before the documents in the License Agreement will be signed by both our sides.  1. Click the Activate Live Mode button on Dashboard at the Top menu or Side menu.</description>
     </item>
     
     <item>
@@ -106,7 +105,8 @@ You can create a token before your customer intents to pay and use it in the fut
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payments/quick-start/</guid>
-      <description>Payments Flow User Flow   Integration Flow   Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding. You are required to fill in the Banking info in the Company Onboarding to be able create a project. Note that the currency of the bank account must be the same as the Account Currency for payouts filled in the Banking info.</description>
+      <description>Payments Flow User Flow     Integration Flow     Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding.     Enable Live Mode when you are ready to start selling
+Step 2. Set up a Project A single project is enough to start selling.</description>
     </item>
     
     <item>
@@ -116,9 +116,8 @@ You can create a token before your customer intents to pay and use it in the fut
       
       <guid>https://docs.pay.super.com/docs/payouts/</guid>
       <description>Receiving Payouts Your customers&amp;rsquo; successful payments are stored on your PaySuper account balance and can be received to your bank account using Payouts.
-Setting up your bank account to receive payouts When you are ready to start selling you will need to fill in all your company details in Company Onboarding.
-Bank account details for payouts are required when filling in Company Onboarding.
-Note that the currency of the bank account must be the same as the Account Currency for payouts filled in the Banking info.</description>
+The payout process is pure. Weekly PaySuper automatically generates royalty report documents with detailed information about each transaction during a period. Each royalty report is a self-billed invoice. The amount of revenue available for withdrawal will raise after the royalty report accepted.
+PaySuper payouts can be performed in two modes:</description>
     </item>
     
     <item>
