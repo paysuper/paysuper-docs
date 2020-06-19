@@ -12,9 +12,30 @@ When you’re done with PaySuper Checkout integration and are thinking about goi
 
 `Dashboard`
 
-When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://dashboard.pay.super.com/company) and sign the documents in the License Agreement.
+{{< hint warning >}}
+Royalty reports and Payouts disabled before the documents in the License Agreement will be signed by both our sides.
+{{< /hint >}}
+
+**1.** Click the *Activate Live Mode button* on Dashboard at the Top menu or Side menu.
+
+{{< figure src="/images/live-mode.png">}}
+
+**2.** Fill in all your company details including the Banking info in [Company Onboarding](https://dashboard.pay.super.com/company).
+
+>Note that the currency of the bank account must be the same as the Account Currency for [payouts](/docs/payouts/) filled in the Banking info.
+
+{{< figure src="/images/fill-company-info.png">}}
+
+**3.** Sign the documents in the License Agreement.
 
 > Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us to focus on the relevant features and quality for our users.
+
+**4.** Now, you can enable processing real money within each project after the License Agreement signed:
+
+- Open your project's *Sales options*.
+- Enable processing real money for this project by clicking the *Going live toggle switch*.
+
+{{< figure src="/images/project-sales-options.png">}}
 
 ## Fill in the info about your Project
 

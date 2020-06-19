@@ -35,7 +35,7 @@ PaySuper uses conventional HTTP response codes to indicate success or failure of
 
 **401 Unauthorized** - No valid API credentials provided.
 
-**402 Payment Required** - Your request was in livemode while your account is not activated for live requests yet.
+**402 Payment Required** - Your request was in Live Mode while your account is not activated for Live requests yet.
 
 **403 Forbidden** - You are not authorized to access the requested item.
 
