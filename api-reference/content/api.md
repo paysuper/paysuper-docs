@@ -67,7 +67,7 @@ You can create a payment order with details about your customer and sales option
       "name": "User Name",
       "email": "user.email@example.com",
       "email_verified": true,
-      "phone": "0639597531",
+      "phone": "9112223344",
       "phone_verified": true,
       "ip": "79.137.163.2",
       "locale": "ru-RU",
