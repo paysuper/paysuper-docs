@@ -550,10 +550,9 @@ Get the transactions list of projects.
 
 Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where `login` - the unique identifier for your PaySuper project, `password` - the Secret Key of that project. 
 
-Request Header:
-```
-Authorization: Basic NWU1OGVjMGZiZTUzZWE0Yzk5NmNhMDVkOlZOaGMuazw4KXpaQVB7YT==
-```
+> Request Header:
+
+> Authorization: Basic NWU1OGVjMGZiZTUzZWE0Yzk5NmNhMDVkOlZOaGMuazw4KXpaQVB7YT==
 
 Request parameters to filter transactions:
 
