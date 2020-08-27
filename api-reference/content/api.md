@@ -542,6 +542,8 @@ Create a payment token that encrypts details about your customer, the game and p
 |`message`|string|The error short description.|
 |`details`|string|The error details.|
 
+# Merchant
+
 ### GET /merchant/s2s/api/v1/order
 
 Get the transactions list of projects.
