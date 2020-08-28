@@ -27,8 +27,9 @@ Authentication Authentication to the API occurs via Signature-based authenticati
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/api/api/</guid>
-      <description>Order You can create a payment order with details about your customer and sales option data.
-Statuses    Name Description     created It’s an initial state of the requested order but it is not processed in a payment system yet. The created order can become one of the statuses: processed, canceled, rejected.   processed The order is successfully processed in the payment system. The processed order can become refunded or chargeback.</description>
+      <description>CORE RESOURCES Token A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.
+Create a payment token  Code samples
+ curl -X POST \  https://api.pay.super.com/api/v1/tokens \  -H &amp;#39;Content-Type: application/json&amp;#39; \  -H &amp;#39;X-API-SIGNATURE: YOUR_SECRET_KEY \ -d &amp;#39;{ &amp;#34;settings&amp;#34;: { &amp;#34;project_id&amp;#34;: &amp;#34;5dcd11bc218dc30001d7098f&amp;#34;, &amp;#34;amount&amp;#34;: 10, &amp;#34;currency&amp;#34;: &amp;#34;USD&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;simple&amp;#34; }, &amp;#34;user&amp;#34;: { &amp;#34;id&amp;#34;: &amp;#34;58799f2c2564296bd2cb&amp;#34;, &amp;#34;address&amp;#34;: { &amp;#34;city&amp;#34;: &amp;#34;Almere&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;NL&amp;#34;, &amp;#34;postal_code&amp;#34;: &amp;#34;1326 PA&amp;#34;, &amp;#34;state&amp;#34;: &amp;#34;Flevoland&amp;#34; }, &amp;#34;email&amp;#34;: { &amp;#34;value&amp;#34;: &amp;#34;user.</description>
     </item>
     
   </channel>
