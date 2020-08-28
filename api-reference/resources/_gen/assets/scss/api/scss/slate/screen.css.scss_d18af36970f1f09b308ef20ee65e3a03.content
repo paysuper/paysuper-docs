@@ -428,15 +428,15 @@ input[placeholder="Search"] {
 .content > div.highlight {
   clear: none; }
 
-.content h1, .content h2, .content h3, .content h4, .content h5, .content h6, html, body {
+html, body, .content h3, .content h4, .content h5, .content h6, .content h2, .content h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   font-weight: 400; }
 
-.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+.content h3, .content h4, .content h5, .content h6, .content h2, .content h1 {
   font-weight: 700; }
 
-.content code, .content pre {
+.content pre, .content code {
   font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
   font-size: 12px;
   line-height: 1.5; }
@@ -452,7 +452,7 @@ input[placeholder="Search"] {
   font-weight: normal;
   font-style: normal; }
 
-.content aside.warning:before, .content aside.notice:before, .content aside.success:before, .toc-wrapper > .search:before {
+.toc-wrapper > .search:before, .content aside.success:before, .content aside.notice:before, .content aside.warning:before {
   font-family: 'slateeee';
   speak: none;
   font-style: normal;
