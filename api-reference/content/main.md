@@ -225,6 +225,14 @@ In most cases, webhooks are triggered by user actions on your website or by back
       "amount": 95,
       "currency": "RUB"
     },
+    "net_revenue" : {
+        "amount": 10.12,
+        "currency": "EUR"
+    },
+    "fee" : {
+        "amount": 1.78,
+        "currency": "EUR"
+    },
     "method": {
       "title": "Bank card",
       "external_id": "BANKCARD",
