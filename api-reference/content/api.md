@@ -546,7 +546,7 @@ Create a payment token that encrypts details about your customer, the game and p
 
 ### GET /merchant/s2s/api/v1/order
 
-Get the transactions list of projects.
+Get the transactions list.
 
 Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where `login` - the unique identifier for your PaySuper project, `password` - the Secret Key of that project. 
 
@@ -579,24 +579,24 @@ Request parameters to filter transactions:
   "count": 1,
   "items": [
     {
-      "id": "3420c949-fb39-41ce-af8a-ea3b3da5fad0",
+      "id": "5b25b60e-2561-468c-a326-cbb9e21d0fc5",
       "transaction": "376271699",
       "object": "order",
       "status": "processed",
-      "description": "Payment by order # 5f2be0b5a4479cab56344044",
+      "description": "Payment by order # ffffffffffffffffffffffff",
       "canceled": false,
       "cancellation": null,
       "refunded": false,
       "receipt_email": "tets@example.com",
       "receipt_phone": "",
       "receipt_number": "",
-      "receipt_url": "https://checkout.pay.super.com/pay/receipt/purchase/73af9245-1b4c-4be7-919d-a30b792043f2/3420c949-fb39-41ce-af8a-ea3b3da3bar4",
+      "receipt_url": "https://checkout.pay.super.com/pay/receipt/purchase/6aa62191-2f44-4c1d-814c-d47fbcf56e3a/5b25b60e-2561-468c-a326-cbb9e21d0fc5",
       "agreement_version": "",
       "agreement_accepted": false,
       "notify_sale": false,
       "notify_sale_email": "",
       "issuer": {
-        "url": "https://checkout.pay.super.com/pay/order/3420c949-fb39-41ce-af8a-ea3b3da3bab8",
+        "url": "https://checkout.pay.super.com/pay/order/5b25b60e-2561-468c-a326-cbb9e21d0fc5",
         "embedded": false,
         "reference": "",
         "reference_type": "",
@@ -608,13 +608,13 @@ Request parameters to filter transactions:
       "amount": 100,
       "currency": "RUB",
       "user": {
-        "external_id": "400001077208329570",
+        "external_id": "test@example.com",
         "name": "",
         "email": "test@example.com",
         "email_verified": true,
         "phone": "",
         "phone_verified": false,
-        "ip": "134.249.224.115",
+        "ip": "127.0.0.1",
         "locale": "ru-RU",
         "address": {
           "country": "UA",
@@ -638,9 +638,9 @@ Request parameters to filter transactions:
         "type": "BANKCARD",
         "saved": false,
         "card": {
-          "first6": "537544",
-          "last4": "8907",
-          "masked": "537544...8907",
+          "first6": "400000",
+          "last4": "0001",
+          "masked": "400000...0001",
           "expiry_month": "06",
           "expiry_year": "2024",
           "brand": "MASTERCARD",
@@ -661,7 +661,7 @@ Request parameters to filter transactions:
       "country": "UA",
       "type": "simple",
       "platform_id": "",
-      "receipt_id": "73af9245-1b4c-4be7-919d-a30b792457f2",
+      "receipt_id": "6aa62191-2f44-4c1d-814c-d47fbcf56e3a",
       "virtual_currency_amount": 0,
       "is_buy_for_virtual_currency": false,
       "charge_currency": "RUB",
@@ -671,8 +671,8 @@ Request parameters to filter transactions:
       "testing_case": "",
       "form_mode": "embed",
       "merchant_info": {
-        "company_name": "BIG MMO GAME NETWORK LIMITED",
-        "agreement_number": "1218-3302448"
+        "company_name": "Some Company LLC",
+        "agreement_number": "0102-1234567"
       },
       "created_at": "2020-08-06T10:51:33.157Z",
       "canceled_at": "0001-01-01T00:00:00Z",
