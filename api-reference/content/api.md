@@ -10,6 +10,345 @@ headingLevel: 2
 
 ---
 
+# CORE RESOURCES
+
+# Token
+
+A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.
+
+## Create a payment token
+
+> Code samples
+
+```shell
+curl -X POST \
+  https://api.pay.super.com/api/v1/tokens \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
+  -d '{
+      "settings": {
+          "project_id": "5dcd11bc218dc30001d7098f",
+          "amount": 10,
+          "currency": "USD",
+          "type": "simple"
+      },
+      "user": {
+          "id": "58799f2c2564296bd2cb",
+          "address": {
+            "city": "Almere",
+            "country": "NL",
+            "postal_code": "1326 PA",
+            "state": "Flevoland"
+          },
+          "email": {
+            "value": "user.email@example.com",
+            "verified": true
+          }
+      }
+}'
+
+```
+
+### POST /api/v1/tokens
+
+Create a payment token that encrypts details about your customer, the game and purchase parameters.
+
+> Body parameters
+
+```json
+{
+  "user": {
+    "id": "string",
+    "email": {
+      "value": "string",
+      "verified": true
+    },
+    "phone": {
+      "value": "string",
+      "verified": true
+    },
+    "name": {
+      "value": "string"
+    },
+    "ip": {
+      "value": "string"
+    },
+    "locale": {
+      "value": "string"
+    },
+    "address": {
+      "country": "string",
+      "city": "string",
+      "postal_code": "string",
+      "state": "string"
+    }
+  },
+  "settings": {
+    "project_id": "string",
+    "return_url": {
+      "success": "string",
+      "fail": "string"
+    },
+    "currency": "string",
+    "amount": 0,
+    "description": "string",
+    "products_ids": [
+      "string"
+    ],
+    "platform_id": "string",
+    "type": "string",
+    "is_buy_for_virtual_currency": true,
+    "button_caption": "string"
+  }
+}
+```
+
+|PARAMETER|TYPE|DESCRIPTION|
+|---|---|---|
+|`user`|object|The customer data.|
+|&ensp; `id` <span style="color: red;">*</span> |string|The unique identifier for the customer in the merchant project.|
+|&ensp; `email`|object|The customer's email data.|
+|&ensp; &ensp; `value`|string|The customer’s email address.|
+|&ensp; &ensp; `verified`|boolean|Whether the email has been verified on the merchant side.|
+|&ensp; `phone`|object|The customer's phone data.|
+|&ensp; &ensp; `value`|string|The customer’s phone.|
+|&ensp; &ensp; `verified`|boolean|Whether the phone has been verified on the merchant side.|
+|&ensp; `name`|object|The customer's name data.|
+|&ensp; &ensp; `value`|string|The customer’s name.|
+|&ensp; `ip`|object|The customer's IP address data.|
+|&ensp; &ensp; `value`|string|The customer’s IP address.|
+|&ensp; `locale`|object|The customer's locale data.|
+|&ensp; &ensp; `value`|string|The customer’s locale name. The Accept-Language format by RFC 7231.|
+|&ensp; `address`|object|The customer's address data.|
+|&ensp; &ensp; `country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase (for instance US).|
+|&ensp; &ensp; `city`|string|The customer’s city.|
+|&ensp; &ensp; `postal_code`|string|The customer's postal code.|
+|&ensp; &ensp; `state`|string|The customer's state code in ISO 3166-2.|
+|&ensp; `settings`|object|The project data.|
+|&ensp; &ensp; `project_id` <span style="color: red;">*</span> |string|The unique identifier for the Project found in the merchant account in the PaySuper Dashboard.|
+|&ensp; &ensp; `return_url`|object|The redirect URLs after the successful or failed payment.|
+|&ensp; &ensp; &ensp; `success`|string|The redirect URL for a successful payment.|
+|&ensp; &ensp; &ensp; `fail`|string|The redirect URL for a failed payment.|
+|&ensp; &ensp; `currency`|string|The order currency. Three-letter Currency Code ISO 4217, in uppercase. It's required for a simple checkout payment.|
+|&ensp; &ensp; `amount`|number|The order amount. It's required for a simple checkout payment.|
+|&ensp; &ensp; `description`|string|An arbitrary order description.|
+|&ensp; &ensp; `products_ids`|[string]|A list of unique identifiers for Project's products. It's required if a payment type equals to ‘product’ or ‘key’.|
+|&ensp; &ensp; `platform_id`|string|The default platform's name for which the customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
+|&ensp; &ensp; `type` <span style="color: red;">*</span> |string|The order type. It depends on your sales option: Game Keys, Virtual Items, Virtual Currency, Simple Checkout. Available values: key, product, virtual_currency, simple.|
+|&ensp; &ensp; `is_buy_for_virtual_currency`|boolean|Has a true value if an order must be processed using a virtual currency.|
+|&ensp; &ensp; `button_caption`|string|The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK.|
+
+### Responses
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "token": "string",
+  "payment_form_url": "string"
+}
+```
+
+### 200 Returns the payment token string and the PaySuper-hosted URL for a payment form
+
+||||
+|---|---|---|
+|`token`|string|The secure string which contains encrypted information about your customer and sales option data.|
+|`payment_form_url`|string|The PaySuper-hosted URL of a payment form.|
+
+### 400 Invalid request data
+
+||||
+|---|---|---|
+|`code`|string|The error code.|
+|`message`|string|The error short description.|
+|`details`|string|The error details.|
+
+### 404 Not found
+
+||||
+|---|---|---|
+|`code`|string|The error code.|
+|`message`|string|The error short description.|
+|`details`|string|The error details.|
+
+### 500 Internal Server Error
+
+||||
+|---|---|---|
+|`code`|string|The error code.|
+|`message`|string|The error short description.|
+|`details`|string|The error details.|
+
+# Transactions
+
+## Get the transactions list
+
+### GET /merchant/s2s/api/v1/order
+
+Get the transactions list using filter parameters.
+
+Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where `login` - the unique identifier for your PaySuper project, `password` - the Secret Key of that project. 
+
+> Request Header:
+
+> Authorization: Basic NWU1OGVjMGZiZTUzZWE0Yzk5NmNhMDVkOlZOaGMuazw4KXpaQVB7YT==
+
+Request parameters to filter transactions:
+
+|PARAMETER|TYPE|DESCRIPTION|
+|---|---|---|
+|`id`|string|The unique identifier in PaySuper.|
+|`project`|string[]|The project list to get its transactions. If this parameter is not set, the search is performed for all projects.|
+|`status`|string[]|The transactions' statuses list. Available values: created, processed, canceled, rejected, refunded, chargeback, pending.|
+|`account`|string|The unique identifier in the merchant project.|
+|`project_date_from`|string|The period start date. Format: YYYY-MM-DDThh:ii:ss|
+|`project_date_from`|string|The period end date. Format: YYYY-MM-DDThh:ii:ss|
+|`invoice_id`|string|The unique identifier in the merchant project.|
+|`limit`|integer|The number of objects returned in one page. Default value is 100.|
+|`offset`|integer|The ranking number of the first item on the page.|
+
+### Responses
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "count": 1,
+  "items": [
+    {
+      "id": "5b25b60e-2561-468c-a326-cbb9e21d0fc5",
+      "transaction": "376271699",
+      "object": "order",
+      "status": "processed",
+      "description": "Payment by order # ffffffffffffffffffffffff",
+      "canceled": false,
+      "cancellation": null,
+      "refunded": false,
+      "receipt_email": "tets@example.com",
+      "receipt_phone": "",
+      "receipt_number": "",
+      "receipt_url": "https://checkout.pay.super.com/pay/receipt/purchase/6aa62191-2f44-4c1d-814c-d47fbcf56e3a/5b25b60e-2561-468c-a326-cbb9e21d0fc5",
+      "agreement_version": "",
+      "agreement_accepted": false,
+      "notify_sale": false,
+      "notify_sale_email": "",
+      "issuer": {
+        "url": "https://checkout.pay.super.com/pay/order/5b25b60e-2561-468c-a326-cbb9e21d0fc5",
+        "embedded": false,
+        "reference": "",
+        "reference_type": "",
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "referrer_host": "checkout.pay.super.com"
+      },
+      "amount": 100,
+      "currency": "RUB",
+      "user": {
+        "external_id": "test@example.com",
+        "name": "",
+        "email": "test@example.com",
+        "email_verified": true,
+        "phone": "",
+        "phone_verified": false,
+        "ip": "127.0.0.1",
+        "locale": "ru-RU",
+        "address": {
+          "country": "UA",
+          "city": "Alexandrovsk",
+          "postal_code": "71610",
+          "state": "23"
+        },
+        "metadata": null
+      },
+      "billing_address": null,
+      "tax": {
+        "type": "vat",
+        "rate": 0,
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "method": {
+        "title": "Bank card",
+        "external_id": "BANKCARD",
+        "payment_system_id": "5be2d0b4b0b30d0007383gg7",
+        "type": "BANKCARD",
+        "saved": false,
+        "card": {
+          "first6": "400000",
+          "last4": "0001",
+          "masked": "400000...0001",
+          "expiry_month": "06",
+          "expiry_year": "2024",
+          "brand": "MASTERCARD",
+          "fingerprint": "$2a$04$vdhmWzMxN0tR/21jaGtkaOCvYVnk88P6ZGWbKLL9K5TqgsVgv8HGT",
+          "secure3d": true
+        },
+        "wallet": null,
+        "crypto_currency": null,
+        "handler": "cardpay",
+        "refund_allowed": true
+      },
+      "items": null,
+      "refund": null,
+      "metadata": {
+        "invoiceId": "2697661"
+      },
+      "original_amount": 100,
+      "country": "UA",
+      "type": "simple",
+      "platform_id": "",
+      "receipt_id": "6aa62191-2f44-4c1d-814c-d47fbcf56e3a",
+      "virtual_currency_amount": 0,
+      "is_buy_for_virtual_currency": false,
+      "charge_currency": "RUB",
+      "charge_amount": 100,
+      "vat_payer": "buyer",
+      "is_production": true,
+      "testing_case": "",
+      "form_mode": "embed",
+      "merchant_info": {
+        "company_name": "Some Company LLC",
+        "agreement_number": "0102-1234567"
+      },
+      "created_at": "2020-08-06T10:51:33.157Z",
+      "canceled_at": "0001-01-01T00:00:00Z",
+      "refunded_at": "0001-01-01T00:00:00Z"
+    }
+  ]
+}
+```
+
+### 200 Returns the transactions list of projects
+
+||||
+|---|---|---|
+|`count`|integer|The total number of found items.|
+|`items`|object[] or null|The transactions list.|
+
+### 400 Invalid request data
+
+||||
+|---|---|---|
+|`code`|string|The error code.|
+|`message`|string|The error short description.|
+|`details`|string|The error details.|
+
+### 500 Internal Server Error
+
+||||
+|---|---|---|
+|`code`|string|The error code.|
+|`message`|string|The error short description.|
+|`details`|string|The error details.|
+
+# ORDERS
+
 # Order
 
 You can create a payment order with details about your customer and sales option data.
@@ -371,174 +710,3 @@ Create a payment order with a customer and order data
 |`code`|string|The error code.|
 |`message`|string|The error short description.|
 |`details`|string|The error details.|
-
-# Token
-
-A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.
-
-## Create a payment token
-
-> Code samples
-
-```shell
-curl -X POST \
-  https://api.pay.super.com/api/v1/tokens \
-  -H 'Content-Type: application/json' \
-  -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
-  -d '{
-      "settings": {
-          "project_id": "5dcd11bc218dc30001d7098f",
-          "amount": 10,
-          "currency": "USD",
-          "type": "simple"
-      },
-      "user": {
-          "id": "58799f2c2564296bd2cb",
-          "address": {
-            "city": "Almere",
-            "country": "NL",
-            "postal_code": "1326 PA",
-            "state": "Flevoland"
-          },
-          "email": {
-            "value": "user.email@example.com",
-            "verified": true
-          }
-      }
-}'
-
-```
-
-### POST /api/v1/tokens
-
-Create a payment token that encrypts details about your customer, the game and purchase parameters.
-
-> Body parameters
-
-```json
-{
-  "user": {
-    "id": "string",
-    "email": {
-      "value": "string",
-      "verified": true
-    },
-    "phone": {
-      "value": "string",
-      "verified": true
-    },
-    "name": {
-      "value": "string"
-    },
-    "ip": {
-      "value": "string"
-    },
-    "locale": {
-      "value": "string"
-    },
-    "address": {
-      "country": "string",
-      "city": "string",
-      "postal_code": "string",
-      "state": "string"
-    }
-  },
-  "settings": {
-    "project_id": "string",
-    "return_url": {
-      "success": "string",
-      "fail": "string"
-    },
-    "currency": "string",
-    "amount": 0,
-    "description": "string",
-    "products_ids": [
-      "string"
-    ],
-    "platform_id": "string",
-    "type": "string",
-    "is_buy_for_virtual_currency": true,
-    "button_caption": "string"
-  }
-}
-```
-
-|PARAMETER|TYPE|DESCRIPTION|
-|---|---|---|
-|`user`|object|The customer data.|
-|&ensp; `id` <span style="color: red;">*</span> |string|The unique identifier for the customer in the merchant project.|
-|&ensp; `email`|object|The customer's email data.|
-|&ensp; &ensp; `value`|string|The customer’s email address.|
-|&ensp; &ensp; `verified`|boolean|Whether the email has been verified on the merchant side.|
-|&ensp; `phone`|object|The customer's phone data.|
-|&ensp; &ensp; `value`|string|The customer’s phone.|
-|&ensp; &ensp; `verified`|boolean|Whether the phone has been verified on the merchant side.|
-|&ensp; `name`|object|The customer's name data.|
-|&ensp; &ensp; `value`|string|The customer’s name.|
-|&ensp; `ip`|object|The customer's IP address data.|
-|&ensp; &ensp; `value`|string|The customer’s IP address.|
-|&ensp; `locale`|object|The customer's locale data.|
-|&ensp; &ensp; `value`|string|The customer’s locale name. The Accept-Language format by RFC 7231.|
-|&ensp; `address`|object|The customer's address data.|
-|&ensp; &ensp; `country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase (for instance US).|
-|&ensp; &ensp; `city`|string|The customer’s city.|
-|&ensp; &ensp; `postal_code`|string|The customer's postal code.|
-|&ensp; &ensp; `state`|string|The customer's state code in ISO 3166-2.|
-|&ensp; `settings`|object|The project data.|
-|&ensp; &ensp; `project_id` <span style="color: red;">*</span> |string|The unique identifier for the Project found in the merchant account in the PaySuper Dashboard.|
-|&ensp; &ensp; `return_url`|object|The redirect URLs after the successful or failed payment.|
-|&ensp; &ensp; &ensp; `success`|string|The redirect URL for a successful payment.|
-|&ensp; &ensp; &ensp; `fail`|string|The redirect URL for a failed payment.|
-|&ensp; &ensp; `currency`|string|The order currency. Three-letter Currency Code ISO 4217, in uppercase. It's required for a simple checkout payment.|
-|&ensp; &ensp; `amount`|number|The order amount. It's required for a simple checkout payment.|
-|&ensp; &ensp; `description`|string|An arbitrary order description.|
-|&ensp; &ensp; `products_ids`|[string]|A list of unique identifiers for Project's products. It's required if a payment type equals to ‘product’ or ‘key’.|
-|&ensp; &ensp; `platform_id`|string|The default platform's name for which the customer buys a key. This field is used only for the key type. Available values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
-|&ensp; &ensp; `type` <span style="color: red;">*</span> |string|The order type. It depends on your sales option: Game Keys, Virtual Items, Virtual Currency, Simple Checkout. Available values: key, product, virtual_currency, simple.|
-|&ensp; &ensp; `is_buy_for_virtual_currency`|boolean|Has a true value if an order must be processed using a virtual currency.|
-|&ensp; &ensp; `button_caption`|string|The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK.|
-
-### Responses
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "token": "string",
-  "payment_form_url": "string"
-}
-```
-
-### 200 Returns the payment token string and the PaySuper-hosted URL for a payment form
-
-||||
-|---|---|---|
-|`token`|string|The secure string which contains encrypted information about your customer and sales option data.|
-|`payment_form_url`|string|The PaySuper-hosted URL of a payment form.|
-
-### 400 Invalid request data
-
-||||
-|---|---|---|
-|`code`|string|The error code.|
-|`message`|string|The error short description.|
-|`details`|string|The error details.|
-
-### 404 Not found
-
-||||
-|---|---|---|
-|`code`|string|The error code.|
-|`message`|string|The error short description.|
-|`details`|string|The error details.|
-
-### 500 Internal Server Error
-
-||||
-|---|---|---|
-|`code`|string|The error code.|
-|`message`|string|The error short description.|
-|`details`|string|The error details.|
-

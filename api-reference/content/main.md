@@ -138,7 +138,7 @@ at the previous page last object id value to determine where to start in the lis
 |`has_before`|boolean|Whether or not there are more elements available before this page. If `false`, this page is the beginning of the list.|
 |`total_count`|boolean|The total count of all recipients that match your filters, as if there was no pagination.|
 
-# Webhooks
+# WEBHOOKS
 
 The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 
