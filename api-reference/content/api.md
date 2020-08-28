@@ -531,6 +531,12 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`rate`|float|The current customer's location taxes. A positive float with two decimal points.|
 |&ensp;&ensp;`amount`|float|The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
 |&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
+|`net_revenue`|object|Details about the amount and currency of the transaction in the currency of payment to the client.|
+|&ensp;&ensp;`amount`|float|The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+|&ensp;&ensp;`currency`|string|The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.|
+|`fee`|object|Details about PaySuper's commission for a transaction in the currency of payment to the client.|
+|&ensp;&ensp;`amount`|float|The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+|&ensp;&ensp;`currency`|string|The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.|
 |`method`|object|Details about a payment method.|
 |&ensp;&ensp;`title`|string|The human readable method name.|
 |&ensp;&ensp;`external_id`|string|The unique identifier for the payment method.|
