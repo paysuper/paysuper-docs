@@ -98,7 +98,10 @@ Create a payment token that encrypts details about your customer, the game and p
     "platform_id": "string",
     "type": "string",
     "is_buy_for_virtual_currency": true,
-    "button_caption": "string"
+    "button_caption": "string",
+    "metadata": {
+      "parameter1": "value1"
+    }
   }
 }
 ```
@@ -137,6 +140,7 @@ Create a payment token that encrypts details about your customer, the game and p
 |&ensp; &ensp; `type` <span style="color: red;">*</span> |string|The order type. It depends on your sales option: Game Keys, Virtual Items, Virtual Currency, Simple Checkout. Available values: key, product, virtual_currency, simple.|
 |&ensp; &ensp; `is_buy_for_virtual_currency`|boolean|Has a true value if an order must be processed using a virtual currency.|
 |&ensp; &ensp; `button_caption`|string|The redirect button messages after the successful or failed payment. If it has an empty value the redirect message will be set at OK.|
+|&ensp; &ensp; `metadata`|object|A string-value description that you can attach to the token object. It can be useful for storing additional information about your customer's payment.|
 
 ### Responses
 
