@@ -225,6 +225,14 @@ In most cases, webhooks are triggered by user actions on your website or by back
       "amount": 95,
       "currency": "RUB"
     },
+    "net_revenue" : {
+        "amount": 10.12,
+        "currency": "EUR"
+    },
+    "fee" : {
+        "amount": 1.78,
+        "currency": "EUR"
+    },
     "method": {
       "title": "Bank card",
       "external_id": "BANKCARD",
@@ -347,7 +355,7 @@ In most cases, webhooks are triggered by user actions on your website or by back
 |`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event has been created.|
 |`expires_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event stops trying to deliver.|
 |`delivery_try`|integer|The current delivery try for the event.|
-|`object`|object| The object representing the payload of the event with a given type. Objects of the same type share the same value.|
+|`object`|[Order](#order)| The object representing the payload of the event with a given type. Objects of the same type share the same value.|
 
 ## Verifying a webhook
 
