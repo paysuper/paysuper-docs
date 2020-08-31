@@ -100,7 +100,7 @@ Create a payment token that encrypts details about your customer, the game and p
     "is_buy_for_virtual_currency": true,
     "button_caption": "string",
     "metadata": {
-      "key1": "value1"
+      "parameter1": "value1"
     }
   }
 }
