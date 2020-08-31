@@ -437,6 +437,14 @@ at the previous page last object id value to determine where to start in the lis
       <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">95</span>,
       <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>
     },
+    <span style="color:#062873;font-weight:bold">&#34;net_revenue&#34;</span> : {
+        <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">10.12</span>,
+        <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;fee&#34;</span> : {
+        <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">1.78</span>,
+        <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>
+    },
     <span style="color:#062873;font-weight:bold">&#34;method&#34;</span>: {
       <span style="color:#062873;font-weight:bold">&#34;title&#34;</span>: <span style="color:#4070a0">&#34;Bank card&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;BANKCARD&#34;</span>,
@@ -634,7 +642,7 @@ at the previous page last object id value to determine where to start in the lis
 
 <tr>
 <td><code>object</code></td>
-<td>object</td>
+<td><a href="#order">Order</a></td>
 <td>The object representing the payload of the event with a given type. Objects of the same type share the same value.</td>
 </tr>
 </tbody>
@@ -1890,6 +1898,42 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <td>&ensp;&ensp;<code>currency</code></td>
 <td>string</td>
 <td>The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
+<td><code>net_revenue</code></td>
+<td>object</td>
+<td>Details about the amount and currency of the transaction in the currency of payment to the client.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>amount</code></td>
+<td>float</td>
+<td>The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>currency</code></td>
+<td>string</td>
+<td>The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
+<td><code>fee</code></td>
+<td>object</td>
+<td>Details about PaySuper&rsquo;s commission for a transaction in the currency of payment to the client.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>amount</code></td>
+<td>float</td>
+<td>The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>currency</code></td>
+<td>string</td>
+<td>The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.</td>
 </tr>
 
 <tr>
