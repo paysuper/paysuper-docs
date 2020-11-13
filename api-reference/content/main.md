@@ -260,7 +260,7 @@ In most cases, webhooks are triggered by user actions on your website or by back
     "charge_amount": 59.99,
     "vat_payer": "buyer",
     "is_production": true,
-    "testing_case": false,
+    "testing_case": "",
     "form_mode": "embed",
     "merchant_info": {
       "company_name": "Company name",
