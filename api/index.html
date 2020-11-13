@@ -369,7 +369,6 @@ at the previous page last object id value to determine where to start in the lis
   <span style="color:#062873;font-weight:bold">&#34;event&#34;</span>: <span style="color:#4070a0">&#34;payment.success&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;live&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
   <span style="color:#062873;font-weight:bold">&#34;created_at&#34;</span>: <span style="color:#4070a0">&#34;2019-11-16T05:41:05Z&#34;</span>,
-  <span style="color:#062873;font-weight:bold">&#34;expires_at&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;delivery_try&#34;</span>: <span style="color:#40a070">0</span>,
   <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: {
     <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;726d9e07-1dc8-4159-8d52-f95941066bc8&#34;</span>,
@@ -405,7 +404,6 @@ at the previous page last object id value to determine where to start in the lis
     <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;user&#34;</span>: {
       <span style="color:#062873;font-weight:bold">&#34;id&#34;</span>: <span style="color:#4070a0">&#34;5dcf8b24b5a6990001bac2b6&#34;</span>,
-      <span style="color:#062873;font-weight:bold">&#34;object&#34;</span>: <span style="color:#4070a0">&#34;user&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;0000000000001&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;User Name&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;email&#34;</span>: <span style="color:#4070a0">&#34;user.email@example.com&#34;</span>,
@@ -424,9 +422,7 @@ at the previous page last object id value to determine where to start in the lis
         <span style="color:#062873;font-weight:bold">&#34;user.param1&#34;</span>: <span style="color:#4070a0">&#34;user.val1&#34;</span>,
         <span style="color:#062873;font-weight:bold">&#34;user.param2&#34;</span>: <span style="color:#4070a0">&#34;user.val2&#34;</span>,
         <span style="color:#062873;font-weight:bold">&#34;user.param3&#34;</span>: <span style="color:#4070a0">&#34;user.val3&#34;</span>
-      },
-      <span style="color:#062873;font-weight:bold">&#34;notify_new_region&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
-      <span style="color:#062873;font-weight:bold">&#34;notify_new_region_email&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>
+      }
     },
     <span style="color:#062873;font-weight:bold">&#34;billing_address&#34;</span>: {
       <span style="color:#062873;font-weight:bold">&#34;country&#34;</span>: <span style="color:#4070a0">&#34;DE&#34;</span>
@@ -437,18 +433,11 @@ at the previous page last object id value to determine where to start in the lis
       <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">95</span>,
       <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;RUB&#34;</span>
     },
-    <span style="color:#062873;font-weight:bold">&#34;net_revenue&#34;</span> : {
-        <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">10.12</span>,
-        <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>
-    },
-    <span style="color:#062873;font-weight:bold">&#34;fee&#34;</span> : {
-        <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">1.78</span>,
-        <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>
-    },
     <span style="color:#062873;font-weight:bold">&#34;method&#34;</span>: {
       <span style="color:#062873;font-weight:bold">&#34;title&#34;</span>: <span style="color:#4070a0">&#34;Bank card&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;external_id&#34;</span>: <span style="color:#4070a0">&#34;BANKCARD&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;payment_system_id&#34;</span>: <span style="color:#4070a0">&#34;5be2d0b4b0b30d0007383ce5&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;CARD&#34;</span>,
       <span style="color:#062873;font-weight:bold">&#34;saved&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
       <span style="color:#062873;font-weight:bold">&#34;card&#34;</span>: {
         <span style="color:#062873;font-weight:bold">&#34;first6&#34;</span>: <span style="color:#4070a0">&#34;400000&#34;</span>,
@@ -462,7 +451,8 @@ at the previous page last object id value to determine where to start in the lis
       },
       <span style="color:#062873;font-weight:bold">&#34;wallet&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
       <span style="color:#062873;font-weight:bold">&#34;crypto_currency&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
-      <span style="color:#062873;font-weight:bold">&#34;refund_allowed&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
+      <span style="color:#062873;font-weight:bold">&#34;refund_allowed&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;recurring_allowed&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>
     },
     <span style="color:#062873;font-weight:bold">&#34;items&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
     <span style="color:#062873;font-weight:bold">&#34;refund&#34;</span>: <span style="color:#007020;font-weight:bold">null</span>,
@@ -477,7 +467,27 @@ at the previous page last object id value to determine where to start in the lis
     <span style="color:#062873;font-weight:bold">&#34;platform_id&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;receipt_id&#34;</span>: <span style="color:#4070a0">&#34;efefc5d3-c2e2-4157-8789-4bfb7c1eec34&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;virtual_currency_amount&#34;</span>: <span style="color:#40a070">0</span>,
-    <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>
+    <span style="color:#062873;font-weight:bold">&#34;is_buy_for_virtual_currency&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;charge_currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;charge_amount&#34;</span>: <span style="color:#40a070">59.99</span>,
+    <span style="color:#062873;font-weight:bold">&#34;vat_payer&#34;</span>: <span style="color:#4070a0">&#34;buyer&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;is_production&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+    <span style="color:#062873;font-weight:bold">&#34;testing_case&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;form_mode&#34;</span>: <span style="color:#4070a0">&#34;embed&#34;</span>,
+    <span style="color:#062873;font-weight:bold">&#34;merchant_info&#34;</span>: {
+      <span style="color:#062873;font-weight:bold">&#34;company_name&#34;</span>: <span style="color:#4070a0">&#34;Company name&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;agreement_number&#34;</span>: <span style="color:#4070a0">&#34;4bfb7c1eec34efefc5d3&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;net_revenue&#34;</span> : {
+        <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">10.12</span>,
+        <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;fee&#34;</span> : {
+        <span style="color:#062873;font-weight:bold">&#34;amount&#34;</span>: <span style="color:#40a070">1.78</span>,
+        <span style="color:#062873;font-weight:bold">&#34;currency&#34;</span>: <span style="color:#4070a0">&#34;EUR&#34;</span>
+    },
+    <span style="color:#062873;font-weight:bold">&#34;recurring&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;recurring_id&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>
   }
 }</code></pre></div>
 <blockquote>
