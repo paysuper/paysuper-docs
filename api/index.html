@@ -472,7 +472,7 @@ at the previous page last object id value to determine where to start in the lis
     <span style="color:#062873;font-weight:bold">&#34;charge_amount&#34;</span>: <span style="color:#40a070">59.99</span>,
     <span style="color:#062873;font-weight:bold">&#34;vat_payer&#34;</span>: <span style="color:#4070a0">&#34;buyer&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;is_production&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
-    <span style="color:#062873;font-weight:bold">&#34;testing_case&#34;</span>: <span style="color:#007020;font-weight:bold">false</span>,
+    <span style="color:#062873;font-weight:bold">&#34;testing_case&#34;</span>: <span style="color:#4070a0">&#34;&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;form_mode&#34;</span>: <span style="color:#4070a0">&#34;embed&#34;</span>,
     <span style="color:#062873;font-weight:bold">&#34;merchant_info&#34;</span>: {
       <span style="color:#062873;font-weight:bold">&#34;company_name&#34;</span>: <span style="color:#4070a0">&#34;Company name&#34;</span>,
@@ -1776,12 +1776,6 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>object</code></td>
-<td>string</td>
-<td>The string representing the object’s type. Value: <code>user</code>.</td>
-</tr>
-
-<tr>
 <td>&ensp;&ensp;<code>external_id</code></td>
 <td>string</td>
 <td>The customer unique identifier in the merchant project.</td>
@@ -1866,18 +1860,6 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td>&ensp;&ensp;<code>notify_new_region</code></td>
-<td>boolean</td>
-<td>Has the value <code>true</code> if the customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>notify_new_region_email</code></td>
-<td>string</td>
-<td>The customer&rsquo;s email for a newsletter about the beginning of payment acceptance in new regions.</td>
-</tr>
-
-<tr>
 <td><code>billing_address</code></td>
 <td>object</td>
 <td>Details about a customer&rsquo;s billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a <code>country</code> value and for the USA has <code>country</code>, <code>state</code> and <code>zip</code>.</td>
@@ -1920,42 +1902,6 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td><code>net_revenue</code></td>
-<td>object</td>
-<td>Details about the amount and currency of the transaction in the currency of payment to the client.</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>amount</code></td>
-<td>float</td>
-<td>The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>currency</code></td>
-<td>string</td>
-<td>The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.</td>
-</tr>
-
-<tr>
-<td><code>fee</code></td>
-<td>object</td>
-<td>Details about PaySuper&rsquo;s commission for a transaction in the currency of payment to the client.</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>amount</code></td>
-<td>float</td>
-<td>The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>currency</code></td>
-<td>string</td>
-<td>The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.</td>
-</tr>
-
-<tr>
 <td><code>method</code></td>
 <td>object</td>
 <td>Details about a payment method.</td>
@@ -1977,6 +1923,12 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <td>&ensp;&ensp;<code>payment_system_id</code></td>
 <td>string</td>
 <td>The unique identifier for the payment system on the PaySuper side.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>type</code></td>
+<td>string</td>
+<td>The payment method&rsquo;s group alias.</td>
 </tr>
 
 <tr>
@@ -2079,6 +2031,12 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <td>&ensp;&ensp;<code>refund_allowed</code></td>
 <td>boolean</td>
 <td>Has a value <code>true</code> if a refund is allowed.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>recurring_allowed</code></td>
+<td>boolean</td>
+<td>Has a <code>true</code> value if the payment method allows a recurring.</td>
 </tr>
 
 <tr>
@@ -2223,6 +2181,108 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <td><code>is_buy_for_virtual_currency</code></td>
 <td>boolean</td>
 <td>Has a value <code>true</code> if the order created for a virtual currency.</td>
+</tr>
+
+<tr>
+<td><code>charge_currency</code></td>
+<td>string</td>
+<td>The currency of the order charge. It can differ from the order currency because it also depends on the customer&rsquo;s card currency.</td>
+</tr>
+
+<tr>
+<td><code>charge_amount</code></td>
+<td>float</td>
+<td>The total amount of the order charge.</td>
+</tr>
+
+<tr>
+<td><code>vat_payer</code></td>
+<td>float</td>
+<td>The responsible for VAT. Available values: <code>buyer</code> (VAT is added to the order charge), <code>seller</code> (VAT is included in the order charge), <code>nobody</code> (VAT exempt).</td>
+</tr>
+
+<tr>
+<td><code>is_production</code></td>
+<td>boolean</td>
+<td>Has a <code>true</code> value for a production payment and false for a test payment that goes through a test sandbox.</td>
+</tr>
+
+<tr>
+<td><code>testing_case</code></td>
+<td>string</td>
+<td>The webhook testing mode. Available values: <code>correct_payment</code>, <code>non_existing_user</code>, <code>existing_user</code>, <code>invalid_signature</code>.</td>
+</tr>
+
+<tr>
+<td><code>form_mode</code></td>
+<td>string</td>
+<td>The opening mode of the payment form on the project side. Available values: <code>embed</code>, <code>iframe</code>, <code>standalone</code>. Default value: <code>embed</code>.</td>
+</tr>
+
+<tr>
+<td><code>merchant_info</code></td>
+<td>object</td>
+<td>The merchant&rsquo;s company data.The merchant&rsquo;s company data.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>company_name</code></td>
+<td>string</td>
+<td>The merchant&rsquo;s company name.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>agreement_number</code></td>
+<td>string</td>
+<td>The merchant&rsquo;s license agreement number.</td>
+</tr>
+
+<tr>
+<td><code>net_revenue</code></td>
+<td>object</td>
+<td>Details about the amount and currency of the transaction in the currency of payment to the client.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>amount</code></td>
+<td>float</td>
+<td>The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>currency</code></td>
+<td>string</td>
+<td>The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
+<td><code>fee</code></td>
+<td>object</td>
+<td>Details about PaySuper&rsquo;s commission for a transaction in the currency of payment to the client.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>amount</code></td>
+<td>float</td>
+<td>The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>currency</code></td>
+<td>string</td>
+<td>The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
+<td><code>recurring</code></td>
+<td>boolean</td>
+<td>Exists recurring payments for the order.</td>
+</tr>
+
+<tr>
+<td><code>recurring_id</code></td>
+<td>string</td>
+<td>Unique recurring identity.</td>
 </tr>
 </tbody>
 </table>
