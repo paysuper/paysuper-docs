@@ -157,7 +157,6 @@ In most cases, webhooks are triggered by user actions on your website or by back
   "event": "payment.success",
   "live": false,
   "created_at": "2019-11-16T05:41:05Z",
-  "expires_at": "",
   "delivery_try": 0,
   "object": {
     "id": "726d9e07-1dc8-4159-8d52-f95941066bc8",
@@ -193,7 +192,6 @@ In most cases, webhooks are triggered by user actions on your website or by back
     "currency": "RUB",
     "user": {
       "id": "5dcf8b24b5a6990001bac2b6",
-      "object": "user",
       "external_id": "0000000000001",
       "name": "User Name",
       "email": "user.email@example.com",
@@ -212,9 +210,7 @@ In most cases, webhooks are triggered by user actions on your website or by back
         "user.param1": "user.val1",
         "user.param2": "user.val2",
         "user.param3": "user.val3"
-      },
-      "notify_new_region": false,
-      "notify_new_region_email": ""
+      }
     },
     "billing_address": {
       "country": "DE"
@@ -225,18 +221,11 @@ In most cases, webhooks are triggered by user actions on your website or by back
       "amount": 95,
       "currency": "RUB"
     },
-    "net_revenue" : {
-        "amount": 10.12,
-        "currency": "EUR"
-    },
-    "fee" : {
-        "amount": 1.78,
-        "currency": "EUR"
-    },
     "method": {
       "title": "Bank card",
       "external_id": "BANKCARD",
       "payment_system_id": "5be2d0b4b0b30d0007383ce5",
+      "type": "CARD",
       "saved": false,
       "card": {
         "first6": "400000",
@@ -250,7 +239,8 @@ In most cases, webhooks are triggered by user actions on your website or by back
       },
       "wallet": null,
       "crypto_currency": null,
-      "refund_allowed": true
+      "refund_allowed": true,
+      "recurring_allowed": true
     },
     "items": null,
     "refund": null,
@@ -265,7 +255,27 @@ In most cases, webhooks are triggered by user actions on your website or by back
     "platform_id": "",
     "receipt_id": "efefc5d3-c2e2-4157-8789-4bfb7c1eec34",
     "virtual_currency_amount": 0,
-    "is_buy_for_virtual_currency": false
+    "is_buy_for_virtual_currency": false,
+    "charge_currency": "EUR",
+    "charge_amount": 59.99,
+    "vat_payer": "buyer",
+    "is_production": true,
+    "testing_case": false,
+    "form_mode": "embed",
+    "merchant_info": {
+      "company_name": "Company name",
+      "agreement_number": "4bfb7c1eec34efefc5d3"
+    },
+    "net_revenue" : {
+        "amount": 10.12,
+        "currency": "EUR"
+    },
+    "fee" : {
+        "amount": 1.78,
+        "currency": "EUR"
+    },
+    "recurring": false,
+    "recurring_id": ""
   }
 }
 ```
