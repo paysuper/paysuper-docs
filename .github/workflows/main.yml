@@ -28,13 +28,13 @@ jobs:
           hugo --environment staging && cp -r ./public/* ../public/api/
           echo 'docs.stg.gameservices.unlimint.com' > public/CNAME
 
-      # - name: Deploy docs to GitHub Pages
-      #   uses: JamesIves/github-pages-deploy-action@releases/v3
-      #   with:
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      #     REPOSITORY_NAME: paysuper/paysuper-docs-stage
-      #     BRANCH: master
-      #     FOLDER: public
+      - name: Deploy docs to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPOSITORY_NAME: paysuper/paysuper-docs-stage
+          BRANCH: master
+          FOLDER: public
 
   # docs-prod:
   #   name: Docs-prod
