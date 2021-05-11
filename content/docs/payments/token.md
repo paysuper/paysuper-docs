@@ -8,11 +8,11 @@ bookToc: true
 
 A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.
 
-You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
+You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client. When your customer wants to pay for something you redirect them to the Unlimint Game Services-hosted Checkout Form to instantly complete a purchase.
 
 ## Token-based features
 
-* **Instantly redirect to a Checkout Form**: Once you have created a token that stores the necessary customer data, you don't need to request that data again from the customer. Instead you can display the PaySuper Checkout Form so the customer can conveniently confirm the purchase. This is useful when you can identify a customer in your system.
+* **Instantly redirect to a Checkout Form**: Once you have created a token that stores the necessary customer data, you don't need to request that data again from the customer. Instead you can display the Unlimint Game Services Checkout Form so the customer can conveniently confirm the purchase. This is useful when you can identify a customer in your system.
 
 * **The pre-filled information in a Checkout Form**: The Checkout Form is pre-filled with the applicable information about your customer that it can get from the token.
 
@@ -78,7 +78,7 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SECRET_KEY' -d '{
 
 {{< tab "New browser window" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of Unlimint Game Services-hosted payment form.
 
 When your customer is ready to start a payment you can redirect the user to the URL in a new browser window.
 
@@ -86,7 +86,7 @@ When your customer is ready to start a payment you can redirect the user to the 
 
 {{< tab "Iframe" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a Unlimint Game Services-hosted payment form.
 
 Embed the Checkout Form as an inline iframe by URL:
 
@@ -100,7 +100,7 @@ Embed the Checkout Form as an inline iframe by URL:
 
 Retrieve the response parameter with `id` from the previous step. It is the ID of the created order.
 
-Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value:
+Use this code sample to open the Checkout Form as a standalone web-page with [Unlimint Game Services JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value:
 
 {{< highlight html >}}
 <script>
@@ -128,7 +128,7 @@ Note that the parameters used in the `POST /api/v1/tokens` request override the 
 
 ### **Client-side payment initialization**
 
-To integrate a Checkout Form you can follow the [client-side payment initialization](/docs/payments/sdk-integration/) but instead pass a token parameter when creating a PaySuper object.
+To integrate a Checkout Form you can follow the [client-side payment initialization](/docs/payments/sdk-integration/) but instead pass a token parameter when creating a Unlimint Game Services object.
 
 If your token contains [user and order parameters](/api/#create-a-token) then you can create a Checkout Form instance with just a single parameter:
 
@@ -179,7 +179,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
