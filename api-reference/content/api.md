@@ -528,6 +528,7 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the customer object. It can be useful for storing additional information about your customer's payment.|
 |&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if the customer confirmed to receive the Unlimint Game Services newsletter about the beginning of payment acceptance in new regions.|
 |&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
+
 |`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
 |&ensp;&ensp;`country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase.|
 |`tax`|object|Details about a tax.|
@@ -545,6 +546,7 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`title`|string|The human readable method name.|
 |&ensp;&ensp;`external_id`|string|The unique identifier for the payment method.|
 |&ensp;&ensp;`payment_system_id`|string|The unique identifier for the payment system on the Unlimint Game Services side.|
+|&ensp;&ensp;`type`|string|The payment method's group alias.|
 |&ensp;&ensp;`saved`|boolean|Has a value `true` if the payment method was saved by the customer for future usage.|
 |&ensp;&ensp;`card`|object|Details about a customer's card.|
 |&ensp;&ensp;&ensp;&ensp;`first6`|string|The first 6 digits of the card. Available only for a card method.|
@@ -562,6 +564,7 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;&ensp;&ensp;`brand`|string|The name of the crypto currency.|
 |&ensp;&ensp;&ensp;&ensp;`address`|string|The customer's address in the crypto currency.|
 |&ensp;&ensp;`refund_allowed`|boolean|Has a value `true` if a refund is allowed.|
+|&ensp;&ensp;`recurring_allowed`|boolean|Has a `true` value if the payment method allows a recurring.|
 |`items`|object[]|An array of OrderItem objects associated with current Order.|
 |&ensp;&ensp;`id`|string|The unique identifier for the object.|
 |&ensp;&ensp;`sku`|string|The stock keeping unit.|
@@ -586,6 +589,17 @@ You can create a payment order with details about your customer and sales option
 |`receipt_id`|string|The receipt unique identifier.|
 |`virtual_currency_amount`|float|The virtual currancy amount for the order.|
 |`is_buy_for_virtual_currency`|boolean|Has a value `true` if the order created for a virtual currency.|
+|`charge_currency`|string|The currency of the order charge. It can differ from the order currency because it also depends on the customer's card currency.|
+|`charge_amount`|float|The total amount of the order charge.|
+|`vat_payer`|float|The responsible for VAT. Available values: `buyer` (VAT is added to the order charge), `seller` (VAT is included in the order charge), `nobody` (VAT exempt).|
+|`is_production`|boolean|Has a `true` value for a production payment and false for a test payment that goes through a test sandbox.|
+|`testing_case`|string|The webhook testing mode. Available values: `correct_payment`, `non_existing_user`, `existing_user`, `invalid_signature`.|
+|`form_mode`|string|The opening mode of the payment form on the project side. Available values: `embed`, `iframe`, `standalone`. Default value: `embed`.|
+|`merchant_info`|object|The merchant's company data.The merchant's company data.|
+|&ensp;&ensp;`company_name`|string|The merchant's company name.|
+|&ensp;&ensp;`agreement_number`|string|The merchant's license agreement number.|
+|`recurring`|boolean|Exists recurring payments for the order.|
+|`recurring_id`|string|Unique recurring identity.|
 
 ## Create a payment order
 
