@@ -2,11 +2,11 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgreen.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-[Documentation site](https://docs.pay.super.com) for PaySuper, the payment service with an open source multifunctional toolkit.
+[Documentation site](https://docs.gameservices.unlimint.com) for PaySuper, the payment service with an open source multifunctional toolkit.
 
 ## Demo
 
-Try out [the payment sample](https://checkout.pay.super.com/demo/shop) for a [Simple Checkout](https://docs.pay.super.com/docs/payments/#simple-checkout) and a [Products Checkout](https://docs.pay.super.com/docs/payments/#products-checkout).
+Try out [the payment sample](https://checkout.pay.super.com/demo/shop) for a [Simple Checkout](https://docs.gameservices.unlimint.com/docs/payments/#simple-checkout) and a [Products Checkout](https://docs.gameservices.unlimint.com/docs/payments/#products-checkout).
 
 ## Getting started
 

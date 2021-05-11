@@ -38,8 +38,8 @@ title = "DocuAPI Example Site"
 
 # Left sidebar footer items. Use HTMl or Markdown.
 toc_footers = [ 
-"<a href='https://docs.pay.super.com' target='_blank'>Documentation</a>",
-"<a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>PaySuper API on GitHub</a>",
+"<a href='https://docs.gameservices.unlimint.com' target='_blank'>Documentation</a>",
+"<a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>Unlimint Game Services API on GitHub</a>",
 ]
 
 [languages.en.blackfriday]
