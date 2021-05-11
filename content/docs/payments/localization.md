@@ -3,7 +3,7 @@ title: Supported languages
 bookToc: true
 ---
 
-# Supported languages for PaySuper Checkout
+# Supported languages for Unlimint Game Services Checkout
 ***
 
 Language|ISO 639 Code

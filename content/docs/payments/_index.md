@@ -3,15 +3,15 @@ title: Checkout Overview
 bookToc: true
 ---
 
-# PaySuper Checkout
+# Unlimint Game Services Checkout
 
-PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect payments with just a few lines of code. The Checkout Form loads near instantly and is designed to boost your paying conversion rate.
+Unlimint Game Services Checkout creates a secure Unlimint Game Services-hosted form that lets you collect payments with just a few lines of code. The Checkout Form loads near instantly and is designed to boost your paying conversion rate.
 
 ***
 
 {{< figure src="/images/chreckout-form.gif">}}
 
-## PaySuper Checkout features
+## Unlimint Game Services Checkout features
 
 - **Payment methods:** VISA, Master Card, AMEX, JCB, China UnionPay, Bitcoin payments, Alipay, QIWI, Bank Wire Transfers.
 - **Payment types:** Simple Checkout, Items Checkout.
@@ -49,7 +49,7 @@ Try out the [payment sample](https://checkout.pay.super.com/demo/shop) or see th
 
 ## Getting Started
 
-To get started with PaySuper, choose your business model:
+To get started with Unlimint Game Services, choose your business model:
 
 ### Simple Checkout
 
@@ -57,7 +57,7 @@ Simple Checkout is designed for payment orders with dynamical pricing, for examp
 
 ### Products Checkout
 
-PaySuper Checkout provides several types of products which you specify in an order as a parameter `type`:
+Unlimint Game Services Checkout provides several types of products which you specify in an order as a parameter `type`:
 
 **Game Keys**
 

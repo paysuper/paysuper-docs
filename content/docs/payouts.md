@@ -6,12 +6,12 @@ bookToc: true
 # Receiving Payouts
 ***
 
-Your customers' successful payments are stored on your PaySuper account balance and can be received to your bank account using [Payouts](https://dashboard.pay.super.com/payouts).
+Your customers' successful payments are stored on your Unlimint Game Services account balance and can be received to your bank account using [Payouts](https://dashboard.pay.super.com/payouts).
 
-The payout process is pure. Weekly PaySuper automatically generates [royalty report documents](https://dashboard.pay.super.com/reports) with detailed information about each transaction during a period. 
+The payout process is pure. Weekly Unlimint Game Services automatically generates [royalty report documents](https://dashboard.pay.super.com/reports) with detailed information about each transaction during a period. 
 Each royalty report is a self-billed invoice. The amount of revenue available for withdrawal will raise after the royalty report accepted.
 
-PaySuper payouts can be performed in two modes:
+Unlimint Game Services payouts can be performed in two modes:
 
 - Every week you can automatically get a formed payout invoice based on one or more royalty reports.
 - In the manual mode, you have to decide for yourself when you want to receive payment from us and create it in the payments section. You can always change the payout mode in the settings.
@@ -28,7 +28,7 @@ PaySuper payouts can be performed in two modes:
 
 ## Confirming a royalty report
 
-PaySuper automatically generates a [royalty report](https://dashboard.pay.super.com/reports) based on the successfully received payments during the last 7 days. This report contains detailed information like fees, VAT, license share and so on. The PaySuper royalty reports have a credible legal basis for receiving an invoice for a payout and making a payment to your bank account.
+Unlimint Game Services automatically generates a [royalty report](https://dashboard.pay.super.com/reports) based on the successfully received payments during the last 7 days. This report contains detailed information like fees, VAT, license share and so on. The Unlimint Game Services royalty reports have a credible legal basis for receiving an invoice for a payout and making a payment to your bank account.
 
 {{< figure src="/images/royalty-report.png">}}
 
@@ -36,7 +36,7 @@ Once in 7 days, you will be notified in the Dashboard and by email about a new r
 
 If you confirm this report for 5 days you can proceed with the payout process on the [Payouts](https://dashboard.pay.super.com/payouts) page. In another case, in 5 days your royalty report will be automatically confirmed.
 
-If you reject the royalty report then PaySuper will process the disputed report within 5 days and resend for your confirmation.
+If you reject the royalty report then Unlimint Game Services will process the disputed report within 5 days and resend for your confirmation.
 
 ## Before you go
 
@@ -60,7 +60,7 @@ Once a week you will get an automatically formed payout invoice based on one or 
 
 ### Minimum payout amount
 
-To create a payout your PaySuper account balance must be more than a minimum payout amount.
+To create a payout your Unlimint Game Services account balance must be more than a minimum payout amount.
 
 Currency|Minimum payout
 ---|---
@@ -84,7 +84,7 @@ FAILED|The payout rejected by the bank.
 
 ### Payout failures
 
-There are some reasons when a payout is rejected by your bank. Thus your funds remain in the PaySuper account. PaySuper provides you an error message about the failure reason in the Dashboard and by email.
+There are some reasons when a payout is rejected by your bank. Thus your funds remain in the Unlimint Game Services account. Unlimint Game Services provides you an error message about the failure reason in the Dashboard and by email.
 
 Failure code|Description
 ---|---
@@ -107,7 +107,7 @@ Failure code|Description
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}

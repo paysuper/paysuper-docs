@@ -6,12 +6,12 @@ bookToc: true
 # Analytics Integration
 ***
 
-It's assumed that you have already integrated [PaySuper Checkout via SDK](/docs/payments/sdk-integration) and have set up your Google Analytics account.
+It's assumed that you have already integrated [Unlimint Game Services Checkout via SDK](/docs/payments/sdk-integration) and have set up your Google Analytics account.
 
 ## Integrate
 
 {{< hint warning >}}
-We've set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we'll release the analytics integration to use with a customer's tracking ID.
+We've set up a Google Analytics data collection in a test mode inside Unlimint Game Services. After the Beta testing, we'll release the analytics integration to use with a customer's tracking ID.
 {{< /hint >}}
 
 ## Google Analytics
@@ -71,7 +71,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}

@@ -17,7 +17,7 @@ bookToc: true
 # Quick start
 ***
 
-## **Step 1.** Register a PaySuper Company account
+## **Step 1.** Register a Unlimint Game Services Company account
 
 {{< expand "Registration and onboarding" " " >}}
 
@@ -95,19 +95,19 @@ Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or 
 
 ### [Payment initialization with token](/docs/payments/token/)
 
-You can encrypt details of your customer (such as the user ID, email and others), a game and purchase parameters. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
+You can encrypt details of your customer (such as the user ID, email and others), a game and purchase parameters. When your customer wants to pay for something you redirect them to the Unlimint Game Services-hosted Checkout Form to instantly complete a purchase.
 
 ### [Server-side payment initialization](/docs/payments/integration/)
 
-You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an iframe or new window.
+You can also integrate on a server-side without Unlimint Game Services SJ SDK for other reasons. Checkout Form can be embedded as an iframe or new window.
 
 ### [Client-side payment initialization](/docs/payments/sdk-integration/)
 
-The client-side payment initialization lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an iframe or modal window.
+The client-side payment initialization lets you accept online payments using only frontend code Unlimint Game Services JS SDK. The Checkout Form can be embedded as an iframe or modal window.
 
 ## **Step 4.** After the payment
 
-You can use webhooks or the Transaction log to accomplish the purchase. More details about handling the purchase fulfilment with PaySuper Checkout are available at [After the payment](/docs/payments/fulfillment/).
+You can use webhooks or the Transaction log to accomplish the purchase. More details about handling the purchase fulfilment with Unlimint Game Services Checkout are available at [After the payment](/docs/payments/fulfillment/).
 
 ***
 
@@ -122,7 +122,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}

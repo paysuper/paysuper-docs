@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: PaySuper API Reference
+  title: Unlimint Game Services API Reference
   version: "1.0"
 tags:
   - name: Order
@@ -127,11 +127,11 @@ tags:
 
       |Attribute|Type|Description|
       |---|---|---|
-      |`id`|string|The unique identifier for the order in PaySuper.|
+      |`id`|string|The unique identifier for the order in Unlimint Game Services.|
       |`transaction`|string|The unique identifier for the transaction in the issuer system (the bank, QIWI, PayPal, etc.)|
       |`object`|string|The string representing the object’s type. Value: `order`.|
       |`status`|string|The current status of the order.|
-      |`description`|string|An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.|
+      |`description`|string|An arbitrary string attached to the object. If this field was not sent, the Unlimint Game Services generates it automatically.|
       |`created_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was created.|
       |`canceled_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was cancelled.|
       |`canceled`|boolean|Has the value `true` if the current order was canceled.|
@@ -143,14 +143,14 @@ tags:
       |`receipt_email`|string|The customer's email for receipt information.|
       |`receipt_phone`|string|The customer's phone for receipt information.|
       |`receipt_number`|string|The unique identifier for a receipt. Has a non-empty value if the order has `refunded` status.|
-      |`receipt_url`|string|The URL in PaySuper service for online access to the receipt.|
+      |`receipt_url`|string|The URL in Unlimint Game Services service for online access to the receipt.|
       |`agreement_version`|string|The EULA agreement accepted by payment.|
       |`agreement_accepted`|boolean|Has the value `true` if the agreement was accepted.|
       |`notify_sale`|boolean|Has the value `true` if the customer confirmed to be informed about sales or discounts.|
       |`notify_sale_email`|string|The customer's email for sales or discounts.|
       |`issuer`|object|Details about an issuer.|
       |&ensp;&ensp;`url`|string|The referer URL.|
-      |&ensp;&ensp;`embedded`|boolean|Has the value `true` if the PaySuper form was embedded to collect payment.|
+      |&ensp;&ensp;`embedded`|boolean|Has the value `true` if the Unlimint Game Services form was embedded to collect payment.|
       |&ensp;&ensp;`reference`|string|The unique identifier for the entity linked to the order, for instance `paylink ID`.|
       |&ensp;&ensp;`reference_type`|string|The type of an entity linked to the order, for instance `paylink`.|
       |&ensp;&ensp;`utm_source`|string|The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.|
@@ -160,7 +160,7 @@ tags:
       |`amount`|float|The total amount for the order. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
       |`currency`|string|The currency for the order. Three-letter Currency Code ISO 4217, in uppercase.|
       |`user`|object|Details about a customer.|
-      |&ensp;&ensp;`id`|string|The customer unique identifier on the PaySuper side.|
+      |&ensp;&ensp;`id`|string|The customer unique identifier on the Unlimint Game Services side.|
       |&ensp;&ensp;`object`|string|The string representing the object’s type. Value: `user`.|
       |&ensp;&ensp;`external_id`|string|The customer unique identifier in the merchant project.|
       |&ensp;&ensp;`name`|string|The customer's name.|
@@ -176,7 +176,7 @@ tags:
       |&ensp;&ensp;&ensp;&ensp;`postal_code`|string|The customer’s postal code.|
       |&ensp;&ensp;&ensp;&ensp;`state`|string|The customer’s state code in ISO 3166-2.|
       |&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the customer object. It can be useful for storing additional information about your customer's payment.|
-      |&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if the customer confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
+      |&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if the customer confirmed to receive the Unlimint Game Services newsletter about the beginning of payment acceptance in new regions.|
       |&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
       |`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
       |&ensp;&ensp;`country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase.|
@@ -188,7 +188,7 @@ tags:
       |`method`|object|Details about a payment method.|
       |&ensp;&ensp;`title`|string|The human readable method name.|
       |&ensp;&ensp;`external_id`|string|The unique identifier for the payment method.|
-      |&ensp;&ensp;`payment_system_id`|string|The unique identifier for the payment system on the PaySuper side.|
+      |&ensp;&ensp;`payment_system_id`|string|The unique identifier for the payment system on the Unlimint Game Services side.|
       |&ensp;&ensp;`saved`|boolean|Has a value `true` if the payment method was saved by the customer for future usage.|
       |&ensp;&ensp;`card`|object|Details about a customer's card.|
       |&ensp;&ensp;&ensp;&ensp;`first6`|string|The first 6 digits of the card. Available only for a card method.|
@@ -219,9 +219,9 @@ tags:
       |&ensp;&ensp;`amount`|float|The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
       |&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
       |&ensp;&ensp;`reason`|string|The refund reason.|
-      |&ensp;&ensp;`code`|string|The PaySuper internal identity for the refund reason.|
+      |&ensp;&ensp;`code`|string|The Unlimint Game Services internal identity for the refund reason.|
       |&ensp;&ensp;`receipt_number`|string|The unique identifier for the refund receipt.|
-      |&ensp;&ensp;`receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
+      |&ensp;&ensp;`receipt_url`|string|The URL in Unlimint Game Services service for online access to given refund receipt.|
       |`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
       |`original_amount`|float|The order amount excluding any taxes and commissions.|
       |`country`|string|Two-letter country code in ISO 3166-1, in uppercase.|
@@ -302,7 +302,7 @@ paths:
               $ref: "#/components/schemas/TokenRequest"
       responses:
         "200":
-          description: "Returns the payment token string and the PaySuper-hosted URL for a payment form"
+          description: "Returns the payment token string and the Unlimint Game Services-hosted URL for a payment form"
           content:
             application/json:
               schema:
@@ -368,7 +368,7 @@ components:
         - type
       properties:
         project:
-          description: "The ID of the Project found in your merchant account in the PaySuper Dashboard."
+          description: "The ID of the Project found in your merchant account in the Unlimint Game Services Dashboard."
           type: string
         amount:
           description: "The order amount as a positive number. It is required for a simple checkout payment."
@@ -447,7 +447,7 @@ components:
                   description: "The customer's state code in ISO 3166-2."
                   type: string
         order:
-          description: "The PaySuper unique identifier for the order."
+          description: "The Unlimint Game Services unique identifier for the order."
           type: string
         type:
           description: "The order type. It depends on your sales option (Game Keys, Virtual Items, Virtual Currency the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, as Virtual Currency - the virtual_currency type, for a simple checkout - the simple type. Enum values: key, product, virtual_currency, simple."
@@ -462,7 +462,7 @@ components:
           description: "The unique identifier for the order."
           type: string
         payment_form_url:
-          description: "The URL of the PaySuper-hosted payment form."
+          description: "The URL of the Unlimint Game Services-hosted payment form."
           type: string
     ResponseErrorMessage:
       type: object
@@ -553,7 +553,7 @@ components:
             - type
           properties:
             project_id:
-              description: "The unique identifier for the Project found in the merchant account in the PaySuper Dashboard."
+              description: "The unique identifier for the Project found in the merchant account in the Unlimint Game Services Dashboard."
               type: string
             return_url:
               description: "The redirect URLs after the successful or failed payment."
@@ -601,5 +601,5 @@ components:
           description: "The secure string which contains encrypted information about your customer and sales option data."
           type: string
         payment_form_url:
-          description: "The PaySuper-hosted URL of a payment form."
+          description: "The Unlimint Game Services-hosted URL of a payment form."
           type: string

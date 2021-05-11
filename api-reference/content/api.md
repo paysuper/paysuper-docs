@@ -1,5 +1,5 @@
 ---
-title: PaySuper API Reference
+title: Unlimint Game Services API Reference
 language_tabs:
   - shell: cURL
 toc_footers: []
@@ -128,7 +128,7 @@ Create a payment token that encrypts details about your customer, the game and p
 |&ensp; &ensp; `postal_code`|string|The customer's postal code.|
 |&ensp; &ensp; `state`|string|The customer's state code in ISO 3166-2.|
 |&ensp; `settings`|object|The project data.|
-|&ensp; &ensp; `project_id` <span style="color: red;">*</span> |string|The unique identifier for the Project found in the merchant account in the PaySuper Dashboard.|
+|&ensp; &ensp; `project_id` <span style="color: red;">*</span> |string|The unique identifier for the Project found in the merchant account in the Unlimint Game Services Dashboard.|
 |&ensp; &ensp; `return_url`|object|The redirect URLs after the successful or failed payment.|
 |&ensp; &ensp; &ensp; `success`|string|The redirect URL for a successful payment.|
 |&ensp; &ensp; &ensp; `fail`|string|The redirect URL for a failed payment.|
@@ -155,12 +155,12 @@ Create a payment token that encrypts details about your customer, the game and p
 }
 ```
 
-### 200 Returns the payment token string and the PaySuper-hosted URL for a payment form
+### 200 Returns the payment token string and the Unlimint Game Services-hosted URL for a payment form
 
 ||||
 |---|---|---|
 |`token`|string|The secure string which contains encrypted information about your customer and sales option data.|
-|`payment_form_url`|string|The PaySuper-hosted URL of a payment form.|
+|`payment_form_url`|string|The Unlimint Game Services-hosted URL of a payment form.|
 
 ### 400 Invalid request data
 
@@ -194,7 +194,7 @@ Create a payment token that encrypts details about your customer, the game and p
 
 Get the transactions list using filter parameters.
 
-Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where `login` - the unique identifier for your PaySuper project, `password` - the Secret Key of that project. 
+Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where `login` - the unique identifier for your Unlimint Game Services project, `password` - the Secret Key of that project. 
 
 > Request Header:
 
@@ -204,7 +204,7 @@ Request parameters to filter transactions:
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|`id`|string|The unique identifier in PaySuper.|
+|`id`|string|The unique identifier in Unlimint Game Services.|
 |`project`|string[]|The project list to get its transactions. If this parameter is not set, the search is performed for all projects.|
 |`status`|string[]|The transactions' statuses list. Available values: created, processed, canceled, rejected, refunded, chargeback, pending.|
 |`account`|string|The unique identifier in the merchant project.|
@@ -477,11 +477,11 @@ You can create a payment order with details about your customer and sales option
 
 |Attribute|Type|Description|
 |---|---|---|
-|`id`|string|The unique identifier for the order in PaySuper.|
+|`id`|string|The unique identifier for the order in Unlimint Game Services.|
 |`transaction`|string|The unique identifier for the transaction in the issuer system (the bank, QIWI, PayPal, etc.)|
 |`object`|string|The string representing the object’s type. Value: `order`.|
 |`status`|string|The current status of the order.|
-|`description`|string|An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.|
+|`description`|string|An arbitrary string attached to the object. If this field was not sent, the Unlimint Game Services generates it automatically.|
 |`created_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was created.|
 |`canceled_at`|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) at which the order was cancelled.|
 |`canceled`|boolean|Has the value `true` if the current order was canceled.|
@@ -493,14 +493,14 @@ You can create a payment order with details about your customer and sales option
 |`receipt_email`|string|The customer's email for receipt information.|
 |`receipt_phone`|string|The customer's phone for receipt information.|
 |`receipt_number`|string|The unique identifier for a receipt. Has a non-empty value if the order has `refunded` status.|
-|`receipt_url`|string|The URL in PaySuper service for online access to the receipt.|
+|`receipt_url`|string|The URL in Unlimint Game Services service for online access to the receipt.|
 |`agreement_version`|string|The EULA agreement accepted by payment.|
 |`agreement_accepted`|boolean|Has the value `true` if the agreement was accepted.|
 |`notify_sale`|boolean|Has the value `true` if the customer confirmed to be informed about sales or discounts.|
 |`notify_sale_email`|string|The customer's email for sales or discounts.|
 |`issuer`|object|Details about an issuer.|
 |&ensp;&ensp;`url`|string|The referer URL.|
-|&ensp;&ensp;`embedded`|boolean|Has the value `true` if the PaySuper form was embedded to collect payment.|
+|&ensp;&ensp;`embedded`|boolean|Has the value `true` if the Unlimint Game Services form was embedded to collect payment.|
 |&ensp;&ensp;`reference`|string|The unique identifier for the entity linked to the order, for instance `paylink ID`.|
 |&ensp;&ensp;`reference_type`|string|The type of an entity linked to the order, for instance `paylink`.|
 |&ensp;&ensp;`utm_source`|string|The UTM-tag of the advertising system, for example: Bing Ads, Google Adwords.|
@@ -510,7 +510,8 @@ You can create a payment order with details about your customer and sales option
 |`amount`|float|The total amount for the order. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
 |`currency`|string|The currency for the order. Three-letter Currency Code ISO 4217, in uppercase.|
 |`user`|object|Details about a customer.|
-|&ensp;&ensp;`id`|string|The customer unique identifier on the PaySuper side.|
+|&ensp;&ensp;`id`|string|The customer unique identifier on the Unlimint Game Services side.|
+|&ensp;&ensp;`object`|string|The string representing the object’s type. Value: `user`.|
 |&ensp;&ensp;`external_id`|string|The customer unique identifier in the merchant project.|
 |&ensp;&ensp;`name`|string|The customer's name.|
 |&ensp;&ensp;`email`|string|The customer's email.|
@@ -525,6 +526,8 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;&ensp;&ensp;`postal_code`|string|The customer’s postal code.|
 |&ensp;&ensp;&ensp;&ensp;`state`|string|The customer’s state code in ISO 3166-2.|
 |&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the customer object. It can be useful for storing additional information about your customer's payment.|
+|&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if the customer confirmed to receive the Unlimint Game Services newsletter about the beginning of payment acceptance in new regions.|
+|&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
 |`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
 |&ensp;&ensp;`country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase.|
 |`tax`|object|Details about a tax.|
@@ -532,10 +535,16 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`rate`|float|The current customer's location taxes. A positive float with two decimal points.|
 |&ensp;&ensp;`amount`|float|The tax amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
 |&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
+|`net_revenue`|object|Details about the amount and currency of the transaction in the currency of payment to the client.|
+|&ensp;&ensp;`amount`|float|The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+|&ensp;&ensp;`currency`|string|The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.|
+|`fee`|object|Details about Unlimint Game Services commission for a transaction in the currency of payment to the client.|
+|&ensp;&ensp;`amount`|float|The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
+|&ensp;&ensp;`currency`|string|The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.|
 |`method`|object|Details about a payment method.|
 |&ensp;&ensp;`title`|string|The human readable method name.|
 |&ensp;&ensp;`external_id`|string|The unique identifier for the payment method.|
-|&ensp;&ensp;`payment_system_id`|string|The unique identifier for the payment system on the PaySuper side.|
+|&ensp;&ensp;`payment_system_id`|string|The unique identifier for the payment system on the Unlimint Game Services side.|
 |&ensp;&ensp;`type`|string|The payment method's group alias.|
 |&ensp;&ensp;`saved`|boolean|Has a value `true` if the payment method was saved by the customer for future usage.|
 |&ensp;&ensp;`card`|object|Details about a customer's card.|
@@ -568,9 +577,9 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`amount`|float|The refund amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
 |&ensp;&ensp;`currency`|string|The currency for the tax. Three-letter Currency Code ISO 4217, in uppercase.|
 |&ensp;&ensp;`reason`|string|The refund reason.|
-|&ensp;&ensp;`code`|string|The PaySuper internal identity for the refund reason.|
+|&ensp;&ensp;`code`|string|The Unlimint Game Services internal identity for the refund reason.|
 |&ensp;&ensp;`receipt_number`|string|The unique identifier for the refund receipt.|
-|&ensp;&ensp;`receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
+|&ensp;&ensp;`receipt_url`|string|The URL in Unlimint Game Services service for online access to given refund receipt.|
 |`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
 |`original_amount`|float|The order amount excluding any taxes and commissions.|
 |`country`|string|Two-letter country code in ISO 3166-1, in uppercase.|
@@ -588,12 +597,6 @@ You can create a payment order with details about your customer and sales option
 |`merchant_info`|object|The merchant's company data.The merchant's company data.|
 |&ensp;&ensp;`company_name`|string|The merchant's company name.|
 |&ensp;&ensp;`agreement_number`|string|The merchant's license agreement number.|
-|`net_revenue`|object|Details about the amount and currency of the transaction in the currency of payment to the client.|
-|&ensp;&ensp;`amount`|float|The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
-|&ensp;&ensp;`currency`|string|The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.|
-|`fee`|object|Details about PaySuper's commission for a transaction in the currency of payment to the client.|
-|&ensp;&ensp;`amount`|float|The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).|
-|&ensp;&ensp;`currency`|string|The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.|
 |`recurring`|boolean|Exists recurring payments for the order.|
 |`recurring_id`|string|Unique recurring identity.|
 
@@ -667,7 +670,7 @@ Create a payment order with a customer and order data
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|`project` <span style="color: red;">*</span> |string|The ID of the Project found in your merchant account in the PaySuper Dashboard.|
+|`project` <span style="color: red;">*</span> |string|The ID of the Project found in your merchant account in the Unlimint Game Services Dashboard.|
 |`amount`|number|The order amount as a positive number. It is required for a simple checkout payment.|
 |`currency`|string|The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. If provided, the amount will be processed in this currency. It is required for a payment when the type equals to simple.|
 |`account`|string|The customer account in the merchant project.|
@@ -691,7 +694,7 @@ Create a payment order with a customer and order data
 |&ensp; &ensp; `city`|string|The customer’s city.|
 |&ensp; &ensp; `postal_code`|string|The customer's postal code.|
 |&ensp; &ensp; `state`|string|The customer's state code in ISO 3166-2.|
-|&ensp; `order`|string|The PaySuper unique identifier for the order.|
+|&ensp; `order`|string|The Unlimint Game Services unique identifier for the order.|
 |&ensp; `type` <span style="color: red;">*</span> |string|The order type. It depends on your sales option (Game Keys, Virtual Items, Virtual Currency the simple checkout). For products created as Game Keys use the key type, as Virtual Items - the product type, as Virtual Currency - the virtual_currency type, for a simple checkout - the simple type. Enum values: key, product, virtual_currency, simple.|
 |&ensp; `platform_id`|string|The default platform's name for which the customer buys a key. This field is used only for the key type. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
 
@@ -713,7 +716,7 @@ Create a payment order with a customer and order data
 ||||
 |---|---|---|
 |`id`|string|The unique identifier for the order.|
-|`payment_form_url`|string|The URL of the PaySuper-hosted payment form.|
+|`payment_form_url`|string|The URL of the Unlimint Game Services-hosted payment form.|
 
 ### 400 The error code and message with the error details
 

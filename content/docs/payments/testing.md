@@ -10,12 +10,12 @@ The Payment Form integration should be tested in the Sandbox before [going live]
 
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
 
-When using PaySuper JS SDK ensure that:
+When using Unlimint Game Services JS SDK ensure that:
 
 * [Handlers for the events](/docs/payments/sdk-integration/#step-4-handle-the-purchase-events) are displayed properly.
-* The PaySuper object is created with all [required parameters](/docs/payments/sdk-integration/#step-2-provide-parameters) or a [token](/docs/payments/token/).
+* The Unlimint Game Services object is created with all [required parameters](/docs/payments/sdk-integration/#step-2-provide-parameters) or a [token](/docs/payments/token/).
 
-If you're using the PaySuper API in your server-side code then ensure that:
+If you're using the Unlimint Game Services API in your server-side code then ensure that:
 
 * All [API errors](/api/#errors) are handled accurately.
 * [Webhooks](/api/#webhooks) contains properly URL configured in the Functional URL section on the Project webhooks page.
@@ -123,12 +123,12 @@ SEK|Sweden Krona
 ## Webhooks
 
 {{< columns >}}
-PaySuper can send you webhook events to your server to notify on the payment status. You can make a successful payment with a test card number and verify the resulting event data and to ensure that your webhook's endpoint is working and is configured properly.
+Unlimint Game Services can send you webhook events to your server to notify on the payment status. You can make a successful payment with a test card number and verify the resulting event data and to ensure that your webhook's endpoint is working and is configured properly.
 
 <--->
 **GETTING STARTED**
 
-[Configure Webhooks](/api/#webhooks) for your Project in PaySuper Dashboard and handle them on your server.
+[Configure Webhooks](/api/#webhooks) for your Project in Unlimint Game Services Dashboard and handle them on your server.
 
 {{< /columns >}}
 
@@ -139,7 +139,7 @@ Before going live, check that your server responds with status code 200 and empt
 1. Go to Project Webhooks page.
 2. Under Webhook Settings section choose the tab with the order's type: Simple checkout, Virtual currency, Virtual items, Game keys.
 3. Enter the payment order data from your project: customer ID, transaction ID, virtual item ID (if any). You can test success and failure responses using a valid data or non-existing values.
-4. Click Test and view the temporary logs below with the PaySuper notification and your server response.
+4. Click Test and view the temporary logs below with the Unlimint Game Services notification and your server response.
 
 ***
 
