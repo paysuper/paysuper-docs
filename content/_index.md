@@ -1,5 +1,5 @@
 ---
-title: PaySuper Documentation
+title: Unlimint Game Services Documentation
 type: docs
 ---
 

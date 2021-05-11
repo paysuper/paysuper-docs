@@ -1,6 +1,6 @@
 # hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/example
 
-Title = 'PaySuper Documentation'
+Title = 'Unlimint Game Services Documentation'
 
 disableKinds = ['taxonomy', 'taxonomyTerm']
 theme = 'book'
