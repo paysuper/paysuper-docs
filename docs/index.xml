@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docs on PaySuper Documentation</title>
+    <title>Docs on Unlimint Game Services Documentation</title>
     <link>https://docs.pay.super.com/docs/</link>
-    <description>Recent content in Docs on PaySuper Documentation</description>
+    <description>Recent content in Docs on Unlimint Game Services Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -26,7 +26,7 @@ Headings h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Notes
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/glossary/</guid>
-      <description> Terms:  PaySuper Checkout PaySuper JS SDK PaySuper API PaySuper PaySuper Dashboard  Payment form:  a Checkout Form a payment an order a token  PaySuper Dashboard Product and Projects:  a Project a Product a Project&amp;rsquo;s Secret key a Virtual currency an in-game currency a Game key a key-activated product a Virtual item a transaction  PaySuper Dashboard pages:  the Projects list page the Project settings page the Project webhooks page the Transactions page the Company Onboarding page the Banking info section  </description>
+      <description> Terms:  Unlimint Game Services Checkout Unlimint Game Services JS SDK Unlimint Game Services API Unlimint Game Services Unlimint Game Services Dashboard  Payment form:  a Checkout Form a payment an order a token  Unlimint Game Services Dashboard Product and Projects:  a Project a Product a Project&amp;rsquo;s Secret key a Virtual currency an in-game currency a Game key a key-activated product a Virtual item a transaction  Unlimint Game Services Dashboard pages:  the Projects list page the Project settings page the Project webhooks page the Transactions page the Company Onboarding page the Banking info section  </description>
     </item>
     
     <item>
@@ -35,8 +35,8 @@ Headings h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Notes
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/analytics-integration/</guid>
-      <description>Analytics Integration It&amp;rsquo;s assumed that you have already integrated PaySuper Checkout via SDK and have set up your Google Analytics account.
-Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we&amp;rsquo;ll release the analytics integration to use with a customer&amp;rsquo;s tracking ID.  Google Analytics You can track the following events:
+      <description>Analytics Integration It&amp;rsquo;s assumed that you have already integrated Unlimint Game Services Checkout via SDK and have set up your Google Analytics account.
+Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mode inside Unlimint Game Services. After the Beta testing, we&amp;rsquo;ll release the analytics integration to use with a customer&amp;rsquo;s tracking ID.  Google Analytics You can track the following events:
    Category Action Description     userAction clickCloseCross Close the form by clicking on the cross (for the modal window mode).</description>
     </item>
     
@@ -46,9 +46,8 @@ Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payouts/</guid>
-      <description>Receiving Payouts Your customers&amp;rsquo; successful payments are stored on your PaySuper account balance and can be received to your bank account using Payouts.
-The payout process is pure. Weekly PaySuper automatically generates royalty report documents with detailed information about each transaction during a period. Each royalty report is a self-billed invoice. The amount of revenue available for withdrawal will raise after the royalty report accepted.
-PaySuper payouts can be performed in two modes:</description>
+      <description>Receiving Payouts Your customers&amp;rsquo; successful payments are stored on your Unlimint Game Services account balance and can be received to your bank account using Payouts.
+The payout process is pure. Weekly Unlimint Game Services automatically generates royalty report documents with detailed information about each transaction during a period. Each royalty report is a self-billed invoice. The amount of revenue available for withdrawal will raise after the royalty report accepted.</description>
     </item>
     
     <item>
@@ -57,8 +56,8 @@ PaySuper payouts can be performed in two modes:</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/refunds/</guid>
-      <description>Refunding payments You can request to refund a charge in whole for a processed transaction. After requesting a refund it cannot be cancelled. PaySuper automatically sends email receipt to your customers whenever they have a refunded purchase.
-The refund can be sent only to the same customer&amp;rsquo;s bank card was used in a payment. If the customer&amp;rsquo;s card is expired, the refund will be made to the reissued card.  The refund costs Notice that all refund fees are being paid by PaySuper, so they are free of charge for you, but the fees from the original charge are not returned.</description>
+      <description>Refunding payments You can request to refund a charge in whole for a processed transaction. After requesting a refund it cannot be cancelled. Unlimint Game Services automatically sends email receipt to your customers whenever they have a refunded purchase.
+The refund can be sent only to the same customer&amp;rsquo;s bank card was used in a payment. If the customer&amp;rsquo;s card is expired, the refund will be made to the reissued card.</description>
     </item>
     
     <item>
@@ -67,7 +66,7 @@ The refund can be sent only to the same customer&amp;rsquo;s bank card was used 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/declines/</guid>
-      <description>Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or PaySuper Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a PaySuper Checkout notification event will contain an explanatory description.
+      <description>Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or Unlimint Game Services Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a Unlimint Game Services Checkout notification event will contain an explanatory description.
 But some reasons for the failed payments are unclear and uninformative.</description>
     </item>
     

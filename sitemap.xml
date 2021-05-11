@@ -44,10 +44,6 @@
   </url>
   
   <url>
-    <loc>https://docs.pay.super.com/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.pay.super.com/docs/payments/quick-start/</loc>
   </url>
   
@@ -73,6 +69,10 @@
   
   <url>
     <loc>https://docs.pay.super.com/docs/declines/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.pay.super.com/</loc>
   </url>
   
   <url>

@@ -16,13 +16,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/api/main/</guid>
-      <description>Introduction The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients. JSON will be returned in all responses from the API, including errors.
+      <description>Introduction The Unlimint Game Services API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients. JSON will be returned in all responses from the API, including errors.
 All API requests must be made over HTTPS.
 Authentication Authentication to the API occurs via Signature-based authentication.</description>
     </item>
     
     <item>
-      <title>PaySuper API Reference</title>
+      <title>Unlimint Game Services API Reference</title>
       <link>https://docs.pay.super.com/api/api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

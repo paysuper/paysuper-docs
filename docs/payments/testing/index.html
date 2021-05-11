@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Testing Checkout" />
 <meta property="og:description" content="Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
-When using PaySuper JS SDK ensure that:
- Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or a token.  If you&rsquo;re using the PaySuper API in your server-side code then ensure that:" />
+When using Unlimint Game Services JS SDK ensure that:
+ Handlers for the events are displayed properly. The Unlimint Game Services object is created with all required parameters or a token.  If you&rsquo;re using the Unlimint Game Services API in your server-side code then ensure that:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.pay.super.com/docs/payments/testing/" />
 
@@ -19,16 +19,16 @@ When using PaySuper JS SDK ensure that:
 <meta name="twitter:title" content="Testing Checkout"/>
 <meta name="twitter:description" content="Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
-When using PaySuper JS SDK ensure that:
- Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or a token.  If you&rsquo;re using the PaySuper API in your server-side code then ensure that:"/>
-<title>Testing Checkout | PaySuper Documentation</title>
+When using Unlimint Game Services JS SDK ensure that:
+ Handlers for the events are displayed properly. The Unlimint Game Services object is created with all required parameters or a token.  If you&rsquo;re using the Unlimint Game Services API in your server-side code then ensure that:"/>
+<title>Testing Checkout | Unlimint Game Services Documentation</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/book.min.343270af3f7a01683d94762f9b671c6eb940933f3238c66b6bfc99821e7a3131.css" integrity="sha256-NDJwrz96AWg9lHYvm2ccbrlAkz8yOMZra/yZgh56MTE=">
 
 
-<script defer src="/search.min.85c651ac923561abe5cdd94269f9cce5c6e47fe0920c1fe70b6e0c0f5ab5aa23.js" integrity="sha256-hcZRrJI1YavlzdlCafnM5cbkf&#43;CSDB/nC24MD1q1qiM="></script>
+<script defer src="/search.min.b2f6aa20882a07c861fa6d813f254fe967ae35dfd89bf74e52ff8e50121c9803.js" integrity="sha256-svaqIIgqB8hh&#43;m2BPyVP6WeuNd/Ym/dOUv&#43;OUBIcmAM="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -58,7 +58,7 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://docs.pay.super.com"><span>PaySuper Documentation</span>
+  <a href="https://docs.pay.super.com"><span>Unlimint Game Services Documentation</span>
   </a>
 </h2>
 
@@ -139,14 +139,14 @@ https://github.com/alex-shpak/hugo-book
 
 <p>The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.</p>
 
-<p>When using PaySuper JS SDK ensure that:</p>
+<p>When using Unlimint Game Services JS SDK ensure that:</p>
 
 <ul>
 <li><a href="/docs/payments/sdk-integration/#step-4-handle-the-purchase-events">Handlers for the events</a> are displayed properly.</li>
-<li>The PaySuper object is created with all <a href="/docs/payments/sdk-integration/#step-2-provide-parameters">required parameters</a> or a <a href="/docs/payments/token/">token</a>.</li>
+<li>The Unlimint Game Services object is created with all <a href="/docs/payments/sdk-integration/#step-2-provide-parameters">required parameters</a> or a <a href="/docs/payments/token/">token</a>.</li>
 </ul>
 
-<p>If you&rsquo;re using the PaySuper API in your server-side code then ensure that:</p>
+<p>If you&rsquo;re using the Unlimint Game Services API in your server-side code then ensure that:</p>
 
 <ul>
 <li>All <a href="/api/#errors">API errors</a> are handled accurately.</li>
@@ -631,13 +631,13 @@ https://github.com/alex-shpak/hugo-book
 <div class="book-columns flex flex-wrap">
   
   <div class="flex-even markdown-inner">
-    PaySuper can send you webhook events to your server to notify on the payment status. You can make a successful payment with a test card number and verify the resulting event data and to ensure that your webhook&rsquo;s endpoint is working and is configured properly.
+    Unlimint Game Services can send you webhook events to your server to notify on the payment status. You can make a successful payment with a test card number and verify the resulting event data and to ensure that your webhook&rsquo;s endpoint is working and is configured properly.
   </div>
   
   <div class="flex-even markdown-inner">
     <p><strong>GETTING STARTED</strong></p>
 
-<p><a href="/api/#webhooks">Configure Webhooks</a> for your Project in PaySuper Dashboard and handle them on your server.</p>
+<p><a href="/api/#webhooks">Configure Webhooks</a> for your Project in Unlimint Game Services Dashboard and handle them on your server.</p>
 
   </div>
   
@@ -652,7 +652,7 @@ https://github.com/alex-shpak/hugo-book
 <li>Go to Project Webhooks page.</li>
 <li>Under Webhook Settings section choose the tab with the order&rsquo;s type: Simple checkout, Virtual currency, Virtual items, Game keys.</li>
 <li>Enter the payment order data from your project: customer ID, transaction ID, virtual item ID (if any). You can test success and failure responses using a valid data or non-existing values.</li>
-<li>Click Test and view the temporary logs below with the PaySuper notification and your server response.</li>
+<li>Click Test and view the temporary logs below with the Unlimint Game Services notification and your server response.</li>
 </ol>
 
 <hr />
@@ -704,7 +704,7 @@ https://github.com/alex-shpak/hugo-book
 <div class="flex-even markdown-inner">
     <h4 id="github-https-github-com-paysuper"><a href="https://github.com/paysuper">GitHub</a></h4>
 
-<p>The PaySuper Checkout Form, the JS SDK and even the server are available as a source code on our GitHub. You&rsquo;re welcome to explore the code and help us make PaySuper even better.
+<p>The Unlimint Game Services Checkout Form, the JS SDK and even the server are available as a source code on our GitHub. You&rsquo;re welcome to explore the code and help us make Unlimint Game Services even better.
 </div>
 
 </div>
@@ -713,9 +713,9 @@ https://github.com/alex-shpak/hugo-book
 
 <h2 id="not-a-developer">Not a developer?</h2>
 
-Our engineers will help you <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">integrate PaySuper</a> into your existing e-commerce platform, a website or a game in the best possible way.
+Our engineers will help you <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">integrate Unlimint Game Services</a> into your existing e-commerce platform, a website or a game in the best possible way.
 
-If you want something very special and crazy custom yet don&rsquo;t have a suitable programmer available nearby - <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">talk to us</a>! We won&rsquo;t let down a PaySuper user. We will try to help you in every possible way. We can even hire a programmer for you!
+If you want something very special and crazy custom yet don&rsquo;t have a suitable programmer available nearby - <a href="https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform">talk to us</a>! We won&rsquo;t let down a Unlimint Game Services user. We will try to help you in every possible way. We can even hire a programmer for you!
 </article>
 
       

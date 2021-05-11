@@ -144,9 +144,9 @@
         
         <ul class="toc-footer">
             
-            <li><a href='https://docs.pay.super.com' target='_blank'>Documentation</a></li>
+            <li><a href='https://docs.gameservices.unlimint.com' target='_blank'>Documentation</a></li>
             
-            <li><a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>PaySuper API on GitHub</a></li>
+            <li><a href='https://github.com/paysuper/paysuper-management-api' target='_blank'>Unlimint Game Services API on GitHub</a></li>
             
         </ul>
         
@@ -162,7 +162,7 @@
 
 <h1 id="introduction">Introduction</h1>
 
-<p>The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
+<p>The Unlimint Game Services API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
 JSON will be returned in all responses from the API, including errors.</p>
 
 <p>All API requests must be made over <strong>HTTPS</strong>.</p>
@@ -179,7 +179,7 @@ Your API keys carry many privileges, so be sure to keep them secret.
 
 <h1 id="errors">Errors</h1>
 
-<p>PaySuper uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with PaySupers&rsquo;s servers.</p>
+<p>Unlimint Game Services use conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with Unlimint Game Services servers.</p>
 
 <p><strong>HTTP status codes summary:</strong></p>
 
@@ -207,16 +207,16 @@ Your API keys carry many privileges, so be sure to keep them secret.
 
 <p><strong>429 Too Many Requests</strong> - You sent us too many API requests in a row. Please retry later.</p>
 
-<p><strong>500, 502, 503, 504 Server errors</strong> - Something went wrong on PaySupers&rsquo;s end.</p>
+<p><strong>500, 502, 503, 504 Server errors</strong> - Something went wrong on Unlimint Game Services end.</p>
 
 <h1 id="versioning">Versioning</h1>
 
-<p>PaySuper is developed incrementally. We use <a href="https://semver.org/" target="_blank">semantic versioning</a> and approach to release new versions of the specification.</p>
+<p>Unlimint Game Services is developed incrementally. We use <a href="https://semver.org/" target="_blank">semantic versioning</a> and approach to release new versions of the specification.</p>
 
 <p>The content of each release is the result of the work of the project team located on GitHub.
-All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.</p>
+All changes and additions to each version of this specification are publicly discussed by the Unlimint Game Services working group.</p>
 
-<p>While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side.
+<p>While making requests in Unlimint Game Services using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side.
 The version passed is specified as major and minor of the version using semantic versioning.</p>
 
 <p>For the transmission version must use the header <code>'x-paysuper-api-version': '1.0'</code>.</p>
@@ -272,8 +272,8 @@ Implemention of the pagination is in progress.
     {<span style="">...</span>}
   ]
 }</code></pre></div>
-<p>All top-level PaySuper API resources have support for bulk fetches &ldquo;list&rdquo; API methods. For instance, you can list users, list orders.
-Like Stripe, PaySuper uses cursor-based pagination using the parameter <code>starting_after</code>. Pass <code>starting_after</code> parameter
+<p>All top-level Unlimint Game Services API resources have support for bulk fetches &ldquo;list&rdquo; API methods. For instance, you can list users, list orders.
+Like Stripe, Unlimint Game Services uses cursor-based pagination using the parameter <code>starting_after</code>. Pass <code>starting_after</code> parameter
 at the previous page last object id value to determine where to start in the list.</p>
 
 <table>
@@ -352,7 +352,7 @@ at the previous page last object id value to determine where to start in the lis
 
 <h1 id="webhooks">WEBHOOKS</h1>
 
-<p>The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.</p>
+<p>The Unlimint Game Services system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.</p>
 
 <p>These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.</p>
 
@@ -534,19 +534,19 @@ at the previous page last object id value to determine where to start in the lis
 
 <p><strong>Default</strong> is the asynchronous mode that provides webhook notifications only about a payment.</p>
 
-<p><strong>a.</strong> A customer initiates a payment request on your site via the PaySuper payment form.</p>
+<p><strong>a.</strong> A customer initiates a payment request on your site via the Unlimint Game Services payment form.</p>
 
-<p><strong>b.</strong> If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.</p>
+<p><strong>b.</strong> If the payment is finished with a successful or failed result Unlimint Game Services sends a payment notification to your server.</p>
 
 <p><strong>Pre-approval</strong> is the mode that provides a synchronous notification for user validation and asynchronous notification about a payment.</p>
 
-<p><strong>a.</strong> A customer initiates a payment request on your site via the PaySuper payment form.</p>
+<p><strong>a.</strong> A customer initiates a payment request on your site via the Unlimint Game Services payment form.</p>
 
-<p><strong>b.</strong> PaySuper sends the user validation request with the customer data to check the details of the user on the project side.</p>
+<p><strong>b.</strong> Unlimint Game Services sends the user validation request with the customer data to check the details of the user on the project side.</p>
 
-<p><strong>c.</strong> When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.</p>
+<p><strong>c.</strong> When the project server responds with success or failure, Unlimint Game Services continues or cancels the payment respectively for this customer.</p>
 
-<p><strong>d.</strong> If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.</p>
+<p><strong>d.</strong> If the payment is finished with a successful or failed result Unlimint Game Services sends a payment notification to your server.</p>
 
 <p><strong>3.</strong> <a href="#verifying-a-webhook">Verify the webhook request</a>.</p>
 
@@ -660,9 +660,9 @@ at the previous page last object id value to determine where to start in the lis
 
 <h2 id="verifying-a-webhook">Verifying a webhook</h2>
 
-<p>PaySuper signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.</p>
+<p>Unlimint Game Services signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.</p>
 
-<p>The PaySuper API uses a Secret key to check the notification request.</p>
+<p>The Unlimint Game Services API uses a Secret key to check the notification request.</p>
 
 <aside class="notice">
 Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in any publicly accessible areas such as GitHub, client-side code, and so forth.
@@ -911,7 +911,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp; &ensp; <code>project_id</code> <span style="color: red;">*</span></td>
 <td>string</td>
-<td>The unique identifier for the Project found in the merchant account in the PaySuper Dashboard.</td>
+<td>The unique identifier for the Project found in the merchant account in the Unlimint Game Services Dashboard.</td>
 </tr>
 
 <tr>
@@ -999,7 +999,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
   <span style="color:#062873;font-weight:bold">&#34;token&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>,
   <span style="color:#062873;font-weight:bold">&#34;payment_form_url&#34;</span>: <span style="color:#4070a0">&#34;string&#34;</span>
 }</code></pre></div>
-<h3 id="200-returns-the-payment-token-string-and-the-paysuper-hosted-url-for-a-payment-form">200 Returns the payment token string and the PaySuper-hosted URL for a payment form</h3>
+<h3 id="200-returns-the-payment-token-string-and-the-unlimint-game-services-hosted-url-for-a-payment-form">200 Returns the payment token string and the Unlimint Game Services-hosted URL for a payment form</h3>
 
 <table>
 <thead>
@@ -1020,7 +1020,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>payment_form_url</code></td>
 <td>string</td>
-<td>The PaySuper-hosted URL of a payment form.</td>
+<td>The Unlimint Game Services-hosted URL of a payment form.</td>
 </tr>
 </tbody>
 </table>
@@ -1129,7 +1129,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 
 <p>Get the transactions list using filter parameters.</p>
 
-<p>Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where <code>login</code> - the unique identifier for your PaySuper project, <code>password</code> - the Secret Key of that project.</p>
+<p>Use the basic HTTP authentication with the Base64 encoding of login and password joined by a single colon : , where <code>login</code> - the unique identifier for your Unlimint Game Services project, <code>password</code> - the Secret Key of that project.</p>
 
 <blockquote>
 <p>Request Header:</p>
@@ -1152,7 +1152,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>id</code></td>
 <td>string</td>
-<td>The unique identifier in PaySuper.</td>
+<td>The unique identifier in Unlimint Game Services.</td>
 </tr>
 
 <tr>
@@ -1574,7 +1574,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>id</code></td>
 <td>string</td>
-<td>The unique identifier for the order in PaySuper.</td>
+<td>The unique identifier for the order in Unlimint Game Services.</td>
 </tr>
 
 <tr>
@@ -1598,7 +1598,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>description</code></td>
 <td>string</td>
-<td>An arbitrary string attached to the object. If this field was not sent, the PaySuper generates it automatically.</td>
+<td>An arbitrary string attached to the object. If this field was not sent, the Unlimint Game Services generates it automatically.</td>
 </tr>
 
 <tr>
@@ -1670,7 +1670,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>receipt_url</code></td>
 <td>string</td>
-<td>The URL in PaySuper service for online access to the receipt.</td>
+<td>The URL in Unlimint Game Services service for online access to the receipt.</td>
 </tr>
 
 <tr>
@@ -1712,7 +1712,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>embedded</code></td>
 <td>boolean</td>
-<td>Has the value <code>true</code> if the PaySuper form was embedded to collect payment.</td>
+<td>Has the value <code>true</code> if the Unlimint Game Services form was embedded to collect payment.</td>
 </tr>
 
 <tr>
@@ -1772,7 +1772,13 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>id</code></td>
 <td>string</td>
-<td>The customer unique identifier on the PaySuper side.</td>
+<td>The customer unique identifier on the Unlimint Game Services side.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>object</code></td>
+<td>string</td>
+<td>The string representing the object’s type. Value: <code>user</code>.</td>
 </tr>
 
 <tr>
@@ -1860,6 +1866,18 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
+<td>&ensp;&ensp;<code>notify_new_region</code></td>
+<td>boolean</td>
+<td>Has the value <code>true</code> if the customer confirmed to receive the Unlimint Game Services newsletter about the beginning of payment acceptance in new regions.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>notify_new_region_email</code></td>
+<td>string</td>
+<td>The customer&rsquo;s email for a newsletter about the beginning of payment acceptance in new regions.</td>
+</tr>
+
+<tr>
 <td><code>billing_address</code></td>
 <td>object</td>
 <td>Details about a customer&rsquo;s billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a <code>country</code> value and for the USA has <code>country</code>, <code>state</code> and <code>zip</code>.</td>
@@ -1902,6 +1920,42 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
+<td><code>net_revenue</code></td>
+<td>object</td>
+<td>Details about the amount and currency of the transaction in the currency of payment to the client.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>amount</code></td>
+<td>float</td>
+<td>The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>currency</code></td>
+<td>string</td>
+<td>The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
+<td><code>fee</code></td>
+<td>object</td>
+<td>Details about Unlimint Game Services commission for a transaction in the currency of payment to the client.</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>amount</code></td>
+<td>float</td>
+<td>The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
+</tr>
+
+<tr>
+<td>&ensp;&ensp;<code>currency</code></td>
+<td>string</td>
+<td>The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.</td>
+</tr>
+
+<tr>
 <td><code>method</code></td>
 <td>object</td>
 <td>Details about a payment method.</td>
@@ -1922,7 +1976,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>payment_system_id</code></td>
 <td>string</td>
-<td>The unique identifier for the payment system on the PaySuper side.</td>
+<td>The unique identifier for the payment system on the Unlimint Game Services side.</td>
 </tr>
 
 <tr>
@@ -2120,7 +2174,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>code</code></td>
 <td>string</td>
-<td>The PaySuper internal identity for the refund reason.</td>
+<td>The Unlimint Game Services internal identity for the refund reason.</td>
 </tr>
 
 <tr>
@@ -2132,7 +2186,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp;&ensp;<code>receipt_url</code></td>
 <td>string</td>
-<td>The URL in PaySuper service for online access to given refund receipt.</td>
+<td>The URL in Unlimint Game Services service for online access to given refund receipt.</td>
 </tr>
 
 <tr>
@@ -2238,42 +2292,6 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 </tr>
 
 <tr>
-<td><code>net_revenue</code></td>
-<td>object</td>
-<td>Details about the amount and currency of the transaction in the currency of payment to the client.</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>amount</code></td>
-<td>float</td>
-<td>The net revenue amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>currency</code></td>
-<td>string</td>
-<td>The currency for net revenue. Three-letter Currency Code ISO 4217, in uppercase.</td>
-</tr>
-
-<tr>
-<td><code>fee</code></td>
-<td>object</td>
-<td>Details about PaySuper&rsquo;s commission for a transaction in the currency of payment to the client.</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>amount</code></td>
-<td>float</td>
-<td>The fee amount. A positive float with two decimal points (e.g., 1.00 to charge $1.00).</td>
-</tr>
-
-<tr>
-<td>&ensp;&ensp;<code>currency</code></td>
-<td>string</td>
-<td>The currency for the fee. Three-letter Currency Code ISO 4217, in uppercase.</td>
-</tr>
-
-<tr>
 <td><code>recurring</code></td>
 <td>boolean</td>
 <td>Exists recurring payments for the order.</td>
@@ -2363,7 +2381,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>project</code> <span style="color: red;">*</span></td>
 <td>string</td>
-<td>The ID of the Project found in your merchant account in the PaySuper Dashboard.</td>
+<td>The ID of the Project found in your merchant account in the Unlimint Game Services Dashboard.</td>
 </tr>
 
 <tr>
@@ -2507,7 +2525,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td>&ensp; <code>order</code></td>
 <td>string</td>
-<td>The PaySuper unique identifier for the order.</td>
+<td>The Unlimint Game Services unique identifier for the order.</td>
 </tr>
 
 <tr>
@@ -2556,7 +2574,7 @@ Authorization<span style="color:#666">:</span> Signature sh9b1r69bjqie88n5uizqcr
 <tr>
 <td><code>payment_form_url</code></td>
 <td>string</td>
-<td>The URL of the PaySuper-hosted payment form.</td>
+<td>The URL of the Unlimint Game Services-hosted payment form.</td>
 </tr>
 </tbody>
 </table>

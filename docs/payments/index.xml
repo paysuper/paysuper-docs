@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Checkout Overview on PaySuper Documentation</title>
+    <title>Checkout Overview on Unlimint Game Services Documentation</title>
     <link>https://docs.pay.super.com/docs/payments/</link>
-    <description>Recent content in Checkout Overview on PaySuper Documentation</description>
+    <description>Recent content in Checkout Overview on Unlimint Game Services Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -18,10 +18,9 @@
       <guid>https://docs.pay.super.com/docs/payments/fulfillment/</guid>
       <description>After the payment When your customers successfully complete payments they are redirected to the success URL page that you passed in a request parameter. Typically, this is a page on your website that informs your customer that their payment was successful.
 To fulfil the customer’s purchase you can make it in several ways:
-Fulfilling purchases manually with the PaySuper Dashboard
+Fulfilling purchases manually with the Unlimint Game Services Dashboard
 Fulfilling purchases automatically with webhooks
-Email receipts
-Fulfilling purchases with the PaySuper Dashboard Every customers&amp;rsquo; payment is recorded as a new entry in the payments log shown on the Transactions page.</description>
+Email receipts</description>
     </item>
     
     <item>
@@ -31,7 +30,7 @@ Fulfilling purchases with the PaySuper Dashboard Every customers&amp;rsquo; paym
       
       <guid>https://docs.pay.super.com/docs/payments/sdk-integration/</guid>
       <description>Payment initialization on the client-side The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
-It’s easy to embed PaySuper JS SDK with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
+It’s easy to embed Unlimint Game Services JS SDK with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
  HOW IT WORKS
 Try out the payment sample or see the code on GitHub.</description>
     </item>
@@ -45,7 +44,7 @@ Try out the payment sample or see the code on GitHub.</description>
       <description>Customizing Checkout Learn about the different ways you can customize your Checkout.
  Localization Prefilling customer data Displaying VAT in a payment form Saving payment methods for future Customizing theme Customizing the colors Analytics Integration  Localization Dashboard
 The Checkout Form is localized for 24 languages.
-You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.</description>
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your Unlimint Game Services Dashboard.</description>
     </item>
     
     <item>
@@ -54,7 +53,7 @@ You can choose the complete set of supported languages for the project and produ
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payments/live/</guid>
-      <description>PaySuper Checkout integration checklist When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&amp;rsquo;ve covered all the significant steps.
+      <description>Unlimint Game Services Checkout integration checklist When you’re done with Unlimint Game Services Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&amp;rsquo;ve covered all the significant steps.
 Complete the Company onboarding Dashboard
 Royalty reports and Payouts disabled before the documents in the License Agreement will be signed by both our sides.  1. Click the Activate Live Mode button on Dashboard at the Top menu or Side menu.</description>
     </item>
@@ -75,7 +74,7 @@ You can create a token before your customer intents to pay and use it in the fut
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payments/quick-start/</guid>
-      <description>Payments Flow User Flow     Integration Flow     Quick start Step 1. Register a PaySuper Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding.     Enable Live Mode when you are ready to start selling
+      <description>Payments Flow User Flow     Integration Flow     Quick start Step 1. Register a Unlimint Game Services Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding.     Enable Live Mode when you are ready to start selling
 Step 2. Set up a Project A single project is enough to start selling.</description>
     </item>
     
@@ -85,8 +84,8 @@ Step 2. Set up a Project A single project is enough to start selling.</descripti
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payments/integration/</guid>
-      <description>Payment initialization on the server-side The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using PaySuper API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
-You can use PaySuper JS SDK for the client-side payment initialization to integrate a Checkout Form into your website only on the client-side.</description>
+      <description>Payment initialization on the server-side The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using Unlimint Game Services API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
+You can use Unlimint Game Services JS SDK for the client-side payment initialization to integrate a Checkout Form into your website only on the client-side.</description>
     </item>
     
     <item>
@@ -95,7 +94,7 @@ You can use PaySuper JS SDK for the client-side payment initialization to integr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.pay.super.com/docs/payments/localization/</guid>
-      <description>Supported languages for PaySuper Checkout    Language ISO 639 Code     Arabic ar   Brazilian portuguese pt   Bulgarian bg   Chinese simplified zh   Chinese traditional zh   Czech cs   Danish da   English en   Finnish fi   French fr   German de   Greek el   Hebrew he   Italian it   Japanese ja   Korean ko   Polish pl   Portuguese pt   Russian ru   Spanish es   Swedish sv   Tai th   Turkish tr   Vietnamese vi    Questions?</description>
+      <description>Supported languages for Unlimint Game Services Checkout    Language ISO 639 Code     Arabic ar   Brazilian portuguese pt   Bulgarian bg   Chinese simplified zh   Chinese traditional zh   Czech cs   Danish da   English en   Finnish fi   French fr   German de   Greek el   Hebrew he   Italian it   Japanese ja   Korean ko   Polish pl   Portuguese pt   Russian ru   Spanish es   Swedish sv   Tai th   Turkish tr   Vietnamese vi    Questions?</description>
     </item>
     
     <item>
@@ -106,8 +105,8 @@ You can use PaySuper JS SDK for the client-side payment initialization to integr
       <guid>https://docs.pay.super.com/docs/payments/testing/</guid>
       <description>Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
-When using PaySuper JS SDK ensure that:
- Handlers for the events are displayed properly. The PaySuper object is created with all required parameters or a token.  If you&amp;rsquo;re using the PaySuper API in your server-side code then ensure that:</description>
+When using Unlimint Game Services JS SDK ensure that:
+ Handlers for the events are displayed properly. The Unlimint Game Services object is created with all required parameters or a token.  If you&amp;rsquo;re using the Unlimint Game Services API in your server-side code then ensure that:</description>
     </item>
     
   </channel>
