@@ -528,7 +528,6 @@ You can create a payment order with details about your customer and sales option
 |&ensp;&ensp;`metadata`|object|A string-value description that you can attach to the customer object. It can be useful for storing additional information about your customer's payment.|
 |&ensp;&ensp;`notify_new_region`|boolean|Has the value `true` if the customer confirmed to receive the Unlimint Game Services newsletter about the beginning of payment acceptance in new regions.|
 |&ensp;&ensp;`notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
-
 |`billing_address`|object|Details about a customer's billing address. Has a non-empty value if the customer was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
 |&ensp;&ensp;`country`|string|The customer's country. Two-letter country code in ISO 3166-1, in uppercase.|
 |`tax`|object|Details about a tax.|
