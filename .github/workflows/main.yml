@@ -25,7 +25,7 @@ jobs:
           hugo --environment staging
           mkdir public/api
           cd ./api-reference 
-          hugo --environment staging && cp -r ./api-reference/public/* ../public/api/
+          hugo --environment staging && cp -r ./public/* ../public/api/
           echo 'docs.stg.gameservices.unlimint.com' > public/CNAME
 
       # - name: Deploy docs to GitHub Pages
