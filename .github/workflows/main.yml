@@ -1,0 +1,60 @@
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  docs-stg:
+    name: Docs-stg
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        run: |
+          hugo --environment staging
+          mkdir public/api
+          cd ./api-reference 
+          hugo --environment staging && cp -r ./api-reference/public/* ../public/api/
+          echo 'docs.stg.gameservices.unlimint.com' > public/CNAME
+
+      # - name: Deploy docs to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@releases/v3
+      #   with:
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      #     REPOSITORY_NAME: paysuper/paysuper-docs-stage
+      #     BRANCH: master
+      #     FOLDER: public
+
+  # docs-prod:
+  #   name: Docs-prod
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/master'
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Setup Hugo
+  #       uses: peaceiris/actions-hugo@v2
+  #       with:
+  #         hugo-version: 'latest'
+  #     - name: Build
+  #       run: hugo --environment production
+  #     - name: Create cname file
+  #       run: echo 'docs.gameservices.unlimint.com' > public/CNAME
+  #     - name: Deploy docs to GitHub Pages
+  #       uses: JamesIves/github-pages-deploy-action@releases/v3
+  #       with:
+  #         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  #         REPOSITORY_NAME: qilin/qilin-docs
+  #         BRANCH: gh-pages
+  #         FOLDER: public
