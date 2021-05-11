@@ -10,13 +10,13 @@ When your customers successfully complete payments they are redirected to the su
 
 To fulfil the customer’s purchase you can make it in several ways:
 
-[**Fulfilling purchases manually with the PaySuper Dashboard**](/docs/payments/fulfillment/#fulfilling-purchases-with-the-paysuper-dashboard)
+[**Fulfilling purchases manually with the Unlimint Game Services Dashboard**](/docs/payments/fulfillment/#fulfilling-purchases-with-the-paysuper-dashboard)
 
 [**Fulfilling purchases automatically with webhooks**](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks)
 
 [**Email receipts**](/docs/payments/fulfillment/#email-receipts)
 
-## Fulfilling purchases with the PaySuper Dashboard
+## Fulfilling purchases with the Unlimint Game Services Dashboard
 
 Every customers' payment is recorded as a new entry in the payments log shown on the [Transactions page](https://dashboard.pay.super.com/transactions).
 
@@ -40,12 +40,12 @@ If it's necessary to use the transactions data in an external analytics tool jus
 
 ## Fulfilling purchases with webhooks
 
-After the payments, PaySuper can send you webhook events to your server. You can create a handler for the webhook events like a successful payment, refund payment and so on.
+After the payments, Unlimint Game Services can send you webhook events to your server. You can create a handler for the webhook events like a successful payment, refund payment and so on.
 
 Using the handler you can obtain information from the webhook's `object` parameter in the payload about the customer and payment. With this comprehensive data, you can execute your server-side code and fulfil the payment.
 
 {{< hint warning >}}
-[Configure Webhooks](/api/#webhooks) for your Project in PaySuper Dashboard and handle them on your server.
+[Configure Webhooks](/api/#webhooks) for your Project in Unlimint Game Services Dashboard and handle them on your server.
 
 After webhooks enabled, [follow this instruction to test your notifications](/docs/payments/testing/#webhooks).
 {{< /hint >}}
@@ -108,7 +108,7 @@ For instance, this is the base object representing the webhook event `payment.su
 
 **Payment or refund receipts**
 
-PaySuper automatically sends email receipts to your customers whenever they make a successful payment or refunded purchase. 
+Unlimint Game Services automatically sends email receipts to your customers whenever they make a successful payment or refunded purchase. 
 
 It's required for user to fill in an email field on the Checkout form. Besides, you can pass a customer's email address when making the [API Tokens](/api/#create-a-token) or [API Order](/api/#create-a-payment-order) requests for payment initiation.
 
@@ -125,7 +125,7 @@ If your customer has purchased several game keys for different DRM platforms, he
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}

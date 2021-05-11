@@ -10,7 +10,7 @@ bookToc: true
 
 The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
 
-It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
+It’s easy to embed [Unlimint Game Services JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
 
 <--->
 
@@ -20,10 +20,10 @@ Try out [the payment sample](https://checkout.pay.super.com/demo/shop) or see [t
 {{< /columns >}}
 
 {{< hint warning >}}
-Notice that a pure client-side payment initialization is possible yet a special care must be taken. Your project identity could be used from any web-site to initiate payments without any additional checks or verifications from the PaySuper side. At the moment we're working on an option to disable that kind of payment orders in the Project settings.
+Notice that a pure client-side payment initialization is possible yet a special care must be taken. Your project identity could be used from any web-site to initiate payments without any additional checks or verifications from the Unlimint Game Services side. At the moment we're working on an option to disable that kind of payment orders in the Project settings.
 {{< /hint >}}
 
-If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with PaySuper API instead.
+If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with Unlimint Game Services API instead.
 
 ***
 
@@ -41,7 +41,7 @@ To get started, include the following script tag on your website - always load i
 
 To create a Checkout Form for one-time payments it's enough to have a [Project ID](/docs/payments/quick-start/#step-2-set-up-a-project) and an acceptable price and currency.
 
-Use this sample code to create a PaySuper object with the required parameters for a simple checkout:
+Use this sample code to create a Unlimint Game Services object with the required parameters for a simple checkout:
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -94,15 +94,15 @@ const paySuper = new PaySuper({
 
 {{< /tabs >}}
 
-[Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#parameters)
+[Full list of Unlimint Game Services parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#parameters)
 
 {{< hint warning >}}
-Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://dashboard.pay.super.com/projects). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
+Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the Unlimint Game Services Projects](https://dashboard.pay.super.com/projects). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
 {{< /hint >}}
 
 ## **Step 3.** Display the Checkout Form
 
-This example offers a sample code that displays a PaySuper Checkout Form with a `BUY` button.
+This example offers a sample code that displays a Unlimint Game Services Checkout Form with a `BUY` button.
 
 {{< tabs "client_form" >}}
 
@@ -171,7 +171,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}

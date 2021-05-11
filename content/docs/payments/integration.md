@@ -6,9 +6,9 @@ bookToc: true
 # Payment initialization on the server-side
 ***
 
-The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using PaySuper API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
+The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using Unlimint Game Services API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
 
-You can use PaySuper JS SDK for the [client-side payment initialization](/docs/payments/sdk-integration/) to integrate a Checkout Form into your website only on the client-side.
+You can use Unlimint Game Services JS SDK for the [client-side payment initialization](/docs/payments/sdk-integration/) to integrate a Checkout Form into your website only on the client-side.
 
 ***
 
@@ -48,7 +48,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 {{< /tabs >}}
 
 {{< hint warning >}}
-Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://dashboard.pay.super.com/projects). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
+Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the Unlimint Game Services Projects](https://dashboard.pay.super.com/projects). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
 {{< /hint >}}
 
 ### **Products Checkout**
@@ -125,7 +125,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 {{< tab "New browser window" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a Unlimint Game Services-hosted payment form.
 
 When your customer is ready to start a payment you can redirect the user to the URL in a new browser window.
 
@@ -133,7 +133,7 @@ When your customer is ready to start a payment you can redirect the user to the 
 
 {{< tab "Iframe" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a Unlimint Game Services-hosted payment form.
 
 Embed the Checkout Form as an inline iframe by URL:
 
@@ -147,7 +147,7 @@ Embed the Checkout Form as an inline iframe by URL:
 
 Retrieve the response parameter with `id` from the previous step. It is the ID of the created order.
 
-Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value:
+Use this code sample to open the Checkout Form as a standalone web-page with [Unlimint Game Services JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value:
 
 {{< highlight html >}}
 <script>
@@ -180,7 +180,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}

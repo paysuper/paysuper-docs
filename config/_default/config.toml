@@ -24,7 +24,7 @@ pygmentsCodeFences = true
 [params]
   # OpenGraph
   Images = ['dark-form.png']
-  Description = 'PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports.'
+  Description = 'Unlimint Game Services is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports.'
 
   # (Optional, default 6) Set how many table of contents levels to be showed on page.
   # Use false to hide ToC, note that 0 will default to 6 (https://gohugo.io/functions/default/)

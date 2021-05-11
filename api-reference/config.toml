@@ -1,7 +1,7 @@
 theme = "docuapi"
 languageCode = "en-us"
 baseURL = 'https://docs.stg.gameservices.unlimint.com/api'
-title = "PaySuper API Reference"
+title = "Unlimint Game Services API Reference"
 
 disableKinds = ["taxonomyTerm"]
 
@@ -34,7 +34,7 @@ name = "cURL"
 [languages.en]
 languageName = "English"
 weight = 2
-title = "PaySuper API Reference"
+title = "Unlimint Game Services API Reference"
 
 # Left sidebar footer items. Use HTMl or Markdown.
 toc_footers = [ 

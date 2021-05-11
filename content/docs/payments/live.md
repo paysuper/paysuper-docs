@@ -3,10 +3,10 @@ title: Going Live
 bookToc: true
 ---
 
-# PaySuper Checkout integration checklist
+# Unlimint Game Services Checkout integration checklist
 ***
 
-When you’re done with PaySuper Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you've covered all the significant steps.
+When you’re done with Unlimint Game Services Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you've covered all the significant steps.
 
 ## Complete the Company onboarding
 
@@ -41,7 +41,7 @@ Royalty reports and Payouts disabled before the documents in the License Agreeme
 
 `Dashboard`
 
-Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard. Fill in localised project and products descriptions. These will be listed on the payment form and customer receipt emails.
+Choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your Unlimint Game Services Dashboard. Fill in localised project and products descriptions. These will be listed on the payment form and customer receipt emails.
 
 ## Prefill the customer data
 
@@ -59,7 +59,7 @@ Check your redirect URLs for a successful or failed payment are added in the Pro
 
 ## Customize the Checkout Form
 
-`PaySuper JS SDK`
+`Unlimint Game Services JS SDK`
 
 You can add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
 
@@ -82,7 +82,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 ***

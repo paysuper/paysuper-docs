@@ -1,11 +1,11 @@
 # Terms:
 ***
 
-- PaySuper Checkout
-- PaySuper JS SDK
-- PaySuper API
-- PaySuper
-- PaySuper Dashboard
+- Unlimint Game Services Checkout
+- Unlimint Game Services JS SDK
+- Unlimint Game Services API
+- Unlimint Game Services
+- Unlimint Game Services Dashboard
 
 # Payment form:
 ***
@@ -17,7 +17,7 @@
 
 ***
 
-# PaySuper Dashboard Product and Projects: 
+# Unlimint Game Services Dashboard Product and Projects: 
 ***
 
 - a Project
@@ -32,7 +32,7 @@
 
 ***
 
-# PaySuper Dashboard pages: 
+# Unlimint Game Services Dashboard pages: 
 ***
 
 - the Projects list page

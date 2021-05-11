@@ -1,14 +1,14 @@
-# Contributing to PaySuper
+# Contributing to Unlimint Game Services
 
-Thank you for your interest in contributing to PaySuper! We welcome everybody who wants to contribute healthily and constructively. To help us create a safe and positive community experience for all, we require all participants to adhere to [PaySuper Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md).
+Thank you for your interest in contributing to Unlimint Game Services! We welcome everybody who wants to contribute healthily and constructively. To help us create a safe and positive community experience for all, we require all participants to adhere to [Unlimint Game Services Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md).
 
-This document guides you through the process of contributing to PaySuper overall and to this particular repository.
+This document guides you through the process of contributing to Unlimint Game Services overall and to this particular repository.
 
 If you find this project useful then please put a ⭐️ on it. It means a lot to us.
 
 ## Become a contributor
 
-You can contribute to PaySuper in several ways. Here are some examples:
+You can contribute to Unlimint Game Services in several ways. Here are some examples:
 
 - Report bugs.
 - Contribute to the codebase.

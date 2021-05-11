@@ -4,7 +4,7 @@ title: API Reference
 
 # Introduction
 
-The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
+The Unlimint Game Services API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
 JSON will be returned in all responses from the API, including errors.
 
 All API requests must be made over **HTTPS**.
@@ -21,7 +21,7 @@ Your API keys carry many privileges, so be sure to keep them secret.
 
 # Errors
 
-PaySuper uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with PaySupers's servers.
+Unlimint Game Services use conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with Unlimint Game Services servers.
 
 **HTTP status codes summary:**
 
@@ -49,16 +49,16 @@ PaySuper uses conventional HTTP response codes to indicate success or failure of
 
 **429 Too Many Requests** - You sent us too many API requests in a row. Please retry later.
 
-**500, 502, 503, 504 Server errors** - Something went wrong on PaySupers's end.
+**500, 502, 503, 504 Server errors** - Something went wrong on Unlimint Game Services end.
 
 # Versioning
 
-PaySuper is developed incrementally. We use [semantic versioning](https://semver.org/) and approach to release new versions of the specification.
+Unlimint Game Services is developed incrementally. We use [semantic versioning](https://semver.org/) and approach to release new versions of the specification.
 
 The content of each release is the result of the work of the project team located on GitHub. 
-All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.
+All changes and additions to each version of this specification are publicly discussed by the Unlimint Game Services working group.
 
-While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side. 
+While making requests in Unlimint Game Services using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side. 
 The version passed is specified as major and minor of the version using semantic versioning. 
 
 For the transmission version must use the header `'x-paysuper-api-version': '1.0'`.
@@ -118,8 +118,8 @@ $ curl https://api.pay.super.com/payouts?limit=3 \
 }
 ```
 
-All top-level PaySuper API resources have support for bulk fetches "list" API methods. For instance, you can list users, list orders.
-Like Stripe, PaySuper uses cursor-based pagination using the parameter `starting_after`. Pass `starting_after` parameter 
+All top-level Unlimint Game Services API resources have support for bulk fetches "list" API methods. For instance, you can list users, list orders.
+Like Stripe, Unlimint Game Services uses cursor-based pagination using the parameter `starting_after`. Pass `starting_after` parameter 
 at the previous page last object id value to determine where to start in the list.
 
 |PARAMETER|TYPE|DESCRIPTION|
@@ -140,7 +140,7 @@ at the previous page last object id value to determine where to start in the lis
 
 # WEBHOOKS
 
-The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
+The Unlimint Game Services system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 
 These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
 
@@ -316,19 +316,19 @@ In most cases, webhooks are triggered by user actions on your website or by back
 
 **Default** is the asynchronous mode that provides webhook notifications only about a payment.
 
-**a.** A customer initiates a payment request on your site via the PaySuper payment form.
+**a.** A customer initiates a payment request on your site via the Unlimint Game Services payment form.
 
-**b.** If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+**b.** If the payment is finished with a successful or failed result Unlimint Game Services sends a payment notification to your server.
 
 **Pre-approval** is the mode that provides a synchronous notification for user validation and asynchronous notification about a payment.
 
-**a.** A customer initiates a payment request on your site via the PaySuper payment form.
+**a.** A customer initiates a payment request on your site via the Unlimint Game Services payment form.
 
-**b.** PaySuper sends the user validation request with the customer data to check the details of the user on the project side.
+**b.** Unlimint Game Services sends the user validation request with the customer data to check the details of the user on the project side.
 
-**c.** When the project server responds with success or failure, PaySuper continues or cancel the payment respectively for this customer.
+**c.** When the project server responds with success or failure, Unlimint Game Services continues or cancels the payment respectively for this customer.
 
-**d.** If the payment is finished with a successful or failed result PaySuper sends a payment notification to your server.
+**d.** If the payment is finished with a successful or failed result Unlimint Game Services sends a payment notification to your server.
 
 **3.** [Verify the webhook request](#verifying-a-webhook).
 
@@ -359,9 +359,9 @@ In most cases, webhooks are triggered by user actions on your website or by back
 
 ## Verifying a webhook
 
-PaySuper signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.
+Unlimint Game Services signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.
 
-The PaySuper API uses a Secret key to check the notification request.
+The Unlimint Game Services API uses a Secret key to check the notification request.
 
 <aside class="notice">
 Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in any publicly accessible areas such as GitHub, client-side code, and so forth.

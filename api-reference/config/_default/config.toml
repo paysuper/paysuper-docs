@@ -1,7 +1,7 @@
 theme = "docuapi"
 languageCode = "en-us"
 baseurl = "https://docs.pay.super.com/api"
-title = "PaySuper API Reference"
+title = "Unlimint Game Services API Reference"
 
 disableKinds = ["taxonomyTerm"]
 

@@ -24,7 +24,7 @@ Learn about the different ways you can customize your Checkout.
 
 The Checkout Form is localized for [24 languages](/docs/payments/localization).
 
-You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
+You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your Unlimint Game Services Dashboard.
 
 ## Prefilling customer data
 
@@ -40,8 +40,8 @@ Boost your payment conversion rate with a payment form pre-filled with your cust
 
 You can configure your Project Settings to display the total price and VAT in a payment form and receipt.
 
-To show the total price with VAT already included, choose "VAT included in price" on the Project Settings page in your PaySuper Dashboard. 
-By default, PaySuper displays a calculated VAT and product price separately in a payment form.
+To show the total price with VAT already included, choose "VAT included in price" on the Project Settings page in your Unlimint Game Services Dashboard. 
+By default, Unlimint Game Services displays a calculated VAT and product price separately in a payment form.
 
 {{< figure src="/images/vat-settings.png">}}
 
@@ -52,11 +52,11 @@ By default, your customers see the total price with added taxes, for example, if
 
 ## Saving payment methods for future
 
-PaySuper can securely store your customer's billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.
+Unlimint Game Services can securely store your customer's billing address and the payment method data to prefill the Checkout Form with. The customer has to agree for this to happen.
 
 ## Customizing theme
 
-`PaySuper JS SDK`
+`Unlimint Game Services JS SDK`
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -70,7 +70,7 @@ Available options: **`dark`** (default), **`light`**.
 
 ## Customizing the colors
 
-`PaySuper JS SDK`
+`Unlimint Game Services JS SDK`
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -87,9 +87,9 @@ const paySuper = new PaySuper({
 
 ## Analytics Integration
 
-`PaySuper JS SDK`
+`Unlimint Game Services JS SDK`
 
-Nowadays we set up a Google Analytics data collection in a test mode inside PaySuper. After the Beta testing, we'll release the [analytics integration](/docs/analytics-integration) to use with a customer's tracking ID.
+Nowadays we set up a Google Analytics data collection in a test mode inside Unlimint Game Services. After the Beta testing, we'll release the [analytics integration](/docs/analytics-integration) to use with a customer's tracking ID.
 
 ***
 
@@ -104,7 +104,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
+Verify that your integration with Unlimint Game Services Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
