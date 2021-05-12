@@ -3,16 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.pay.super.com/api/nn/</loc>
+    <loc>https://docs.gameservices.unlimint.com/api/nn/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.pay.super.com/api/"
+                href="https://docs.gameservices.unlimint.com/api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="nn"
-                href="https://docs.pay.super.com/api/nn/"
+                href="https://docs.gameservices.unlimint.com/api/nn/"
                 />
   </url>
   

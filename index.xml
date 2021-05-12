@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Unlimint Game Services Documentation</title>
-    <link>https://docs.pay.super.com/</link>
+    <link>https://docs.gameservices.unlimint.com/</link>
     <description>Recent content on Unlimint Game Services Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://docs.pay.super.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://docs.gameservices.unlimint.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Example markdown</title>
-      <link>https://docs.pay.super.com/docs/markdown/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/markdown/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/markdown/</guid>
       <description>Title with a line Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
 Headings h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Notes  The note with padding example.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://docs.pay.super.com/docs/glossary/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/glossary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/glossary/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/glossary/</guid>
       <description> Terms:  Unlimint Game Services Checkout Unlimint Game Services JS SDK Unlimint Game Services API Unlimint Game Services Unlimint Game Services Dashboard  Payment form:  a Checkout Form a payment an order a token  Unlimint Game Services Dashboard Product and Projects:  a Project a Product a Project&amp;rsquo;s Secret key a Virtual currency an in-game currency a Game key a key-activated product a Virtual item a transaction  Unlimint Game Services Dashboard pages:  the Projects list page the Project settings page the Project webhooks page the Transactions page the Company Onboarding page the Banking info section  </description>
     </item>
     
     <item>
       <title>After the payment</title>
-      <link>https://docs.pay.super.com/docs/payments/fulfillment/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/fulfillment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/fulfillment/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/fulfillment/</guid>
       <description>After the payment When your customers successfully complete payments they are redirected to the success URL page that you passed in a request parameter. Typically, this is a page on your website that informs your customer that their payment was successful.
 To fulfil the customer’s purchase you can make it in several ways:
 Fulfilling purchases manually with the Unlimint Game Services Dashboard
@@ -44,10 +44,10 @@ Email receipts</description>
     
     <item>
       <title>Analytics Integration</title>
-      <link>https://docs.pay.super.com/docs/analytics-integration/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/analytics-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/analytics-integration/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/analytics-integration/</guid>
       <description>Analytics Integration It&amp;rsquo;s assumed that you have already integrated Unlimint Game Services Checkout via SDK and have set up your Google Analytics account.
 Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mode inside Unlimint Game Services. After the Beta testing, we&amp;rsquo;ll release the analytics integration to use with a customer&amp;rsquo;s tracking ID.  Google Analytics You can track the following events:
    Category Action Description     userAction clickCloseCross Close the form by clicking on the cross (for the modal window mode).</description>
@@ -55,10 +55,10 @@ Integrate We&amp;rsquo;ve set up a Google Analytics data collection in a test mo
     
     <item>
       <title>Client-side payment initialization</title>
-      <link>https://docs.pay.super.com/docs/payments/sdk-integration/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/sdk-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/sdk-integration/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/sdk-integration/</guid>
       <description>Payment initialization on the client-side The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
 It’s easy to embed Unlimint Game Services JS SDK with just a few lines of Javascript code to start a payment process and display a purchase status finally without any server-side code.
  HOW IT WORKS
@@ -67,10 +67,10 @@ Try out the payment sample or see the code on GitHub.</description>
     
     <item>
       <title>Customizing Checkout</title>
-      <link>https://docs.pay.super.com/docs/payments/customization/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/customization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/customization/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/customization/</guid>
       <description>Customizing Checkout Learn about the different ways you can customize your Checkout.
  Localization Prefilling customer data Displaying VAT in a payment form Saving payment methods for future Customizing theme Customizing the colors Analytics Integration  Localization Dashboard
 The Checkout Form is localized for 24 languages.
@@ -79,10 +79,10 @@ You can choose the complete set of supported languages for the project and produ
     
     <item>
       <title>Going Live</title>
-      <link>https://docs.pay.super.com/docs/payments/live/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/live/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/live/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/live/</guid>
       <description>Unlimint Game Services Checkout integration checklist When you’re done with Unlimint Game Services Checkout integration and are thinking about going live, we suggest you refer to the points below to check that you&amp;rsquo;ve covered all the significant steps.
 Complete the Company onboarding Dashboard
 Royalty reports and Payouts disabled before the documents in the License Agreement will be signed by both our sides.  1. Click the Activate Live Mode button on Dashboard at the Top menu or Side menu.</description>
@@ -90,69 +90,69 @@ Royalty reports and Payouts disabled before the documents in the License Agreeme
     
     <item>
       <title>Payment initialization with token</title>
-      <link>https://docs.pay.super.com/docs/payments/token/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/token/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/token/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/token/</guid>
       <description>Payment initialization with token A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.
 You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client.</description>
     </item>
     
     <item>
       <title>Quick start</title>
-      <link>https://docs.pay.super.com/docs/payments/quick-start/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/quick-start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/quick-start/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/quick-start/</guid>
       <description>Payments Flow User Flow     Integration Flow     Quick start Step 1. Register a Unlimint Game Services Company account  Registration and onboarding     Sign up. Verify your email address with the delivered confirmation email. Follow the steps of a brief Welcome Onboarding.     Enable Live Mode when you are ready to start selling
 Step 2. Set up a Project A single project is enough to start selling.</description>
     </item>
     
     <item>
       <title>Receiving Payouts</title>
-      <link>https://docs.pay.super.com/docs/payouts/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payouts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payouts/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payouts/</guid>
       <description>Receiving Payouts Your customers&amp;rsquo; successful payments are stored on your Unlimint Game Services account balance and can be received to your bank account using Payouts.
 The payout process is pure. Weekly Unlimint Game Services automatically generates royalty report documents with detailed information about each transaction during a period. Each royalty report is a self-billed invoice. The amount of revenue available for withdrawal will raise after the royalty report accepted.</description>
     </item>
     
     <item>
       <title>Refunding payments</title>
-      <link>https://docs.pay.super.com/docs/refunds/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/refunds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/refunds/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/refunds/</guid>
       <description>Refunding payments You can request to refund a charge in whole for a processed transaction. After requesting a refund it cannot be cancelled. Unlimint Game Services automatically sends email receipt to your customers whenever they have a refunded purchase.
 The refund can be sent only to the same customer&amp;rsquo;s bank card was used in a payment. If the customer&amp;rsquo;s card is expired, the refund will be made to the reissued card.</description>
     </item>
     
     <item>
       <title>Server-side payment initialization</title>
-      <link>https://docs.pay.super.com/docs/payments/integration/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/integration/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/integration/</guid>
       <description>Payment initialization on the server-side The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using Unlimint Game Services API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
 You can use Unlimint Game Services JS SDK for the client-side payment initialization to integrate a Checkout Form into your website only on the client-side.</description>
     </item>
     
     <item>
       <title>Supported languages</title>
-      <link>https://docs.pay.super.com/docs/payments/localization/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/localization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/localization/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/localization/</guid>
       <description>Supported languages for Unlimint Game Services Checkout    Language ISO 639 Code     Arabic ar   Brazilian portuguese pt   Bulgarian bg   Chinese simplified zh   Chinese traditional zh   Czech cs   Danish da   English en   Finnish fi   French fr   German de   Greek el   Hebrew he   Italian it   Japanese ja   Korean ko   Polish pl   Portuguese pt   Russian ru   Spanish es   Swedish sv   Tai th   Turkish tr   Vietnamese vi    Questions?</description>
     </item>
     
     <item>
       <title>Testing Checkout</title>
-      <link>https://docs.pay.super.com/docs/payments/testing/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/payments/testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/payments/testing/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/payments/testing/</guid>
       <description>Testing the Payment Process The Payment Form integration should be tested in the Sandbox before going live.
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
 When using Unlimint Game Services JS SDK ensure that:
@@ -161,20 +161,20 @@ When using Unlimint Game Services JS SDK ensure that:
     
     <item>
       <title>Understanding Declines and Failed Payments</title>
-      <link>https://docs.pay.super.com/docs/declines/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/declines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/declines/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/declines/</guid>
       <description>Understanding Declines and Failed Payments During a payment process, a failure result can happen because of the typical reasons. For example, the customer may not have enough money on a bank card, or Unlimint Game Services Checkout may suspect a fraud attempt. If so, the payment status will be cancelled and a Unlimint Game Services Checkout notification event will contain an explanatory description.
 But some reasons for the failed payments are unclear and uninformative.</description>
     </item>
     
     <item>
       <title>VAT</title>
-      <link>https://docs.pay.super.com/docs/vat/</link>
+      <link>https://docs.gameservices.unlimint.com/docs/vat/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/docs/vat/</guid>
+      <guid>https://docs.gameservices.unlimint.com/docs/vat/</guid>
       <description>VAT for e-services of foreign companies What is VAT? VAT (a value-added tax) is a consumption tax placed on a product whenever value added at each stage of the supply chain, from production to the point of sale. You can only charge VAT if your business registered for VAT.
 Most countries regulate the VAT payments for companies established in this country as well as for foreign companies that supply services for customers from this country.</description>
     </item>

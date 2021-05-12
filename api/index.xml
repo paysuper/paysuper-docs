@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DocuAPI Example Site</title>
-    <link>https://docs.pay.super.com/api/</link>
+    <link>https://docs.gameservices.unlimint.com/api/</link>
     <description>Recent content on DocuAPI Example Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://docs.pay.super.com/api/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://docs.gameservices.unlimint.com/api/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>API Reference</title>
-      <link>https://docs.pay.super.com/api/main/</link>
+      <link>https://docs.gameservices.unlimint.com/api/main/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/api/main/</guid>
+      <guid>https://docs.gameservices.unlimint.com/api/main/</guid>
       <description>Introduction The Unlimint Game Services API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients. JSON will be returned in all responses from the API, including errors.
 All API requests must be made over HTTPS.
 Authentication Authentication to the API occurs via Signature-based authentication.</description>
@@ -23,10 +23,10 @@ Authentication Authentication to the API occurs via Signature-based authenticati
     
     <item>
       <title>Unlimint Game Services API Reference</title>
-      <link>https://docs.pay.super.com/api/api/</link>
+      <link>https://docs.gameservices.unlimint.com/api/api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.pay.super.com/api/api/</guid>
+      <guid>https://docs.gameservices.unlimint.com/api/api/</guid>
       <description>CORE RESOURCES Token A token is an encrypted string that represents certain details of your customer (such as the customer ID, email and others), a game and purchase parameters.
 Create a payment token  Code samples
  curl -X POST \  https://api.pay.super.com/api/v1/tokens \  -H &amp;#39;Content-Type: application/json&amp;#39; \  -H &amp;#39;X-API-SIGNATURE: YOUR_SECRET_KEY \ -d &amp;#39;{ &amp;#34;settings&amp;#34;: { &amp;#34;project_id&amp;#34;: &amp;#34;5dcd11bc218dc30001d7098f&amp;#34;, &amp;#34;amount&amp;#34;: 10, &amp;#34;currency&amp;#34;: &amp;#34;USD&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;simple&amp;#34; }, &amp;#34;user&amp;#34;: { &amp;#34;id&amp;#34;: &amp;#34;58799f2c2564296bd2cb&amp;#34;, &amp;#34;address&amp;#34;: { &amp;#34;city&amp;#34;: &amp;#34;Almere&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;NL&amp;#34;, &amp;#34;postal_code&amp;#34;: &amp;#34;1326 PA&amp;#34;, &amp;#34;state&amp;#34;: &amp;#34;Flevoland&amp;#34; }, &amp;#34;email&amp;#34;: { &amp;#34;value&amp;#34;: &amp;#34;user.</description>
