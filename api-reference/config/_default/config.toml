@@ -1,6 +1,6 @@
 theme = "docuapi"
 languageCode = "en-us"
-baseurl = "https://docs.pay.super.com/api"
+baseurl = "https://docs.gameservices.unlimint.com/api"
 title = "Unlimint Game Services API Reference"
 
 disableKinds = ["taxonomyTerm"]
